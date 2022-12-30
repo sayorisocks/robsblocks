@@ -678,11 +678,12 @@
         border: solid 1px #555;
         font: normal 1em/normal Verdana,sans-serif;
         max-height: 136px;
-        line-height: 18.1333px!important;
+        line-height: 1.7em !important;
         padding: 4px;
         overflow: auto;
         text-align: left;
-        width: 100%;
+        text-transform: none;
+        width: 235px;   /* hacky fix, actually 255pxx54.4px */
     }
     .price-container {
         margin-bottom: 12px;
