@@ -16,6 +16,6 @@ requirements:
 - btroblox
 	- **chromium: https://chrome.google.com/webstore/detail/btroblox-making-roblox-be/hbkpclpemjeibhioopcebchdmohaieln**
 	- **firefox: https://addons.mozilla.org/en-US/firefox/addon/btroblox/**
-- tampermonkey
+- tampermonkey (for 2010)
 	- **chromium: https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo**
 	- **firefox: https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/**
