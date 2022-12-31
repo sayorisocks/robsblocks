@@ -628,6 +628,13 @@
     .item-card-price span[ng-class="{'text-robux-tile': item.isFree}"]:before {
         display: none;
     }
+    .catalog-content .icon-premium-small {
+        background-image: url(/images/icons/overlay_bcOnly.png);
+        position: absolute;
+        top: 90px;
+        width: 66px;
+        height: 19px;
+    }
     }
     
     @-moz-document url-prefix("https://www.roblox.com/catalog/"), url-prefix("https://web.roblox.com/catalog/"), url-prefix("https://www.roblox.com/bundles/"), url-prefix("https://web.roblox.com/bundles/") {
@@ -1295,6 +1302,21 @@
         visibility: hidden;
     }
     .btn-control-md[title="Quick Item Equip"] {
+        display: none;
+    }
+    .price-container-text .small.text {
+        font-size: 0px!important;
+    }
+    .price-container-text .small.text:after {
+        content: "Builders Club Only";
+        color: #555;
+        font-family: Verdana,Sans-Serif;
+        font-size: 10.6667px!important;
+        font-weight: bold;
+        display: block;
+        width: 120px;
+    }
+    .left-align-container span {
         display: none;
     }
     }
