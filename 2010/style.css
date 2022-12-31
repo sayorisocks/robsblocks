@@ -23,7 +23,6 @@
     }
     #AdvertisingLeaderboard {
         margin: 0 auto;
-        margin-bottom: 5px;
         text-align: center;
         width: 898px;
     }
@@ -253,6 +252,50 @@
     }
     .alert-system-feedback .alert {
         top: -52px;
+    }
+    .ad-identification-text {
+        display: none;
+    }
+    .abp .ad-annotations {
+        font-size: 12px;
+        margin-top: -3px;
+    }
+    #ctl00_cphBannerAd_BannerAds_AsyncAdIFrame {
+        height: 103px;
+    }
+    .BadAdButton {
+        all: revert;
+    }
+    .BadAdButton {
+        background-color: Transparent;
+        border: 0;
+        font-size: 8.53333px;
+        font-family: Verdana;
+        padding: 0;
+        position: relative;
+        text-align: center;
+        top: -2px;
+        right: 0;
+        text-transform: lowercase;
+        text-decoration: none!important;
+        color: #00F!important;
+        float: unset;
+    }
+    .abp.banner .BadAdButton {
+        float: unset!important;
+    }
+    .BadAdButton:before {
+        content: "[ "
+    }
+    .BadAdButton:after {
+        content: " ]"
+    }
+    .BadAdButton:hover {
+        background-color: #fff;
+        border: solid 1px #000;
+    }
+    .right-abp {
+        height: 610px;
     }
     }
     
@@ -502,7 +545,7 @@
         background-size: unset;
         position: absolute;
         background-repeat: no-repeat;
-        right: 30px;
+        right: 37px;
         margin-top: 5px;
         background-color: unset !important;
     }
@@ -512,7 +555,7 @@
         background-size: unset;
         position: absolute;
         background-repeat: no-repeat;
-        right: 30px;
+        right: 37px;
         margin-top: 5px;
         background-color: unset !important;
     }
@@ -1103,8 +1146,8 @@
       margin-bottom: 20px;
     }
     .modal-message, .modal-header > h5, .modal-message .font-bold, .modal-dialog .modal-body .modal-message-block {
-        font-family: Arial,Helvetica,sans-serif;
-        font-size: 12px!important;
+        font-family: Verdana,Helvetica,Sans-Serif;
+        font-size: 10.6667px!important;
         color:#000;
         border: none;
         text-align: left;
@@ -1222,5 +1265,36 @@
     }
     .attribute-container span {
         font: normal 8pt/normal Verdana,sans-serif !important;
+    }
+    .price-container .btn-growth-lg[data-expected-price="0"] {
+        font-size: 0px!Important;
+        height: 20px;
+    }
+    .price-container .btn-growth-lg[data-expected-price="0"]:hover {
+        background-color: #6e99c9;
+    }
+    #item-container[data-expected-price="0"] .price-container .action-button .btn-growth-lg:before {
+        content: "Free";
+        color: Blue;
+        font-weight: bold;
+        font-family: Verdana,Sans-Serif;
+        font-size: 10.6667px;
+        position: absolute;
+        left: -108px;
+    }
+    .price-container .btn-growth-lg[data-expected-price="0"]:after {
+        font-size: 9.6px!Important;
+        content: "Take one!";
+        position: relative;
+        top: 2px;
+    }
+    .btr-icon-explorer, .btr-icon-download, .btr-icon-content {
+        filter: invert(48%) sepia(79%) saturate(0%) hue-rotate(90deg) brightness(118%) contrast(300%);
+    }
+    .btn-growth-lg[disabled] {
+        visibility: hidden;
+    }
+    .btn-control-md[title="Quick Item Equip"] {
+        display: none;
     }
     }
