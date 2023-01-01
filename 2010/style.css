@@ -301,16 +301,25 @@
     
     @-moz-document url-prefix("https://www.roblox.com/home"), url-prefix("https://web.roblox.com/home") {
     /* HomePage */
-            #Skyscraper-Abp-Left, #Skyscraper-Abp-Right {
-                display: none; 
+    #Skyscraper-Abp-Left, #Skyscraper-Abp-Right {
+        display: none; 
     }
     }
     
     @-moz-document url-prefix("https://www.roblox.com/discover"), url-prefix("https://web.roblox.com/discover") {
     /* Discover / Games Page */
         
-        /* hide ropro shit */
-        #randomGameButton { display: none; }
+    /* hide ropro shit */
+    #randomGameButton { display: none; }
+    
+    .game-card-thumb-container .game-card-thumb {
+        border: 1px solid black;
+    }
+    .game-card-thumb-container, .game-card-thumb-container .game-card-thumb {
+        width: 160px;
+        height: 100px;
+        border-radius: 0px;
+    }
     }
     
     @-moz-document url-prefix("https://www.roblox.com/catalog/?Category="), url-prefix("https://www.roblox.com/catalog?Category="), url-prefix("https://www.roblox.com/catalog?Keyword="), url-prefix("https://www.roblox.com/catalog/?Keyword="), url-prefix("https://web.roblox.com/catalog/?Category="), url-prefix("https://web.roblox.com/catalog/?Category="), url-prefix("https://web.roblox.com/catalog?Keyword="), url-prefix("https://web.roblox.com/catalog?Keyword=") {
