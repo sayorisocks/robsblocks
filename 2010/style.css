@@ -1,6 +1,6 @@
+/* roblox 2010, made by melo and fuzzy with love ❤️ */
 /*noinspection CssUnknownTarget*/
 @-moz-document domain("roblox.com"), domain("web.roblox.com") {
-    /* roblox 2010, made by melo with love ❤️ */
 
             .content {
                 background-color: transparent!important;
@@ -324,9 +324,9 @@
     }
     }
 
+/* Catalog/Avatar Shop */
 /*noinspection CssUnknownTarget*/
 @-moz-document url-prefix("https://www.roblox.com/catalog/?Category="), url-prefix("https://www.roblox.com/catalog?Category="), url-prefix("https://www.roblox.com/catalog?Keyword="), url-prefix("https://www.roblox.com/catalog/?Keyword="), url-prefix("https://web.roblox.com/catalog/?Category="), url-prefix("https://web.roblox.com/catalog/?Category="), url-prefix("https://web.roblox.com/catalog?Keyword="), url-prefix("https://web.roblox.com/catalog?Keyword=") {
-    /* Catalog/Avatar Shop */
             .content {
                 padding-top: 0px;
                 background-color: transparent!important;
@@ -663,10 +663,9 @@
             }
     }
 
-/*noinspection ALL*/
+/* Item Page */
+/*noinspection CssUnknownTarget*/
 @-moz-document url-prefix("https://www.roblox.com/catalog/"), url-prefix("https://web.roblox.com/catalog/"), url-prefix("https://www.roblox.com/bundles/"), url-prefix("https://web.roblox.com/bundles/") {
-    /* Item Page */
-    /*noinspection CssUnknownTarget*/
         .page-content {
         max-width: 729px;
         float: left;
