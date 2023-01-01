@@ -500,7 +500,28 @@ function PageHandler() {
 
     this.Functions = {
         "discover": function() {
+            let BodyObserver = new MutationObserver((Mutations) => {
+                Mutations.forEach((Mutation) => {
+                    if (!Mutation.addedNodes) return
 
+                    for (let i = 0; i < Mutation.addedNodes.length; i++) {
+                        // do things to your newly added nodes here
+                        let Node = Mutation.addedNodes[i]
+
+                        Log(Node.className)
+                        if (Node.className === "game-card-link") {
+                            Log(Node.href)
+                        }
+                    }
+                })
+            })
+
+            BodyObserver.observe(document.body, {
+                childList: true,
+                subtree: true,
+                attributes: true,
+                characterData: false
+            })
         }
     }
 
