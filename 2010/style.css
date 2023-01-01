@@ -314,14 +314,16 @@
     
 /* hide ropro shit */
 #randomGameButton { display: none; }
+.no-gutter-ads.logged-in .content {
+  margin-left: 0px;
+}
 #games-carousel-page {
-    float: none;
     border: 2px solid #6e99c9;
     background-color: White;
     padding: 10px 10px 10px 10px;
     margin-bottom: 10px;
-    display: block;
     padding-top: 35px;
+    width: 900px;
 }
 #games-carousel-page .games-list-header {
 	float: none;
@@ -388,6 +390,15 @@
 }
 .game-card-thumb-container:before {
     display: none;
+}
+.games-filter-changer h2 {
+    font-family: Verdana,Sans-Serif;
+    font-size: 13.8667px;
+    font-weight: normal;
+    letter-spacing: 1.38667px;
+}
+.horizontal-scroller .scroller {
+	height: 100px!important;
 }
 }
 
