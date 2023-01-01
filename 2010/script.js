@@ -24,7 +24,7 @@ let RobloxURLs = [
 ]
 
 let legacyMasterContainer, container;
-let HeaderContainer, AdvertisingLeaderboard, AdPanel, Ad, RobloxHeader, Banner, Navigation, navButtons, Logo, 
+let HeaderContainer, AdvertisingLeaderboard, AdPanel, Ad, RobloxHeader, Banner, Navigation, navButtons, Logo,
     Optionz, Authentication, AuthenticationBannerSpan, Namey, separator, Loogout
 
 let Alerts, Table1, Table2, Table3, Table4, BannerAlerts, AlertSpace, MessageAlert, FriendsAlert, RobuxAlert,
@@ -37,6 +37,13 @@ let myRoblox, myRobloxHref, gamesLink, gamesLinkHref, gamesMenuToggle, catalog, 
     papa, mama, help, helpHref, home, homehref, create, createsHref, inbux, inbuxhref, account, accounthh,
     profil, profily, friend, friendhtm, Character, Characte, Stuff, Stuf, Setshref, groups, groupsHref,
     AccountBalance, AccountBalanc, AdInventory, eee, ass, assHref, share, shareHref
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+function ExecuteAsync(func) {
+    setTimeout(func, 0);
+}
 
 function Log(/**/) {
     let LogString = "[" + ThemeName.toUpperCase() + "] "
@@ -497,6 +504,7 @@ function SiteBase() {
 
 function PageHandler() {
     let CurrentURL = FilterRobloxURL(window.location.href)
+    let Nodes = []
 
     this.Functions = {
         "discover": function() {
@@ -504,30 +512,74 @@ function PageHandler() {
                 Mutations.forEach((Mutation) => {
                     if (!Mutation.addedNodes) return
 
-                    for (let i = 0; i < Mutation.addedNodes.length; i++) {
-                        // do things to your newly added nodes here
-                        let Node = Mutation.addedNodes[i]
+                    if (Mutation.type === "attributes") {
+                        const Node = Mutation.target.parentNode.parentNode
 
-                        Log(Node.className)
-                        if (Node.className === "game-card-link") {
-                            Log(Node.href)
+                        if (Mutation.target.className === "thumbnail-2d-container game-card-thumb") {
+                            if (Node.className === "game-card-link") {
+                                let UniverseId = Node.id
+                                let ThumbnailNode = Mutation.target.childNodes[0]
+
+                                Nodes.push({
+                                    UniverseId: UniverseId,
+                                    Node: Node,
+                                    ThumbnailNode: ThumbnailNode,
+                                    NodeModified: false
+                                })
+
+                                if (Nodes.length % 80 === 0 ) {
+                                    let UniverseIds = ""
+
+                                    for (let Index = 0; Index < Nodes.length; Index++) {
+                                        let Node = Nodes[Index]
+
+                                        if (Node.NodeModified === false) {
+                                            Node.NodeModified = true; // TEMP
+                                            UniverseIds += Node.UniverseId
+
+                                            if (Index !== Nodes.length - 1) {
+                                                UniverseIds += ","
+                                            }
+                                        }
+                                    }
+
+                                    Log(UniverseIds)
+
+                                    let ThumbnailData = $.ajax({
+                                        method: "GET",
+                                        url: `https://thumbnails.roblox.com/v1/games/multiget/thumbnails?universeIds=${UniverseIds}&countPerUniverse=1&defaults=true&size=768x432&format=Png&isCircular=false`,
+                                        contentType: "application/json",
+                                        data: {}
+                                    });
+
+                                    ThumbnailData.done(function(Data) {
+                                        Log(`Data that Roblox spit out: '${JSON.stringify(Data)}'`)
+                                    })
+                                }
+
+                                // ThumbnailNode.src.replace(ThumbnailRequestResponse[0])
+                            }
                         }
                     }
                 })
             })
 
-            BodyObserver.observe(document.body, {
+            BodyObserver.observe(document, {
+                attributes: true,
                 childList: true,
                 subtree: true,
-                attributes: true,
-                characterData: false
+                attributeFilter: ["class"]
             })
         }
     }
 
+    this.URLBindings = {
+        "discover": this.Functions["discover"]
+    }
+
     Log("Current URL: ", CurrentURL)
-    if (this.Functions[CurrentURL]) {
-        this.Functions[CurrentURL]()
+    if (this.URLBindings[CurrentURL]) {
+        this.URLBindings[CurrentURL]()
     }
 }
 
