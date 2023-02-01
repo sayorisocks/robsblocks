@@ -524,17 +524,17 @@ function PageHandler() {
                                     UniverseId: UniverseId,
                                     Node: Node,
                                     ThumbnailNode: ThumbnailNode,
-                                    NodeModified: false
+                                    Visited: false
                                 })
 
-                                if (Nodes.length % 80 === 0 ) {
+                                if (Nodes.length % 80 === 0 ) { // wont get all of them o well :(
                                     let UniverseIds = ""
 
                                     for (let Index = 0; Index < Nodes.length; Index++) {
                                         let Node = Nodes[Index]
 
-                                        if (Node.NodeModified === false) {
-                                            Node.NodeModified = true; // TEMP
+                                        if (Node.Visited === false) {
+                                            Node.Visited = true;
                                             UniverseIds += Node.UniverseId
 
                                             if (Index !== Nodes.length - 1) {
@@ -552,8 +552,19 @@ function PageHandler() {
                                         data: {}
                                     });
 
-                                    ThumbnailData.done(function(Data) {
-                                        Log(`Data that Roblox spit out: '${JSON.stringify(Data)}'`)
+                                    ThumbnailData.done(function(Response) {
+                                        for (let Index = 0; Index < Response.data.length; Index++) {
+                                            for (let NodeIndex = 0; NodeIndex < Nodes.length; NodeIndex++) { // bruh
+                                                let Node = Nodes[NodeIndex]
+
+                                                if (Node) {
+                                                    Log(`IDeez: '${Node.UniverseId + " " + Response.data[Index].universeId}'`)
+
+                                                    if (Node.UniverseId === Response.data[Index].universeId) {
+                                                    }
+                                                }
+                                            }
+                                        }
                                     })
                                 }
 
