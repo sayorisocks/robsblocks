@@ -563,9 +563,11 @@ function PageData() {
         },
 
         "games": function() {
-            let GameInfo = document.getElementsByClassName("border-top border-bottom game-stats-container follow-button-enabled")[0]
+            let GameInfo = document.getElementsByClassName("border-top border-bottom game-stats-container")[0]
             let GameDescription = document.getElementsByClassName("text game-description linkify")[0]
             let ReportAbuse = document.getElementsByClassName("game-report-abuse")[0]
+            let CreatorName = document.getElementsByClassName("game-creator")[0]
+            let StatName = document.getElementsByClassName("game-stat")[0]
 
             let DescriptionDiv = document.createElement("div")
             let DescriptionLabel = document.createElement("div")
@@ -576,10 +578,13 @@ function PageData() {
             DescriptionLabel.innerText = "\n" +
                 "                            Description:"
 
+            GameInfo.appendChild(CreatorName)
             GameInfo.appendChild(DescriptionDiv)
             DescriptionDiv.appendChild(DescriptionLabel)
             DescriptionDiv.appendChild(GameDescriptionClone)
             DescriptionDiv.appendChild(ReportAbuseClone)
+
+            GameInfo.insertBefore(CreatorName, StatName);
 
             GameDescription.parentNode.removeChild(GameDescription)
             ReportAbuse.parentNode.removeChild(ReportAbuse)
