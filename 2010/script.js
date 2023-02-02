@@ -23,14 +23,6 @@ let RobloxURLs = [
     "&"
 ]
 
-/*
-* Order these from least important to most important.
-*
-* Example:
-* If you put "games" first and "games/1" second, and the url contains "games/1",
-* "games/1" will be matched as the URL rather than "games".
-*/
-
 let legacyMasterContainer, container;
 let HeaderContainer, AdvertisingLeaderboard, AdPanel, Ad, RobloxHeader, Banner, Navigation, navButtons, Logo,
     Optionz, Authentication, AuthenticationBannerSpan, Namey, separator, Loogout
@@ -587,6 +579,13 @@ function PageData() {
         }
     }
 
+    /*
+    * Order these from least important to most important.
+    *
+    * Example:
+    * If you put "games" first and "games/1" second, and the url contains "games/1",
+    * "games/1" will be matched as the URL rather than "games".
+    */
     this.URLBindings = {
         "discover": this.Functions["discover"],
         "games": this.Functions["games"]
