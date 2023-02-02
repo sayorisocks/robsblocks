@@ -23,6 +23,14 @@ let RobloxURLs = [
     "&"
 ]
 
+/*
+* Order these from least important to most important.
+*
+* Example:
+* If you put "games" first and "games/1" second, and the url contains "games/1",
+* "games/1" will be matched as the URL rather than "games".
+*/
+
 let legacyMasterContainer, container;
 let HeaderContainer, AdvertisingLeaderboard, AdPanel, Ad, RobloxHeader, Banner, Navigation, navButtons, Logo,
     Optionz, Authentication, AuthenticationBannerSpan, Namey, separator, Loogout
@@ -37,13 +45,6 @@ let myRoblox, myRobloxHref, gamesLink, gamesLinkHref, gamesMenuToggle, catalog, 
     papa, mama, help, helpHref, home, homehref, create, createsHref, inbux, inbuxhref, account, accounthh,
     profil, profily, friend, friendhtm, Character, Characte, Stuff, Stuf, Setshref, groups, groupsHref,
     AccountBalance, AccountBalanc, AdInventory, eee, ass, assHref, share, shareHref
-
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
-function ExecuteAsync(func) {
-    setTimeout(func, 0);
-}
 
 function Log(/**/) {
     let LogString = "[" + ThemeName.toUpperCase() + "] "
@@ -65,17 +66,6 @@ function GetCurrentUser() {
 
 function RemoveTrailingSlash(String) {
     return String.replace(/\/+$/, '');
-}
-
-function FilterRobloxURL(URL) {
-    let NewString = RemoveTrailingSlash(URL)
-
-    for (let Index in RobloxURLs){
-        let URLComponent = RobloxURLs[Index]
-        NewString = NewString.replace(URLComponent, "")
-    }
-
-    return NewString
 }
 
 function SiteBase() {
@@ -502,10 +492,7 @@ function SiteBase() {
     }
 }
 
-function PageHandler() {
-    let CurrentURL = FilterRobloxURL(window.location.href)
-    let Nodes = []
-
+function PageData() {
     this.Functions = {
         "discover": function() {
             let BodyObserver = new MutationObserver((Mutations) => {
@@ -581,16 +568,60 @@ function PageHandler() {
                 subtree: true,
                 attributeFilter: ["class"]
             })
+        },
+
+        "games": function() {
+            let BodyObserver = new MutationObserver((Mutations) => {
+                Mutations.forEach((Mutation) => {
+                    if (!Mutation.addedNodes) return
+
+                    Log("Child List: " + Mutation.type === "childList")
+                })
+            })
+
+            BodyObserver.observe(document, {
+                attributes: true,
+                childList: true,
+                subtree: true
+            })
         }
     }
 
     this.URLBindings = {
-        "discover": this.Functions["discover"]
+        "discover": this.Functions["discover"],
+        "games": this.Functions["games"]
     }
 
-    Log("Current URL: ", CurrentURL)
-    if (this.URLBindings[CurrentURL]) {
-        this.URLBindings[CurrentURL]()
+    this.FilterRobloxURL = function(URL) {
+        let FirstPass = RemoveTrailingSlash(URL)
+        let SecondPass
+
+        for (let Index in RobloxURLs){
+            let URLComponent = RobloxURLs[Index]
+            FirstPass = FirstPass.replace(URLComponent, "")
+        }
+
+        Object.keys(this.URLBindings).forEach(function(Name, Value) {
+            let MatchArray = FirstPass.match(`\\b(${Name})\\b`);
+
+            if (MatchArray) {
+                SecondPass = MatchArray[0]
+            }
+        })
+
+        return SecondPass
+    }
+
+    this.CurrentURL = this.FilterRobloxURL(window.location.href)
+}
+
+function PageHandler() {
+    let Data = new PageData()
+    let Nodes = []
+
+    Log("Current URL: ", Data.CurrentURL)
+    if (Data.URLBindings[Data.CurrentURL]) {
+        Data.URLBindings[Data.CurrentURL]()
     }
 }
 
