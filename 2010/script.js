@@ -563,11 +563,32 @@ function PageData() {
         },
 
         "games": function() {
+            let GameInfo = document.getElementsByClassName("border-top border-bottom game-stats-container follow-button-enabled")[0]
+            let GameDescription = document.getElementsByClassName("text game-description linkify")[0]
+            let ReportAbuse = document.getElementsByClassName("game-report-abuse")[0]
+
+            let DescriptionDiv = document.createElement("div")
+            let DescriptionLabel = document.createElement("div")
+            let GameDescriptionClone = GameDescription.cloneNode(true)
+            let ReportAbuseClone = ReportAbuse.cloneNode(true)
+
+            DescriptionLabel.id = "DescriptionLabel"
+            DescriptionLabel.innerText = "\n" +
+                "                            Description:"
+
+            GameInfo.appendChild(DescriptionDiv)
+            DescriptionDiv.appendChild(DescriptionLabel)
+            DescriptionDiv.appendChild(GameDescriptionClone)
+            DescriptionDiv.appendChild(ReportAbuseClone)
+
+            GameDescription.parentNode.removeChild(GameDescription)
+            ReportAbuse.parentNode.removeChild(ReportAbuse)
+
             let BodyObserver = new MutationObserver((Mutations) => {
                 Mutations.forEach((Mutation) => {
-                    if (!Mutation.addedNodes) return
-
-                    Log("Child List: " + Mutation.type === "childList")
+                    if (Mutation.type === "childList") {
+                        Log("Child List: ", Mutation.target.className)
+                    }
                 })
             })
 
