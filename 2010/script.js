@@ -49,6 +49,7 @@ function Log(/**/) {
 }
 function GetCurrentUser() {
     let UserElement = document.getElementsByName("user-data")[0];
+
     if (UserElement) {
         return UserElement.getAttribute("data-name");
     }
@@ -473,14 +474,14 @@ function SiteBase() {
         assHref.style = "cursor: not-allowed;"
         assHref.innerHTML = "Ambassadors"
 
-        // SHARE
+        // SHARE ROBLOX
 
         share = document.createElement("li")
         subButtons.appendChild(share)
         shareHref = document.createElement("a")
         share.appendChild(shareHref)
         shareHref.style = "cursor: not-allowed;"
-        shareHref.innerHTML = "Share"
+        shareHref.innerHTML = "Share Roblox"
     }
 }
 
