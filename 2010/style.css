@@ -623,6 +623,134 @@
     .game-report-abuse {
         float: right;
     }
+    #game-age-recommendation-details {
+        display: none;
+    }
+    .badge-container {
+        width: 412px;
+    }
+    .badge-container .stack-list {
+        float: none;
+        border: 2px solid #6e99c9;
+        background-color: White;
+        padding: 10px 10px 10px 10px;
+        margin-bottom: 10px;
+        display: block;
+    }
+    .badge-container .stack-list li {
+        padding: 0px!important;
+        margin: 0px!important;
+        position: unset;
+        height: unset;
+        min-height: 76px;
+    }
+    .badge-container .container-header {
+        float: none;
+        background-color: #6e99c9;
+        color: White;
+        font-weight: bold;
+        padding: 5px 12px 5px 12px;
+        display: block;
+        margin-bottom: 0px;
+    }
+    .badge-container .container-header h2 {
+        font-size: 16px;
+        width: 100%;
+        text-align: center;
+        font-family: Verdana,Helvetica,Sans-Serif;
+        padding: 0px;
+    }
+    .btr-badges-container .badge-row .badge-image img, .btr-badges-container .badge-row .badge-image thumbnail-2d {
+        width: 74px;
+        height: 74px;
+    }
+    .badge-image, .badge-data-container, .badge-stats-container {
+        border: 1px solid;
+    }
+    game-badges-list .badge-row .badge-data-container {
+        padding: 0px;
+        min-height: 76px;
+    }
+    .btr-badges-container .badge-row .badge-image {
+        height: unset;
+    }
+    .btr-badges-container .badge-row .badge-image .thumbnail-2d-container {
+        background-color: rgba(0,0,0,0)!important;
+    }
+    .badge-data-container a {
+        color: #00F;
+        font-size: 10px;
+        font-family: Verdana,Helvetica,Sans-Serif;
+    }
+    .badge-data-container a:hover {
+        text-decoration: underline;
+    }
+    .btr-badges-container .badge-row .badge-data-container > p, .badge-stats-container div{
+        margin: 0px;
+        font-size: 10px!important;
+        color: #555;
+        font-family: Verdana,Helvetica,Sans-Serif;
+    }
+    .btr-badges-container .badge-row .badge-image thumbnail-2d {
+        margin-left: 1px;
+        margin-top: auto;
+    }
+    .btr-badges-container .badge-row .badge-image {
+        width: 95px;
+        min-height: 76px;
+    }
+    .badge-data-container {
+        margin-left: 1px;
+    }
+    .badge-stats-container {
+        margin-left: -1px !important;
+        position: relative;
+        left: 2px;
+    }
+    .btr-badges-container .badge-row .badge-data-container > p {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        height: 50px;
+    }
+    .btr-badges-container .badge-row .badge-stats-container {
+        margin-top: 0px;
+        padding: 0px;
+    }
+    game-badges-list .badge-row .badge-stats-container li .badge-stats-info {
+        position: absolute;
+        text-align: unset;
+        margin: 0px;
+    }
+    game-badges-list .badge-row .badge-stats-container li .text-label {
+      text-align: center;
+    }
+    .badge-container .stack-list .stack-row {
+        border: 1px solid;
+        border-top: none;
+        border-bottom: none;
+        padding-left: 2px!important;
+    }
+    .badge-container .stack-list .stack-row:nth-child(1) {
+        border-top: 1px solid;
+        padding-top: 2px!important;
+    }
+    .badge-container .stack-list .stack-row:last-child {
+        border-bottom: 1px solid;
+    }
+    .btr-badges-container .badge-row .badge-stats-container {
+        height: 76px;
+    }
+    .badge-stats-container {
+        margin-bottom: 2px!important;
+    }
+    #social-links-container {
+        display: none;
+    }
+    #game-badges-container {
+        position: relative;
+        top: -70px;
+        left: 12px;
+    }
     }
     
     @-moz-document url-prefix("https://www.roblox.com/catalog/?Category="), url-prefix("https://www.roblox.com/catalog?Category="), url-prefix("https://www.roblox.com/catalog?Keyword="), url-prefix("https://www.roblox.com/catalog/?Keyword="), url-prefix("https://web.roblox.com/catalog/?Category="), url-prefix("https://web.roblox.com/catalog/?Category="), url-prefix("https://web.roblox.com/catalog?Keyword="), url-prefix("https://web.roblox.com/catalog?Keyword=") {
