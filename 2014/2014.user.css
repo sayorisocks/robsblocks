@@ -5,6 +5,7 @@
 @description    old roblox themes if they were decent
 @author         melo
 @var checkbox dec "December 2014 [wip]" 0
+@var checkbox ropro "Enable RoPro User Info" 0
 @preprocessor   stylus
 ==/UserStyle== */
 @-moz-document url-prefix("https://www.roblox.com/"), url-prefix("https://web.roblox.com/") {
@@ -616,6 +617,14 @@
     }
     .rbx-header .icon-logo-r {
         background: url("data:image/png;base64,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") no-repeat 4px center!important;
+        if dec {
+            background-image: url("/images/NextStyleGuide/logo_R_30X30.svg")!important;
+            background-repeat: no-repeat!important;
+            background-size: auto auto!important;
+            width: 35px!important;
+            height: 30px!important;
+            margin-top: 2px!important;
+        }
     }
     /*new*/
     .rbx-header .navbar-brand {
@@ -965,11 +974,20 @@
         border-radius: 10px;
         border: 1px solid #999;
         width: 106px;
+        if dec {
+            border: 1px solid rgba(0,0,0,0.15)!important;
+            border-radius: 3px!important;
+            padding: 5px 0!important;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.175)!important;
+        }
     }
     #settings-popover #settings-popover-menu li {
         position: relative;
         left: -10px;
         width: 104px;
+        if dec {
+            left: unset;
+        }
     }
     #settings-popover #settings-popover-menu li a {
         font-size: 16px;
@@ -8448,11 +8466,14 @@
     }
     }
     @-moz-document url-prefix("https://www.roblox.com/"),
-    url-prefix("https://webroblox.com/") {
+    url-prefix("https://web.roblox.com/") {
     /* RoPro Compatibility */
     /* my balls itch */
     .ropro-user-info {
         display: none !important;
+        if ropro {
+            display: unset!important;
+        }
     }
     }
     @-moz-document url-prefix("https://www.roblox.com/events/"),
