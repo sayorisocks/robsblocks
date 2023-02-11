@@ -8,7 +8,7 @@ currently contains:
 - 2010
 - 2014
 
-[![Install directly with Stylus](https://img.shields.io/badge/Install%20directly%20with-Stylus-00adad.svg)](2014/2014.USER.CSS)
+[![Install directly with Stylus](https://img.shields.io/badge/Install%20directly%20with-Stylus-00adad.svg)](2014/2014.user.css)
 
 requirements:
 - ***light theme enabled!!!***
