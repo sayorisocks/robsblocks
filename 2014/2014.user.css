@@ -1,5 +1,5 @@
 /* ==UserStyle==
-@name           2014-equse Roblox
+@name           2014-equse Roblox [wip]
 @namespace      https://github.com/sayorisocks/robsblocks
 @version        1.0.0
 @description    old roblox themes if they were decent
@@ -308,6 +308,10 @@
             background-color: transparent!important;
             border-radius: 0px;
             background-position: 0 -196px!important;
+        }
+    }
+    #btr-navbar-messages span, #btr-navbar-friends span {
+        if dec {
             filter: invert(48%) sepia(79%) saturate(0%) hue-rotate(90deg) brightness(118%) contrast(300%)!important;
         }
     }
@@ -326,7 +330,6 @@
             background-color: transparent!important;
             border-radius: 0px;
             background-position: 0 -224px !important;
-            filter: invert(48%) sepia(79%) saturate(0%) hue-rotate(90deg) brightness(118%) contrast(300%)!important;
         }
     }
     .rbx-left-col .icon-nav-charactercustomizer {
