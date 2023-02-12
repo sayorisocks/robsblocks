@@ -5,11 +5,14 @@
 @description    old roblox themes if they were decent
 @author         melo
 @var checkbox dec "December 2014 [wip]" 0
-@var checkbox ropro "Enable RoPro User Info" 0
+@var checkbox land "E2014 Landing/Signup" 1
+@var checkbox ing "L2014 Landing/Signup" 0
+@var checkbox sixteen "2016 Logo" 0
+@var checkbox ropro "Enable RoPro Badges" 0
 @preprocessor   stylus
 ==/UserStyle== */
 @-moz-document url-prefix("https://www.roblox.com/"), url-prefix("https://web.roblox.com/") {
-    /* roblox 2014, made with love by melo ❤️ */
+    /* roblox 2014, made with love by melo 💜💛 */
     @font-face {
         font-family: "Source Sans Pro";
         src: local("Source Sans Pro Bold"), local("SourceSansPro-Bold"), url("http://themes.googleusercontent.com/static/fonts/sourcesanspro/v5/toadOcfmlt9b38dHJxOBGFkQc6VGVFSmCnC_l7QZG60.woff") format("woff");
@@ -173,8 +176,7 @@
     .rbx-header .rbx-navbar-icon-group .navbar-stream {
         display: none;
     }
-    .icon-logo-r:hover,
-    .icon-nav-menu:hover {
+    .icon-logo-r:hover {
         background-color: #27487E;
         border-radius: 4px;
     }
@@ -194,6 +196,22 @@
         background-position: 2px -317px!important;
         height: 33px!important;
         width: 46px!important;
+        if dec {
+            background-position:0 0!important;
+            height: 28px!important;
+            width: 28px!important;
+        }
+    }
+        .icon-nav-menu:hover {
+            if dec {
+                background-color: transparent!important;
+                background-position:-28px 0!important;
+            }
+        }
+    .btn-navigation-nav-menu-md {
+        if dec {
+            margin-top: 2px!important;
+        }
     }
     .rbx-header .age-bracket-label,
     .rbx-left-col li .text-nav .avatar-headshot-xs {
@@ -613,6 +631,10 @@
         background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAG8AAAAcCAYAAABvc+EPAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA3NpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NDkxMSwgMjAxMy8xMC8yOS0xMTo0NzoxNiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpiMjgzOGQxMy1hNDdjLTQ3ZWQtYmQxMi00NTBkOWYzZjg5ODgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MUU2RDk1N0VFNDU4MTFFMzk3MjVCQjQ4MDcwREMwQzkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MUU2RDk1N0RFNDU4MTFFMzk3MjVCQjQ4MDcwREMwQzkiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChNYWNpbnRvc2gpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MjJkNzBmNGUtYTQ4ZC00MTAwLWIxNTUtYjZlNjVmMGI4ZmNiIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOmIyODM4ZDEzLWE0N2MtNDdlZC1iZDEyLTQ1MGQ5ZjNmODk4OCIvPiA8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");
         if dec {
             background-image: url("/images/NextStyleGuide/logo_ROBLOX_120x30.svg");
+            if sixteen {
+                background-image: url("data:image/svg+xml,%3c%3fxml version='1.0' encoding='utf-8'%3f%3e %3c!-- Generator: Adobe Illustrator 19.1.0%2c SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3e%3c!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3e %3csvg version='1.1' id='ROBLOX' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='320px' height='78px' viewBox='0 0 320 78' style='enable-background:new 0 0 320 78%3b' xml:space='preserve'%3e%3cstyle type='text/css'%3e.st0%7bfill:%23E2231A%3b%7d .st1%7bfill:white%3b%7d .st2%7bfill-rule:evenodd%3bclip-rule:evenodd%3bfill:%23E2231A%3b%7d .st3%7bfill-rule:evenodd%3bclip-rule:evenodd%3bfill:white%3b%7d%3c/style%3e%3cg id='ROBLOX_1_'%3e%3cg%3e%3cpath class='st0' d='M236.3%2c12.1c-0.4-0.4-1-0.6-1.5-0.7C223%2c9.5%2c207.5%2c9.5%2c195%2c11.4c-0.9%2c0.1-1.7%2c0.6-2.1%2c1.4 c-2.6%2c4.1-4.3%2c8-5.7%2c12.9c-0.1%2c0.3-0.1%2c0.6-0.1%2c0.9c0%2c16.5%2c1%2c35.5%2c9%2c43.4c0.6%2c0.6%2c1.3%2c0.9%2c2.1%2c0.9c11.4%2c0.4%2c24.1%2c0.4%2c36.1%2c0 c1.1%2c0%2c2.2-0.7%2c2.7-1.7C244.1%2c54.4%2c248.5%2c23.1%2c236.3%2c12.1z M221.6%2c52.1c-4.2%2c0.2-9.4%2c0.1-13.1-0.1c-0.9-6.4-1.5-15.7-0.9-22.6 c3.9-0.3%2c11.7-0.3%2c14.6%2c0C222.9%2c35.1%2c222.8%2c46.2%2c221.6%2c52.1z'/%3e%3cg%3e%3cpath class='st1' d='M232.8%2c15.8c-11.6-1.4-26.1-1.3-36.3%2c0c-2%2c3-3.9%2c7.1-5%2c11c0%2c12.9%2c0.4%2c34.3%2c7.8%2c39.6c9.8%2c0.5%2c23.1%2c0.4%2c33.9%2c0 C239.5%2c54.4%2c242.7%2c24.3%2c232.8%2c15.8z M225.2%2c55.8c-6%2c0.3-14.1%2c0.3-19.8%2c0c-1.3-6.7-2.6-22.5-1.1-30.2c5.7-0.4%2c15.6-0.5%2c21.1%2c0 C227.3%2c35%2c226.3%2c48.7%2c225.2%2c55.8z'/%3e%3c/g%3e%3c/g%3e%3cpath class='st2' d='M162.1%2c1.1c7.7%2c0.2%2c15.6%2c1.1%2c23.3%2c2.4c1%2c0.2%2c1.7%2c0.9%2c1.6%2c2c-1.2%2c12.9-2.9%2c36.5-3.4%2c49.9h16.1 c1.2%2c0%2c2.1%2c1.2%2c2.1%2c2.4c-0.2%2c2.6-0.5%2c5.6-1.1%2c8.4c-0.2%2c0.8-0.8%2c1.5-1.6%2c1.7c-11.1%2c2.3-21%2c3.6-32.3%2c5.4c-1.2%2c0.2-2.2-0.6-2.4-1.8 c-3.2-26.4-4-46.8-4.3-68.3C160%2c2%2c161%2c1.1%2c162.1%2c1.1z'/%3e%3cpath class='st3' d='M164.3%2c4.9c6.4%2c0.4%2c12.1%2c0.6%2c18.5%2c1.6c-1.4%2c16.4-2.2%2c35.5-2.8%2c51.9c6.7%2c0%2c12.8%2c0%2c18.1%2c0 c-0.1%2c2.1-0.4%2c3.8-0.7%2c5.8c-9.3%2c2-19.7%2c3-29.3%2c4.7C165.2%2c47.1%2c164.3%2c24.5%2c164.3%2c4.9z'/%3e%3cpath class='st2' d='M233.8%2c59.2c12.3-16%2c31.8-36.7%2c48.8-49.7c0.7-0.5%2c1.5-0.7%2c2.3-0.6c8.6%2c1.5%2c17.1%2c4.1%2c25.3%2c8.4 c0.7%2c0.4%2c0.7%2c1.4%2c0.1%2c1.8c-20.9%2c11.9-41.5%2c33.5-51.7%2c53c-0.5%2c0.9-1.5%2c1.3-2.4%2c1c-8.7-2.7-15.5-6.6-22-11 C233.3%2c61.5%2c233.1%2c60.1%2c233.8%2c59.2z'/%3e%3cpath class='st2' d='M232.6%2c26.7c6.4-3.4%2c14.9-7%2c21.7-8.5c0.7-0.2%2c1.5%2c0.1%2c2%2c0.7c12.7%2c15.1%2c30.4%2c25.8%2c62.1%2c36.6 c0.7%2c0.2%2c0.9%2c1.1%2c0.5%2c1.6c-6.3%2c7.1-15.7%2c15.1-23%2c19.3c-1%2c0.6-2.2%2c0.5-3.2-0.1c-20.1-12.5-45-31.2-60.5-46.4 C231.1%2c29%2c231.3%2c27.4%2c232.6%2c26.7z'/%3e%3cpath class='st3' d='M284.9%2c13c-15.8%2c11.8-33.6%2c31.4-45.9%2c46.6c5.3%2c3.7%2c10.1%2c6.3%2c17.1%2c8.7c8.6-15.5%2c26.3-36.7%2c46.8-50 C296.7%2c15.8%2c290.1%2c14.2%2c284.9%2c13z'/%3e%3cg%3e%3cpath class='st0' d='M167.8%2c46.1c-4-2.4-7.4-4.2-10.9-6c1.7-0.9%2c3.2-1.8%2c5-2.9c0.3-0.2%2c0.6-0.5%2c0.8-0.8c1.6-3.1%2c3.2-6.7%2c4.3-11 c0.3-1%2c0-2.2-0.7-2.9c-4.4-4.6-9.2-8.9-15.5-13c-0.5-0.3-1-0.5-1.6-0.5c-10.7-0.2-23%2c0.6-35.2%2c2.4c-0.9%2c0.1-1.6%2c0.9-1.7%2c1.8 c-1%2c11.5-1.9%2c35.9-1.7%2c55.7c0%2c1.1%2c0.9%2c2%2c2%2c2c15%2c0.6%2c29.2%2c0.6%2c45.7%2c0c1%2c0%2c2-0.6%2c2.6-1.5c3.4-5.8%2c6.5-13.1%2c8.4-19.8 C169.6%2c48.3%2c169%2c46.8%2c167.8%2c46.1z M142.6%2c30.9c-3.3%2c0.7-8.2%2c1.6-11.6%2c2c0.1-2.3%2c0.2-4.8%2c0.5-7.6c3.4%2c0.3%2c8.3%2c1.1%2c11.6%2c1.7 C142.9%2c28.5%2c142.8%2c29.9%2c142.6%2c30.9z M138.7%2c55.4c-2.5%2c0.3-5.8%2c0.4-7.7%2c0.3c-0.1-2.1-0.3-5-0.3-7.6c2.5-0.5%2c6.1-1.1%2c9.3-1.6 C139.6%2c49.7%2c139.1%2c52.5%2c138.7%2c55.4z'/%3e%3cg%3e%3cpath class='st1' d='M149.6%2c40.1c3.9-1.8%2c6.8-3.3%2c9.9-5.6c1.4-2.7%2c2.9-6.4%2c3.8-9.7c-4.3-4.2-9.6-7.9-14.8-11.2 c-11.4-0.3-21.3%2c0.7-32.1%2c2.3c-1%2c18.5-1.6%2c33.6-1.6%2c50.6c14.3%2c0.6%2c27.3%2c0.5%2c42.3%2c0c3.3-5.1%2c6.3-12.2%2c8-17.5 C160.7%2c46.1%2c154.9%2c42.8%2c149.6%2c40.1z M141.7%2c58.7c-4.5%2c0.4-9.8%2c0.4-13.8%2c0.4c-0.3-4.9-0.4-8.7-0.4-13.6c4.8-1%2c11-2.3%2c16.8-3.6 C143.7%2c47.5%2c142.8%2c53.3%2c141.7%2c58.7z M145.5%2c33c-5.9%2c1.5-12.7%2c3-17.9%2c3.8c0.1-5.3%2c0.5-10.2%2c0.8-15.1c6.4%2c0.7%2c12.6%2c1.5%2c18.3%2c2.7 C146.3%2c27.7%2c145.9%2c30.4%2c145.5%2c33z'/%3e%3c/g%3e%3c/g%3e%3cpath class='st3' d='M236.5%2c29.1c4.5-2.5%2c12.3-5.2%2c17.2-6.5c12.8%2c14.7%2c28.6%2c24.5%2c57.4%2c35.3c-4.9%2c4.8-11.4%2c10.2-16.8%2c13.9 C274.3%2c59.3%2c252.5%2c43.3%2c236.5%2c29.1z'/%3e%3cg%3e%3cpath class='st0' d='M107.2%2c19.1c-0.5-1-1.4-1.6-2.5-1.7c-12.7-1.1-29.4%2c0.1-40.9%2c1.9c-1.1%2c0.2-2%2c0.9-2.4%2c1.9 c-3.9%2c10.3-6.6%2c21-8.9%2c32.3c-0.2%2c1%2c0.1%2c2%2c0.8%2c2.7c4.5%2c4.8%2c10.6%2c10.3%2c15.8%2c14c0.5%2c0.3%2c1%2c0.5%2c1.6%2c0.6c6.7%2c0.4%2c23.5%2c0.3%2c32.3%2c0 c0.5%2c0%2c1.1-0.2%2c1.5-0.5c4.8-3.2%2c9.4-8.8%2c12.1-14.4c0.2-0.5%2c0.3-1%2c0.3-1.5C116.4%2c43%2c112.1%2c29.1%2c107.2%2c19.1z M75.2%2c52.3 c0.4-4.6%2c1.3-12.2%2c2.4-16.6c3.9-0.3%2c9.4-0.5%2c13.2-0.4c0.9%2c4.8%2c1.5%2c12.2%2c1.3%2c16.8C87.1%2c52.4%2c79.8%2c52.6%2c75.2%2c52.3z'/%3e%3cpath class='st0' d='M66.7%2c14.6c0.3%2c0.9%2c1.2%2c1.4%2c2.2%2c1.3c9.7-1.2%2c22.3-1.8%2c32.1-1.3c0.9%2c0.1%2c1.8-0.5%2c2.1-1.4 c0.7-2.7%2c1.3-5.8%2c1.6-8.8c0.1-1.1-0.7-2.2-1.8-2.2C90.6%2c1%2c76.6%2c1.9%2c65.9%2c3.9c-1.1%2c0.2-1.9%2c1.3-1.6%2c2.5 C64.8%2c9.1%2c65.7%2c12.2%2c66.7%2c14.6z'/%3e%3cpath class='st1' d='M100.1%2c5.4c-0.1%2c1.8-0.4%2c3.8-0.8%2c5.4c-10.8-0.2-19.9%2c0.3-29.4%2c1.5c-0.7-1.7-1.3-3.7-1.7-5.5 C78.1%2c5.4%2c89.2%2c4.8%2c100.1%2c5.4z'/%3e%3cg%3e%3cpath class='st1' d='M103.5%2c21.5c-12.9-0.9-27.8%2c0.2-37.8%2c1.4c-3%2c7.7-7.3%2c22.6-8.6%2c31c3.8%2c4%2c9.2%2c8.7%2c14%2c12 c10.1%2c0.6%2c19.6%2c0.8%2c31.1%2c0c4.1-3%2c8.1-7.4%2c10.4-12C111.7%2c43%2c108.5%2c31%2c103.5%2c21.5z M96%2c55.8c-8.2%2c0.3-18.1%2c0.4-24.9%2c0 c0.4-7.2%2c1.9-17.3%2c3.5-23.7c5.2-0.6%2c13.1-0.9%2c19-0.8C95.9%2c38.8%2c96.3%2c49.4%2c96%2c55.8z'/%3e%3c/g%3e%3c/g%3e%3cg%3e%3cg%3e%3cpath class='st0' d='M66.2%2c72.3c-10-9.2-18.7-16.8-27.9-24.5c5.5-0.2%2c11.4-0.5%2c16.9-0.9c0.6%2c0%2c1.2-0.3%2c1.7-0.7 c2.1-1.7%2c5-4.6%2c6.8-7.1c0.3-0.5%2c0.5-1%2c0.3-1.6c-2-8.8-5.3-19.3-10.1-28.7c-0.4-0.7-1.1-1.2-1.9-1.1c-17.8%2c1.1-34.6%2c3.5-49.5%2c6.5 c-0.9%2c0.2-1.6%2c1.1-1.6%2c2c0.3%2c18.2%2c1.3%2c36.9%2c2.5%2c55.2c0.1%2c1%2c0.8%2c1.8%2c1.8%2c1.9c6%2c0.9%2c11.8%2c1.7%2c19.8%2c2.1c0.7%2c0%2c1.3-0.7%2c1-1.3 c-2.7-7.7-7-23-7.7-25.7c0.7%2c0%2c1-0.1%2c1.5-0.1c3.6%2c7.3%2c9.1%2c17.4%2c13%2c25.8c0.5%2c1.1%2c1.5%2c1.7%2c2.7%2c1.8c9.3%2c0.2%2c19.4-0.2%2c30.1-1.7 C66.5%2c74%2c66.9%2c72.9%2c66.2%2c72.3z M31.9%2c32.8c-3.5%2c0.4-8.8%2c0.8-12.2%2c1c-0.3-2.2-0.6-5.3-0.7-7.5c4.2%2c0.1%2c8.5%2c0.2%2c13%2c0.6 C31.9%2c28.8%2c31.9%2c30.8%2c31.9%2c32.8z'/%3e%3c/g%3e%3cg%3e%3cpath class='st1' d='M54.8%2c43.3c1.8-1.6%2c3.8-3.5%2c5.2-5.7c-1.8-8.3-4.8-17.2-8.7-25.6C35.9%2c13%2c19.3%2c15.3%2c5%2c17.9 c0.6%2c19.3%2c1.5%2c35%2c3%2c51.6c4.5%2c0.6%2c7.7%2c1.1%2c12.9%2c1.5c-2.5-8.9-4.5-16.2-6.3-25.3c2.4-0.1%2c4.9-0.2%2c7.5-0.3c6%2c9.7%2c9.5%2c16.8%2c15.4%2c26.3 c7.2%2c0%2c13.8-0.2%2c20.6-0.8C48.3%2c61.4%2c39.4%2c53.1%2c30.2%2c45C38.8%2c44.5%2c47.7%2c43.9%2c54.8%2c43.3z M16.2%2c37.6c-0.7-4.9-0.9-9.7-1.1-14.6 c6.8%2c0%2c14.1%2c0.3%2c20.7%2c0.9c0.2%2c3.3%2c0.2%2c8.8%2c0%2c12.2C29.5%2c36.6%2c22.9%2c37.1%2c16.2%2c37.6z'/%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/svg%3e");
+                background-size: 118px 30px!important;
+            }
         }
     }
     .rbx-header .icon-logo-r {
@@ -624,6 +646,10 @@
             width: 35px!important;
             height: 30px!important;
             margin-top: 2px!important;
+            if sixteen {
+                background-image: url("data:image/svg+xml,%3c%3fxml version='1.0' encoding='utf-8'%3f%3e %3c!-- Generator: Adobe Illustrator 19.1.0%2c SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3e%3c!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3e %3csvg version='1.1' id='R' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='72px' height='72px' viewBox='0 0 72 72' style='enable-background:new 0 0 72 72%3b' xml:space='preserve'%3e%3cstyle type='text/css'%3e.st0%7bfill:%23E2231A%3b%7d .st1%7bfill:white%3b%7d%3c/style%3e%3cg id='R_1_'%3e%3cg%3e%3cpath class='st0' d='M69.3%2c67.3C59%2c57.8%2c50.1%2c50.1%2c40.7%2c42.2c5.6-0.2%2c11.7-0.5%2c17.3-1c0.6-0.1%2c1.2-0.3%2c1.7-0.7 c2.1-1.7%2c5.1-4.7%2c7-7.3c0.3-0.5%2c0.5-1%2c0.3-1.6c-2-9-5.4-19.8-10.3-29.4c-0.4-0.7-1.2-1.2-2-1.2C36.6%2c2.1%2c19.3%2c4.6%2c4%2c7.7 C3%2c7.9%2c2.3%2c8.8%2c2.3%2c9.8C2.6%2c28.4%2c3.6%2c47.6%2c5%2c66.5c0.1%2c1%2c0.8%2c1.8%2c1.8%2c2c6.1%2c0.9%2c12.1%2c1.7%2c20.3%2c2.2c0.7%2c0%2c1.3-0.7%2c1-1.4 c-2.8-7.9-7.2-23.6-7.9-26.4c0.7%2c0%2c1-0.1%2c1.6-0.1c3.7%2c7.5%2c9.3%2c17.9%2c13.3%2c26.5c0.5%2c1.1%2c1.6%2c1.8%2c2.8%2c1.8c9.5%2c0.2%2c19.9-0.2%2c30.8-1.8 C69.6%2c69%2c70%2c67.9%2c69.3%2c67.3z M34.1%2c26.8c-3.6%2c0.4-9.1%2c0.8-12.6%2c1c-0.3-2.2-0.6-5.4-0.7-7.7c4.3%2c0.1%2c8.7%2c0.2%2c13.3%2c0.6 C34.1%2c22.7%2c34.1%2c24.7%2c34.1%2c26.8z'/%3e%3c/g%3e%3cg%3e%3cpath class='st1' d='M57.6%2c37.5c1.8-1.6%2c3.9-3.6%2c5.3-5.9C61%2c23.2%2c58%2c14%2c53.9%2c5.4C38.2%2c6.5%2c21.2%2c8.7%2c6.4%2c11.5c0.6%2c19.8%2c1.5%2c36%2c3%2c53 c4.7%2c0.7%2c7.9%2c1.1%2c13.2%2c1.5C20%2c56.8%2c18%2c49.3%2c16.1%2c40c2.5-0.1%2c5.1-0.2%2c7.7-0.3c6.2%2c10%2c9.8%2c17.2%2c15.8%2c27c7.4%2c0%2c14.2-0.2%2c21.1-0.8 c-9.9-9.7-19.1-18.3-28.5-26.6C41.2%2c38.8%2c50.3%2c38.2%2c57.6%2c37.5z M17.9%2c31.6c-0.7-5-0.9-10-1.1-15c7%2c0%2c14.4%2c0.3%2c21.3%2c0.9 c0.2%2c3.4%2c0.2%2c9%2c0%2c12.5C31.6%2c30.7%2c24.8%2c31.2%2c17.9%2c31.6z'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e")!important;
+                background-size: 30px!important;
+            }
         }
     }
     /*new*/
@@ -826,6 +852,9 @@
     }
     .navbar-search.navbar-search-open.shown {
         border-radius: 5px 5px 0 0;
+        if dec {
+            border-radius: 3px;
+        }
     }
     .rbx-header .navbar-search .new-dropdown-menu {
         left: 0px!important;
@@ -966,7 +995,7 @@
         text-transform: uppercase;
     }
     .text-footer.footer-note:after {
-        content: " | 2014-esque roblox, made with love by melo 💖";
+        content: " | 2014-esque roblox, made with love by melo 💜💛";
     }
     #settings-popover #settings-popover-menu {
         padding: 10px 0 10px 10px;
@@ -2194,7 +2223,7 @@
         color: #393b3d;
         background-color: #fff!important;
         height: 37px;
-        box-shadow: inset 0 -4px 0 0 #393b3d00!Important;
+        box-shadow: inset 0 -4px 0 0 #393b3d00!important;
         z-index: 6;
         border: 1px solid #9e9e9e;
     }
@@ -2690,7 +2719,7 @@
     }
     .rbx-friends-game-server-item .btn-control-xs,
     .rbx-game-server-item .create-server-link {
-        margin-left: 5px!Important;
+        margin-left: 5px!important;
     }
     .create-server-banner .rbx-private-server-create .rbx-private-server-create-disabled-text {
         font-family: 'Source Sans Pro',
@@ -3615,72 +3644,109 @@
         background-position: unset;
         background-size: contain;
         width: 75px!important;
+        if dec {
+            background-image: url(http://images.rbxcdn.com/b66bc601e2256546c5dd6188fce7a8d1.png)!important;
+        }
     }
     .icon-badge-bricksmith {
         background-image: url(http://www.roblox.com/images/Badges/Bricksmith-54x75.png);
         background-position: unset;
         background-size: contain;
         width: 54px!important;
+        if dec {
+            background-image: url(http://images.rbxcdn.com/49f3d30f5c16a1c25ea0f97ea8ef150e.png)!important;
+            width: 75px!important;
+        }
     }
     .icon-badge-combat-initiation {
         background-image: url(http://www.roblox.com/images/Badges/CombatInitiation-75x75.png);
         background-position: unset;
         background-size: contain;
         width: 75px!important;
+        if dec {
+            background-image: url(http://images.rbxcdn.com/8d77254fc1e6d904fd3ded29dfca28cb.png)!important;
+        }
     }
     .icon-badge-veteran {
         background-image: url(http://www.roblox.com/images/Badges/Veteran-75x75.png);
         background-position: unset;
         background-size: contain;
         width: 75px!important;
+        if dec {
+            background-image: url("http://images.rbxcdn.com/b7e6cabb5a1600d813f5843f37181fa3.png")!important;
+        }
     }
     .icon-badge-warrior {
         background-image: url(http://www.roblox.com/images/Badges/Warrior-75x75.png);
         background-position: unset;
         background-size: contain;
         width: 75px!important;
+        if dec {
+            background-image: url(http://images.rbxcdn.com/0a010c31a8b482731114810590553be3.png)!important;
+        }
     }
     .icon-badge-friendship {
         background-image: url(http://www.roblox.com/images/Badges/Friendship-75x75.png);
         background-position: unset;
         background-size: contain;
         width: 75px!important;
+        if dec {
+            background-image: url(http://images.rbxcdn.com/5eb20917cf530583e2641c0e1f7ba95e.png);
+        }
     }
     .icon-badge-bloxxer {
         background-image: url(http://www.roblox.com/images/Badges/Bloxxer-75x75.png);
         background-position: unset;
         background-size: contain;
         width: 75px!important;
+        if dec {
+            background-image: url(http://images.rbxcdn.com/139a7b3acfeb0b881b93a40134766048.png);
+        }
     }
     .icon-badge-inviter {
         background-image: url(http://www.roblox.com/images/Badges/Inviter-75x75.png);
         background-position: unset;
         background-size: contain;
         width: 75px!important;
+        if dec {
+            background-image: url(http://images.rbxcdn.com/01044aca1d917eb20bfbdc5e25af1294.png);
+        }
     }
     .icon-badge-administrator {
         background-image: url(http://images.rbxcdn.com/ae42d1c6cd258306303423a69b1ed7bf.png);
         background-position: unset;
         background-size: contain;
         width: 75px!important;
+        if dec {
+            background-image: url(http://images.rbxcdn.com/f8f5d7b22a7efb09f0aabff9d003b862.png);
+        }
     }
     .icon-badge-welcome-to-the-club {
         background-image: url(http://www.roblox.com/images/Badges/BuildersClub-75x75.png);
         background-position: unset;
         background-size: contain;
         width: 75px!important;
+        if dec {
+            background-image: url(http://images.rbxcdn.com/6c2a598114231066a386fa716ac099c4.png);
+        }
     }
     .icon-badge-official-model-maker {
         background-image: url(http://www.roblox.com/images/Badges/ImageModerator-75x75.png);
         background-position: unset;
         background-size: contain;
         width: 75px!important;
+        if dec {
+            background-image: url(http://images.rbxcdn.com/45710972c9c8d556805f8bee89389648.png);
+        }
     }
     .icon-badge-ambassador {
         background-image: url(http://images.rbxcdn.com/216b8349596e3293affe6dada49cea6a.png);
         background-position: unset;
         background-size: contain;
         width: 75px!important;
+        if dec {
+            background-image: url(http://images.rbxcdn.com/b853909efc7fdcf590363d01f5894f09.png);
+        }
     }
     .badge-link .asset-thumb-container,
     .btr-profile .btr-profile-playerbadges .asset-item .asset-thumb-container img {
@@ -5662,6 +5728,9 @@
         color: #343434;
         border-color: #a7a7a7;
     }
+    #avatar-shop-keyword-input::placeholder {
+        color: transparent!important;
+    }
     .catalog-container .search-container .input-group .search-input {
         margin-right: 4px;
     }
@@ -6120,8 +6189,8 @@
     .item-card-container .item-card-name {
         max-height: unset!important;
     }
-    ul[ng-if="sortOption.hasSubMenu && data.sortType === sortOption"] {
-        margin-left: 10px;
+    ul[ng-if*="sortOption.hasSubMenu"] {
+        margin-left: 10px!important;
     }
     }
     @-moz-document url-prefix("https://www.roblox.com/catalog/"),
@@ -7597,41 +7666,77 @@
     }
     #Badge18 img {
         content: url(http://images.rbxcdn.com/049d72ade1586da1cfe2e48618cc3959.png);
+        if dec {
+            content: url(http://images.rbxcdn.com/6c2a598114231066a386fa716ac099c4.png);
+        }
     }
     .badge-container .badge-image .icon-administrator {
         background-image: url("http://images.rbxcdn.com/ae42d1c6cd258306303423a69b1ed7bf.png");
         background-position: unset;
         background-size: unset;
+        if dec {
+            background-image: url("http://images.rbxcdn.com/f8f5d7b22a7efb09f0aabff9d003b862.png");
+        }
     }
     #Badge12 img {
         content: url(http://images.rbxcdn.com/088451f70609387491bbf8e85f285065.png);
+        if dec {
+            content: url(http://images.rbxcdn.com/b7e6cabb5a1600d813f5843f37181fa3.png);
+        }
     }
     #Badge2 img {
         content: url(http://images.rbxcdn.com/46c15f2030a8c68ab1ff4329765e515a.png);
+        if dec {
+            content: url(http://images.rbxcdn.com/5eb20917cf530583e2641c0e1f7ba95e.png);
+        }
     }
     #Badge14 img {
         content: url(http://images.rbxcdn.com/216b8349596e3293affe6dada49cea6a.png);
+        if dec {
+            content: url(http://images.rbxcdn.com/b853909efc7fdcf590363d01f5894f09.png);
+        }
     }
     #Badge8 img {
         content: url(http://images.rbxcdn.com/156b077267b7848d38df4471e2a2c540.png);
+        if dec {
+            content: url(http://images.rbxcdn.com/01044aca1d917eb20bfbdc5e25af1294.png);
+        }
     }
     #Badge6 img {
         content: url(http://images.rbxcdn.com/26bdc9274d6c2520b3d72ebaa71e50f7.png);
+        if dec {
+            content: url(http://images.rbxcdn.com/b66bc601e2256546c5dd6188fce7a8d1.png);
+        }
     }
     #Badge7 img {
         content: url(http://images.rbxcdn.com/4e483c695695b47c92591825929d1059.png);
+        if dec {
+            content: url(http://images.rbxcdn.com/49f3d30f5c16a1c25ea0f97ea8ef150e.png);
+        }
     }
     #Badge17 img {
         content: url(http://images.rbxcdn.com/ca460efad9ffdbce1f982672d0bf5e2a.png);
+        if dec {
+            content: url(http://images.rbxcdn.com/45710972c9c8d556805f8bee89389648.png);
+        }
     }
     #Badge3 img {
         content: url(http://images.rbxcdn.com/d111059fca163b9824716cff2fe4aec5.png);
+        if dec {
+            content: url(http://images.rbxcdn.com/8d77254fc1e6d904fd3ded29dfca28cb.png);
+        }
     }
     #Badge4 img {
         content: url(http://images.rbxcdn.com/14652f1598ba5520515965b4038214c0.png);
+        if dec {
+            content: url(http://images.rbxcdn.com/0a010c31a8b482731114810590553be3.png);
+        }
     }
     #Badge5 img {
         content: url(http://images.rbxcdn.com/4cb4d69560f1f3478c314b24a52d2644.png);
+        if dec {
+            content: url(http://images.rbxcdn.com/139a7b3acfeb0b881b93a40134766048.png);
+        }
     }
     }
     @-moz-document url-prefix("https://www.roblox.com/upgrades/robux"),
@@ -8111,6 +8216,7 @@
     url("https://www.roblox.com"),
     url("https://www.roblox.com/?returnUrl") {
     /* Sign Up Landing */
+    if land {
     body {
         background-color: #123f83 !important;
     }
@@ -8415,7 +8521,298 @@
             transform: translateX(-66.6666%);
         }
     }
+}
+if ing {
+    @font-face { font-family: "Source Sans Pro"; src: local("Source Sans Pro Light"), local("SourceSansPro-Light"), url("http://fonts.gstatic.com/s/sourcesanspro/v9/toadOcfmlt9b38dHJxOBGN5zCZmJHbPt3vUI1beFfvf3rGVtsTkPsbDajuO5ueQw.woff2") format("woff2"); font-style: normal; font-weight: 300; unicode-range: U+0-FF, U+131, U+152-153, U+2C6, U+2DA, U+2DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000; }
+    @font-face { font-family: "Source Sans Pro"; src: local("Source Sans Pro"), local("SourceSansPro-Regular"), url("http://fonts.gstatic.com/s/sourcesanspro/v9/ODelI1aHBYDBqgeIAH2zlPytCVloACqnDHJwh-em2k8.woff2") format("woff2"); font-style: normal; font-weight: 400; unicode-range: U+0-FF, U+131, U+152-153, U+2C6, U+2DA, U+2DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000; }
+    .lower-logo-container {
+	    padding-top: 20px;
+}
+    #RollerContainer.rollercoaster-background {
+        background-image: url('http://images.rbxcdn.com/dcbdfaf1c08058e71f65c09f7b98ff04.jpg')!important;
     }
+    #InnerRollerContainer {
+	    background-image: none;
+    }
+    .lower-logo-container {
+	background-color: transparent;
+    }
+    #signup {
+        
+    }
+    .signup-container.rbx-login-form {
+        background-color: rgba(255,255,255,0.75)!important;
+        padding: 15px;
+        max-width: 405px;
+        border-radius: 0px;
+        position: relative;
+        left: 200px;
+    }
+    .signup-header {
+        font-size: 24px!important;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        text-align: left;
+        font-family: "Source Sans Pro",Helvetica,Arial,sans-serif!important;
+        text-transform: unset;
+        font-weight: 300!important;
+        color: rgb(71, 71, 71)!important;
+    }
+    .legal-text-container, .font-caption-header {
+        display: none!important;
+    }
+    .dark-theme .input-field {
+        color: #555!important;
+        font-family: "Source Sans Pro",Helvetica,Arial,sans-serif!important;
+        background-color: #fff!important;
+        border: 1px solid #ccc;
+        box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+        transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        height: 49px!important;
+        padding: 10px 16px;
+        font-size: 20px;
+        border-radius: 6px;
+    }
+    .dark-theme .input-field:focus {
+        box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(102,175,233,0.6);
+        border-color: #66afe9;
+        outline: 0;
+    }
+    .dark-theme .input-field::placeholder {
+        color: #555!important;
+    }
+    .has-error .input-field, .has-error .form-control.birthday-select-grou {
+        border-color: #843534!important;
+        box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 6px #ce8483!important;
+    }
+    .has-success .input-field, .has-success .form-control.birthday-select-group {
+        border-color: #2b542b!important;
+        box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 6px #67b168!important;
+    }
+    .signup-container .birthday-container .birthday-select-group, .dark-theme .fake-input-lg {
+        padding: 6px 12px;
+        color: #555;
+        background-color: #fff;
+        box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+        border: 1px solid #ccc;
+        height: 46px;
+    }
+    .signup-container .birthday-container .birthday-select-group:before {
+        content: "Birthday";
+        font-size: 18px;
+        font-family: "Source Sans Pro",Helvetica,Arial,sans-serif;
+        font-weight: 300;
+        display: inline-block;
+        margin-bottom: 5px;
+        padding: 5px 8px;
+        line-height: 23.9333px!important;
+    }
+    .signup-container .birthday-container .rbx-select-group.month {
+	    border-right: 1px solid #ccc;
+        border-left: 1px solid #ccc;
+	    border-radius: 0px;
+        width: 97px;
+    }
+    .signup-container .birthday-container .rbx-select-group .rbx-select {
+        min-width: unset;
+    }
+    .rbx-select-group .rbx-select {
+        background-color: transparent!important;
+        color: #555!important;
+        font-family: "Source Sans Pro",Helvetica,Arial,sans-serif;
+        font-size: 18px!important;
+        font-weight: 300;
+        padding-left: 3px;
+        padding-right: 3px;
+        padding-bottom: 1px;
+        background-image: url('http://images.rbxcdn.com/379f4f1018f31cbb62ef52a22d9f2118.png')!important;
+        background-position: 92% 40%!important;
+        text-indent: 0.01px!important;
+        line-height: 23.9333px!important;
+    }
+    #MonthDropdown.rbx-select {
+        width: 97px;
+        margin-left: 2px;
+    }
+    #DayDropdown.rbx-select, .signup-container .birthday-container .rbx-select-group.day {
+        width: 56px;
+        margin-left: 2px;
+    }
+    #YearDropdown.rbx-select, .signup-container .birthday-container .rbx-select-group.year {
+        width: 60px;
+        margin-left: 2px;
+    }
+    .signup-container .birthday-container .rbx-select-group:nth-of-type(2) .rbx-select {
+        border-right: 1px solid #ccc!important;
+    }
+    .signup-container .birthday-container .rbx-select-group:first-of-type .rbx-select {
+        border-right: none!important;
+    }
+    .gender-container .fake-input-lg {
+        
+    }
+    .gender-container .fake-input-lg:before {
+        content: "Gender:";
+        font-size: 18px;
+        font-family: "Source Sans Pro",Helvetica,Arial,sans-serif;
+        font-weight: 300;
+        display: inline-block;
+        margin-bottom: 5px;
+        padding: 5px 8px;
+        line-height: 23.9333px!important;
+        position: relative;
+    left: -115px;
+    top: -13px;
+    }
+    .signup-container .gender-button, .signup-container .gender-button:focus {
+        width: 32px;
+        height: 32px;
+        border: none!important;
+    }
+    .gender-female, .gender-male {
+        background-position: 8px -4px !important;
+        background-repeat: no-repeat;
+        border-radius: 15px!important;
+        border: 1px solid #ccc;
+        width: 32px!important;
+        height: 32px!important;
+    }
+    .gender-icon {
+	    margin: 3px 9px;
+	    height: 26px;
+    }
+    .gender-female {
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAAkCAYAAABSSLCCAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFOSURBVEhL7ZS9SgNBFIXXNIKVdnkBLQJq4TZ5BhtBsbLQWjsbn0AtfAdB8gA2gjbWFtsoWGil+A+WphAsPPfOmcvM7iwZsEnhByfnTjZn785lssU/Y0NVVV1oisuIDt3AD2ehW5Rv0BD1kV4IaITAKdRzpbKL4CZrJQrhYhcWBjxrdKXe6Yde54uuRKGyLD9hl24VcUxXUntahU6gb+gJ2sLNLuB/Y4JuYBgHsD23Us6gFXSz/danJ6MNA8IydOhKh3VCYBr2Dk3qF00W0e1GirDTDtQWEPbprhO6yBkbSj0C7eY7rdNHsS0fvtMdbE7qDGY6CCyhyA0IG/J4867Opiehcyh13lLcQ4PUiViAXbuVcoWJ9Vkr0Ykgr3TPI91ohHBX+XuEPNONVCdB3g+eB7rRFgof6YVu5IQ+6EZbKNxH9p7kXVdS9WmON0XxC/6KUdg3imAdAAAAAElFTkSuQmCC');
+        width: 13px;
+        position: relative;
+        left: -9px;
+        top: -2px;
+    }
+    .gender-male {
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAAkCAYAAABSSLCCAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEmSURBVEhLYxgFgwacOXNGAoi5oFwUwASl4QCoUBWIrwKZz4H4K5DdDpZAAhiagGALEGtBmGBQAdSYAGWDAYomoKQckFKD8FCAD5QGA3SbfkFpdPAHSoMBiiYTE5MXQGofhIcC5kNpMMDmp2AgXgTEP4H4MRAnAg3bCaQpA4wgAhgAoPgoAmIDEB8H+ArEy0C2wjTNBFJpIDYRQB/mJz0oTQxQhmk6D6WJAVdgmq5BaWLAfZim21CaELgFDIg/ME0XoTQhAPYGWBM0JRADroAImE0ggC35oIPTIAJZUyIQg5IPNvAWiHNhyQkcucgAGNH/oUxkMB2oIQvKxppgCYKRogmUY0HgFpQGgWdQGgywBbkEkJIG4utALALEAsDgvgSkhwZgYAAAOfpGgKsc6i8AAAAASUVORK5CYII=');
+        width: 13px;
+        position: relative;
+        left: -9px;
+        top: -2px;
+    }
+    .gender-icon.gender-selected {
+	    background-color: #255094;
+        border: 1px solid #255094;
+    }
+    #FemaleButton {
+        margin-left: 95px;
+    }
+    #FemaleButton, #MaleButton {
+        margin-top: 4px;
+    }
+    #signup-button, #main-login-button {
+        font-family: "Source Sans Pro",Helvetica,Arial,sans-serif;
+        background-color: #00B259;
+        color: white;
+        border: 1px solid #ccc;
+        font-weight: 400!important;
+        height: 49px;
+        padding: 10px 16px;
+        border-radius: 6px;
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+    #main-login-button {
+        border: 1px solid transparent;
+        font-size: 14px;
+        padding: 6px 12px;
+        height: 32px;
+        min-width: 61px!important;
+        line-height: 1.25;
+        border-radius: 3px!important;
+        transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        margin-top: -2px;
+    }
+    #signup-button:focus, #main-login-button:focus {
+        box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(102,175,233,0.6);
+    }
+    .icon-password-show-v2, #signup-header-container {
+        display: none;
+    }
+    .signup-or-log-in .signup-container {
+        padding: 0px;
+    }
+    #signup:before {
+        content: "";
+        background-image: url('http://images.rbxcdn.com/f76c76889f4b167ca1f27edc27eb8146.png');
+        background-size: contain;
+        display: block;
+        width: 457px;
+        height: 115px;
+        opacity: .99;
+        z-index: 10000;
+        position: absolute;
+        margin-left: -472px;
+        margin-top: 95px;
+    }
+    #signup:after {
+        content: "You Make the Game ";
+        font-family: "Source Sans Pro",Helvetica,Arial,sans-serif;
+        font-weight: 300;
+        text-align: center;
+        color: white;
+        font-size: 35px;
+        background-color: rgba(0,0,0,0.7);
+        padding: 18px 25px;
+        display: block;
+        position: absolute;
+        margin-left: -406px;
+        margin-top: -189px;
+    }
+    .signup-header:after {
+        content: " ™ ";
+        position: absolute;
+        font-size: 15px;
+        color: white;
+        margin-left: -379px;
+    margin-top: 195px;
+    z-index: 100;
+    }
+    #action-bar-container {
+        height: 66px;
+        background-color: rgba(0, 0, 0, 0.35);
+    }
+    #app-stores:before {
+        content: "Game: ROBLOX Point";
+        color: white;
+        text-align: left;
+        line-height: 1;
+        font-size: 28px;
+        font-weight: 300;
+        font-family: "Source Sans Pro",Helvetica,Arial,sans-serif;
+        position: absolute;
+        margin-left: -535px;
+        margin-top: 123px;
+    }
+    #app-stores:after {
+        content: "Developer: StarMarine614";
+        color: white;
+        text-align: left;
+        line-height: 1;
+        font-size: 28px;
+        font-weight: 300;
+        font-family: "Source Sans Pro",Helvetica,Arial,sans-serif;
+        position: absolute;
+        margin-left: -535px;
+        margin-top: 152px;
+    }
+    .input-validation.text-error {
+        color: #a94442;
+        font-weight: 300!important;
+        font-family: "Source Sans Pro",Helvetica,Arial,sans-serif;
+        font-size: 16px!important;
+        line-height: 1.25;
+    }
+    #app-stores-devices h4, #app-stores a {
+        display: none!important;
+    }
+    }
+}
     @-moz-document url-prefix("https://www.roblox.com/develop"),
     url-prefix("https://web.roblox.com/develop") {
     /* Develop Page */
