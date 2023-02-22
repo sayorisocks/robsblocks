@@ -49,7 +49,6 @@ function Log(/**/) {
 }
 function GetCurrentUser() {
     let UserElement = document.getElementsByName("user-data")[0];
-
     if (UserElement) {
         return UserElement.getAttribute("data-name");
     }
@@ -474,14 +473,14 @@ function SiteBase() {
         assHref.style = "cursor: not-allowed;"
         assHref.innerHTML = "Ambassadors"
 
-        // SHARE ROBLOX
+        // SHARE
 
         share = document.createElement("li")
         subButtons.appendChild(share)
         shareHref = document.createElement("a")
         share.appendChild(shareHref)
         shareHref.style = "cursor: not-allowed;"
-        shareHref.innerHTML = "Share Roblox"
+        shareHref.innerHTML = "Share"
     }
 }
 
@@ -569,21 +568,38 @@ function PageData() {
             let ReportAbuse = document.getElementsByClassName("game-report-abuse")[0]
             let CreatorName = document.getElementsByClassName("game-creator")[0]
             let StatName = document.getElementsByClassName("game-stat")[0]
+            let GameButtons = document.getElementsByClassName("game-details-play-button-container")[0]
 
             let DescriptionDiv = document.createElement("div")
             let DescriptionLabel = document.createElement("div")
             let GameDescriptionClone = GameDescription.cloneNode(true)
             let ReportAbuseClone = ReportAbuse.cloneNode(true)
+            let GameText = document.createElement("div")
+            let CopyIndicator = document.createElement("span")
 
             DescriptionLabel.id = "DescriptionLabel"
             DescriptionLabel.innerText = "\n" +
                 "                            Description:"
+
+            GameText.style = "text-align: center; margin: 1em 5px;"
+            CopyIndicator.innerText = "Copy Protection: " + GetCopyInfo()
+
+            function GetCopyInfo() {
+                let UserElement = document.getElementById("game-detail-meta-data");
+                if (UserElement) {
+                    return UserElement.getAttribute("data-can-copy-place");
+                }
+
+                return "N/A";
+            }
 
             GameInfo.appendChild(CreatorName)
             GameInfo.appendChild(DescriptionDiv)
             DescriptionDiv.appendChild(DescriptionLabel)
             DescriptionDiv.appendChild(GameDescriptionClone)
             DescriptionDiv.appendChild(ReportAbuseClone)
+            GameButtons.appendChild(GameText)
+            GameText.appendChild(CopyIndicator)
 
             GameInfo.insertBefore(CreatorName, StatName);
 
