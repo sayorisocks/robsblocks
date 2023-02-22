@@ -487,79 +487,7 @@ function SiteBase() {
 function PageData() {
     this.Functions = {
         "discover": function() {
-            let BodyObserver = new MutationObserver((Mutations) => {
-                Mutations.forEach((Mutation) => {
-                    if (!Mutation.addedNodes) return
-
-                    if (Mutation.type === "attributes") {
-                        const Node = Mutation.target.parentNode.parentNode
-
-                        if (Mutation.target.className === "thumbnail-2d-container game-card-thumb") {
-                            if (Node.className === "game-card-link") {
-                                let UniverseId = Node.id
-                                let ThumbnailNode = Mutation.target.childNodes[0]
-
-                                Nodes.push({
-                                    UniverseId: UniverseId,
-                                    Node: Node,
-                                    ThumbnailNode: ThumbnailNode,
-                                    Visited: false
-                                })
-
-                                if (Nodes.length % 80 === 0 ) { // wont get all of them o well :(
-                                    let UniverseIds = ""
-
-                                    for (let Index = 0; Index < Nodes.length; Index++) {
-                                        let Node = Nodes[Index]
-
-                                        if (Node.Visited === false) {
-                                            Node.Visited = true;
-                                            UniverseIds += Node.UniverseId
-
-                                            if (Index !== Nodes.length - 1) {
-                                                UniverseIds += ","
-                                            }
-                                        }
-                                    }
-
-                                    Log(UniverseIds)
-
-                                    let ThumbnailData = $.ajax({
-                                        method: "GET",
-                                        url: `https://thumbnails.roblox.com/v1/games/multiget/thumbnails?universeIds=${UniverseIds}&countPerUniverse=1&defaults=true&size=768x432&format=Png&isCircular=false`,
-                                        contentType: "application/json",
-                                        data: {}
-                                    });
-
-                                    ThumbnailData.done(function(Response) {
-                                        for (let Index = 0; Index < Response.data.length; Index++) {
-                                            for (let NodeIndex = 0; NodeIndex < Nodes.length; NodeIndex++) { // bruh
-                                                let Node = Nodes[NodeIndex]
-
-                                                if (Node) {
-                                                    Log(`IDeez: '${Node.UniverseId + " " + Response.data[Index].universeId}'`)
-
-                                                    if (Node.UniverseId === Response.data[Index].universeId) {
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    })
-                                }
-
-                                // ThumbnailNode.src.replace(ThumbnailRequestResponse[0])
-                            }
-                        }
-                    }
-                })
-            })
-
-            BodyObserver.observe(document, {
-                attributes: true,
-                childList: true,
-                subtree: true,
-                attributeFilter: ["class"]
-            })
+            // nothing for now
         },
 
         "games": function() {
@@ -579,7 +507,7 @@ function PageData() {
 
             DescriptionLabel.id = "DescriptionLabel"
             DescriptionLabel.innerText = "\n" +
-                "                            Description:"
+                "Description:"
 
             GameText.style = "text-align: center; margin: 1em 5px;"
             CopyIndicator.innerText = "Copy Protection: " + GetCopyInfo()
