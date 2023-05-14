@@ -1,4 +1,4 @@
-1/* ==UserStyle==
+/* ==UserStyle==
 @name           2014-esque Roblox
 @namespace      https://github.com/sayorisocks/robsblocks
 @version        1.0.0
@@ -1676,21 +1676,7 @@
     .icon-online,
     .icon-game,
     .icon-studio {
-        background-size: contain;
-        width: 9px;
-        height: 9px;
-        z-index: 3;
-        left: 63px;
-        background-position: unset;
-    }
-    .icon-online {
-        background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAENSURBVChTY2SAAD4Gz7R8hr9/Yhn+/pZlYGV/yMDItJBh+6zJQLkvIEV8DEHF87nEpYNEzV0ZOMRlGX68eMjw6sRuhu9vX65mWNOdyMgQUlrIJKPWx2HgwMDACDMYCP79Y/hxbi/Dv8c3U5gZ3JL6/stqyf7++5fh98+fCPzrF8N/bgGgRgYOJgYOblmG//8ZGP78xsQgwMUvzcTw+vFthi/vGIAOxsSf3jIwvH50l4nhzZOlDHfOMwDNB7rjLwL/+sHAcP8iA8PLB4uYGW6evM6gbKjG8OSmNsPPbxAFT24xMNw+A7JyCcPGST0w73AwOMX4MLBxZAJNVGFgYb3O8OPrVIaDK3YxMDD8BAA+bX9uobbdbwAAAABJRU5ErkJggg==");
-    }
-    .icon-game {
-        background-image: url(http://www.roblox.com/images/online.png);
-    }
-    .icon-studio {
-        background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEMSURBVChTY2SAAL40C4b8P/8YYn//ZZBlZ2F4yMTIsHDWCYbJQLkvIEV8xfYM86VFuIJc9UUZZEU4GB6+/sGw+8Irhpfvv6/uPsCQyFjqwFCoJsbU56DOwcAIMxcI/v1jYNh74wfDzVf/UpiTzBj6tMT+y/79+5vh5y8E/vX7N4MA53+Qeg4mbjYGWRAT6BYMDAL8HAzSTI8/MNx+9w27ordfGRgefWC4y/TkI8PS808ZGH4BBf8CjYThH38YGC4+Y2B48I5hEfPJRwzXDaUZ1G6+ZtD+9guoAOjgW68ZGM48Bpr2j2HJpCMMPTD/cMQYM/hwsDBkAk1UYWViuP71F8PUFRcYdjEwMPwEAMb9fqVBS23FAAAAAElFTkSuQmCC");
+        display: none;
     }
     #people-list-container {
         border-bottom: 1px solid #ccc;
@@ -1874,6 +1860,22 @@
     .hlist[ng-class="{'invisible': !layout.isAllFriendsDataLoaded}"] {
         position: relative;
         left: 47px;
+    }
+    .friend-name-container .friend-name:before {
+        content: url('/images/offline.png');
+        width: 9px;
+        height: 9px;
+        display: inline-block;
+        margin-right: 2px;
+    }
+    .avatar-container:has(.icon-game) .friend-name-container .friend-name:before {
+        content: url('/images/online.png');
+    }
+    .avatar-container:has(.icon-online) .friend-name-container .friend-name:before {
+        content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEbSURBVChTY2SAAD4G16R8hj+/Yxn+/JJlYOd8yMDItJBh97zJQLkvEAVBxWuFi6b/t9v/6b///f//bfe+/y+YP+U/Q0jpKqA8NzOQkcWjblgg7hbJ8JWRleHNh79gmkvVgOHH+9fav0Xk7zFzBeT0caqbyP78/Zvhx7evCPz9OwOLgCjDfwYGDiZmbj5Zhv//Gf7//oWBQYCFT1ia6eeTO7f/fHjF8P8PUAIN/377guHnk9t3mf9KqbL8/vDWj11KiYEB5Nf//8D4/68fDJ/P7mP48+x+NUiYgyGgYCHQyjB2OTUGVlFphl8vHjH8enqHgYGZZQnDur4UWDhxMNiE+TBwcGUy/PyhwsDGfp3h66epDCfW72JgYPgJAB+ujN+QQHAGAAAAAElFTkSuQmCC');
+    }
+    .avatar-container:has(.icon-studio) .friend-name-container .friend-name:before {
+        content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEfSURBVChTY2SAAL50S8b833//x/78zSDLycbwkJmJceHM4/8nA+W+gBTxlTuzzFeVEwmKdddlYJMTYvjx4B3Doh0XGR4+f7+6bffvROYqV9YsY2X+ghg7KQbmf18ZGN6/YWD5/5XBSIGH4dXHH9qKgn/uMRe48veZKnLJ/vn9i+H79x8I/OMngygfC8gpHEx8nMyy/4Gsn7//YWAQEOZhkWa69fz77ZcffzP8+vMfAz9//4vh5vPvd5nVRf+xvP3yx09ZnIOBAeiNf0BjQfjH7/8Muy9/YLj36mc1yHccpU4sC4HiYWoSHAyywuwMD9/8ZADawMDCzLika++fFFg4cUQZMvhwsTFk/vjNoMLOwnD943eGqWsuM+xiYGD4CQBXmIuqI08/AAAAAABJRU5ErkJggg==');
     }
     }
     @-moz-document url-prefix("https://www.roblox.com/not-approved"),
@@ -4140,9 +4142,9 @@
     .btr-game-dropdown .rbx-menu-item .icon-more {
         display: none;
     }
-    #profile-header-more .rbx-menu-item[aria-describedby],
-    .btr-game-dropdown .rbx-menu-item[aria-describedby] {
+    #profile-header-more:has(.popover) .rbx-menu-item {
         background-position: 0 -54px;
+        position: relative;
         z-index: 6000;
     }
     #profile-header-more .popover {
@@ -4325,31 +4327,24 @@
         sans-serif;
         margin-left: -12px;
     }
-    .section.home-friends .icon-game {
-        background-image: url(http://www.roblox.com/images/online.png);
-        background-size: contain;
-        width: 9px;
-        height: 9px;
-        z-index: 3;
-        right: 17px !important;
+    .people-list .avatar-container .avatar-status {
+        display: none;
     }
-    .section.home-friends .icon-online {
-        background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAENSURBVChTY2SAAD4Gz7R8hr9/Yhn+/pZlYGV/yMDItJBh+6zJQLkvIEV8DEHF87nEpYNEzV0ZOMRlGX68eMjw6sRuhu9vX65mWNOdyMgQUlrIJKPWx2HgwMDACDMYCP79Y/hxbi/Dv8c3U5gZ3JL6/stqyf7++5fh98+fCPzrF8N/bgGgRgYOJgYOblmG//8ZGP78xsQgwMUvzcTw+vFthi/vGIAOxsSf3jIwvH50l4nhzZOlDHfOMwDNB7rjLwL/+sHAcP8iA8PLB4uYGW6evM6gbKjG8OSmNsPPbxAFT24xMNw+A7JyCcPGST0w73AwOMX4MLBxZAJNVGFgYb3O8OPrVIaDK3YxMDD8BAA+bX9uobbdbwAAAABJRU5ErkJggg==");
-        background-size: contain;
-        background-position: unset;
+    .friend-name-container .friend-name:before {
+        content: url('/images/offline.png');
         width: 9px;
         height: 9px;
-        z-index: 3;
-        right: 17px !important;
+        display: inline-block;
+        margin-right: 2px;
     }
-    .section.home-friends .icon-studio {
-        background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEMSURBVChTY2SAAL40C4b8P/8YYn//ZZBlZ2F4yMTIsHDWCYbJQLkvIEV8xfYM86VFuIJc9UUZZEU4GB6+/sGw+8Irhpfvv6/uPsCQyFjqwFCoJsbU56DOwcAIMxcI/v1jYNh74wfDzVf/UpiTzBj6tMT+y/79+5vh5y8E/vX7N4MA53+Qeg4mbjYGWRAT6BYMDAL8HAzSTI8/MNx+9w27ordfGRgefWC4y/TkI8PS808ZGH4BBf8CjYThH38YGC4+Y2B48I5hEfPJRwzXDaUZ1G6+ZtD+9guoAOjgW68ZGM48Bpr2j2HJpCMMPTD/cMQYM/hwsDBkAk1UYWViuP71F8PUFRcYdjEwMPwEAMb9fqVBS23FAAAAAElFTkSuQmCC");
-        background-size: contain;
-        background-position: unset;
-        width: 9px;
-        height: 9px;
-        z-index: 3;
-        right: 17px !important;
+    .avatar-container:has(.icon-game) .friend-name-container .friend-name:before {
+        content: url('/images/online.png');
+    }
+    .avatar-container:has(.icon-online) .friend-name-container .friend-name:before {
+        content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEbSURBVChTY2SAAD4G16R8hj+/Yxn+/JJlYOd8yMDItJBh97zJQLkvEAVBxWuFi6b/t9v/6b///f//bfe+/y+YP+U/Q0jpKqA8NzOQkcWjblgg7hbJ8JWRleHNh79gmkvVgOHH+9fav0Xk7zFzBeT0caqbyP78/Zvhx7evCPz9OwOLgCjDfwYGDiZmbj5Zhv//Gf7//oWBQYCFT1ia6eeTO7f/fHjF8P8PUAIN/377guHnk9t3mf9KqbL8/vDWj11KiYEB5Nf//8D4/68fDJ/P7mP48+x+NUiYgyGgYCHQyjB2OTUGVlFphl8vHjH8enqHgYGZZQnDur4UWDhxMNiE+TBwcGUy/PyhwsDGfp3h66epDCfW72JgYPgJAB+ujN+QQHAGAAAAAElFTkSuQmCC');
+    }
+    .avatar-container:has(.icon-studio) .friend-name-container .friend-name:before {
+        content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEfSURBVChTY2SAAL50S8b833//x/78zSDLycbwkJmJceHM4/8nA+W+gBTxlTuzzFeVEwmKdddlYJMTYvjx4B3Doh0XGR4+f7+6bffvROYqV9YsY2X+ghg7KQbmf18ZGN6/YWD5/5XBSIGH4dXHH9qKgn/uMRe48veZKnLJ/vn9i+H79x8I/OMngygfC8gpHEx8nMyy/4Gsn7//YWAQEOZhkWa69fz77ZcffzP8+vMfAz9//4vh5vPvd5nVRf+xvP3yx09ZnIOBAeiNf0BjQfjH7/8Muy9/YLj36mc1yHccpU4sC4HiYWoSHAyywuwMD9/8ZADawMDCzLika++fFFg4cUQZMvhwsTFk/vjNoMLOwnD943eGqWsuM+xiYGD4CQBXmIuqI08/AAAAAABJRU5ErkJggg==');
     }
     .btr-profile #roblox-badges-container .badge-list {
         max-height: 100%;
@@ -6362,6 +6357,8 @@
         Arial,
         Helvetica,
         sans-serif;
+        font-size: 14px;
+        color: #666;
     }
     #inventory-container .item-card,
     #favorites-container .item-card {
@@ -7607,6 +7604,9 @@
     #item-container[data-asset-type="Hat" data-is-limited-unique="true"] .clearfix.item-info-row-container:nth-child(4) span:after {
         content: " Accessory / Collectible Item / Limited Edition"!important;
     }
+    .clearfix.item-info-row-container:has(.holding-tooltip-container) {
+        display: none;
+    }
     .border-bottom.item-name-container {
         border: none;
     }
@@ -7964,13 +7964,13 @@
         z-index: 100;
     }
     .item-details-thumbnail-container .btn-control-md {
-        height: 18px!important;
+        height: 20px!important;
         font-size: 11px;
         background-image: url(/images/StyleGuide/btn-control-small-tile.png);
         border-radius: 0px!important;
         border: 1px solid #777;
         padding: 0 6px;
-        color: #000;
+        color: #000!important;
         font-family: 'Source Sans Pro',
         Arial,
         Helvetica,
