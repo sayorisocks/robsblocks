@@ -15627,6 +15627,9 @@ url-prefix("https://web.roblox.com/") {
         display: unset!important;
     }
 }
+div[style="height:150px;margin-left:auto;width:400px;display:inline-block;float:right;margin-right:0px;position:relative;min-width:380px;margin-bottom:10px;margin-top:-60px;"] {
+    display: none !important;
+}
 #randomGameButton {
     display: none !important;
 if randomgame {
