@@ -33,6 +33,10 @@
     "Early 2014": "land",
     "Late 2014*": "ing"
 }
+@var select ssp "🎨 | Source Sans Pro Style" {
+    "Sharp*": "old",
+    "Smooth": "new"
+}
 @var checkbox thumbs "🎨 | Retro Asset Thumbnails" 1
 @var checkbox tix "🎨 | Tickets over Robux" 0
 @var checkbox topic "🎨 | Catalog Search Suggestions" 0
@@ -50,27 +54,54 @@
 @-moz-document url-prefix("https://www.roblox.com/"), url-prefix("https://web.roblox.com/") {
     /* 2014-esque, made with love by melo 💜💛 */
     /* in loving memory of 2011 */
-    @font-face {
-        font-family: "Source Sans Pro";
-        src: local("Source Sans Pro Bold"), local("SourceSansPro-Bold"), url("http://themes.googleusercontent.com/static/fonts/sourcesanspro/v5/toadOcfmlt9b38dHJxOBGFkQc6VGVFSmCnC_l7QZG60.woff") format("woff");
-        font-style: normal;
-        font-weight: 700;
+    if ssp == old {
+        @font-face {
+            font-family: "Source Sans Pro";
+            src: local("Source Sans Pro Bold"), local("SourceSansPro-Bold"), url("http://themes.googleusercontent.com/static/fonts/sourcesanspro/v5/toadOcfmlt9b38dHJxOBGFkQc6VGVFSmCnC_l7QZG60.woff") format("woff");
+            font-style: normal;
+            font-weight: 700;
+        }
+        @font-face {
+            font-family: "Source Sans Pro";
+            src: local("Source Sans Pro Semibold"),
+            local("SourceSansPro-Semibold"),
+            url("http://themes.googleusercontent.com/static/fonts/sourcesanspro/v5/toadOcfmlt9b38dHJxOBGJ6-ys_j0H4QL65VLqzI3wI.woff") format("woff");
+            font-style: normal;
+            font-weight: 600;
+        }
+        @font-face {
+            font-family: "Source Sans Pro";
+            src: local("Source Sans Pro"),
+            local("SourceSansPro-Regular"),
+            url("http://themes.googleusercontent.com/static/fonts/sourcesanspro/v5/ODelI1aHBYDBqgeIAH2zlBM0YzuT7MdOe03otPbuUS0.woff") format("woff");
+            font-style: normal;
+            font-weight: 400;
+        }
     }
-    @font-face {
-        font-family: "Source Sans Pro";
-        src: local("Source Sans Pro Semibold"),
-        local("SourceSansPro-Semibold"),
-        url("http://themes.googleusercontent.com/static/fonts/sourcesanspro/v5/toadOcfmlt9b38dHJxOBGJ6-ys_j0H4QL65VLqzI3wI.woff") format("woff");
-        font-style: normal;
-        font-weight: 600;
-    }
-    @font-face {
-        font-family: "Source Sans Pro";
-        src: local("Source Sans Pro"),
-        local("SourceSansPro-Regular"),
-        url("http://themes.googleusercontent.com/static/fonts/sourcesanspro/v5/ODelI1aHBYDBqgeIAH2zlBM0YzuT7MdOe03otPbuUS0.woff") format("woff");
-        font-style: normal;
-        font-weight: 400;
+    if ssp == new {
+        @font-face {
+            font-family: "Source Sans Pro";
+            src: url("https://fonts.gstatic.com/s/sourcesanspro/v22/6xK3dSBYKcSV-LCoeQqfX1RYOo3qOK7l.woff2") format("woff2");
+            font-style: normal;
+            font-weight: 400;
+            unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        @font-face {
+            font-family: "Source Sans Pro";
+            src: url("https://fonts.gstatic.com/s/sourcesanspro/v22/6xKydSBYKcSV-LCoeQqfX1RYOo3i54rwlxdu.woff2") format("woff2");
+            font-style: normal;
+            font-weight: 600;
+            unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        @font-face {
+            font-family: "Source Sans Pro";
+            src: url("https://fonts.gstatic.com/s/sourcesanspro/v22/6xKydSBYKcSV-LCoeQqfX1RYOo3ik4zwlxdu.woff2") format("woff2");
+            font-style: normal;
+            font-weight: 300;
+            unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
     }
     .content {
         background-color: transparent!important;
@@ -4972,9 +5003,50 @@
     }
     .game-main-content .game-calls-to-action #game-context-menu {
         right: -149px!important;
-        top: -35px!important;
+        top: -33px!important;
     }
-    .game-stat-footer .game-copylocked-footnote {
+    .game-main-content .game-calls-to-action #game-context-menu .btn-generic-more-sm {
+        background: url("/images/BuildPage/btn-gear_sprite_27px.png") no-repeat;
+        border-radius: 0px;
+        display: inline-block;
+        width: 40px;
+        height: 27px;
+        border: none;
+    }
+    .game-main-content .game-calls-to-action #game-context-menu .btn-generic-more-sm:hover {
+        background-position: 0 -27px;
+    }
+    .game-main-content .game-calls-to-action #game-context-menu:has(.popover.fade) .btn-generic-more-sm {
+        background-position: 0 -54px;
+        z-index: 6000;
+        position: relative;
+    }
+    .game-main-content .game-calls-to-action #game-context-menu .popover.fade {
+        margin-top: -1px;
+        left: unset !important;
+        right: 0;
+        box-shadow: none !important;
+    }
+    .game-main-content .game-calls-to-action #game-context-menu .popover.fade .dropdown-menu {
+        min-width: 125px;
+        background-color: #efefef;
+        border-radius: 0px;
+        border: 1px solid #777;
+        box-shadow: none !important;
+    }
+    #game-context-menu .dropdown-menu > li a, #game-context-menu .dropdown-menu > li button {
+        color: #000 !important;
+        font-size: 12px!important;
+        font-family: Arial, Helvetica, sans-serif!important;
+        padding: 4px 8px !important;
+    }
+    .btr-download-place div, .btr-open-in-explorer div {
+        font-size: 12px!important;
+    }
+    #game-context-menu .dropdown-menu > li {
+        padding: 0px;
+    }
+    .game-stat-footer .game-copylocked-footnote, .game-main-content #game-context-menu .btn-generic-more-sm .icon-more, .game-main-content .game-calls-to-action #game-context-menu .popover.fade .arrow {
         display: none;
     }
     .game-creator .jss4 {
@@ -13256,7 +13328,24 @@
     #highcharts-0 {
             max-width: 405px;
             min-width: 405px;
-        }
+    }
+    .ajax-comments-more-button-container .rbx-comments-see-more {
+        height: 27px;
+        line-height: 24px;
+        font-size: 13px;
+        padding: 0px 7px;
+        background-image: url("/images/StyleGuide/btn-control-large-tile.png");
+        border-radius: 0px;
+        width: unset;
+        color: #000 !important;
+        border-color: #777!important;
+        font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif !important;
+        margin-left: 83px;
+    }
+    .ajax-comments-more-button-container .rbx-comments-see-more:hover {
+        background-position: bottom;
+        border-color: #888!important;
+    }
     }
     @-moz-document url-prefix("https://www.roblox.com/library/"), url-prefix("https://www.roblox.com/badges/"),
     url-prefix("https://www.roblox.com/game-pass/"),
