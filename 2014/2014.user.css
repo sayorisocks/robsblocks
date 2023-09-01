@@ -198,10 +198,10 @@
             min-height: unset!important;
             background-color: #114081!important;
             if obc {
-                background-image: url(/images/RevisedHeader/bg-obc_header.png);
+                background-image: url(http://images.rbxcdn.com/225cbfb387f1d0309fd46c9bee52b979.png);
             }
             if themes == hallow {
-                background-image: url(/images/RevisedHeader/bg-obc_header.png);
+                background-image: url(http://images.rbxcdn.com/225cbfb387f1d0309fd46c9bee52b979.png);
             }
             if themes == turkey {
                 background-image: url('https://assetdelivery.roblox.com/v1/asset?id=14431014238');
@@ -220,10 +220,10 @@
             min-height: unset!important;
             background-color: #114081!important;
             if obc {
-                background-image: url(/images/RevisedHeader/bg-obc_header.png);
+                background-image: url(http://images.rbxcdn.com/225cbfb387f1d0309fd46c9bee52b979.png);
             }
             if themes == hallow {
-                background-image: url(/images/RevisedHeader/bg-obc_header.png);
+                background-image: url(http://images.rbxcdn.com/225cbfb387f1d0309fd46c9bee52b979.png);
             }
             if themes == turkey {
                 background-image: url('https://assetdelivery.roblox.com/v1/asset?id=14431014238');
@@ -241,7 +241,7 @@
         max-width: 1106px;
         margin-top: -3px;
         if layout == sep {
-            max-width: unset!important;
+            max-width: 142px!important;
             width: unset!important;
             padding: 0!important;
         }
@@ -340,11 +340,18 @@
             display: none!important;
         }
     }
-
+    .btr-no-hamburger #header .icon-logo {
+        if layout == sep {
+            margin: 5px 5px 0 17px;
+        }
+        if layout == dec {
+            margin-top: 5px;
+        }
+    }
     .rbx-header .icon-logo {
         width: 120px!important;
         height: 30px!important;
-        margin: 5px 5px 0 17px;
+        margin: 8px 5px 0 17px;
         background-size: unset;
         if layout == sep {
             background-position-x: 6px;
@@ -1719,6 +1726,12 @@
             max-height: 35px;
         }
     }
+    .btr-no-hamburger .rbx-header .navbar-brand {
+        if layout == "dec" {
+            margin-left: 0px;
+            padding: 0;
+        }
+    }
     .rbx-header .navbar-search .navbar-search-option .new-navbar-search-anchor .navbar-list-option-text,
     .rbx-header .navbar-search .navbar-search-option .new-navbar-search-anchor .navbar-list-option-suffix {
         color: #444!important;
@@ -1919,7 +1932,7 @@
     }
     if layout == "thirteen" {
         #navbar-robux > button {
-            padding: 10px 4px 0 4px;
+            padding: 11px 4px 0 4px;
             min-height: 35px;
             margin-right: 3px;
         }
@@ -2372,7 +2385,6 @@
     }
     #buy-robux-popover-menu li:first-child {
         padding: 10px;
-        border-bottom: 1px solid #ccc;
         if layout == "dec" {
             border-bottom: revert;
             padding: 0 6px;
@@ -2381,7 +2393,6 @@
     #buy-robux-popover-menu li:first-child a {
         font-size: 14px;
         font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
-        text-transform: uppercase;
         text-align: center;
         color: #888!important;
         display: inline-block;
@@ -2425,6 +2436,11 @@
         display: inline-block;
         position: relative;
         top: -3px;
+        if layout == sep {
+            if tix {
+                background-position: -6px -426px;
+            }
+        }
         if layout == "dec" {
             display: none;
         }
@@ -2451,6 +2467,9 @@
         font-size: 14px;
         position: relative;
         top: -12px;
+        if tix {
+            content: "Buy Tickets";
+        }
         if layout == "dec" {
             font-size: 16px;
             top: 0px;
@@ -3468,6 +3487,55 @@
     }
     .thumbnail-2d-container img {
         transition: none;
+    }
+    #buy-robux-popover-menu li a {
+        font-size: 16px;
+        font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+        color: #000!important;
+        if layout == june {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+        }
+    }
+    #buy-robux-popover-menu li a[href="https://www.roblox.com/redeem"], #buy-robux-popover-menu li a[href="https://web.roblox.com/redeem"] {
+        font-size: 0px;
+    }
+    #buy-robux-popover-menu li a[href="https://www.roblox.com/redeem"]:after, #buy-robux-popover-menu li a[href="https://web.roblox.com/redeem"]:after {
+        font-size: 16px!important;
+        content: "Reedem Codes";
+        if layout == june {
+            font-size: 12px!important;
+        }
+    }
+    #buy-robux-popover #buy-robux-popover-menu .wallet-hidden {
+        display: block;
+    }
+    #buy-robux-popover #buy-robux-popover-menu .dropdown-wallet-section #nav-robux {
+        display: none;
+    }
+    if layout == dec {
+        #buy-robux-popover #buy-robux-popover-menu .wallet-hidden .rbx-divider {
+            display: none;
+        }
+    }
+    #buy-robux-popover #buy-robux-popover-menu .dropdown-wallet-section #nav-robux-balance:after {
+        content: " ROBUX";
+        if tix {
+            content: " Tickets";
+        }
+    }
+    #header-menu-icon {
+        margin: 0;
+        margin-right: 10px;
+        if layout == jan {
+            margin-right: 0;
+        }
+    }
+    if layout == sep {
+        .menu-button.btn-navigation-nav-menu-md {
+            padding: 2px;
+            margin-top: 4px;
+        }
     }
     }
     @-moz-document url-prefix("https://www.roblox.com/home"),
@@ -6101,10 +6169,10 @@
            background-color: #393939!important; 
         }
         if layout == thirteen {
-            background-image: url("/images/RevisedHeader/bg-obc_header.png");
+            background-image: url("http://images.rbxcdn.com/225cbfb387f1d0309fd46c9bee52b979.png");
         }
         if layout == june {
-            background-image: url("/images/RevisedHeader/bg-obc_header.png");
+            background-image: url("http://images.rbxcdn.com/225cbfb387f1d0309fd46c9bee52b979.png");
         }
     }
     .rbx-header .icon-logo {
@@ -6453,6 +6521,9 @@
             font-size: 12px;
             color: #000;
         }
+    }
+    .profile-about .profile-about-content .text-link {
+        color: #0055B3;
     }
     .btr-profile .btr-header-status-text {
         font-size: 14px;
@@ -8130,6 +8201,35 @@
         #aliases-container {
             display: none;
         }
+    }
+    .profile-about .remove-panel .description-container .personal-field-description {
+        all: revert;
+        resize: vertical;
+        width: 100%;
+        margin-top: 10px;
+    }
+    .profile-about .remove-panel .description-container .small.text, .profile-about .remove-panel .description-container .form-control-label {
+        font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        color: #8c8c8c;
+    }
+    .profile-about .remove-panel .description-container .description-buttons button {
+        font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+        height: 27px;
+        line-height: 24px;
+        font-size: 13px!important;
+        padding: 0px 7px;
+        background-image: url(/images/StyleGuide/btn-control-large-tile.png);
+        border-radius: 0px;
+        border-color: #777;
+        color: #000;
+        width: unset;
+        min-width: unset;
+        background-position: top;
+    }
+    .profile-about .remove-panel .description-container .description-buttons button:hover {
+        background-position: bottom;
+        border-color: #888;
     }
     }
     @-moz-document url-prefix("https://www.roblox.com/groups/"),
@@ -10656,7 +10756,7 @@
     }
     .item-cards-stackable {
         width: 800px;
-        overflow: hidden;
+        margin-top: 13px;
     }
     .container-main .catalog-full-screen .catalog-results .item-cards-stackable .item-card .item-card-thumb-container {
         width: 112px;
@@ -10666,13 +10766,11 @@
     }
     .container-main .catalog-full-screen .catalog-results .item-cards-stackable .item-card {
         width: 116px;
-        font-family: 'Source Sans Pro',
-        Arial,
-        Helvetica,
-        sans-serif;
+        font-family: 'Source Sans Pro',Arial,Helvetica,sans-serif;
         margin-right: 15px;
         height: 100%;
-    }
+        margin-bottom: -35px;
+   }
     .thumbnail-2d-container,
     .item-card-thumb-container {
         background-color: transparent!important;
@@ -10681,7 +10779,7 @@
     .container-main .catalog-full-screen .catalog-results .item-cards-stackable .item-card .item-card-container {
         width: 112px;
         padding-top: 9px;
-        padding-bottom: 10px;
+        padding-bottom: 21px;
         padding-left: 8px;
         border: 1px solid transparent;
     }
@@ -10765,11 +10863,13 @@
         transition: none;
         height: unset;
         cursor: default;
+        background: white;
+        z-index: 1;
     }
     .btr-catalog .btr-item-card-more {
         background: transparent!important;
         box-shadow: none!important;
-        bottom: 2px!important;
+        bottom: -1px!important;
         left: 5px!important;
         transition: none!important;
     }
@@ -11451,6 +11551,9 @@
     }
     .topic-container .topic-navigation-blur-left, .topic-container .topic-navigation-blur-right {
         backdrop-filter: none;
+    }
+    .item-card-container:has(.item-card-label[title=]) .item-card-label[ng-show="item.purchaseCount!==undefined"] {
+        display: none;
     }
     }
     @-moz-document url-prefix("https://www.roblox.com/catalog/"),
@@ -13158,6 +13261,7 @@
     #item-container[data-asset-type="TShirt"] .item-details-thumbnail-container .thumbnail-2d-container:before {
         position: absolute;
         content: url("https://assetdelivery.roblox.com/v1/asset?id=13774284467");
+        pointer-events: none;
     }
     asset-resale-pane .resale-pricechart-tabs .tab-content {
         display: inline-flex;
