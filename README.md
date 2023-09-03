@@ -1,9 +1,8 @@
 # <img src="https://raw.githubusercontent.com/sayorisocks/robsblocks/main/other/2012.png" width="24"/> rob's blocks (robsblocks)
-___
 
-userstyles for [Roblox](https://roblox.com/) that make the site look similar to how they did over a decade ago
+userstyles for [roblox.com](https://roblox.com/) that attempt to make the site look similar to how they did over a decade ago! that's pretty cool i think..
 
-all of these require btroblox & having the *light theme* enabled in your roblox account settings . no exemption!
+all of these require [btroblox](https://www.google.com/search?q=btroblox) & having the *light theme* enabled in your [roblox account settings](https://www.roblox.com/my/account) . no exemption!
 
 two of these (2010 & 2011) require some sort of userscript manager to use properly. tampermonkey is preferred!
 
