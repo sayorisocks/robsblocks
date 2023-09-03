@@ -155,7 +155,7 @@
     }
     #rbx-body.dark-theme:before {
         content: "switch to the light theme plz.. thx :3";
-        position: absolute;
+        position: fixed;
         top: 0;
         z-index: 243324234;
         font-size: 100px;
@@ -894,7 +894,7 @@
         background: #e1e2e6!important;
         if layout == "dec" {
             background-color: #f2f2f2!important;
-            box-shadow:0 0 60px rgba(25,25,25,0.5)!important;
+            box-shadow: 0 0 3px rgba(25,25,25,0.3)!important;
         }
         if layout == "jan" {
             background: #202020!important;
@@ -2910,11 +2910,11 @@
     .footer .col-sm-6.col-md-3 {
         display: none;
     }
-    .footer .col-sm-6.col-md-9 {
+    .footer .col-sm-6.col-md-9, .footer .col-sm-12 {
         display: flex;
         width: 100%;
     }
-    .footer .col-sm-6.col-md-9:before {
+    .footer .col-sm-6.col-md-9:before, .footer .col-sm-12:before {
         content: url('https://assetdelivery.roblox.com/v1/asset?id=337023599');
         if layout == june {
             content: url('https://assetdelivery.roblox.com/v1/asset?id=14281034904');
@@ -3551,6 +3551,9 @@
         background-color: white;
         padding: 10px;
         max-width: 990px;
+        if layout == dec {
+            background-color: transparent;
+        }
     }
     #Skyscraper-Abp-Left, #Skyscraper-Abp-Right {
         display: none;
@@ -7302,6 +7305,7 @@
         background-color: #EFEFEF;
         border-radius: 0px;
         border: 1px solid #777;
+        box-shadow: none!important;
     }
     #profile-header-more .dropdown-menu > li button,
     #profile-header-more .dropdown-menu > li a {
@@ -8212,6 +8216,11 @@
         font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
         font-size: 12px;
         color: #8c8c8c;
+        line-height: 1em;
+        if layout == june {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 11px;
+        }
     }
     .profile-about .remove-panel .description-container .description-buttons button {
         font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
@@ -8226,10 +8235,25 @@
         width: unset;
         min-width: unset;
         background-position: top;
+        if layout == june {
+            font-family: Arial, Helvetica, sans-serif;
+        }
     }
     .profile-about .remove-panel .description-container .description-buttons button:hover {
         background-position: bottom;
         border-color: #888;
+    }
+    .profile-about .remove-panel .description-container .description-event {
+        margin-bottom: 10px;
+    }
+    .profile-about .remove-panel .description-container.form-has-error .form-control-label {
+        color: #c00;
+        if layout == june {
+            color: #900;
+        }
+    }
+    .profile-about .remove-panel .description-container.form-has-error .small.text[ng-bind="'Description.AboutWarning' | translate"] {
+        display: none;
     }
     }
     @-moz-document url-prefix("https://www.roblox.com/groups/"),
@@ -10769,7 +10793,7 @@
         font-family: 'Source Sans Pro',Arial,Helvetica,sans-serif;
         margin-right: 15px;
         height: 100%;
-        margin-bottom: -35px;
+        margin-bottom: -30px;
    }
     .thumbnail-2d-container,
     .item-card-thumb-container {
@@ -10782,6 +10806,9 @@
         padding-bottom: 21px;
         padding-left: 8px;
         border: 1px solid transparent;
+    }
+    .container-main .catalog-full-screen .catalog-results .item-cards-stackable .item-card .item-card-container:has(.item-card-label.ng-hide) {
+        padding-bottom: 8px;
     }
     .item-card-container .item-card-name {
         color: #0055B3;
@@ -11583,7 +11610,7 @@
         padding: 76px 0 25px 0;
         min-height: 736px;
     }
-    .section-content.remove-panel, #recommendations-container, #AjaxCommentsContainer, .container-list.bundle-items, asset-resale-pane, #highcharts-0, #highcharts-4, #sponsored-catalog-items {
+    .section-content.remove-panel, #recommendations-container, #AjaxCommentsContainer, .container-list.bundle-items, asset-resale-pane, #highcharts-0, #highcharts-4, #sponsored-catalog-items, .btr-owners-container {
         max-width: 762px;
     }
     .section-content.remove-panel {
@@ -13450,6 +13477,10 @@
         background-position: bottom;
         border-color: #888!important;
     }
+    div[style="position: relative; float: right; height: 28px; margin-bottom: -28px; margin-top: 5px;"] {
+        margin-right: 208px;
+        top: 13px;
+    }
     }
     @-moz-document url-prefix("https://www.roblox.com/library/"), url-prefix("https://www.roblox.com/badges/"),
     url-prefix("https://www.roblox.com/game-pass/"),
@@ -14997,19 +15028,11 @@
     @-moz-document url-prefix("https://www.roblox.com/trades"),
     url-prefix("https://web.roblox.com/trades") {
         /* Trades */
+        /* eventually! */
         #trades-container {
             height: 890px;
             background: white;
         }
-
-
-
-
-
-
-
-
-
     }
     
     @-moz-document url-prefix("https://www.roblox.com/info/roblox-badges"),
@@ -15450,7 +15473,7 @@
     @-moz-document url-prefix("https://www.roblox.com/login"),
     url-prefix("https://web.roblox.com/Login"),
     url-prefix("https://web.roblox.com/login"),
-    url-prefix("https://www.roblox.com/Login") {
+    url-prefix("https://www.roblox.com/Login"), url-prefix("https://www.roblox.com/NewLogin"), url-prefix("https://web.roblox.com/NewLogin") {
     /* Login Page */
     .content {
         background-color: white!important;
@@ -17933,6 +17956,21 @@ if landing == "ing" {
         }
         .badge-row:has(a[href="https://www.roblox.com/badges/66956295/Tornado-vs-Trailer-Park"]) .badge-image img, .badge-row:has(a[href="https://web.roblox.com/badges/66956295/Tornado-vs-Trailer-Park"]) .badge-image img {
             content: url('https://assetdelivery.roblox.com/v1/asset?id=66956242');
+        }
+    }
+    
+    @-moz-document url-prefix("https://create.roblox.com"),
+    url-prefix("https://blog.roblox.com"), url-prefix("https://corp.roblox.com/") {
+        /* Other Branding */
+        /* why not? */
+        img[src="https://create.roblox.com/public/navigation/studio_white_6e182b65422816611cb366c6e97fdf3f.svg"] {
+            content: url('http://images.rbxcdn.com/1a10c788eebfe2e15d618eb38d5133ad.png');
+        }
+        footer.jss6 img[alt="footerLogo"] {
+            content: url('https://www.roblox.com/images/NextStyleGuide/logo_ROBLOX_120x30.svg');
+        }
+        #site-navigation-wrapper > article .brand-logo a, .brand-logo a, #header .site-title a {
+            background: url(https://www.roblox.com/images/NextStyleGuide/logo_ROBLOX_120x30.svg) center/contain no-repeat;
         }
     }
     @-moz-document url-prefix("https://www.roblox.com/users/"),

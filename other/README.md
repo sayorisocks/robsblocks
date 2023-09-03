@@ -6,4 +6,4 @@ things here **will** be broken, these themes range from november of 2022 - march
 
 feel free to fork any of these and fix them!! :3
 
-**please credit me (and fuzzy_bit for 2010) if reuploading these to other websites!!**
+**please credit me (and [fuzzy-bit](https://github.com/fuzzy-bit) for 2010) if reuploading these to other websites!!**
