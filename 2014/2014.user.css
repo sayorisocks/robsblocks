@@ -3110,6 +3110,24 @@
     .chat-container.collapsed .chat-main {
         background-color: transparent;
     }
+
+// chat windows
+.chat-windows-header {
+    background-image: url("data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAIBAQEBAQIBAQECAgICAgQDAgICAgUEBAMEBgUGBgYFBgYGBwkIBgcJBwYGCAsICQoKCgoKBggLDAsKDAkKCgr/2wBDAQICAgICAgUDAwUKBwYHCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgr/wgARCAAYAAEDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAUH/8QAFgEBAQEAAAAAAAAAAAAAAAAABwUG/9oADAMBAAIQAxAAAAHHkk8i0cZ+3//EABYQAQEBAAAAAAAAAAAAAAAAAAATAf/aAAgBAQABBQKuLqv/xAAYEQACAwAAAAAAAAAAAAAAAAAAAQISFP/aAAgBAwEBPwHMykT/xAAYEQACAwAAAAAAAAAAAAAAAAAAAQITFP/aAAgBAgEBPwHUiyR//8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQAGPwJ//8QAFxAAAwEAAAAAAAAAAAAAAAAAABFRYf/aAAgBAQABPyHQajU//9oADAMBAAIAAwAAABDIL//EABURAQEAAAAAAAAAAAAAAAAAAABh/9oACAEDAQE/EIJP/8QAFREBAQAAAAAAAAAAAAAAAAAAAGH/2gAIAQIBAT8Qsu//xAAWEAADAAAAAAAAAAAAAAAAAAAAYZH/2gAIAQEAAT8QQopRin//2Q==");
+    height: 24px;
+    color: #fff !important;
+}
+    .dialog-container .dialog-visible {
+        max-height: 294px !important;
+    }
+    #mCSB_2 {
+        width: 90%;
+        left: 5%;
+        max-height: 294px !important;
+        background-color: #fff;
+        border: solid 1px black;
+    }
+
     /*roblox.com/download*/
     #download-body, #download-body h1, .step-text, .step-title, h1.title-level, #thanks-body .instructions-text.big {
         font-family: 'Source Sans Pro',Arial,Helvetica,sans-serif;
@@ -5063,6 +5081,9 @@ url-prefix("https://web.roblox.com/games/") {
     }
     .ropro-cloud-play-container {
         float: left!important;
+    }
+    .random-server-button {
+        display: none !important;
     }
     .game-stat-footer {
         position: absolute;
@@ -10338,7 +10359,7 @@ url-prefix("https://web.roblox.com/users/") {
         background: url('https://assetdelivery.roblox.com/v1/asset?id=14438384463') no-repeat top left;
         border: none;
         border-radius: 0px!important;
-        width: 27px!important;
+        width: 27px!important;https://github.com/sayorisocks/robsblocks
         height: 27px!important;
     }
     .btn-generic-left-sm, .inbox-buttons .roblox-message-back-btn {
