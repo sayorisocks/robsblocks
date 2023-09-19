@@ -369,8 +369,9 @@
             background: url(/images/RevisedHeader/btn-rbx_logo.png) no-repeat top!important;
             width: 116px!important;
             height: 35px!important;
+            margin-left: 0;
             margin-right: 4px;
-            margin-top: 0px;
+            margin-top: 0;
             display: block!important;
             if obc {
                 background-image: url(/images/RevisedHeader/btn-obc_logo.png)!important;
@@ -401,8 +402,9 @@
             background: url(/images/RevisedHeader/btn-rbx_logo.png) no-repeat top!important;
             width: 116px!important;
             height: 35px!important;
+            margin-left: 0;
             margin-right: 4px;
-            margin-top: 0px;
+            margin-top: 0;
             display: block!important;
             if obc {
                 background-image: url(/images/RevisedHeader/btn-obc_logo.png)!important;
@@ -2077,7 +2079,7 @@
                 content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACkAAAAkCAMAAAAjIOMaAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAABdUExURYxIALGMZoZFALaPZoNDALWOZoJCALSOZqR2Rsapi////4FBALONZqN0RKd6TfPt57CIX31AAKR6Ta2HX+XZzMSoi6J3SYdPFNbCrng+AK6LZnU7AHM6AHA4ADweBAPFikUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADOSURBVDhP5c3RDoIwDEBRCgiyoVgHKIL8/2fajQJuAR2J+uINoR05GcHfBjzfRzL0C8IfyCjixc2VEcWrkyO1W6Ek47kdpV98tII4SKbSNOVphh0ksyS4J0SDZSZENmwUScnleX6Qx1xP/lKcpOBVSpABDgEAnvVDc0gViGXFBwRkqUFNr4saIaoS8boksTYXTnDtTn2p+TcfdYVCweuzNNSCWAkxXallM3ajeF0ImlkS5WUpS75sk2z9gnaD7PyC7vOy2yLvvn1F9n71/QNMq05w5ejz2wAAAABJRU5ErkJggg==');
             }
             if themes == turkey12 {
-                content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACkAAAAkCAYAAAAU/hMoAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAFKSURBVFhH7ZY9bgIxEEZ3aSLaUKXgIBRUqdLS5QKpCE1uAlRIOUWKCCSKVBwCKaLjDKk232dsZKysdxwwIDRPGs2PjffJbigURbkx3qZfFXPLdFeOSp6K25asquqFYdus/EvSlzuHaLKkL1WW5Yw5t2iSZEwmp6hYMrxBd4t+nUtUJBl8fMPezfw6BvasEI6+HYtolMSBvsA3bm2BvN21h7gbDcEZI6QO1kvkKeKdcylRSV/QCrQ5Q/2BevvHeh2PiDkL7HtFumctpVYyFED/hPKBvV1bIX7YNwgeTeNzO0HkT7T+Mw8Qd7kFSa2k+7i9tS4zZuaZOScJgkvEMwucM0Fas5YSvclQwgqbJ0+5QewdI63xe/4/HKLvmQUhoue25Z4UQQfFEAY7EtMoSXDuXsqvz4VIklDuEoJELHlJVPJUqKSiKEqMovgFItKT+JVjoR4AAAAASUVORK5CYII=');
+                content: url('https://assetdelivery.roblox.com/v1/asset?id=14811541890');
             }
             if themes == holiday12 {
                 content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACkAAAAkCAYAAAAU/hMoAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAFKSURBVFhH7ZY9bgIxEEZ3aSLaUKXgIBRUqdLS5QKpCE1uAlRIOUWKCCSKVBwCKaLjDKk232dsZKysdxwwIDRPGs2PjffJbigURbkx3qZfFXPLdFeOSp6K25asquqFYdus/EvSlzuHaLKkL1WW5Yw5t2iSZEwmp6hYMrxBd4t+nUtUJBl8fMPezfw6BvasEI6+HYtolMSBvsA3bm2BvN21h7gbDcEZI6QO1kvkKeKdcylRSV/QCrQ5Q/2BevvHeh2PiDkL7HtFumctpVYyFED/hPKBvV1bIX7YNwgeTeNzO0HkT7T+Mw8Qd7kFSa2k+7i9tS4zZuaZOScJgkvEMwucM0Fas5YSvclQwgqbJ0+5QewdI63xe/4/HKLvmQUhoue25Z4UQQfFEAY7EtMoSXDuXsqvz4VIklDuEoJELHlJVPJUqKSiKEqMovgFItKT+JVjoR4AAAAASUVORK5CYII=');
@@ -2095,7 +2097,7 @@
                     content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACkAAAAkCAMAAAAjIOMaAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAABmUExURYxIALGMZoZFALaPZptlLINDALWOZoJCALSOZphjLJFZH/Pt5////4FBALONZsapi+bZzNfDrn1AAJNhLOXZzMSoi62HX41XH35BAodOE9bCrng+AK6LZo9fLHU7AHM6AHA4ADweBO/FHDgAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADASURBVDhP5c8NC4JADIBhZ5mVabn8KC1P//+fbJu7UJI6ISHoAa9NXwy9vwX6+xmVvhvwf65crXUYmlUGIxtL9ycIvJBtFQ27ntwegNCWeyKl7L3oEOkkZcySRM/EovV4itOU7zOIPWSg8NyjCTHLsYjkMQG0ZVnyhRdZaacjKxAnSsQrH/rud++kg1P5az5ozzOsKnlMbDkCnDH6dp2krF/c7joMQT1RTlqobNxAM6M0bsB8vzRzytbVImXnpuse7ZxV3dHEYvsAAAAASUVORK5CYII=');
                 }
                 if themes == turkey12 {
-                    content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACkAAAAkCAYAAAAU/hMoAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAEzSURBVFhH7ZYxEgFBEEV3HIFruIBACQTOIFciJM4hIlLlCA4gEEi4gJKIHMAZ1u/Ro5bd2R20LVS/ql/d0zu1/U3XIFIU5c8YzzYxxYpdfTlqUgo1KYWIyTiO+1Cdl+L8xEkajk9BJ8epF2PMnNOXoe/JyaBlUiaLDFDzxJ4txxTYt+f0ZZzJvHGvHpSCjPjEW27gg+0gR5PLQXhNotEpKS7fgWZ0YTLFWyxYjxBqeA9NbgYtqB6K12ReU0Bj9imLNmSnAZ9DhCrloYSM25FcH9AsaMwSFI4b6fJaiTq8JnqPJ+3Ez0XJO0kLjJ0RrNGEiawRZ9Uca6hLCd4xRThSXip8irm/OHh+u91cKqT0/5OYSAOycCkYEZPoO4c+cmmI0k7yHdSkFGpSip8wqSjKfxJFF+XdszmMz2QCAAAAAElFTkSuQmCC');
+                    content: url('https://assetdelivery.roblox.com/v1/asset?id=14811556164');
                 }
                 if themes == holiday12 {
                     content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACkAAAAkCAYAAAAU/hMoAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAEzSURBVFhH7ZYxEgFBEEV3HIFruIBACQTOIFciJM4hIlLlCA4gEEi4gJKIHMAZ1u/Ro5bd2R20LVS/ql/d0zu1/U3XIFIU5c8YzzYxxYpdfTlqUgo1KYWIyTiO+1Cdl+L8xEkajk9BJ8epF2PMnNOXoe/JyaBlUiaLDFDzxJ4txxTYt+f0ZZzJvHGvHpSCjPjEW27gg+0gR5PLQXhNotEpKS7fgWZ0YTLFWyxYjxBqeA9NbgYtqB6K12ReU0Bj9imLNmSnAZ9DhCrloYSM25FcH9AsaMwSFI4b6fJaiTq8JnqPJ+3Ez0XJO0kLjJ0RrNGEiawRZ9Uca6hLCd4xRThSXip8irm/OHh+u91cKqT0/5OYSAOycCkYEZPoO4c+cmmI0k7yHdSkFGpSip8wqSjKfxJFF+XdszmMz2QCAAAAAElFTkSuQmCC');
@@ -3899,6 +3901,9 @@
         font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
         color: #343434;
         font-size: 14px;
+        if layout == june {
+            font-family: Arial, Helvetica, sans-serif;
+        }
     }
     }
     @-moz-document url-prefix("https://www.roblox.com/not-approved"),
@@ -5215,6 +5220,7 @@
         left: unset !important;
         right: 0;
         box-shadow: none !important;
+        transition: none;
     }
     .game-main-content .game-calls-to-action #game-context-menu .popover.fade .dropdown-menu {
         min-width: 125px;
@@ -5730,7 +5736,8 @@
         margin-top: unset;
     }
     #running-game-instances-container h2,
-    #roproMostRecentServerContainer h3 {
+    #roproMostRecentServerContainer h3,
+    #rbx-private-servers .container-header:before {
         font-size: 15px;
         font-weight: bold;
         font-family: 'Source Sans Pro',
@@ -5742,6 +5749,15 @@
             font-family: Arial, Helvetica, sans-serif;
         }
     }
+    #rbx-private-servers .container-header h2 {
+        font-size: 0;
+    }
+    #rbx-private-servers .container-header h2:before {
+        content: "VIP Servers";
+        font-size: 15px;
+        position: relative;
+        top: 8px;
+    }
     .create-server-banner .create-server-banner-text {
         font-size: 14px;
         font-family: 'Source Sans Pro',
@@ -5750,7 +5766,6 @@
         sans-serif;
         color: #343434;
         position: relative;
-        left: -102px;
         top: 3px;
         if layout == june {
             color: black;
@@ -6264,7 +6279,7 @@
     }
     }
     @-moz-document url-prefix("https://www.roblox.com/users/261/profile"),
-    url-prefix("https://web.roblox.com/users/261/profile"), url-prefix("https://www.roblox.com/users/66607594/profile"), url-prefix("https://web.roblox.com/users/66607594/profile"), url-prefix("https://www.roblox.com/users/66782613/profile"), url-prefix("https://web.roblox.com/users/66782613/profile"), url-prefix("https://www.roblox.com/users/21557/profile"), url-prefix("https://web.roblox.com/users/21557/profile"), url-prefix("https://www.roblox.com/users/8139872/profile"), url-prefix("https://web.roblox.com/users/8139872/profile"), url-prefix("https://www.roblox.com/users/82471/profile"), url-prefix("https://web.roblox.com/users/82471/profile"), url-prefix("https://www.roblox.com/users/13416513/profile"), url-prefix("https://web.roblox.com/users/13416513/profile"), url-prefix("https://www.roblox.com/users/4307571/profile"), url-prefix("https://web.roblox.com/users/4307571/profile"), url-prefix("https://www.roblox.com/users/2312310/profile"), url-prefix("https://web.roblox.com/users/2312310/profile"), url-prefix("https://www.roblox.com/users/9221858/profile"), url-prefix("https://web.roblox.com/users/9221858/profile"), url-prefix("https://www.roblox.com/users/19717956/profile"), url-prefix("https://web.roblox.com/users/19717956/profile"), url-prefix("https://www.roblox.com/users/80254/profile"), url-prefix("https://web.roblox.com/users/80254/profile"), url-prefix("https://www.roblox.com/users/2032622/profile"), url-prefix("https://web.roblox.com/users/2032622/profile"), url-prefix("https://www.roblox.com/users/7559912/profile"), url-prefix("https://web.roblox.com/users/7559912/profile"), url-prefix("https://www.roblox.com/users/71435472/profile"), url-prefix("https://web.roblox.com/users/71435472/profile"), url-prefix("https://www.roblox.com/users/2619251876/profile"), url-prefix("https://web.roblox.com/users/2619251876/profile"), url-prefix("https://www.roblox.com/users/56486632/profile"), url-prefix("https://web.roblox.com/users/56486632/profile"), url-prefix("https://www.roblox.com/users/114659851/profile"), url-prefix("https://web.roblox.com/users/114659851/profile"), url-prefix("https://www.roblox.com/users/317407626/profile"), url-prefix("https://web.roblox.com/users/317407626/profile"), url-prefix("https://www.roblox.com/users/66541191/profile"), url-prefix("https://web.roblox.com/users/66541191/profile"), url-prefix("https://www.roblox.com/users/169444427/profile"), url-prefix("https://web.roblox.com/users/169444427/profile"), url-prefix("https://www.roblox.com/users/66106987/profile"), url-prefix("https://web.roblox.com/users/66106987/profile"), url-prefix("https://www.roblox.com/users/281519/profile"), url-prefix("https://web.roblox.com/users/281519/profile"), url-prefix("https://www.roblox.com/users/3384475/profile"), url-prefix("https://web.roblox.com/users/3384475/profile"), url-prefix("https://www.roblox.com/users/16904761/profile"), url-prefix("https://web.roblox.com/users/16904761/profile") {
+    url-prefix("https://web.roblox.com/users/261/profile"), url-prefix("https://www.roblox.com/users/66607594/profile"), url-prefix("https://web.roblox.com/users/66607594/profile"), url-prefix("https://www.roblox.com/users/66782613/profile"), url-prefix("https://web.roblox.com/users/66782613/profile"), url-prefix("https://www.roblox.com/users/21557/profile"), url-prefix("https://web.roblox.com/users/21557/profile"), url-prefix("https://www.roblox.com/users/8139872/profile"), url-prefix("https://web.roblox.com/users/8139872/profile"), url-prefix("https://www.roblox.com/users/82471/profile"), url-prefix("https://web.roblox.com/users/82471/profile"), url-prefix("https://www.roblox.com/users/13416513/profile"), url-prefix("https://web.roblox.com/users/13416513/profile"), url-prefix("https://www.roblox.com/users/4307571/profile"), url-prefix("https://web.roblox.com/users/4307571/profile"), url-prefix("https://www.roblox.com/users/2312310/profile"), url-prefix("https://web.roblox.com/users/2312310/profile"), url-prefix("https://www.roblox.com/users/9221858/profile"), url-prefix("https://web.roblox.com/users/9221858/profile"), url-prefix("https://www.roblox.com/users/19717956/profile"), url-prefix("https://web.roblox.com/users/19717956/profile"), url-prefix("https://www.roblox.com/users/80254/profile"), url-prefix("https://web.roblox.com/users/80254/profile"), url-prefix("https://www.roblox.com/users/2032622/profile"), url-prefix("https://web.roblox.com/users/2032622/profile"), url-prefix("https://www.roblox.com/users/7559912/profile"), url-prefix("https://web.roblox.com/users/7559912/profile"), url-prefix("https://www.roblox.com/users/71435472/profile"), url-prefix("https://web.roblox.com/users/71435472/profile"), url-prefix("https://www.roblox.com/users/2619251876/profile"), url-prefix("https://web.roblox.com/users/2619251876/profile"), url-prefix("https://www.roblox.com/users/56486632/profile"), url-prefix("https://web.roblox.com/users/56486632/profile"), url-prefix("https://www.roblox.com/users/114659851/profile"), url-prefix("https://web.roblox.com/users/114659851/profile"), url-prefix("https://www.roblox.com/users/317407626/profile"), url-prefix("https://web.roblox.com/users/317407626/profile"), url-prefix("https://www.roblox.com/users/66541191/profile"), url-prefix("https://web.roblox.com/users/66541191/profile"), url-prefix("https://www.roblox.com/users/169444427/profile"), url-prefix("https://web.roblox.com/users/169444427/profile"), url-prefix("https://www.roblox.com/users/66106987/profile"), url-prefix("https://web.roblox.com/users/66106987/profile"), url-prefix("https://www.roblox.com/users/281519/profile"), url-prefix("https://web.roblox.com/users/281519/profile"), url-prefix("https://www.roblox.com/users/3384475/profile"), url-prefix("https://web.roblox.com/users/3384475/profile"), url-prefix("https://www.roblox.com/users/16904761/profile"), url-prefix("https://web.roblox.com/users/16904761/profile"), url-prefix("https://www.roblox.com/users/5000861/profile"), url-prefix("https://web.roblox.com/users/5000861/profile"), url-prefix("https://www.roblox.com/users/6686423/profile"), url-prefix("https://web.roblox.com/users/6686423/profile"), url-prefix("https://www.roblox.com/users/2182958/profile"), url-prefix("https://web.roblox.com/users/2182958/profile"), url-prefix("https://www.roblox.com/users/2837719/profile"), url-prefix("https://web.roblox.com/users/2837719/profile") {
     /* OBC Memberships */
     /* feel free to give urself obc here! */
     /* this list of urls is quite absurd, don't you think? */
@@ -6755,6 +6770,7 @@
     }
     .btr-profile .btr-games-list .btr-game-thumb {
         height: 230px;
+        object-fit: fill;
     }
     .btr-profile .btr-game .btr-game-title:before {
         content: "▶";
@@ -7075,7 +7091,10 @@
         border-color: #888;
     }
     .header-details .details-actions.desktop-action .btn-friends.ng-scope {
-        padding-right: 6px;
+        padding-right: 18px;
+        if layout == june {
+            padding-right: 6px;
+        }
     }
     .btr-profile .btr-header-status-parent {
         margin-top: 25px;
@@ -7307,7 +7326,7 @@
     .btr-profile .profile-container .profile-game:after,
     .btr-profile-favorites:after,
     #people-list-container:after,
-    #roblox-badges-container:after,
+    #roblox-badges-container:has(.badge-list):after,
     .btr-profile-playerbadges:after,
     .placeholder-games:after {
         background-color: #fff !important;
@@ -7344,8 +7363,10 @@
         position: relative;
         left: 1px;
     }
-    #roblox-badges-container,
     .btr-profile-playerbadges {
+        margin-top: 30px;
+    }
+    #roblox-badges-container:has(.badge-list) {
         margin-top: 30px;
     }
     .btr-profile-groups,
@@ -7797,7 +7818,7 @@
         position: absolute;
         margin-top: -30px;
         right: 0;
-        margin-right: -6px;
+        margin-right: 0px;
     }
     .btr-profile-favorites .input-group-btn:before {
         content: "Category: ";
@@ -7819,13 +7840,16 @@
         width: 100%!important;
         height: 100%!important;
         max-width: 92px!important;
-        all: revert;
+        border-radius: 0px;
+        border-color: #ACACAC;
+        background: linear-gradient(#F0F0F0, #E5E5E5);
     }
     .btr-profile-favorites .input-group-btn .input-dropdown-btn:hover, .btr-profile-favorites .input-group-btn .input-dropdown-btn:focus {
-        all: revert;
+        background: linear-gradient(#DAECFC, #C4E0FC);
+        border-color: #569DE5;
     }
     .btr-profile-favorites .input-group-btn .input-dropdown-btn .rbx-selection-label {
-        font-family: 'MS Shell Dlg 2', sans-serif;
+        font-family: 'MS Shell Dlg 2', Arial, sans-serif;
         font-size: 13px;
         color: black;
         line-height: 10px;
@@ -7840,8 +7864,11 @@
         margin-top: 2px;
         position: relative;
         right: -4px;
-        background-size: 28px;
-        background-position: 0 -406px;
+        width: 7px;
+        height: 6px;
+        background-size: unset;;
+        background-position: unset;
+        background-image: url('https://assetdelivery.roblox.com/v1/asset/?id=14791839261');
     }
     .ropro-user-info > a[href="https://www.roblox.com/catalog?Category=3&Subcategory=3&CreatorName=RoPro%20IO&CreatorType=Group"] {
         top: 1px;
@@ -8387,6 +8414,34 @@
         position: absolute;
         left: -85px;
     }
+    .btr-profile-favorites .dropdown-menu {
+        border-radius: 0px;
+        background-color: #F1F1F1!important;
+        border: 1px solid #989898;
+        box-shadow: 3px 5px 4px 0 rgba(89,67,67,0.33);
+        padding: 2px;
+        max-height: unset;
+        margin-top: -1px;
+    }
+    .btr-profile-favorites .dropdown-menu li {
+        border: 1px solid transparent!important;
+        height: unset!important;
+        min-height: 22px;
+    }
+    .btr-profile-favorites .dropdown-menu li:hover {
+        border-color: #78AEE5!important;
+        background-color: #D0E1F3;
+    }
+    .btr-profile-favorites .dropdown-menu li a {
+        padding: 1px 4px;
+        font-family: 'Segoe UI', Arial;
+        font-size: 12px;
+        color: black;
+    }
+    
+    
+    
+    
     }
     @-moz-document url-prefix("https://www.roblox.com/groups/"),
     url-prefix("https://web.roblox.com/groups/") {
@@ -8878,7 +8933,7 @@
     .group-description .toggle-content {
         display: none;
     }
-    .group-description {
+    .group-description:not(#rbx-create-group-desc) {
         max-width: 450px;
         if layout == thirteen {
             max-width: 336px;
@@ -9236,22 +9291,65 @@
         }
     }
     group-members-list .input-group-btn .input-dropdown-btn {
-        all: revert !important;
         height: 22px !important;
         width: auto !important;
         max-width: 100% !important;
         float: right !important;
+        border-radius: 0px!important;
+        border-color: #ACACAC!important;
+        background: linear-gradient(#F0F0F0, #E5E5E5);
+        padding: 4px;
+        min-width: 35px;
     }
-    .group-details .input-group-btn .input-dropdown-btn .rbx-selection-label {
-        font-family: 'MS Shell Dlg 2', Arial;
-        font-size: 13.3px;
+    .btr-redesign group-members-list .input-group-btn > button > * {
+        width: auto !important;
+    }
+    group-members-list .input-group-btn .input-dropdown-btn:hover, group-members-list .input-group-btn .input-dropdown-btn:active {
+        background: linear-gradient(#DAECFC, #C4E0FC);
+        border-color: #569DE5!important;
+    }
+    .group-details .input-group-btn .input-dropdown-btn .rbx-selection-label, .btr-redesign group-members-list .input-group-btn > button .btr-role-member-count {
+        font-family: 'MS Shell Dlg 2', Arial, sans-serif;
+        font-size: 13px;
+        color: black;
         height: 20px;
-        line-height: 17px;
+        line-height: 12px;
         position: relative;
-        left: -5px;
     }
-    group-members-list .input-group-btn .input-dropdown-btn span[class^="icon"] {
-        margin-top: 1px;
+    .btr-redesign group-members-list .input-group-btn > button .btr-role-member-count {
+        margin-left: 3px;
+    }
+    .group-details .container-header.group-members-list-container-header .group-dropdown .dropdown-menu {
+        border-radius: 0px;
+        background-color: #F1F1F1;
+        border: 1px solid #989898;
+        box-shadow: 3px 5px 4px 0 rgba(89,67,67,0.33);
+        padding: 2px;
+        margin-top: -1px;
+    }
+    .group-details .container-header.group-members-list-container-header .group-dropdown .dropdown-menu li {
+        border: 1px solid transparent!important;
+        height: unset!important;
+        min-height: 22px;
+    }
+    .group-details .container-header.group-members-list-container-header .group-dropdown .dropdown-menu li:hover {
+        border-color: #78AEE5!important;
+        background-color: #D0E1F3;
+    }
+    .group-details .container-header.group-members-list-container-header .group-dropdown .dropdown-menu li a {
+        padding: 1px 4px;
+        font-family: 'Segoe UI', Arial;
+        font-size: 12px;
+        color: black;
+    }
+    group-members-list .input-group-btn .input-dropdown-btn .icon-down-16x16 {
+        margin-left: 4px;
+        margin-right: 1px;
+        width: 7px!important;
+        height: 6px;
+        background-size: unset;
+        background-position: unset;
+        background-image: url("https://assetdelivery.roblox.com/v1/asset/?id=14791839261");
     }
     group-members-list .avatar-container {
         position: relative;
@@ -9321,9 +9419,6 @@
             bottom: -113px;
             left: 232px;
         }
-    }
-    .btr-redesign group-members-list .input-group-btn > button .btr-role-member-count {
-        all: revert;
     }
     group-members-list .section .avatar-card-fullbody .avatar-card-image, group-members-list .section .avatar .avatar-card-image, .group-details .group-members-list .member .avatar-container span[thumbnail-type] {
         width: 65px;
@@ -9574,6 +9669,25 @@
     group-wall .btr-comment-pager {
         bottom: 21px;
         position: absolute;
+    }
+    group-wall .section-content-off {
+        position: absolute;
+        margin-top: -63px;
+        padding: 0;
+        background: none!important;
+        font-family: 'Source Sans Pro',Arial,Helvetica,sans-serif;
+        font-size: 14px;
+        margin-left: 8px;
+        color: #343434!important;
+        if layout == thirteen {
+            margin-top: -68px;
+        }
+        if layout == june {
+            margin-top: -68px;
+            color: black!important;
+            font-family: Verdana, Sans-Serif;
+            font-size: 12px;
+        }
     }
     if layout == thirteen {
         group-wall .section {
@@ -11689,9 +11803,37 @@
     ul[ng-if*="sortOption.hasSubMenu"] {
         margin-left: 10px!important;
     }
-    .catalog-container .search-container .input-group .dropdown-menu {
-        width: 156px;
+    .catalog-container .search-container .input-group .input-group-btn .dropdown-menu {
         right: 151px;
+        width: 156px;
+        top: 29px;
+    }
+    .catalog-container .search-container .input-group .dropdown-menu {
+        border-radius: 0px;
+        background-color: #F1F1F1;
+        border: 1px solid #989898;
+        box-shadow: 3px 5px 4px 0 rgba(89,67,67,0.33);
+        padding: 2px;
+    }
+    .catalog-container .search-container .dropdown-menu li a {
+        padding: 1px 4px;
+        font-family: 'Segoe UI', Arial, sans-serif;
+        font-size: 12px;
+        color: black;
+    }
+    .catalog-container .search-container .dropdown-menu li {
+        border: 1px solid transparent!important;
+        height: unset!important;
+        min-height: 22px;
+    }
+    .catalog-container .search-container .dropdown-menu li:hover {
+        border-color: #78AEE5!important;
+        background-color: #D0E1F3;
+    }
+    .catalog-container .search-container .input-group .autocomplete-dropdown-menu {
+        width: 325px;
+        left: 0!important;
+        margin-top: 29px!important;
     }
     .item-card-thumb-container .item-card-thumb {
         border-radius: 0px;
@@ -15167,6 +15309,7 @@
         /* eventually! */
         #trades-container {
             height: 890px;
+            max-width: 970px;
             background: white;
         }
     }
@@ -15611,11 +15754,17 @@
     url-prefix("https://web.roblox.com/login"),
     url-prefix("https://www.roblox.com/Login"), url-prefix("https://www.roblox.com/NewLogin"), url-prefix("https://web.roblox.com/NewLogin") {
     /* Login Page */
+    #rbx-body.dark-theme:before {
+        display: none!important;
+    }
     .content {
         background-color: white!important;
         margin-top: 0px;
         width: 992px;
         min-height: 476px;
+    }
+    .dark-theme .section-content, .dark-theme {
+        background-color: white!important;
     }
     #login-base {
         margin-top: -200px;
@@ -15753,6 +15902,7 @@
         padding: 0 3px;
         font-family: sans-serif;
         margin-left: 72px;
+        background-color: white!important;
         if layout == june {
             border: 2px solid #CCCCCC!important;
             width: 144px;
@@ -15897,7 +16047,7 @@
         background-position: left -96px;
         font-family: 'Source Sans Pro', Arial, Helvetica,sans-serif;
         display: inline-block;
-        right: -523px;
+        right: -203px;
         top: -35px;
         if layout == june {
             background-color: #F5CD2F;
@@ -15970,7 +16120,7 @@
     }
     .login-section:after {
         position: absolute;
-        top: 80px;
+        top: 62px;
         left: 460px;
         content: url('https://assetdelivery.roblox.com/v1/asset?id=14488489032');
         if layout == thirteen {
@@ -17286,7 +17436,7 @@ if landing == "ing" {
     }
     @-moz-document url-prefix("https://www.roblox.com/"),
     url-prefix("https://web.roblox.com/") {
-    /* RoPro Compatibility & Dark Mode (someday) */
+    /* RoPro Compatibility & Dark Mode (maybe) */
     /* my balls itch */
     .ropro-user-info {
         display: none !important;
@@ -17305,7 +17455,7 @@ if landing == "ing" {
     @-moz-document url-prefix("https://www.roblox.com/events/"),
     url-prefix("https://web.roblox.com/events/") {
     /* Communtiy Events */
-    /* whaaaat */
+    /* will i ever finish this */
     .content {
         margin-top: 0px;
     }
@@ -17505,13 +17655,65 @@ if landing == "ing" {
         margin-left: 3px;
         margin-bottom: 5px;
     }
-    .dropdown-container.container-header button,
+    .dropdown-container.container-header button {
+        height: 22px !important;
+        border-radius: 0px!important;
+        border-color: #ACACAC!important;
+        background: linear-gradient(#F0F0F0, #E5E5E5);
+        padding: 4px;
+    }
+    .btn-download-download-md {
+        border: 1px solid black!important;
+        font-family: 'MS Shell Dlg 2', Arial, sans-serif!important;
+        font-size: 13px!important;
+        color: #000!important;
+        line-height: 12px!important;
+    }
+    .dropdown-container.container-header button:hover, .dropdown-container.container-header button:focus {
+        background: linear-gradient(#DAECFC, #C4E0FC);
+        border-color: #569DE5!important;
+    }
     .dropdown-container.container-header button .rbx-selection-label {
-        all: revert!important;
+        font-family: 'MS Shell Dlg 2', Arial, sans-serif;
+          font-size: 13px;
+        color: #000;
+        height: 20px;
+        line-height: 12px;
+        position: relative;
     }
     .dropdown-container.container-header .icon-down-16x16 {
-        margin-top: 1px!important;
-        margin-left: 5px;
+        margin-left: 6px;
+        margin-right: 1px;
+        margin-top: 4px;
+	    width: 7px !important;
+	    height: 6px;
+	    background-size: unset;
+	    background-position: unset;
+	    background-image: url("https://assetdelivery.roblox.com/v1/asset/?id=14791839261");
+    }
+    .transaction-date-dropdown .dropdown-menu, .transaction-type-dropdown .dropdown-menu, .transaction-num-items-dropdown .dropdown-menu {
+        border-radius: 0px;
+        background-color: #f1f1f1;
+        border: 1px solid #989898;
+        box-shadow: 3px 5px 4px 0 rgba(89,67,67,0.33);
+        padding: 2px;
+        margin-top: -1px;
+        min-width: 160px;
+    }
+    .transaction-date-dropdown .dropdown-menu li, .transaction-type-dropdown .dropdown-menu li, .transaction-num-items-dropdown .dropdown-menu li {
+        border: 1px solid transparent !important;
+        height: unset !important;
+        min-height: 22px;
+    }
+    .transaction-date-dropdown .dropdown-menu li:hover, .transaction-type-dropdown .dropdown-menu li:hover, .transaction-num-items-dropdown .dropdown-menu li:hover {
+        border-color: #78aee5 !important;
+        background-color: #d0e1f3;
+    }
+    .transaction-date-dropdown .dropdown-menu li a, .transaction-type-dropdown .dropdown-menu li a, .transaction-num-items-dropdown .dropdown-menu li a {
+        padding: 1px 4px;
+        font-family: 'Segoe UI', Arial;
+        font-size: 12px;
+        color: #000;
     }
     .dropdown-container.container-header .input-group-btn {
         display: inline-block;
@@ -18147,7 +18349,8 @@ if landing == "ing" {
     .thumbnail-2d-container img[src="https://t2.rbxcdn.com/0d499b55a8bc928003c91e739d829038"],
     .thumbnail-2d-container img[src="https://t5.rbxcdn.com/462d82a7ba1ac021deafe61eaa4e1d62"],
     .thumbnail-2d-container img[src="https://t6.rbxcdn.com/df24feec0aae3d42d244d0fe6046d508"] {
-        content: url('https://assetdelivery.roblox.com/v1/asset?id=13774274813');
+        /* content: url('https://assetdelivery.roblox.com/v1/asset?id=13774274813'); */
+        content: url('https://assetdelivery.roblox.com/v1/asset?id=13875887215');
     }
     }
         @-moz-document url-prefix("https://www.roblox.com"), url-prefix("https://web.roblox.com") {
