@@ -121,6 +121,9 @@
         border-radius: 0px!important;
         margin-top: 30px;
     }
+    .container-main:has(.alert-info.linkify) {
+        margin-top: 28px !important;
+    }
     .container-fluid {
         height: 40px;
         if layout == "june" {
@@ -1306,6 +1309,12 @@
             background-position:-5px -203px!important;
         }
     }
+    .rbx-left-col .icon-nav-my-feed {
+        background-position: -5px -293px!important;
+        if layout == dec {
+            background-position: 0 -393px !important;
+        }
+    }
     .rbx-left-col #nav-shop,
     .rbx-left-col #nav-giftcards {
         display: none;
@@ -1376,6 +1385,26 @@
             display: none;
         }
         if layout == jan {
+            display: none;
+        }
+    }
+    .rbx-left-col .rbx-nav-sponsor .menu-item {
+        height: unset;
+        if layout == jan {
+            border-top: 1px solid #000;
+            height: 49px;
+        }
+    }
+    .rbx-left-col .rbx-nav-sponsor {
+        margin: 0;
+    }
+    if layout == june {
+        .rbx-nav-sponsor {
+            display: none;
+        }
+    }
+    if layout == thirteen {
+        .rbx-nav-sponsor {
             display: none;
         }
     }
@@ -1509,7 +1538,7 @@
         #nav-profile:hover .font-header-2, #nav-character:hover .font-header-2 {
             color:#f68802!important;
         }
-        #nav-message:hover .font-header-2, #nav-friends:hover .font-header-2, #nav-trade:hover .font-header-2, #nav-group:hover .font-header-2, #nav-blog:hover .font-header-2 {
+        #nav-message:hover .font-header-2, #nav-friends:hover .font-header-2, #nav-trade:hover .font-header-2, #nav-group:hover .font-header-2, #nav-blog:hover .font-header-2, #nav-my-feed:hover .font-header-2 {
             color:#00a2ff!important;
         }
         #nav-home:hover .font-header-2, #nav-inventory:hover .font-header-2 { 
@@ -1541,6 +1570,9 @@
         }
         #nav-blog:hover .icon-nav-blog {
            background-position:-28px -364px!important;
+        }
+        #nav-my-feed:hover .icon-nav-my-feed {
+            background-position: -28px -393px !important;
         }
     }
     /* blah blah blah change text on da header and left navbar */
@@ -3307,6 +3339,7 @@
         width: 1000px;
     }
     .alert-info {
+        color: #fff!important;
         if layout == "june" {
             background-color: red!important;
             width: 906px;
@@ -3316,6 +3349,7 @@
             font-size: 16px!important;
             font-weight: bold!important;
             border: 2px solid white;
+            box-shadow: 1px 1px #808080, -1px -1px #808080, 1px -1px #808080, -1px 1px #808080;
         }
         if layout == "thirteen" {
             background-color: red!important;
@@ -3363,17 +3397,6 @@
         .rbx-header .ropro-icon {
             margin-top: 0px!important;
         }
-        .alert-info::before {
-            content: "";
-            display: block;
-            position: absolute;
-            height: 26px;
-            width: 906px;
-            margin-top: -2px;
-            box-shadow: 1px 1px grey, -1px -1px grey, 1px -1px grey, -1px 1px grey;
-            margin-left: -2px;
-            pointer-events: none;
-        }
     }
     .rbx-left-col .rbx-scrollbar .left-col-list:after {
         if layout == sep {
@@ -3390,6 +3413,9 @@
             font-weight: bold;
             margin-left: 7px;
         }
+    }
+    .rbx-left-col .rbx-scrollbar .left-col-list:has(.font-bold):after {
+        display: none!important;
     }
     /*Chat*/
      #chat-friend-list, #mCSB_1_container, #chat-friends, .chat-main .chat-body {
@@ -3762,6 +3788,11 @@
         }
         #navigation ul li:has(#nav-inventory) {
             order: -6;
+        }
+    }
+    if layout == sep {
+        #nav-group .font-header-2.dynamic-ellipsis-item {
+            margin-left: 6px !important;
         }
     }
     }
@@ -4414,7 +4445,8 @@
 
     .game-tile .game-card-container .game-card-info .playing-counts-label,
     .game-card-link .game-card-info .playing-counts-label,
-    .game-tile .game-card-container .game-card-info .vote-percentage-label {
+    .game-tile .game-card-container .game-card-info .vote-percentage-label,
+    .game-tile .game-card-container .game-card-info .no-vote {
         color: #999;
         font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
         font-size: 12px;
@@ -4494,23 +4526,23 @@
             padding: 15px 15px 15px;
         }
     }
-    .game-tile .game-card-container .game-card-info .vote-percentage-label {
+    .game-tile .game-card-container .game-card-info .vote-percentage-label, .game-tile .game-card-container .game-card-info .no-vote {
         margin-top: 16px;
         display: none;
         if layout == june {
             margin-top: 10px;
         }
     }
-    .game-cards .game-card:hover .game-card-info .vote-percentage-label {
+    .game-cards .game-card:hover .game-card-info .vote-percentage-label, .game-cards .game-card:hover .game-card-info .no-vote {
         display: inline-block;
     }
-    .game-tile .game-card-container .game-card-info .vote-percentage-label:before {
+    .game-tile .game-card-container .game-card-info .vote-percentage-label:before, .game-tile .game-card-container .game-card-info .no-vote:before {
         content: url('https://assetdelivery.roblox.com/v1/asset?id=14705538826');
         position: relative;
         top: 2px;
         left: -1px;
         if layout == june {
-            content: "Rating: "
+            content: "Rating: ";
             position: revert;
         }
     }
@@ -4678,6 +4710,9 @@
     .featured-grid-item-container .game-card-creator-name, .featured-grid-item-container #access-management-upsell-container, .featured-grid-item-container #id-verification-container, .game-card-link .game-card-description-info {
         display: none;
     }
+    .game-card-info[data-testid="game-tile-stats-friend-activity"] .info-label:after {
+        content: " recently played";
+    }
     }
     @-moz-document url-prefix("https://www.roblox.com/games/") {
     /* Game Page */
@@ -4779,7 +4814,7 @@
     .icon-common-play {
         filter: none!important;
     }
-    #game-details-play-button-container .btn-common-play-game-lg:nth-child(3) .icon-common-play::before {
+    #game-details-play-button-container .btn-common-play-game-lg:has(.random-server-tooltip) .icon-common-play::before {
         content: "Rejoin";
         color: white;
         font-size: 12px;
@@ -4913,10 +4948,10 @@
         content: "Creator:";
         font-size: 16px;
         if layout == "thirteen" {
-            content: "Builder:"
+            content: "Builder:";
         }
         if layout == "june" {
-            content: "Builder:"
+            content: "Builder:";
             font-size: 13px;
         }
     }
@@ -5506,7 +5541,7 @@
         position: relative;
         top: -1px;
         height: 36px;
-        box-shadow: none;
+        box-shadow: none!important;
     }
     .page-content .rbx-tabs-horizontal .rbx-tab {
         width: unset!important;
@@ -5782,9 +5817,9 @@
     .store-card {
         box-shadow: none!important;
     }
-    .store-card img {
-        width: 100px;
-        height: 100px;
+    .store-card img, .subscription-thumbnail, .subscription-thumbnail-container-class, .subscription-thumbnail-container {
+        width: 100px!important;
+        height: 100px!important;
         border-radius: 0px;
     }
     .store-cards .list-item,
@@ -5807,13 +5842,45 @@
     #store .store-cards .store-card {
         border: none!important;
     }
-    .store-card .store-card-name {
-        font-family: 'Source Sans Pro',
-        Arial,
-        Helvetica,
-        sans-serif!important;
-        font-weight: bold;
-        font-size: 12px;
+    .store-card .store-card-name, .subscription-information .subscription-name {
+        font-family: 'Source Sans Pro',Arial,Helvetica,sans-serif!important;
+        font-weight: bold!important;
+        font-size: 12px!important;
+        if layout == june {
+            font-family: Arial, Helvetica, sans-serif !important;
+        }
+    }
+    #rbx-subscriptions-container-content h3 {
+        padding-bottom: 0!important;
+    }
+    #rbx-subscriptions-container #rbx-subscriptions-container-content .card-spacing-bottom {
+        margin-bottom: 0;
+    }
+    .subscription-card-item {
+        justify-content: unset;
+        height: auto;
+    }
+    .subscription-description {
+        font-family: 'Source Sans Pro',Arial,Helvetica,sans-serif!important;
+        padding-top: 0;
+        font-size: 12px!important;
+        if layout == june {
+            font-family: Arial, Helvetica, Sans-Serif !important;
+            font-size: 12px!important;
+        }
+    }
+    .subscription-thumbnail-container {
+        min-width: 100px;
+        min-height: 100px;
+    }
+    .subscription-see-more {
+        font-family: 'Source Sans Pro',Arial,Helvetica,sans-serif!important;
+        color: #0055B3;
+        font-size: 14px!important;
+        if layout == june {
+            font-family: Arial, Helvetica, Sans-Serif !important;
+            font-size: 12px!important;
+        }
     }
     .store-card .store-card-price span[class^="icon-"] {
         display: none;
@@ -5853,6 +5920,12 @@
         height: 23px;
         margin-top: 20px;
         background-position: left -160px;
+        if layout == june {
+            text-shadow: #013401 0 -1px;
+            font-family: Arial, Helvetica, Sans-Serif !important;
+            font-weight: bold;
+            letter-spacing: -1px;
+        }
     }
     .store-card-footer h5 {
         font-family: 'Source Sans Pro',
@@ -5899,7 +5972,7 @@
     .toggle-translation-button .icon-common-refresh {
         display: none;
     }
-    #rbx-game-passes h3 {
+    #rbx-game-passes h3, #rbx-subscriptions-container-content h3 {
         font-size: 15px;
         font-weight: bold;
         font-family: 'Source Sans Pro',
@@ -5953,6 +6026,9 @@
         if layout == "dec" {
             font-weight: 400;
         }
+        if layout == june {
+            font-family: Arial, Helvetica, sans-serif !important;
+        }
     }
     #recommended-games-container .vote-percentage-label,
     #recommended-games-container .icon-votes-gray,
@@ -5972,7 +6048,9 @@
         text-align: center;
         padding: 0px;
         if layout == june {
+            font-family: Arial, Helvetica, sans-serif !important;
             color: black;
+            font-size: 10px;
         }
     }
     #recommended-games-container .playing-counts-label:after {
@@ -6170,6 +6248,10 @@
         overflow: hidden;
         max-width: 184px;
         display: block;
+        if layout == june {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 15px!important;
+        }
     }
     .rbx-private-owner .owner-avatar {
         width: 75px;
@@ -6190,6 +6272,11 @@
         sans-serif;
         font-weight: 600;
         font-size: 15px;
+        if layout == june {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 15px!important;
+            margin-top: 2px;
+        }
     }
     .rbx-private-owner .text-name span:hover {
         text-decoration: underline;
@@ -6202,6 +6289,11 @@
         font-size: 14px;
         margin: 0px;
         margin-bottom: -5px;
+        if layout == june {
+            font-family: Arial, Helvetica, Sans-Serif;
+            font-size: 12px !important;
+            color: #000 !important;
+        }
     }
     .player-thumbnails-container .avatar-headshot-md {
         width: 45px;
@@ -6577,8 +6669,32 @@
             text-shadow: #013401 0 -1px;
         }
     }
-    .virtual-event-game-details-container .clickable-event-list-item-contents .notify-button:hover {
+    .virtual-event-game-details-container .clickable-event-list-item-contents .notify-button:hover, .subscription-buy-button:hover {
         background-position: left -128px;
+    }
+    .subscription-buy-button {
+        border-color: #007001!important;
+        background-color: #007001!important;
+        background-image: url(/images/Buttons/StyleGuide/bg-btn-green.png);
+        font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif!important;
+        padding: 1px 13px 3px 13px;
+        height: 34px;
+        background-position: left -96px;
+        font-size: 20px;
+        border-radius: 0!important;
+        margin-top: 10px;
+        place-self: flex-start;
+        if layout == june {
+            text-shadow: #222 0 -1px;
+            font-family: Arial,Helvetica,sans-serif!important;
+            line-height: 32px;
+        }
+    }
+    .subscription-price, .subscription-cadence {
+        line-height: 1.5em;
+        font-size: 20px!important;
+        font-weight: bold!important;
+        letter-spacing: -1px;
     }
     }
     @-moz-document url-prefix("https://www.roblox.com/users/52037777/profile"), url-prefix("https://www.roblox.com/users/1/profile"), url-prefix("https://www.roblox.com/users/156/profile"), url-prefix("https://www.roblox.com/users/73432175/profile") {
@@ -7127,7 +7243,6 @@
             background-image: url('https://assetdelivery.roblox.com/v1/asset?id=13823837260');
             width: 16px;
             height: 16px;
-            margin-top: -9px;
             position: absolute;
             left: 3px;
             top: 50%;
@@ -7144,7 +7259,6 @@
             position: absolute;
             left: 3px;
             top: 50%;
-            margin-top: -9px;
             background-position: -32px -16px;
             transition: none;
         }
@@ -8245,7 +8359,7 @@
         right: -4px;
         width: 7px;
         height: 6px;
-        background-size: unset;;
+        background-size: unset;
         background-position: unset;
         background-image: url('https://assetdelivery.roblox.com/v1/asset/?id=14791839261');
     }
@@ -9202,6 +9316,9 @@
         font-family: 'Source Sans Pro',Arial,Helvetica,sans-serif;
         font-size: 14px;
         font-style: italic;
+        max-width: 134px;
+        overflow: hidden;
+        text-overflow: ellipsis;
         if layout == june {
             font-family: Verdana,Sans-Serif;
             font-size: 12px;
@@ -9641,6 +9758,7 @@
     }
     .groups-list .group-cards .menu-option .menu-option-content {
         padding: 5px 0 5px 14px;
+        box-shadow: none!important;
     }
     .groups-list .group-cards .list-item .group-card .group-card-thumbnail .thumbnail-2d-container {
         width: 42px;
@@ -9673,6 +9791,9 @@
     .groups-list .menu-vertical-container .group-cards {
         margin: 0px;
     }
+    .groups-list .menu-vertical-container .group-cards .menu-option {
+        box-shadow: none!important;
+    }
     .groups-list .menu-vertical .menu-option.active {
       box-shadow: none!important;
       background: url('/images/gamesPage_filterArrow.png') 4px center no-repeat;
@@ -9681,7 +9802,7 @@
         font-weight: bold;
     }
     .group-name-with-verified-badge-container h1:after {
-        content: url("/images/Accounts/img-verified.png");
+        content: url("/images/UI/img-check.png");
         margin-left: 5px;
     }
     .group-name-with-verified-badge-container span, .group-owner span:has(.verified-badge-icon-group-owner-container) {
@@ -9767,7 +9888,7 @@
         margin: 4px 2px 0 1px;
         border-bottom-width: 0;
         position: relative;
-        top: -1px;
+        top: 0;
         min-height: 36px;
         if layout == thirteen {
             background-color: transparent!important;
@@ -9802,7 +9923,7 @@
         }
     }
     .group-details .rbx-tab.active .rbx-tab-heading {
-        top: 3px;
+        top: 4px;
         background-color: #fff!important;
         border-color: #ccc!important;
         margin: 0 1px 0 0;
@@ -11430,6 +11551,7 @@
     #favorites-container .menu-vertical .menu-option-content {
         height: 37px;
         border: 1px solid transparent;
+        box-shadow: none!important;
     }
     #inventory-container .menu-vertical .menu-option.active,
     #favorites-container .menu-vertical .menu-option.active {
@@ -12723,7 +12845,7 @@
     .catalog-container .sticky .search-options {
         position: unset;
     }
-    .catalog-container .simplebar-content-wrapper {
+    .catalog-container .simplebar-content-wrapper:not(.shopping-cart-modal-container .simplebar-content-wrapper) {
         overflow: unset!important;
         height: auto !important;
         width: auto;
@@ -12732,7 +12854,7 @@
         max-height: unset!important;
         overflow: unset!important;
     }
-    .catalog-container .simplebar-mask {
+    .catalog-container .simplebar-mask:not(.shopping-cart-modal-container .simplebar-mask) {
         width: 150px!important;
     }
     .catalog-container .sticky .search-options-scrollbar-container .simplebar-track, #search-options-scrollbar-container #mCSB_1_scrollbar_vertical, #search-options-scrollbar-container #mCSB_2_scrollbar_vertical, .catalog-container .catalog-results .buy-robux  {
@@ -12754,6 +12876,57 @@
         #shopping-cart-btn-entry, .add-to-cart-btn-container {
             display: none!important;
         }
+    }
+    .add-to-cart-btn-container .btn-primary-md {
+        font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+        border-color: #007001 !important;
+        background-color: #007001 !important;
+        background-image: url("/images/Buttons/StyleGuide/bg-btn-green.png") !important;
+        color: #fff;
+        border-radius: 0px;
+        padding: 1px 7px 0px 7px;
+        height: 23px;
+        width: unset !important;
+        margin: 0 auto;
+        display: block;
+        font-size: 14px !important;
+        background-position: left -160px;
+        if layout == june {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            letter-spacing: -1px;
+            text-shadow: 0 -1px #013401;
+        }
+    }
+    .add-to-cart-btn-container .btn-primary-md:hover, .add-to-cart-btn-container .btn-secondary-md:hover {
+        background-position: left -181px;
+    }
+    .add-to-cart-btn-container .btn-secondary-md {
+        font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+        border-color: #565656 !important;
+        background-color: #565656 !important;
+        background-image: url(/images/Buttons/StyleGuide/bg-btn-gray.png) !important;
+        color: #fff!important;
+        border-radius: 0px;
+        padding: 1px 7px 0px 7px;
+        height: 23px;
+        width: unset !important;
+        margin: 0 auto;
+        display: block;
+        font-size: 0 !important;
+        background-position: left -160px;
+        if layout == june {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            letter-spacing: -1px;
+            text-shadow: 0 -1px #222;
+        }
+    }
+    .add-to-cart-btn-container .btn-secondary-md:after {
+        content: "Remove";
+        font-size: 14px !important;
+        position: relative;
+        top: 2px;
     }
     }
     @-moz-document url-prefix("https://www.roblox.com/catalog/"), url-prefix("https://www.roblox.com/bundles/") {
@@ -12815,7 +12988,7 @@
         max-height: 132px;
     }
     .price-container-text .icon-robux-16x16:before {
-        content: "Price:"
+        content: "Price:";
         font-family: 'Source Sans Pro',Arial,Helvetica,sans-serif;
         color: #343434;
         font-size: 14px;
@@ -12833,7 +13006,7 @@
         }
     }
     #item-container:has(asset-resale-pane) .price-container-text .icon-robux-16x16:before {
-        content: "Best Price:"
+        content: "Best Price:";
         width: 100px;
         display: inline-block;
         left: -65px;
@@ -13148,7 +13321,7 @@
         }
     }
     .item-price-value .text:before {
-        content: "Price: "
+        content: "Price: ";
         color: #343434;
         font-size: 14px;
         font-weight: normal;
@@ -13306,7 +13479,8 @@
     .border-bottom.item-name-container > div > span > a,
     .clearfix.item-field-container .font-header-1,
     .item-info-row-container .text-subheader,
-    .item-details-creator-container .text-label {
+    .item-details-creator-container .text-label,
+    .item-details-section .experience-link-list .text-link{
         font-size: 12px!important;
         color: #999;
         font-family: 'Source Sans Pro',
@@ -13360,7 +13534,8 @@
     }
     .border-bottom.item-name-container > div > span > a,
     .clearfix.item-field-container .field-content > a,
-    .item-details-creator-container .text-label a {
+    .item-details-creator-container .text-label a,
+    .item-details-section .experience-link-list .text-link{
         color: #0055B3!important;
         font-size: 12px!important;
         if layout == june {
@@ -14720,6 +14895,7 @@
     div[style="position: relative; float: right; height: 28px; margin-bottom: -28px; margin-top: 5px;"] {
         margin-right: 208px;
         top: 13px;
+        display: none;
     }
     .price-chart-range-dropdown .input-dropdown-btn {
         height: 22px !important;
@@ -14843,6 +15019,19 @@
         .shopping-cart-btn-container, .shopping-cart-add-remove-btn-container {
             display: none;
         }
+    }
+    .item-details-section .experience-link-list .icon-menu-games-on {
+        display: none;
+    }
+    .item-details-section .experience-link-list-item {
+        line-height: 18px!important;
+        margin-bottom: 0;
+        if layout == june {
+            line-height: 16px!important;
+        }
+    }
+    .item-details-section .item-info-row-container:has(.experience-link-list) {
+        margin-bottom: -10px;
     }
     }
     @-moz-document url-prefix("https://www.roblox.com/library/"), url-prefix("https://www.roblox.com/badges/"),
@@ -16612,6 +16801,12 @@
             font-family: Arial,Helvetica,sans-serif;
         }
     }
+    .annual-premium-takeover {
+        background-color: transparent!important;
+    }
+    .evergreen-background {
+        background-image: none!important;
+    }
     .premium-container .page-refined {
         background-image: none;
         text-align: left;
@@ -16670,13 +16865,13 @@
         width: 573px;
         position: absolute;
         if layout == june {
-            content: "Use Robux to buy virtual good for your character - shirts, pants, hats, faces, and even heads! You can also buy gear, like hammers, potions, jet boots, swords, and BLOXI Cola. "
+            content: "Use Robux to buy virtual good for your character - shirts, pants, hats, faces, and even heads! You can also buy gear, like hammers, potions, jet boots, swords, and BLOXI Cola. ";
             font-family: Arial,Helvetica,sans-serif;
             color: black!important;
             font-size: 12px!important;
         }
         if layout == thirteen {
-            content: "Use Robux to buy virtual good for your character - shirts, pants, hats, faces, and even heads! You can also buy gear, like hammers, potions, jet boots, swords, and BLOXI Cola. "
+            content: "Use Robux to buy virtual good for your character - shirts, pants, hats, faces, and even heads! You can also buy gear, like hammers, potions, jet boots, swords, and BLOXI Cola. ";
         }
     }
     .premium-container .robux-table .robux-body {
@@ -16809,7 +17004,7 @@
     }
     .premium-container .robux-table .robux-row::after {
         font-size: 11px;
-        content: "Builder's Club Members get 450 ROBUX for $4.95 Upgrade Now!";
+        content: "Builder's Club Members get 450 ROBUX for $4.95. Upgrade Now!";
         font-weight: normal;
         position: absolute;
         border-top: 1px solid #ccc;
@@ -16820,19 +17015,19 @@
         }
     }
     .premium-container .robux-table .robux-row:nth-child(2):after {
-        content: "Builder's Club Members get 1000 ROBUX for $9.95 Upgrade Now!";
+        content: "Builder's Club Members get 1000 ROBUX for $9.95. Upgrade Now!";
     }
     .premium-container .robux-table .robux-row:nth-child(3):after {
-        content: "Builder's Club Members get 2750 ROBUX for $24.95 Upgrade Now!";
+        content: "Builder's Club Members get 2200 ROBUX for $24.95. Upgrade Now!";
     }
     .premium-container .robux-table .robux-row:nth-child(4):after {
-        content: " Builder's Club Members get 6000 ROBUX for $49.95 Upgrade Now! ";
+        content: " Builder's Club Members get 6000 ROBUX for $49.95. Upgrade Now! ";
     }
     .premium-container .robux-table .robux-row:nth-child(5):after {
-        content: " Builder's Club Members get 15000 ROBUX for $99.95 Upgrade Now! ";
+        content: " Builder's Club Members get 15000 ROBUX for $99.95. Upgrade Now! ";
     }
     .premium-container .robux-table .robux-row:nth-child(6):after {
-        content: " Builder's Club Members get 35000 ROBUX for $199.95 Upgrade Now! ";
+        content: " Builder's Club Members get 35000 ROBUX for $199.95. Upgrade Now! ";
     }
     #robux-react-page-wrapper .robux-cell, .premium-container .robux-table .robux-cell {
         border: none;
@@ -16881,7 +17076,7 @@
     .robux-cell:has(.robux-button-container .btn-growth-md) {
         float: right;
     }
-    .premium-container .robux-button-container:has(.font-small) {
+    .premium-container .robux-button-container:has(.font-small), .evergreen-background .annual-premium-banner {
         display: none;
     }
     }
@@ -17636,9 +17831,6 @@ if landing == "ing" {
     .lower-logo-container {
 	background-color: transparent;
     }
-    #signup {
-        
-    }
     .signup-container.rbx-login-form {
         background-color: rgba(255,255,255,0.75)!important;
         padding: 15px;
@@ -17746,9 +17938,6 @@ if landing == "ing" {
     }
     .signup-container .birthday-container .rbx-select-group:first-of-type .rbx-select {
         border-right: none!important;
-    }
-    .gender-container .fake-input-lg {
-        
     }
     .gender-container .fake-input-lg:before {
         content: "Gender:";
@@ -18624,7 +18813,8 @@ if landing == "ing" {
     }
     #settings-container .left-navigation {
         margin-top: 0;
-        width: auto; 
+        width: auto;
+        overflow: scroll;
     }
     #settings-container .left-navigation .menu-vertical {
         display: flex;
@@ -18658,9 +18848,11 @@ if landing == "ing" {
         font-weight: bold;
         font-size: 15px;
         white-space: nowrap;
+        color: #343434!important;
     }
-    .menu-vertical .menu-option-content {
+    #settings-container .menu-vertical .menu-option-content {
         padding: 0;
+        box-shadow: none!important;
     }
     .text-label.account-settings-label, .account-previous-usernames, .collapsible-user-input label, .social-networks-container .text-label, .setting-section-header, .pin-time-remaining .text-warning, #security-tab h2, .btn-toggle-label, .btn-toggle-label-new-codes, .label-new-codes {
         font-size: 14px!important;
@@ -19061,24 +19253,9 @@ if landing == "ing" {
         content: "Billing";
         font-size: 15px!important;
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    .passkey-upsell-banner {
+        width: 625px;
+    }
     }
     
     @-moz-document url-prefix("https://www.roblox.com/") {
@@ -19527,250 +19704,412 @@ if landing == "ing" {
     /* Custom Explore/Games Page Thumbnails *
     /* i am insane */
     if thumbs {
-    .hlist.games.game-cards.game-tile-list li[id="47545"] img {
+    .hlist.games.game-cards.game-tile-list li[id="47545"] img, .game-carousel .game-card-link[id="47545"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://assetdelivery.roblox.com/v1/asset?id=13774227757');
     }
-    .hlist.games.game-cards.game-tile-list li[id="65241"] img {
+    .hlist.games.game-cards.game-tile-list li[id="65241"] img, .game-carousel .game-card-link[id="65241"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://assetdelivery.roblox.com/v1/asset?id=13774231452');
     }
-    .hlist.games.game-cards.game-tile-list li[id="735803076"] img {
+    .hlist.games.game-cards.game-tile-list li[id="735803076"] img, .game-carousel .game-card-link[id="735803076"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://assetdelivery.roblox.com/v1/asset?id=13774235319');
     }
     }
-    .hlist.games.game-cards.game-tile-list li[id="88070565"] img {
+    .hlist.games.game-cards.game-tile-list li[id="88070565"] img, .game-carousel .game-card-link[id="88070565"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/0322ebe1e26eca7f692972aea1fe80ea/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="1686885941"] img {
+    .hlist.games.game-cards.game-tile-list li[id="1686885941"] img, .game-carousel .game-card-link[id="1686885941"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/e84427dd1ae21226b6cbd821befa6c30/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="210851291"] img {
+    .hlist.games.game-cards.game-tile-list li[id="210851291"] img, .game-carousel .game-card-link[id="210851291"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/841a9919d6a4afe9b3ccc790b787c82b/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="1008451066"] img {
+    .hlist.games.game-cards.game-tile-list li[id="1008451066"] img, .game-carousel .game-card-link[id="1008451066"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/ae7ebc13150aa84723fb98e5e0b9e0a7/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="371263894"] img {
+    .hlist.games.game-cards.game-tile-list li[id="371263894"] img, .game-carousel .game-card-link[id="371263894"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/b6aabaa88ae8876d3eb02c2e40d00b50/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="994732206"] img {
+    .hlist.games.game-cards.game-tile-list li[id="994732206"] img, .game-carousel .game-card-link[id="994732206"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/11ccdb90593fba220664c3776ab8be3a/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="2316994223"] img {
-        content: url('https://tr.rbxcdn.com/2eacf677063f68d19cafc7c97db470f5/768/432/Image/Png');
+    .hlist.games.game-cards.game-tile-list li[id="2316994223"] img, .game-carousel .game-card-link[id="2316994223"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/40918eef5193ac320869c30abd2c181a/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="2440500124"] img {
+    .hlist.games.game-cards.game-tile-list li[id="2440500124"] img, .game-carousel .game-card-link[id="2440500124"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/d094089ebea6915874f61cfbf47b8c9f/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="2619619496"] img {
+    .hlist.games.game-cards.game-tile-list li[id="2619619496"] img, .game-carousel .game-card-link[id="2619619496"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/3ab905cb1fce974a041007ee6d08b5c3/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="3647333358"] img {
+    .hlist.games.game-cards.game-tile-list li[id="3647333358"] img, .game-carousel .game-card-link[id="3647333358"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/127e2a6d49d0c415e765be163d3eeef7/768/432/Image/Png');
+        object-fit: fill;
     }
-    .hlist.games.game-cards.game-tile-list li[id="110181652"] img {
+    .hlist.games.game-cards.game-tile-list li[id="110181652"] img, .game-carousel .game-card-link[id="110181652"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/c0c893217a1abb0778850e40bf444abf/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="2516044547"] img {
+    .hlist.games.game-cards.game-tile-list li[id="2516044547"] img, .game-carousel .game-card-link[id="2516044547"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/c3d7f60ca9497255b2f35f88248e6a84/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="113491250"] img {
+    .hlist.games.game-cards.game-tile-list li[id="113491250"] img, .game-carousel .game-card-link[id="113491250"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/bf1b93afc8b65fed6afcb01eb6dac2fb/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="111958650"] img {
+    .hlist.games.game-cards.game-tile-list li[id="111958650"] img, .game-carousel .game-card-link[id="111958650"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/0943606356f836c558d33591b4292f46/768/432/Image/Png');
     }
     if thumbs {
-    .hlist.games.game-cards.game-tile-list li[id="37146255"] img {
+    .hlist.games.game-cards.game-tile-list li[id="37146255"] img, .game-carousel .game-card-link[id="37146255"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://assetdelivery.roblox.com/v1/asset?id=13774239844');
     }
     }
-    .hlist.games.game-cards.game-tile-list li[id="648454481"] img {
+    .hlist.games.game-cards.game-tile-list li[id="648454481"] img, .game-carousel .game-card-link[id="648454481"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/e363244d60a8153ec0bfc5ccd9f04b5a/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="321778215"] img {
+    .hlist.games.game-cards.game-tile-list li[id="321778215"] img, .game-carousel .game-card-link[id="321778215"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/ce35590fa75a07de2858e70f54092965/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="3085257211"] img {
+    .hlist.games.game-cards.game-tile-list li[id="3085257211"] img, .game-carousel .game-card-link[id="3085257211"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/494e25c8eb7f979abe7508eb63d614be/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="1852226622"] img {
+    .hlist.games.game-cards.game-tile-list li[id="1852226622"] img, .game-carousel .game-card-link[id="1852226622"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/e750a49fbea02a994d1007031b665eca/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="140239261"] img {
+    .hlist.games.game-cards.game-tile-list li[id="140239261"] img, .game-carousel .game-card-link[id="140239261"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/cf062dd0ba7c8ecdd28711b0ad7c983b/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="1390601379"] img {
+    .hlist.games.game-cards.game-tile-list li[id="1390601379"] img, .game-carousel .game-card-link[id="1390601379"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/ed24465e9b09f9a6be61ff2841150315/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="703124385"] img {
+    .hlist.games.game-cards.game-tile-list li[id="703124385"] img, .game-carousel .game-card-link[id="703124385"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/957ece549223dfe2af593d8b43039977/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="601130232"] img {
+    .hlist.games.game-cards.game-tile-list li[id="601130232"] img, .game-carousel .game-card-link[id="601130232"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/7242c75dd5e18de97464e397164f6c68/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="1516533665"] img {
+    .hlist.games.game-cards.game-tile-list li[id="1516533665"] img, .game-carousel .game-card-link[id="1516533665"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/b621460a1f670e6fc3b53c75516dc4a3/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="2711375305"] img {
+    .hlist.games.game-cards.game-tile-list li[id="2711375305"] img, .game-carousel .game-card-link[id="2711375305"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/390039e64e4c5d9694baf56660401284/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="3317679266"] img {
-        content: url('https://tr.rbxcdn.com/32e31f3fb7559ad72a075fd30bad850f/768/432/Image/Png');
+    .hlist.games.game-cards.game-tile-list li[id="3317679266"] img, .game-carousel .game-card-link[id="3317679266"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/df7b356b4086ed3442e4dd4f6ff26cbe/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="1000233041"] img {
+    .hlist.games.game-cards.game-tile-list li[id="1000233041"] img, .game-carousel .game-card-link[id="1000233041"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/8b366b95be6173ac19a616fa8c6193ee/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="245662005"] img {
+    .hlist.games.game-cards.game-tile-list li[id="245662005"] img, .game-carousel .game-card-link[id="245662005"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/c5355209c329d245305864006855f220/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="1016936714"] img {
+    .hlist.games.game-cards.game-tile-list li[id="1016936714"] img, .game-carousel .game-card-link[id="1016936714"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/743e79af307e0841c76e1c161bec821a/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="66654135"] img {
+    .hlist.games.game-cards.game-tile-list li[id="66654135"] img, .game-carousel .game-card-link[id="66654135"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/fc8ad02f968a7cf2f71a8e78cc11e14c/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="2901528258"] img {
+    .hlist.games.game-cards.game-tile-list li[id="2901528258"] img, .game-carousel .game-card-link[id="2901528258"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/57a2d6f393e9e5b78c0975dc8ac77ea3/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="2047210140"] img {
+    .hlist.games.game-cards.game-tile-list li[id="2047210140"] img, .game-carousel .game-card-link[id="2047210140"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/aa7ab3ae3953734de73e594cb9bd0574/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="604142934"] img {
+    .hlist.games.game-cards.game-tile-list li[id="604142934"] img, .game-carousel .game-card-link[id="604142934"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/bf57444d54c1ea27003c73e1f83170ed/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="1609765104"] img {
-        content: url('https://tr.rbxcdn.com/ea7c72f38acb5cdbb214481857537d7d/768/432/Image/Png');
+    .hlist.games.game-cards.game-tile-list li[id="1609765104"] img, .game-carousel .game-card-link[id="1609765104"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/5896c0ba86ea8bff0bb3d4982dc7d166/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="93740418"] img {
+    .hlist.games.game-cards.game-tile-list li[id="93740418"] img, .game-carousel .game-card-link[id="93740418"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/3d4d1029c6557f413a734a34af612e26/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="1359573625"] img {
+    .hlist.games.game-cards.game-tile-list li[id="1359573625"] img, .game-carousel .game-card-link[id="1359573625"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/ef6a3e2d12559a5f28f1b4d2bd07aad9/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="1958807588"] img {
-        content: url('https://tr.rbxcdn.com/5f4e7adf1db8e0016ec64308066b67ad/768/432/Image/Png');
+    .hlist.games.game-cards.game-tile-list li[id="1958807588"] img, .game-carousel .game-card-link[id="1958807588"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/9a784a0b48af2128e16a36ba9267e733/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="1659645941"] img {
+    .hlist.games.game-cards.game-tile-list li[id="1659645941"] img, .game-carousel .game-card-link[id="1659645941"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/97e9f4907687cb01ec8a06495032f72c/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="903807016"] img {
+    .hlist.games.game-cards.game-tile-list li[id="903807016"] img, .game-carousel .game-card-link[id="903807016"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/4497adc743e1aa16f9a9a8d8f0548120/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="2626227051"] img {
+    .hlist.games.game-cards.game-tile-list li[id="2626227051"] img, .game-carousel .game-card-link[id="2626227051"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/eba4e60ce51f54599d9ecbcf18a3349b/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="2533050278"] img {
+    .hlist.games.game-cards.game-tile-list li[id="2533050278"] img, .game-carousel .game-card-link[id="2533050278"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/b96c968d4585d8958d22865659341c60/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="31970568"] img {
+    .hlist.games.game-cards.game-tile-list li[id="31970568"] img, .game-carousel .game-card-link[id="31970568"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/66ac37e4c9fd361811dbbd3422713b0e/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="1998835206"] img {
-        content: url('https://tr.rbxcdn.com/8d0cffabe9a06b4ee450f404b7cbdb8f/768/432/Image/Png');
+    .hlist.games.game-cards.game-tile-list li[id="1998835206"] img, .game-carousel .game-card-link[id="1998835206"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/87a025723eb9b7bfb067cc4d8a311a54/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="985731078"] img {
+    .hlist.games.game-cards.game-tile-list li[id="985731078"] img, .game-carousel .game-card-link[id="985731078"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/21c283c095907ef981b228da7d1b0288/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="1489026993"] img {
+    .hlist.games.game-cards.game-tile-list li[id="1489026993"] img, .game-carousel .game-card-link[id="1489026993"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/6f47348b635d7ce3b938bdcf4c656e77/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="383310974"] img {
+    .hlist.games.game-cards.game-tile-list li[id="383310974"] img, .game-carousel .game-card-link[id="383310974"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/ed999fc06a0bd792551fdc2838e7baf5/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="2549475383"] img {
+    .hlist.games.game-cards.game-tile-list li[id="2549475383"] img, .game-carousel .game-card-link[id="2549475383"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/6f92092d91e8a188cf1b9fb97c42a401/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="1087859240"] img {
+    .hlist.games.game-cards.game-tile-list li[id="1087859240"] img, .game-carousel .game-card-link[id="1087859240"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/06b2f98a3e8420506b0accdee71bdeff/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="1494262959"] img {
+    .hlist.games.game-cards.game-tile-list li[id="1494262959"] img, .game-carousel .game-card-link[id="1494262959"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/92684363d41d5c500349f85397c582b2/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="1543009199"] img {
+    .hlist.games.game-cards.game-tile-list li[id="1543009199"] img, .game-carousel .game-card-link[id="1543009199"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/301fd714913f9cb2889de1215a0e5660/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="2471084"] img {
+    .hlist.games.game-cards.game-tile-list li[id="2471084"] img, .game-carousel .game-card-link[id="2471084"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/a5caba670a2977fb0778f9dfa3a683c1/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="158071904"] img {
+    .hlist.games.game-cards.game-tile-list li[id="158071904"] img, .game-carousel .game-card-link[id="158071904"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/fbc0730e080a3b1dd1afe93f718aebda/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="301252049"] img {
+    .hlist.games.game-cards.game-tile-list li[id="301252049"] img, .game-carousel .game-card-link[id="301252049"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/edd39dc25215657d447a8ca2f0c5e8d6/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="3240343305"] img {
+    .hlist.games.game-cards.game-tile-list li[id="3240343305"] img, .game-carousel .game-card-link[id="3240343305"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/da6a4d33b8d93a6a148ac33c921a0e6b/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="776385559"] img {
+    .hlist.games.game-cards.game-tile-list li[id="776385559"] img, .game-carousel .game-card-link[id="776385559"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/f8e75a66d6edad84c5c7a9453693a91b/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="271119130"] img {
+    .hlist.games.game-cards.game-tile-list li[id="271119130"] img, .game-carousel .game-card-link[id="271119130"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/0cd4caf664162ebd6560a22590a49dc6/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="3864279452"] img {
+    .hlist.games.game-cards.game-tile-list li[id="3864279452"] img, .game-carousel .game-card-link[id="3864279452"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/b545edcfaf8806459c2dceb9f6e68485/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="654747275"] img {
+    .hlist.games.game-cards.game-tile-list li[id="654747275"] img, .game-carousel .game-card-link[id="654747275"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/b6271ef576254c64a765b1f971e0ec44/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="2404080894"] img {
+    .hlist.games.game-cards.game-tile-list li[id="2404080894"] img, .game-carousel .game-card-link[id="2404080894"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/5c3b7133637d02adf8495b03bb2792de/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="2160907981"] img {
+    .hlist.games.game-cards.game-tile-list li[id="2160907981"] img, .game-carousel .game-card-link[id="2160907981"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/b72dc4dde409f8c80e03f8b5adb739fd/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="1871908106"] img {
+    .hlist.games.game-cards.game-tile-list li[id="1871908106"] img, .game-carousel .game-card-link[id="1871908106"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/b5f732a709b34069adf5f378264328a6/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="921931373"] img {
+    .hlist.games.game-cards.game-tile-list li[id="921931373"] img, .game-carousel .game-card-link[id="921931373"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/da9929ebb06447c10df1a095cf5c2038/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="171035019"] img {
+    .hlist.games.game-cards.game-tile-list li[id="171035019"] img, .game-carousel .game-card-link[id="171035019"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/4dc8b364bdbde88cd654c03c38542849/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="2668101271"] img {
+    .hlist.games.game-cards.game-tile-list li[id="2668101271"] img, .game-carousel .game-card-link[id="2668101271"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/ae7b787cbfb5c093c8808bb3042fe7db/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="3367801828"] img {
+    .hlist.games.game-cards.game-tile-list li[id="3367801828"] img, .game-carousel .game-card-link[id="3367801828"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/7480d1c8f7a2e6f4875775f44d61ec1a/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="953622098"] img {
+    .hlist.games.game-cards.game-tile-list li[id="953622098"] img, .game-carousel .game-card-link[id="953622098"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/d22427427369c3cb65d5977f50e144ed/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="3494556606"] img {
+    .hlist.games.game-cards.game-tile-list li[id="3494556606"] img, .game-carousel .game-card-link[id="3494556606"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/02ef4cc8c0e382044ba15231dccef9f4/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="372226183"] img {
+    .hlist.games.game-cards.game-tile-list li[id="372226183"] img, .game-carousel .game-card-link[id="372226183"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/fe7c90c4c4c62529ca690d5234e0166f/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="3494556606"] img {
+    .hlist.games.game-cards.game-tile-list li[id="3494556606"] img, .game-carousel .game-card-link[id="3494556606"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/02ef4cc8c0e382044ba15231dccef9f4/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="254394801"] img {
+    .hlist.games.game-cards.game-tile-list li[id="254394801"] img, .game-carousel .game-card-link[id="254394801"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/8dce6cf2fbec06e1b7a4c7e4844561dd/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="2729513759"] img {
+    .hlist.games.game-cards.game-tile-list li[id="2729513759"] img, .game-carousel .game-card-link[id="2729513759"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/53697e05f542425b7a4f143167059945/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="1318971886"] img {
+    .hlist.games.game-cards.game-tile-list li[id="1318971886"] img, .game-carousel .game-card-link[id="1318971886"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/9e249b163db7afcc491bb54e614a729b/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="2380077519"] img {
+    .hlist.games.game-cards.game-tile-list li[id="2380077519"] img, .game-carousel .game-card-link[id="2380077519"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/2843fa3b7528400b1bd685bbce217bfb/768/432/Image/Png');
     }
-    .hlist.games.game-cards.game-tile-list li[id="3151831332"] img {
+    .hlist.games.game-cards.game-tile-list li[id="3151831332"] img, .game-carousel .game-card-link[id="3151831332"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/70e839bf199774fd1d2db9ac3ba31da9/768/432/Image/Png');
     }
     if thumbs {
-    .hlist.games.game-cards.game-tile-list li[id="539067902"] img {
+    .hlist.games.game-cards.game-tile-list li[id="539067902"] img, .game-carousel .game-card-link[id="539067902"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://assetdelivery.roblox.com/v1/asset?id=13774243824');
     }
-    .hlist.games.game-cards.game-tile-list li[id="78351145"] img {
+    .hlist.games.game-cards.game-tile-list li[id="78351145"] img, .game-carousel .game-card-link[id="78351145"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://assetdelivery.roblox.com/v1/asset?id=13774248106');
     }
     }
-    .hlist.games.game-cards.game-tile-list li[id="3211189518"] img {
+    .hlist.games.game-cards.game-tile-list li[id="3211189518"] img, .game-carousel .game-card-link[id="3211189518"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/c1fe5fbef58f254a4f81f4308e2ed809/768/432/Image/Png');
+    }
+    .hlist.games.game-cards.game-tile-list li[id="3317771874"] img, .game-carousel .game-card-link[id="3317771874"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/b4f3eb329b52b3eb90185b651867471b/768/432/Image/Png');
+    }
+    .hlist.games.game-cards.game-tile-list li[id="4777817887"] img, .game-carousel .game-card-link[id="4777817887"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/9c52a8bc622ea784909d6c492b08268f/768/432/Image/Png');
+    }
+    .hlist.games.game-cards.game-tile-list li[id="4778845442"] img, .game-carousel .game-card-link[id="4778845442"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/0233e37eb1698aefbd12d77458bbefe4/768/432/Image/Png');
+    }
+    .hlist.games.game-cards.game-tile-list li[id="3183403065"] img, .game-carousel .game-card-link[id="3183403065"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/36bdf74eb718aa64e00e990adf196742/768/432/Image/Png');
+    }
+    .hlist.games.game-cards.game-tile-list li[id="3808081382"] img, .game-carousel .game-card-link[id="3808081382"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/bc65e73a415dbce9e79c1cc0300f71c0/768/432/Image/Png');
+    }
+    .hlist.games.game-cards.game-tile-list li[id="3240075297"] img, .game-carousel .game-card-link[id="3240075297"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/1e9a1b7e91d643b113e61fcbea91f475/768/432/Image/Png');
+    }
+    .hlist.games.game-cards.game-tile-list li[id="4908792642"] img, .game-carousel .game-card-link[id="4908792642"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/760bf25cd6afd2da108cd97216f8f0ce/768/432/Image/Png');
+    }
+    .hlist.games.game-cards.game-tile-list li[id="1176784616"] img, .game-carousel .game-card-link[id="1176784616"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/4f680b145b89015005b28ddf2864ec32/768/432/Image/Png');
+    }
+    .hlist.games.game-cards.game-tile-list li[id="4877714411"] img, .game-carousel .game-card-link[id="4877714411"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/9f2b2dd298cf801061fe976c0fcf421f/768/432/Image/Png');
+    }
+    .hlist.games.game-cards.game-tile-list li[id="3310460039"] img, .game-carousel .game-card-link[id="3310460039"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/882b9ab5ddfa7713f17af21874fd673c/768/432/Image/Png');
+    }
+    .hlist.games.game-cards.game-tile-list li[id="73885730"] img, .game-carousel .game-card-link[id="73885730"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/aac1ca5d6ed7e8270a0ffb58f73320d3/768/432/Image/Png');
+    }
+    .hlist.games.game-cards.game-tile-list li[id="4839802560"] img, .game-carousel .game-card-link[id="4839802560"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/185ec6dcac0a9937bc2a3469aa3bea7f/768/432/Image/Png');
+    }
+    .hlist.games.game-cards.game-tile-list li[id="3264293423"] img, .game-carousel .game-card-link[id="3264293423"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/a8a1a09fc6678ecd719a03f1d4e952d6/768/432/Image/Png');
+    }
+    .hlist.games.game-cards.game-tile-list li[id="280343502"] img, .game-carousel .game-card-link[id="280343502"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/b50d3a241c3f5170b8bc0ae6c85742df/768/432/Image/Png');
+    }
+    .hlist.games.game-cards.game-tile-list li[id="83858907"] img, .game-carousel .game-card-link[id="83858907"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/69c0c3529777588c07e0b66e9db16265/768/432/Image/Png');
+    }
+    .hlist.games.game-cards.game-tile-list li[id="5156590883"] img, .game-carousel .game-card-link[id="5156590883"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/16e543767ce50da475e7b24083c9442e/768/432/Image/Png');
+    }
+    .hlist.games.game-cards.game-tile-list li[id="2719766208"] img, .game-carousel .game-card-link[id="2719766208"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/3bf5106cf5a85ccae878e686d5e66965/768/432/Image/Png');
+    }
+    .hlist.games.game-cards.game-tile-list li[id="4452297356"] img, .game-carousel .game-card-link[id="4452297356"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/8870c2207e8a110bd887e7d483482560/768/432/Image/Png');
+    }
+    .hlist.games.game-cards.game-tile-list li[id="1836146838"] img, .game-carousel .game-card-link[id="1836146838"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/ca9f217a4f9d9de703dda5383e216fa8/768/432/Image/Png');
+    }
+    .hlist.games.game-cards.game-tile-list li[id="4883092215"] img, .game-carousel .game-card-link[id="4883092215"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/adf99e24b4db4b750d5bb6e5a10da37e/768/432/Image/Png');
+    }
+    .hlist.games.game-cards.game-tile-list li[id="63951305"] img, .game-carousel .game-card-link[id="63951305"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/aa25c98f79b399b3d23c8d61366d5457/768/432/Image/Png');
+    }
+    .hlist.games.game-cards.game-tile-list li[id="3267012194"] img, .game-carousel .game-card-link[id="3267012194"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/79c128483d0c70990a6487d94afbcac7/768/432/Image/Png');
+    }
+    .hlist.games.game-cards.game-tile-list li[id="4924789901"] img, .game-carousel .game-card-link[id="4924789901"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/e8d9c60b04ae062fca29d6574497153d/768/432/Image/Png');
+    }
+    .hlist.games.game-cards.game-tile-list li[id="5365966699"] img, .game-carousel .game-card-link[id="5365966699"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/254ddcb83f8f8a32656d9468c39a9b0f/768/432/Image/Png');
+    }
+    .hlist.games.game-cards.game-tile-list li[id="1715617820"] img, .game-carousel .game-card-link[id="1715617820"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/e74279f36dab941bfb34a10a83a7a952/768/432/Image/Png');
+    }
+    .hlist.games.game-cards.game-tile-list li[id="3081555258"] img, .game-carousel .game-card-link[id="3081555258"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/904860de9bb8c1b2b1576d5248b19b06/768/432/Image/Png');
+    }
+    .hlist.games.game-cards.game-tile-list li[id="2294168059"] img, .game-carousel .game-card-link[id="2294168059"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/0dd6f0501aa145f5e3ef23cecae52df6/768/432/Image/Png');
+    }
+    .hlist.games.game-cards.game-tile-list li[id="3405618667"] img, .game-carousel .game-card-link[id="3405618667"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/d9efa442d4e846f86098105b82be80d3/768/432/Image/Png');
+    }
+    .hlist.games.game-cards.game-tile-list li[id="2394934836"] img, .game-carousel .game-card-link[id="2394934836"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/5d896a04e927ff60608b7cc0b18cc482/768/432/Image/Png');
+    }
+    .hlist.games.game-cards.game-tile-list li[id="4391829435"] img, .game-carousel .game-card-link[id="4391829435"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/390e6b4e2bef135a79766ecff56339c5/768/432/Image/Png');
+    }
+    .hlist.games.game-cards.game-tile-list li[id="2132866904"] img, .game-carousel .game-card-link[id="2132866904"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/cb352c84e681841433aa169bfc82c4ad/768/432/Image/Png');
+        object-fit: fill;
+    }
+    .hlist.games.game-cards.game-tile-list li[id="2049551477"] img, .game-carousel .game-card-link[id="2049551477"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/386c27db7cdb43f4f6a91a81e4a19b13/768/432/Image/Png');
+    }
+    .hlist.games.game-cards.game-tile-list li[id="3717264063"] img, .game-carousel .game-card-link[id="3717264063"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/7b8651fa3ad854ddca9be27b6de0ee83/768/432/Image/Png');
+    }
+    .hlist.games.game-cards.game-tile-list li[id="2151379579"] img, .game-carousel .game-card-link[id="2151379579"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/531020ebc7d35bbfe7d06ab0a893c09c/768/432/Image/Png');
+    }
+    .hlist.games.game-cards.game-tile-list li[id="2082205150"] img, .game-carousel .game-card-link[id="2082205150"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/6f8e46ffdcb07189d2c16d73dbdc4cab/768/432/Image/Png');
+    }
+    .hlist.games.game-cards.game-tile-list li[id="807930589"] img, .game-carousel .game-card-link[id="807930589"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/b281a6af446ce52b360a7456b13158cb/768/432/Image/Png');
+    }
+    .hlist.games.game-cards.game-tile-list li[id="3336930453"] img, .game-carousel .game-card-link[id="3336930453"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/e9c84a54efaf52ef9435ac9a8231c7d8/768/432/Image/Png');
+    }
+    .hlist.games.game-cards.game-tile-list li[id="84834040"] img, .game-carousel .game-card-link[id="84834040"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/b906646cb5b6c8d615f2c5ecab0f6b74/768/432/Image/Png');
+    }
+    .hlist.games.game-cards.game-tile-list li[id="2953945619"] img, .game-carousel .game-card-link[id="2953945619"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/91b7233fc4ed6e137d75800e42a240b9/768/432/Image/Png');
+    }
+    .hlist.games.game-cards.game-tile-list li[id="1247231049"] img, .game-carousel .game-card-link[id="1247231049"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/602108115cd1b05237d237b8e7b653af/768/432/Image/Png');
+    }
+    .hlist.games.game-cards.game-tile-list li[id="1499870257"] img, .game-carousel .game-card-link[id="1499870257"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/9dbdf7f8b7a91a61e8e506310346dd00/768/432/Image/Png');
+    }
+    .hlist.games.game-cards.game-tile-list li[id="486288186"] img, .game-carousel .game-card-link[id="486288186"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/74b8d146a278bf77d2a792723a1d00f7/768/432/Image/Png');
+    }
+    .hlist.games.game-cards.game-tile-list li[id="2460450084"] img, .game-carousel .game-card-link[id="2460450084"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/d0a2e3a5d9294f7ed963a85215752840/768/432/Image/Png');
+    }
+    .hlist.games.game-cards.game-tile-list li[id="2435789930"] img, .game-carousel .game-card-link[id="2435789930"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/e3d8426b55354cef6de154fc0d44f4a6/768/432/Image/Png');
+    }
+    .hlist.games.game-cards.game-tile-list li[id="3223065041"] img, .game-carousel .game-card-link[id="3223065041"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/ae7c6d8d12a480b10d7483dbfa998265/768/432/Image/Png');
+    }
+    .hlist.games.game-cards.game-tile-list li[id="4627714100"] img, .game-carousel .game-card-link[id="4627714100"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/359efd3f5457b224cf0e89bb08160998/768/432/Image/Png');
+        object-fit: fill;
+    }
+    .hlist.games.game-cards.game-tile-list li[id="1278035280"] img, .game-carousel .game-card-link[id="1278035280"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/2ae38d5120696e4dffa54491135fe79f/768/432/Image/Png');
+    }
+    .hlist.games.game-cards.game-tile-list li[id="2056544720"] img, .game-carousel .game-card-link[id="2056544720"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/7538e26859ed570a016c78b8b37142ac/768/432/Image/Png');
+    }
+    .hlist.games.game-cards.game-tile-list li[id="26494385"] img, .game-carousel .game-card-link[id="26494385"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/98f6a59ca704af704374b535d403a211/768/432/Image/Png');
+    }
+    .hlist.games.game-cards.game-tile-list li[id="1216210570"] img, .game-carousel .game-card-link[id="1216210570"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/c6af9df948093d08d691c9fed6b30ff4/768/432/Image/Png');
+    }
+    .hlist.games.game-cards.game-tile-list li[id="41591938"] img, .game-carousel .game-card-link[id="41591938"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/72b4b37c31475b2e8257f4e5c99112c8/768/432/Image/Png');
+    }
+    .hlist.games.game-cards.game-tile-list li[id="1883423040"] img, .game-carousel .game-card-link[id="1883423040"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/024b8e50a17cca6cc12a362d05d208dc/768/432/Image/Png');
+    }
+    .hlist.games.game-cards.game-tile-list li[id="1141258827"] img, .game-carousel .game-card-link[id="1141258827"] .thumbnail-2d-container img:not(.avatar-card-image) {
+        content: url('https://tr.rbxcdn.com/c86d612fd2b5675b4d9e85f2b659e07e/768/432/Image/Png');
     }
     }
     @-moz-document url-prefix("https://www.roblox.com"), url-prefix("https://www.roblox.com/users/") {
@@ -19927,31 +20266,31 @@ if landing == "ing" {
         content: url('https://assetdelivery.roblox.com/v1/asset?id=13875887215');
     }
     /* Game icons */
-    .thumbnail-2d-container img[src="https://t3.rbxcdn.com/b917777b6ead6556305b0bccdd623322"],
-    .thumbnail-2d-container img[src="https://t2.rbxcdn.com/27231de2257c72e984296092ac43d543"],
-    .thumbnail-2d-container img[src="https://t4.rbxcdn.com/8345852d1687cd85856e90c691bf0d28"],
-    .thumbnail-2d-container img[src="https://t6.rbxcdn.com/ff51c97fb6306ce1e1dbf25124fedffc"],
-    .thumbnail-2d-container img[src="https://t3.rbxcdn.com/38dd728e19365d987a35734d42f661fa"],
-    .thumbnail-2d-container img[src="https://t4.rbxcdn.com/3006a286729e44f40eed6e4b6b182be1"],
-    .thumbnail-2d-container img[src="https://t5.rbxcdn.com/d0edadbf92d263c81c94e2daaef65fe2"],
-    .thumbnail-2d-container img[src="https://t3.rbxcdn.com/b722311d47d2abb2bd0f31cc774b52ef"],
-    .thumbnail-2d-container img[src="https://t1.rbxcdn.com/2b53a0bd0643f38f6508f3cb001eb994"]
-    .thumbnail-2d-container img[src="https://t7.rbxcdn.com/af85c171c856ab879c547726bee962f4"],
-    .thumbnail-2d-container img[src="https://t2.rbxcdn.com/6d441935e52aa975f5abacd5abca1f05"],
-    .thumbnail-2d-container img[src="https://t2.rbxcdn.com/ea0f537f5b5b1931a4f5790d58927546"],
+    .thumbnail-2d-container img[src="https://t6.rbxcdn.com/aadaa538b61acdab1d4f17940a800f6f"],
+    .thumbnail-2d-container img[src="https://t7.rbxcdn.com/a10c9222e32980470fab50fb6462d437"],
+    .thumbnail-2d-container img[src="https://t0.rbxcdn.com/8f56fba9bef09c5bc27c53a7bb963be4"],
+    .thumbnail-2d-container img[src="https://t6.rbxcdn.com/c733e3ebc62abd3e048bbb5ad66929ce"],
+    .thumbnail-2d-container img[src="https://t1.rbxcdn.com/4a51c69f32e68ba3d1843fc4ace2a46b"],
+    .thumbnail-2d-container img[src="https://t4.rbxcdn.com/ba47802a9e2570791d69927011119481"],
+    .thumbnail-2d-container img[src="https://t2.rbxcdn.com/dcba86e6279d72062444d423c583d70f"],
+    .thumbnail-2d-container img[src="https://t4.rbxcdn.com/9c11217b79515fc41469a37378be1433"],
+    .thumbnail-2d-container img[src="https://t1.rbxcdn.com/8a3e264c9688a9eb74a3859b18692742"]
+    .thumbnail-2d-container img[src="https://t4.rbxcdn.com/003c09089611dd64aa694f01a33b2d17"],
+    .thumbnail-2d-container img[src="https://t3.rbxcdn.com/76a5164269c4060c66a95bb6843947fe"],
+    .thumbnail-2d-container img[src="https://t1.rbxcdn.com/f6bf065d19c9e1cf7d28e7b85a6d527a"],
     /* hell */
-    .game-card-thumb[src="https://t7.rbxcdn.com/af85c171c856ab879c547726bee962f4"],
-    .game-card-thumb[src="https://t1.rbxcdn.com/2b53a0bd0643f38f6508f3cb001eb994"],
-    .game-card-thumb[src="https://t2.rbxcdn.com/27231de2257c72e984296092ac43d543"],
-    .game-card-thumb[src="https://t2.rbxcdn.com/ea0f537f5b5b1931a4f5790d58927546"],
-    .game-card-thumb[src="https://t6.rbxcdn.com/ff51c97fb6306ce1e1dbf25124fedffc"],
-    .game-card-thumb[src="https://t3.rbxcdn.com/38dd728e19365d987a35734d42f661fa"],
-    .game-card-thumb[src="https://t5.rbxcdn.com/d0edadbf92d263c81c94e2daaef65fe2"],
-    .game-card-thumb[src="https://t3.rbxcdn.com/b722311d47d2abb2bd0f31cc774b52ef"],
-    .game-card-thumb[src="https://t3.rbxcdn.com/b917777b6ead6556305b0bccdd623322"],
-    .game-card-thumb[src="https://t4.rbxcdn.com/8345852d1687cd85856e90c691bf0d28"],
-    .game-card-thumb[src="https://t2.rbxcdn.com/6d441935e52aa975f5abacd5abca1f05"],
-    .game-card-thumb[src="https://t4.rbxcdn.com/3006a286729e44f40eed6e4b6b182be1"] {
+    .game-card-thumb[src="https://t6.rbxcdn.com/aadaa538b61acdab1d4f17940a800f6f"],
+    .game-card-thumb[src="https://t7.rbxcdn.com/a10c9222e32980470fab50fb6462d437"],
+    .game-card-thumb[src="https://t0.rbxcdn.com/8f56fba9bef09c5bc27c53a7bb963be4"],
+    .game-card-thumb[src="https://t6.rbxcdn.com/c733e3ebc62abd3e048bbb5ad66929ce"],
+    .game-card-thumb[src="https://t1.rbxcdn.com/4a51c69f32e68ba3d1843fc4ace2a46b"],
+    .game-card-thumb[src="https://t4.rbxcdn.com/ba47802a9e2570791d69927011119481"],
+    .game-card-thumb[src="https://t2.rbxcdn.com/dcba86e6279d72062444d423c583d70f"],
+    .game-card-thumb[src="https://t4.rbxcdn.com/9c11217b79515fc41469a37378be1433"],
+    .game-card-thumb[src="https://t1.rbxcdn.com/8a3e264c9688a9eb74a3859b18692742"]
+    .game-card-thumb[src="https://t4.rbxcdn.com/003c09089611dd64aa694f01a33b2d17"],
+    .game-card-thumb[src="https://t3.rbxcdn.com/76a5164269c4060c66a95bb6843947fe"],
+    .game-card-thumb[src="https://t1.rbxcdn.com/f6bf065d19c9e1cf7d28e7b85a6d527a"] {
         object-fit: unset!important;
         content: url('https://assetdelivery.roblox.com/v1/asset?id=13875887215');
     }
