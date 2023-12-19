@@ -3,7 +3,7 @@
 // @namespace    http://tampermonkey.net/
 // @version      0.6
 // @description  balled sack
-// @author       melo and fuzzy
+// @author       fuzzy
 // @match        *://*.roblox.com/*
 // @grant        none
 // ==/UserScript==
