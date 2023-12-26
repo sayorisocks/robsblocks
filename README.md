@@ -1,4 +1,4 @@
-# <img src="https://raw.githubusercontent.com/sayorisocks/robsblocks/main/other/2012.png" width="24"/> rob's blocks (robsblocks)
+# <img src="https://raw.githubusercontent.com/sayorisocks/robsblocks/main/other/2012.png" width="24"/> robsblocks
 
 userstyles for [roblox.com](https://roblox.com/) that attempt to make the site look similar to how they did over a decade ago! that's pretty cool i think..
 
