@@ -3,7 +3,7 @@
 @namespace      https://github.com/sayorisocks/robsblocks
 @supportURL     https://github.com/sayorisocks/robsblocks/issues
 @license        GNU GPLv3
-@version        1.0.5
+@version        1.0.6
 @description    now you too can give roblox a personality!
 @author         melo
 @var select layout "🖼️ | Website Style" {
@@ -19506,6 +19506,7 @@ if landing == "ing" {
         /* background-image: url('http://images.rbxcdn.com/7622437727bfe45aff684632abc2f3be.jpg')!important; */
         background-image: url('https://assetdelivery.roblox.com/v1/asset?id=14705606079')!important;
     }
+    /* yet another cd thumb */
     img[src="https://t0.rbxcdn.com/90c2a9d20e65760e294d6bf5139f5dc0"] {
         content: url('https://assetdelivery.roblox.com/v1/asset?id=14705606079');
     }
@@ -19519,13 +19520,11 @@ if landing == "ing" {
         content: url('https://assetdelivery.roblox.com/v1/asset?id=13774157179');
     }
     /* cd thumb */
-    img[src="https://t3.rbxcdn.com/9fc30fe577bf95e045c9a3d4abaca05d"], img[src="https://t6.rbxcdn.com/b48637b2a6266bd379a09afb5a8d5131"], img[src="https://t1.rbxcdn.com/61bc761bde26c46a1756ae0c9c4b2586"], img[src="https://t3.rbxcdn.com/67b0e23c98c9c8cf50c5cfeb4b186423"] {
+    img[src="https://t3.rbxcdn.com/9fc30fe577bf95e045c9a3d4abaca05d"], img[src="https://t6.rbxcdn.com/b48637b2a6266bd379a09afb5a8d5131"], img[src="https://t7.rbxcdn.com/ff77fbc32b10dc755be7d427c4feabf9"], img[src="https://t3.rbxcdn.com/67b0e23c98c9c8cf50c5cfeb4b186423"] {
         content: url('https://assetdelivery.roblox.com/v1/asset?id=13774136272')!important;
     }
-    img[src="https://t1.rbxcdn.com/f922c4b76a05fc2ad7eac8be682489fc"] {
-        content: url('https://assetdelivery.roblox.com/v1/asset?id=13774166967')
-    }
-    img[src="https://t1.rbxcdn.com/0a742c4299a8176c6c3d519852f38ff4"] {
+    /* audio thumb */
+    img[src="https://t5.rbxcdn.com/51edcb4f66c406b9b190f63a404363c3"] {
         content: url('https://assetdelivery.roblox.com/v1/asset?id=13774170411');
     }
     /* Builderman */
