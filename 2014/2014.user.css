@@ -3,7 +3,7 @@
 @namespace      https://github.com/sayorisocks/robsblocks
 @supportURL     https://github.com/sayorisocks/robsblocks/issues
 @license        GNU GPLv3
-@version        1.0.6
+@version        1.1.9
 @description    now you too can give roblox a personality!
 @author         melo
 @var select layout "🖼️ | Website Style" {
@@ -32,7 +32,7 @@
 @var checkbox bluebc "🎨 Aug2014 | Blue Upgrade Button" 0
 @var checkbox sixteen "🎨 Dec2014 | L2015 Logo" 0
 @var select landing "🖼️ | Landing/Signup Style" {
-    "Early 2014": "land",
+    "Mid 2013": "land",
     "Late 2014*": "ing"
 }
 @var select ssp "🖼️ | Source Sans Pro Style" {
@@ -41,7 +41,7 @@
 }
 @var checkbox tix "🎨 | Tickets over Robux" 0
 @var checkbox thumbs "🎨 | Retro Asset Thumbnails" 1
-@var checkbox topic "🎨 | Catalog Search Suggestions" 0
+@var checkbox topic "🎨 | Hide Catalog Search Suggestions" 0
 @var checkbox stats "🎨 | Hide Profile Stats" 0
 @var checkbox collect "🎨 | Hide Profile Collections" 1
 @var checkbox cart "🎨 | Hide Shopping Cart" 1
@@ -114,6 +114,25 @@
             unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; 
         }
     }
+    html:has(#rbx-body) {
+        height: 100%;
+        if layout == june {
+            background: #e6e6e6;
+            if obc {
+                background: black;
+            }
+        }
+        if layout == thirteen or layout == jan {
+            background: #123f83;
+            if obc {
+                background: black;
+            }
+        }
+    }
+    body {
+        height: auto;
+        margin-bottom: 0;
+    }
     .content {
         background-color: transparent!important;
     }
@@ -121,20 +140,16 @@
     .container-main,
     .content {
         border-radius: 0px!important;
-        margin-top: 30px;
+        if layout ==  june or layout == thirteen {
+            margin-top: 30px;
+        }
     }
     .container-main:has(.alert-info.linkify) {
         margin-top: 28px !important;
     }
     .container-fluid {
         height: 40px;
-        if layout == "june" {
-            margin-left: auto;
-            margin-right: auto;
-            height: 36px;
-            max-width: 970px;
-        }
-        if layout == "thirteen" {
+        if layout == "june" or layout == thirteen {
             margin-left: auto;
             margin-right: auto;
             height: 36px;
@@ -142,6 +157,7 @@
         }
     }
     #wrap {
+        min-height: 100%;
         if obc {
             background: url(http://images.rbxcdn.com/7b740ce2fe1bb189612252b3b93c5b83.jpg) top center repeat-x #222222;
             if layout == "thirteen" or layout == "june" or layout == "jan" {
@@ -1209,18 +1225,13 @@
         if layout == "dec" {
             color: #ccc!important;
         }
-        if layout == june {
-            display: none;
-        }
-        if layout == thirteen {
-            display: none;
-        }
-        if layout == jan {
-            display: none;
+        if layout == june or layout == thirteen or layout == jan {
+            display: none!important;
         }
     }
     .rbx-left-col .rbx-nav-sponsor .menu-item {
         height: unset;
+        display: block;
         if layout == jan {
             border-top: 1px solid #000;
             height: 49px;
@@ -1347,7 +1358,7 @@
         #nav-profile:hover .font-header-2, #nav-character:hover .font-header-2 {
             color:#f68802!important;
         }
-        #nav-message:hover .font-header-2, #nav-friends:hover .font-header-2, #nav-trade:hover .font-header-2, #nav-group:hover .font-header-2, #nav-blog:hover .font-header-2, #nav-my-feed:hover .font-header-2 {
+        #nav-message:hover .font-header-2, #nav-friends:hover .font-header-2, #nav-trade:hover .font-header-2, #nav-group:hover .font-header-2, #nav-blog:hover .font-header-2, #nav-my-feed:hover .font-header-2, #nav-money:hover .font-header-2, {
             color:#00a2ff!important;
         }
         #nav-home:hover .font-header-2, #nav-inventory:hover .font-header-2 { 
@@ -1371,7 +1382,7 @@
         #nav-inventory:hover .icon-nav-inventory {
            background-position:-28px -280px!important;
         }
-        #nav-trade:hover .icon-nav-trade {
+        #nav-trade:hover .icon-nav-trade, #nav-money:hover .icon-nav-trade {
            background-position:-28px -308px!important;
         }
         #nav-group:hover .icon-nav-group {
@@ -1452,7 +1463,7 @@
             font-weight: 600;
         }
     }
-    a.font-header-2.nav-menu-title.text-header[href="/develop"]::before {
+    a.font-header-2.nav-menu-title.text-header[href="https://create.roblox.com/"]:before, a.font-header-2.nav-menu-title.text-header[href="/develop"]:before {
         font-size: 16px;
         content: "Develop";
         border-radius: 5px;
@@ -1468,7 +1479,7 @@
             font-weight: 600;
         }
     }
-    a.font-header-2.nav-menu-title.text-header[href="/robux?ctx-nav"]::before {
+    a.font-header-2.nav-menu-title.text-header[href="/robux?ctx-nav"]::before, a.font-header-2.nav-menu-title.text-header[href="/upgrades/robux?ctx=nav"]::before {
         font-size: 16px;
         content: "ROBUX";
         border-radius: 5px;
@@ -2019,6 +2030,9 @@
             color: white!important;
         }
     }
+    #settings-icon .notification-red, #settings-popover-menu .notification-blue.nav-setting-highlight {
+        display: none;
+    }
     .left-col-list li:first-child {
         display: block!important;
         if layout == "jan" {
@@ -2253,6 +2267,9 @@
             text-align: unset;
         }
     }
+    .dropdown-wallet:has(.icon-menu-wallet) {
+        display: none;
+    }
     #buy-robux-popover-menu li:nth-child(2) a:before {
         content: "";
         background-position: -8px -395px;
@@ -2328,6 +2345,7 @@
     }
     .rbx-left-col .rbx-divider {
         background-color: #ccc;
+        margin-top: 0px!important;
         if layout == "dec" {
             background-color:#b8b8b8;
             margin: 9px 7px!important;
@@ -2618,15 +2636,16 @@
     /* End of Error Pages */
     
     .container-footer {
+        position: relative;
         background: linear-gradient(to bottom,rgba(236,236,236,1) 0,rgba(255,255,255,1) 100%);
         background-color: unset;
         min-height: 175px;
-        if layout == "thirteen" {
+        if layout == "thirteen" or layout == jan {
             background: #123f83!important;
         }
         if obc {
             background: #222222!important;
-            if layout == "thirteen" {
+            if layout == "thirteen" or layout == jan {
                 background: #000!important;
             }
         }
@@ -2690,7 +2709,7 @@
     }
     .text-footer-nav, .copyright-container .rbx-selection-label {
         color: #2D528F!important;
-        if layout == "thirteen" {
+        if layout == "thirteen" or layout == jan {
             color: #fff!important;
         }
         if obc {
@@ -2702,7 +2721,7 @@
         color: #899fc1!important;
         if obc {
             color: #fff!important;
-            if layout == "thirteen" {
+            if layout == "thirteen" or layout == jan {
                 color: #555!important;
             }
         }
@@ -2857,7 +2876,7 @@
     .text-footer.footer-note:after {
         content: " | 2014-esque roblox, made with love by melo 💜💛";
     }
-    .chat-header {
+    .chat-header, .chat-header #chat-group-create {
         background-color: #D6D6D6!important;
         border: 1px solid #9e9e9e;
         margin: 4px 1px 0 1px;
@@ -2875,19 +2894,82 @@
             padding-left: 2px;
             height: 19px;
         }
-        .chat-header:hover:before {
+        .chat-header:hover:before, .chat-header span:has(#chat-group-create):hover {
             background-position: left bottom;
         }
     }
-    .chat-header:hover {
+    .chat-header:hover, .chat-header #chat-group-create:hover {
         background-color: #e9e9e9!important;
         if layout == "june" or layout == "thirteen" {
             background-color: transparent!important;
             background-position: right bottom!important;
         }
     }
-    .chat-header-action {
+    .chat-main .chat-header .notification-red {
         display: none;
+    }
+    .chat-header span:has(.ng-hide) {
+        display: none!important;
+    }
+    .chat-header span:has(#chat-group-create) {
+        if layout == thirteen or layout == june {
+            background: transparent url('https://assetdelivery.roblox.com/v1/asset?id=13774099019') no-repeat left top;
+            color: #444;
+            display: block;
+            float: left;
+            text-decoration: none;
+            padding-left: 2px;
+            height: 19px;
+            outline: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        if layout == june {
+            font: normal 12px verdana,sans-serif!important;
+        }
+        if layout == sep or layout == dec or layout == jan {
+            position: absolute!important;
+            left: -56px!important;
+            top: -5px!important;
+        }
+        font-family: 'Source Sans Pro',Arial,Helvetica,sans-serif;
+        font-size: 15px;
+        position: relative;
+        left: -59px;
+        top: -38px;
+    }
+    .chat-header #chat-group-create {
+        if layout == thirteen or layout == june {
+            background: transparent url('https://assetdelivery.roblox.com/v1/asset?id=13774092552') no-repeat right top;
+            height: 19px!important;
+            padding: 2px 15px 2px 7px!important;
+            width: 74px!important;
+            margin: 0!important;
+        }
+        height: 26px;
+        width: 52px;
+        padding: 2px 7px;
+        background: none;
+        margin: 4px 1px 0 1px;
+        display: block;
+        text-decoration: none;
+    }
+    .chat-header #chat-group-create:after {
+        content: "Party";
+        font-weight: bold;
+        color: #343434;
+        if layout == sep or layout == dec or layout == jan {
+            position: relative;
+            top: -1px;
+        }
+        if layout == thirteen {
+            position: relative;
+            top: -3px;
+        }
+        if layout == june or layout == thirteen {
+            color: Black;
+            font-weight: 700;
+        }
     }
     .chat-header .chat-header-label span {
         font-size: 0px!important;
@@ -3129,19 +3211,18 @@
         position: absolute;
         top: -32px;
         right: -1px;
-        if layout == sep {
-            top: -36px;
-            height: 25px;
-        }
-        if layout == dec {
-            top: -36px;
-            height: 25px;
+        if layout == sep or layout == dec {
+            top: -38px;
+            height: 26px;
         }
     }
     #chat-header .chat-header-title {
         top: -4px;
         width: 64px;
         position: relative;
+        if layout == june {
+            top: -7px;
+        }
     }
     /* Game Launcher */
     #modal-confirmation.noImage:has(.icon-logo-r-95) .icon-logo-r-95 {
@@ -3450,10 +3531,19 @@
             top: 61px;
         }
     }
+    /* */
+    
     }
     @-moz-document url-prefix("https://www.roblox.com/home") {
     /* Home */
     /* not too proud of this but oh well!!! */
+    .game-home-page-container > div {
+        display: flex;
+        flex-direction: column;
+    }
+    .friend-carousel-container {
+        order: -1;
+    }
     if layout == june or layout == thirteen or layout == jan or layout == sep { /* very long! */
     .content {
         width: 990px;
@@ -3597,7 +3687,7 @@
     .icon-studio {
         display: none;
     }
-    #people-list-container {
+    .friend-carousel-container .people-list-container {
         border-bottom: 1px solid #ccc;
         margin-bottom: 12px;
     }
@@ -3640,7 +3730,7 @@
     .game-card-container .game-card-name {
         color: #343434;
         font-size: 14px;
-        font-weight: 600;
+        font-weight: 600!important;
         font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
         margin: 0px;
         height: 100%;
@@ -3650,7 +3740,7 @@
             font-family: Arial,Helvetica,sans-serif;
             color: #095fb5;
             font-size: 12px;
-            font-weight: bold;
+            font-weight: bold!important;
         }
     }
     .horizontal-scroller .scroller .spacer,
@@ -3711,7 +3801,7 @@
             font-family: Arial, Helvetica, sans-serif;
         }
     }
-    .game-carousel .game-card-link .game-card-info .vote-percentage-label::before, .info-label.no-vote::before, .game-grid .game-card-link .game-card-info .vote-percentage-label:before {
+    .game-carousel .game-card-link .game-card-info .vote-percentage-label:before, .info-label.no-vote::before, .game-grid .game-card-link .game-card-info .vote-percentage-label:before {
         content: url('https://assetdelivery.roblox.com/v1/asset?id=14705538826');
         position: relative;
         top: 2px;
@@ -3719,6 +3809,15 @@
         if layout == june {
             content: "Rating: ";
             top: 0;
+        }
+    }
+    if layout == june {
+        .game-grid.home-game-grid .game-card-link .game-card-info .vote-percentage-label:before {
+            content: url('https://assetdelivery.roblox.com/v1/asset?id=14705538826');
+            position: relative;
+            top: 2px;
+            left: -1px;
+            margin-right: 2px;
         }
     }
     .game-carousel {
@@ -3811,8 +3910,8 @@
     .game-grid.home-game-grid {
         --items-per-row: 5!important;
         grid-column-gap: 10px;
-        grid-row-gap: 42px;
-        margin-bottom: 38px;
+        grid-row-gap: 0; /* 42px */
+        margin-bottom: 0;
     }
     .game-home-page-container .home-interleave-divider {
         height: 1px;
@@ -3821,6 +3920,81 @@
     .game-home-page-container .home-interleave-divider:nth-child(9) {
         border: none!important;
         background-color: transparent;
+    }
+    .hover-game-tile.grid-tile {
+        background-color: transparent!important;
+        margin: 0!important;
+        transition: none;
+    }
+    .hover-game-tile.grid-tile .featured-game-container {
+        background-color: transparent!important;
+    }
+    .hover-game-tile.grid-tile.focused {
+        padding: 0;
+        border-radius: 0px;
+    }
+    .hover-game-tile.grid-tile .featured-game-container .featured-game-icon-container .brief-game-icon, .hover-game-tile.grid-tile .featured-game-container .featured-game-icon-container, .hover-game-tile.grid-tile .featured-game-container {
+        border-radius: 0px!important;
+    }
+    .hover-game-tile.grid-tile .featured-game-container .info-container {
+        margin-top: 2px;
+    }
+    .hover-game-tile.grid-tile  .game-card-info .vote-percentage-label {
+        margin-top: -6px;
+    }
+    .hover-game-tile.grid-tile .featured-game-container .info-container .game-card-name {
+        margin-bottom: 0;
+    }
+    .hover-game-tile.grid-tile:hover .featured-game-container .info-container .game-card-name {
+        text-decoration: underline;
+    }
+    .game-grid.home-game-grid.wide-game-tile-game-grid .hover-game-tile.grid-tile .featured-game-container .featured-game-icon-container .brief-game-icon {
+        height: 108px;
+        width: 192px;
+    }
+    .game-grid.home-game-grid.wide-game-tile-game-grid .hover-game-tile.grid-tile {
+        width: 193px;
+    }
+    div[data-testid="home-page-game-grid"]:first-child .game-grid li:nth-child(6), div[data-testid="home-page-game-grid"]:first-child .game-grid li:nth-child(7), div[data-testid="home-page-game-grid"]:first-child .game-grid li:nth-child(8) {
+        display: none;
+    }
+    .game-carousel.wide-game-tile-carousel {
+        height: auto;
+    }
+    .sort-subtitle-container span {
+        font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+        font-size: 14px!important;
+        font-style: italic;
+        color: #ccc!important;
+        if layout == june {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+        }
+    }
+    .hover-game-tile.event-tile .featured-game-container .info-container {
+	    margin-top: 0;
+    }
+    .hover-game-tile.event-tile .featured-game-container .info-container .wide-game-tile-metadata .base-metadata .game-card-info .info-label {
+        font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+        color: #999;
+        font-size: 14px;
+        if layout == june {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+        }
+    }
+    .hover-game-tile.event-tile .game-card-container .game-card-name {
+        margin-bottom: 0!important;
+        if layout == june {
+            margin-top: 4px!important;
+        }
+    }
+    .hover-game-tile.event-tile {
+        background-color: transparent!important;
+        transition: none;
+    }
+    .hover-game-tile.event-tile .featured-game-container .featured-game-icon-container .brief-game-icon, .hover-game-tile.event-tile .featured-game-container .featured-game-icon-container, .hover-game-tile.event-tile.focused, .hover-game-tile.event-tile .featured-game-container {
+        border-radius: 0px;
     }
 }
 if layout == dec {
@@ -3978,10 +4152,10 @@ if layout == dec {
         margin: 0 10px;
         font-family: "Source Sans Pro",Arial,Helvetica,sans-serif;
         color: black;
-        font-weight: 600;
-        white-space: nowrap;
-        text-overflow: unset;
-        max-width: 139px;
+        font-weight: 600!important;
+        white-space: nowrap!important;
+        text-overflow: unset!important;
+        max-width: 139px!important;
     }
     .game-card-container .game-card-name:after, .people-list .friend .friend-name:after {
         content: "";
@@ -4030,8 +4204,105 @@ if layout == dec {
         height: 1px;
         border-bottom: 0px!important;
     }
-}
+    .game-grid.home-game-grid.wide-game-tile-game-grid {
+        --items-per-row: 6!important;
     }
+    .game-grid.home-game-grid.wide-game-tile-game-grid .hover-game-tile.grid-tile {
+        height: 139px;
+        width: 155px!important;
+        background-color: #fff;
+        box-shadow: 0 1px 4px 0 rgba(25,25,25,0.3);
+        border-radius: 3px;
+        margin: 0!important;
+        padding: 0!important;
+        transition: none;
+    }
+    .hover-game-tile.event-tile {
+        background-color: #fff;
+        box-shadow: 0 1px 4px 0 rgba(25,25,25,0.3);
+        border-radius: 3px!important;
+        width: calc(var(--home-feed-width)/4 - 9px)!important;
+        height: unset!important;
+        transition: none;
+    }
+    .hover-game-tile.event-tile.focused {
+        padding: 0;
+        margin: 0!important;
+    }
+    .game-grid.home-game-grid.wide-game-tile-game-grid .hover-game-tile.grid-tile:hover, .hover-game-tile.event-tile:hover {
+        box-shadow: 0 1px 6px 0 rgba(25,25,25,0.75);
+    }
+    .game-grid.home-game-grid.wide-game-tile-game-grid .hover-game-tile.grid-tile .featured-game-container .featured-game-icon-container .brief-game-icon {
+        height: 81px;
+        width: 144px;
+        margin: 5px;
+        border-radius: 0px;
+        margin-bottom: 3px;
+    }
+    .game-grid.home-game-grid.wide-game-tile-game-grid .hover-game-tile.grid-tile .info-container {
+        width: unset;
+    }
+    .hover-game-tile.grid-tile .featured-game-container {
+        transition: none;
+    }
+    .hover-game-tile.grid-tile .featured-game-container .info-container {
+        margin-top: 0;
+    }
+    .hover-game-tile.focused .featured-game-container {
+        background-color: transparent!important;
+    }
+    .base-metadata .info-label.icon-votes-gray, .base-metadata .info-label.vote-percentage-label {
+        display: inline-block!important;
+    }
+    .base-metadata .info-label.icon-votes-gray {
+        background-repeat: no-repeat!important;
+        background-size: auto auto!important;
+        background-image: url("/images/Icons/thumbs.svg")!important;
+        background-position: 0 0!important;
+    }
+    .base-metadata .info-label.vote-percentage-label {
+        font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+        color: #757575;
+        margin: 0 10px;
+        font-size: 14px;
+        margin-left: 0;
+        padding-left: 2px !important;
+    }
+    .wide-game-tile-metadata .base-metadata {
+        margin: 0 10px;
+    }
+    .game-grid.home-game-grid.wide-game-tile-game-grid .hover-game-tile.grid-tile .game-card-container .game-card-name {
+        margin-bottom: 0;
+    }
+    div[data-testid="home-page-game-grid"]:first-child .game-grid li:nth-child(7), div[data-testid="home-page-game-grid"]:first-child .game-grid li:nth-child(8) {
+        display: none;
+    }
+    .sort-subtitle-container span {
+        font-family: "Source Sans Pro",Arial,Helvetica,sans-serif;
+        font-size: 16px!important;
+        color: #B8B8B8!important;
+    }
+    .hover-game-tile.event-tile .featured-game-container .featured-game-icon-container {
+        margin: 5px;
+        margin-bottom: 3px;
+    }
+    .hover-game-tile.event-tile .featured-game-container .featured-game-icon-container .brief-game-icon {
+        width: unset!important;
+        border-radius: 0px;
+    }
+    .hover-game-tile.event-tile .featured-game-container .info-container {
+        margin-top: 0;
+    }
+    .hover-game-tile.event-tile .game-card-container .game-card-name {
+        max-width: 215px !important;
+    }
+    .hover-game-tile.event-tile .featured-game-container .info-container .wide-game-tile-metadata .base-metadata .game-card-info .info-label {
+        font-size: 16px;
+        color: #ccc;
+        font-family: "Source Sans Pro",Arial,Helvetica,sans-serif;
+    }
+}
+}
     @-moz-document url-prefix("https://www.roblox.com/not-approved") {
     /* Ban Page */
     /* fuck you maya .. in a slightly good way :3 */
@@ -4172,11 +4443,8 @@ if layout == dec {
     #container-main,
     .content {
         padding: 0px!important;
-        if layout == "june" {
-            margin-left: 0!important;
-            margin-top: 35px;
-        }
-        if layout == "thirteen" {
+        margin-top: 25px;
+        if layout == "june" or layout == "thirteen" {
             margin-left: 0!important;
             margin-top: 35px;
         }
@@ -4287,10 +4555,11 @@ if layout == dec {
         top: 44px;
         if layout == june {
             opacity: 1!important;
-            height: 175px;
+            height: 164px;
             background-color: white!important;
-            width: 35px;
+            width: 53px;
             top: 28px;
+            z-index: 102;
         }
     }
     .scroller.next .arrow,
@@ -4383,6 +4652,9 @@ if layout == dec {
         right: 0px;
         width: 30px;
         z-index: 100;
+        if layout == june {
+            z-index: 103;
+        }
     }
     .scroller.next:hover,
     .scroller.prev:hover {
@@ -4393,7 +4665,7 @@ if layout == dec {
         }
     }
     .horizontal-scroller .scroller .spacer,
-    .gotham-font .see-all-link-icon::after,
+    .builder-font .see-all-link-icon::after,
     .game-card-info .info-label.icon-playing-counts-gray,
     .game-card-info .info-label.icon-votes-gray {
         display: none!important;
@@ -4428,7 +4700,7 @@ if layout == dec {
     .game-card-container .game-card-name {
         color: #343434;
         font-size: 14px;
-        font-weight: 600;
+        font-weight: 600!important;
         font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
         margin: 0px!important;
         height: 100%;
@@ -4436,7 +4708,7 @@ if layout == dec {
         white-space: nowrap;
         if layout == june {
             color: #095fb5;
-            font-weight: bold;
+            font-weight: bold!important;
             font-family: Arial,Helvetica,sans-serif;
             font-size: 12px;
             position: relative;
@@ -4480,6 +4752,8 @@ if layout == dec {
             -webkit-border-radius: 5px;
             width: 192px;
             padding: 15px 15px 15px;
+            z-index: 102;
+            background-color: white;
         }
     }
     .game-tile .game-card-container .game-card-info .vote-percentage-label, .game-tile .game-card-container .game-card-info .no-vote {
@@ -4541,6 +4815,9 @@ if layout == dec {
     }
     .games-list-container {
         min-height: 220px;
+        if layout == june {
+            min-height: 200px;
+        }
     }
     #games-carousel-page .horizontal-scroller #47545 {
         display: none;
@@ -4576,7 +4853,7 @@ if layout == dec {
     .game-card-container .game-card-name {
         color: #0055B3;
         font-size: 14px;
-        font-weight: normal;
+        font-weight: normal!important;
         font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
         if layout == june {
             font-family: Arial, Helvetica, sans-serif !important;
@@ -4727,6 +5004,10 @@ if layout == dec {
             margin-top: 10px !important;
         }
     }
+    .btr-mid-container:has(#game-details-about-tab-container) {
+        margin-top: 0!important;
+    }
+    
     .page-content .rbx-tabs-horizontal {
         width: 762px;
     }
@@ -4755,6 +5036,9 @@ if layout == dec {
         width: 20px;
         display: inline-block;
         margin-left: 2px;
+        if layout == june {
+            margin-left: 10px;
+        }
     }
     #game-detail-page:has(.text-pastname.game-copylocked-footnote) .game-title-container > h1:after {
         background-position: 0 -11px;
@@ -4837,22 +5121,30 @@ if layout == dec {
         margin-top: -8px!important;
         margin-right: 4px!important;
     }
-    .game-stats-container {
+    .game-stats-container, .game-stat-container {
         width: 235px;
     }
-    .border-top.border-bottom.game-stats-container {
+    .border-top.border-bottom.game-stats-container, .border-top.border-bottom.game-stat-container {
         border: none;
         position: absolute;
         right: 4px;
+        top: -185px;
+        flex-direction: column;
+    }
+    .game-description-container .container-header {
+        display: none;
+    }
+    .border-top.border-bottom.game-stats-container.follow-button-enabled {
         top: 155px;
     }
     .game-stat {
         flex-direction: row!important;
+        gap: 0;
     }
-    .game-stats-container .game-stat .text-label:after {
+    .game-stats-container .game-stat .text-label:after, .game-stat-container .game-stat .text-label:after {
         content: ": ";
     }
-    .game-stats-container .game-stat .text-label {
+    .game-stats-container .game-stat .text-label, .game-stat-container .game-stat .text-label {
         font-size: 12px;
         color: #000;
         margin-right: 5px;
@@ -4867,7 +5159,7 @@ if layout == dec {
             font-weight: bold;
         }
     }
-    .game-stats-container .game-stat .text-lead {
+    .game-stats-container .game-stat .text-lead, .game-stat-container .game-stat .text-lead {
         font-size: 12px;
         color: #000;
         margin-right: 5px;
@@ -4881,8 +5173,8 @@ if layout == dec {
             margin-right: 3px;
         }
     }
-    .game-stats-container .game-stat .chat-feature-list li:first-child p {
-        margin-bottom: 10px;
+    .game-stats-container .game-stat .chat-feature-list li:first-child p, .game-stat-container .game-stat .chat-feature-list li:first-child p {
+        margin-bottom: 0;
     }
     .game-title-container .game-creator .text-label {
         font-size: 0px;
@@ -4901,18 +5193,16 @@ if layout == dec {
         }
     }
     .game-title-container .game-creator .text-label:after {
-        content: "Creator:";
+        content: "Builder:";
         font-size: 16px;
-        if layout == "thirteen" {
-            content: "Builder:";
-        }
         if layout == "june" {
-            content: "Builder:";
             font-size: 13px;
         }
     }
-    .game-stats-container .game-stat-width-voice,
-    .game-stats-container .game-stat-width {
+    .game-title-container .game-creator:has(a[href*="group"]) .text-label:after {
+      content: "Creator:";
+    }
+    .game-stats-container .game-stat-width-voice, .game-stats-container .game-stat-width, .game-stat-container .game-stat-width-voice, .game-stat-container .game-stat-width {
         height: 20px;
         width: 250px!important;
         if layout == "june" {
@@ -4921,6 +5211,7 @@ if layout == dec {
     }
     .game-stats-container .game-stat-width-voice .chat-feature-list {
         display: flex;
+        flex-direction: row;
     }
     .game-creator {
         position: absolute;
@@ -4934,6 +5225,12 @@ if layout == dec {
         if layout == "june" {
             top: 40px;
         }
+    }
+    .game-creator.with-verified-badge .text-name:after {
+        content: url("/images/UI/img-check.png");
+        position: relative;
+        top: 3px;
+        margin-left: 3px;
     }
     .game-buttons-container {
         position: relative!important;
@@ -4951,7 +5248,7 @@ if layout == dec {
         left: -157px;
         bottom: -147px;
     }
-    .icon-follow-game {
+    #game-follow-icon {
         background-position: unset!important;
         background-image: url("https://assetdelivery.roblox.com/v1/asset/?id=14044644839")!important;
     }
@@ -5021,7 +5318,7 @@ if layout == dec {
     .game-stats-container .game-stat .stat-gears {
         margin: 0px;
         position: absolute;
-        bottom: -2px;
+        bottom: -4px;
     }
     .voting-panel .users-vote .vote-details .vote-container .vote-background.has-votes {
         background-color: #CE645B!important;
@@ -5040,8 +5337,13 @@ if layout == dec {
     }
     #voting-section {
         width: 135px!important;
-        left: -272px;
+        left: -260px;
         bottom: -20px;
+    }
+    .game-voting-panel.spinner {
+        top: -20px;
+        left: -215px;
+        bottom: 0;
     }
     .voting-panel .icon-like {
         position: absolute;
@@ -5168,16 +5470,19 @@ if layout == dec {
     .game-pin-button-container .tooltip-container {
         position: absolute;
     }
-    .gotham-font .game-main-content.follow-button-enabled .favorite-follow-vote-share .game-favorite-button-container .favorite-button {
+    .builder-font .game-main-content.follow-button-enabled .favorite-follow-vote-share .game-favorite-button-container .favorite-button {
         width: 24px;
         position: relative;
         left: 29px;
+    }
+    .game-stats-container.follow-button-enabled .game-stat-width {
+        display: flex;
     }
     .game-favorite-button-container:first-child {
         width: 90px !important;
         position: absolute;
         left: -391px;
-        top: 17px;
+        top: 16px;
         height: 30px;
     }
     .game-follow-button-container {
@@ -5246,6 +5551,9 @@ if layout == dec {
         Helvetica,
         sans-serif;
     }
+    .game-stat .tooltip-container, .game-stat .tooltip-container span {
+        cursor: default;
+    }
     .icon-nogear {
         background: url('/images/Icons/place-access-sprite.png') no-repeat 0 -58px!important;
         height: 16px;
@@ -5259,12 +5567,15 @@ if layout == dec {
     .ropro-cloud-play-container {
         float: left!important;
     }
-    .game-stat-footer {
+    .game-stat-footer, .game-description-footer {
         position: absolute;
         top: 288px;
         right: 262px;
     }
-    .game-report-abuse > a {
+    .game-description-footer {
+        top: -50px;
+    }
+    .game-report-abuse > a, .game-description-footer .text-report {
         color: #F99!important;
         font-size: 11px!important;
         font-family: 'Source Sans Pro',
@@ -5275,14 +5586,17 @@ if layout == dec {
             font-family: Arial,Helvetica,sans-serif;
         }
     }
-    .game-report-abuse > a:hover {
+    .game-report-abuse > a:hover, .game-description-footer .text-report:hover {
         color: #F00!important;
     }
-    .game-report-abuse > a:hover:before {
+    .game-report-abuse > a:hover:before, .game-description-footer .text-report:hover:before {
         content: url("/images/cssspecific/rbx2/abuse.png");
         position: absolute;
         left: -16px;
         top: 18px;
+    }
+    .game-description-footer .text-report:hover:before {
+        top: 4px;
     }
     .modal-dialog:has(.font-bold) .modal-content {
         padding: 5px;
@@ -5470,6 +5784,9 @@ if layout == dec {
         position: absolute;
         top: 180px;
     }
+    .rbx-body:has(.btr-mid-container #game-details-about-tab-container) #tab-about {
+        display: none!important;
+    }
     .page-content .rbx-tabs-horizontal .rbx-tab-content {
         border-top: 1px solid #CCC;
         top: -1px;
@@ -5529,7 +5846,7 @@ if layout == dec {
     #roproServerFiltersMiniButton {
         right: 75px!important;
     }
-    #game-age-recommendation-details {
+    #game-age-recommendation-details, .game-age-recommendation-details-container {
         display: none;
     }
     .game-community-link {
@@ -5571,7 +5888,8 @@ if layout == dec {
     .game-community-visit-container button:hover {
         background-position: left -128px;
     }
-    .btr-mid-container .container-header h2, .game-community-title, .game-community-name {
+    .btr-mid-container .container-header h2, .game-community-title, .game-community-name,
+    div:has(> .game-social-links) h2, .game-details-about-tab-container .container-list.games-detail h2 {
         font-size: 15px!important;
         font-weight: bold!important;
         color: #343434;
@@ -5584,7 +5902,11 @@ if layout == dec {
             font-family: Arial,Helvetica,sans-serif!important;
         }
     }
-    .btr-badges-container .btn-control-sm {
+    .game-details-about-tab-container .container-list.games-detail h2 {
+        padding: 0;
+    }
+    .btr-badges-container .btn-control-sm,
+    .badge-container .btn-control-md.btn-full-width {
         height: 27px;
         line-height: 24px;
         font-size: 13px;
@@ -5599,37 +5921,53 @@ if layout == dec {
             font-family: Arial,Helvetica,sans-serif!important;
         }
     }
-    .btr-badges-container .btn-control-sm:hover {
+    .btr-badges-container .btn-control-sm:hover, .badge-container .btn-control-md.btn-full-width:hover {
         background-position: bottom;
         border-color: #888;
     }
     .btr-badges-container .badge-row .badge-data-container > p {
-        font-family: Arial, Helvetica,sans-serif!important;
-        font-size: 12px;
+        font-family: 'Source Sans Pro',Arial,Helvetica,sans-serif!important;
+        font-size: 14px;
         color: black;
         height: unset;
         margin-left: 5px;
+        if layout == june or layout == thirteen or layout == jan {
+            font-family: Arial, Helvetica,sans-serif!important;
+            font-size: 12px;
+        }
     }
     .badge-data-container a {
         color: #496780 !important;
-        font-family: Arial, Helvetica,sans-serif!important;
-        font-size: 12px;
+        font-family: 'Source Sans Pro',Arial,Helvetica,sans-serif!important;
+        font-size: 14px;
         margin-left: 5px;
+        if layout == june or layout == thirteen or layout == jan {
+            font-family: Arial, Helvetica,sans-serif!important;
+            font-size: 12px;
+        }
     }
-    game-badges-list .badge-row .badge-stats-container li {
+    game-badges-list .badge-row .badge-stats-container li,
+    .btr-badges-container.btr-compact-stats .badge-row .badge-stats-container li {
         width: 100%!important;
         margin: unset;
         display: inline-flex!important;
         float: unset;
     }
     game-badges-list .badge-row .badge-stats-container li .text-label,
-    game-badges-list .badge-row .badge-stats-container li .badge-stats-info {
+    game-badges-list .badge-row .badge-stats-container li .badge-stats-info,
+    .btr-badges-container.btr-compact-stats .badge-row .badge-stats-container .text-label,
+    .btr-badges-container.btr-compact-stats .badge-row .badge-stats-container .badge-stats-info {
         text-align: unset;
         color: black!important;
-        font-family: Arial, Helvetica,sans-serif!important;
-        font-size: 12px!important;
+        font-family: 'Source Sans Pro',Arial,Helvetica,sans-serif!important;
+        font-size: 14px!important;
+        if layout == june or layout == thirteen or layout == jan {
+            font-family: Arial, Helvetica,sans-serif!important;
+            font-size: 12px!important;
+        }
     }
-    game-badges-list .badge-row .badge-stats-container li .badge-stats-info {
+    game-badges-list .badge-row .badge-stats-container li .badge-stats-info,
+    .btr-badges-container.btr-compact-stats .badge-row .badge-stats-container .badge-stats-info {
         line-height: 17px;
         margin-top: 0px!important;
         margin-left: 4px!important;
@@ -5643,7 +5981,8 @@ if layout == dec {
         width: 75px;
         height: 75px;
     }
-    game-badges-list .badge-row .badge-stats-container li .text-label:after {
+    game-badges-list .badge-row .badge-stats-container li .text-label:after,
+    .btr-badges-container.btr-compact-stats .badge-row .badge-stats-container .text-label:after {
         content: ":";
     }
     .badge-image .thumbnail-2d-container {
@@ -5664,7 +6003,7 @@ if layout == dec {
         opacity: revert;
         margin-left: 5px;
     }
-    .social-link span {
+    .social-link span, .game-social-links > .btn-secondary-lg > div {
         font-family: 'Source Sans Pro',
         Arial,
         Helvetica,
@@ -5766,9 +6105,16 @@ if layout == dec {
     .stack .stack-list .stack-row:nth-child(2n) {
         background-color: #eee!important;
     }
-    .social-links, .badge-container, .virtual-event-game-details-container, #game-community-link-container:has(.game-community-section) {
+    .social-links, .badge-container, .virtual-event-game-details-container, #game-community-link-container:has(.game-community-section),
+    div:has(> .game-social-links), .game-about-tab-container #rbx-private-servers, .game-details-about-tab-container .container-list.games-detail {
         border-top: 1px solid #ccc;
         padding-top: 10px;
+    }
+    .game-about-tab-container #rbx-private-servers {
+        padding-bottom: 10px;
+    }
+    .game-about-tab-container #rbx-private-servers .play-with-others-text .text-link {
+        color: #0055b3;
     }
     .store-card {
         box-shadow: none!important;
@@ -5815,6 +6161,7 @@ if layout == dec {
     .subscription-card-item {
         justify-content: unset;
         height: auto;
+        max-width: 354px;
     }
     .subscription-description {
         font-family: 'Source Sans Pro',Arial,Helvetica,sans-serif!important;
@@ -5918,6 +6265,12 @@ if layout == dec {
         background-color: #565656;
         background-image: url(/images/Buttons/StyleGuide/bg-btn-gray.png);
         color: white;
+        if layout == june {
+            text-shadow: #222 0 -1px;
+            font-family: Arial, Helvetica, Sans-Serif !important;
+            font-weight: bold!important;
+            letter-spacing: -1px;
+        }
     }
     .toggle-translation-button:hover {
         text-decoration: none;
@@ -5989,10 +6342,15 @@ if layout == dec {
     #recommended-games-container .vote-percentage-label,
     #recommended-games-container .icon-votes-gray,
     #recommended-games-container .icon-playing-counts-gray,
-    #recommended-games-container .no-vote {
+    #recommended-games-container .no-vote,
+    #game-details-about-tab-container .container-list.games-detail .vote-percentage-label,
+    #game-details-about-tab-container .container-list.games-detail .icon-votes-gray,
+    #game-details-about-tab-container .container-list.games-detail .icon-playing-counts-gray,
+    #game-details-about-tab-container .container-list.games-detail .no-vote {
         display: none;
     }
-    #recommended-games-container .playing-counts-label {
+    #recommended-games-container .playing-counts-label,
+    #game-details-about-tab-container .container-list.games-detail .playing-counts-label {
         color: #343434;
         font-weight: 600;
         font-size: 12px;
@@ -6009,7 +6367,8 @@ if layout == dec {
             font-size: 10px;
         }
     }
-    #recommended-games-container .playing-counts-label:after {
+    #recommended-games-container .playing-counts-label:after,
+    #game-details-about-tab-container .container-list.games-detail .playing-counts-label:after {
         content: " players online"
     }
     .game-carousel .grid-item-container {
@@ -6018,10 +6377,15 @@ if layout == dec {
     #recommended-games-container h2 {
         display: none;
     }
-    #recommended-games-container .game-carousel {
+    #recommended-games-container .game-carousel,
+    #game-details-about-tab-container .game-carousel {
         margin-top: 12px;
     }
-    #recommended-games-container .game-card-info {
+    #game-details-about-tab-container .game-carousel {
+        margin-bottom: -20px;
+    }
+    #recommended-games-container .game-card-info,
+    #game-details-about-tab-container .container-list.games-detail .game-card-info {
         margin-top: unset;
     }
     #running-game-instances-container h2,
@@ -6039,7 +6403,7 @@ if layout == dec {
         }
     }
     #rbx-private-servers .container-header h2 {
-        font-size: 0;
+        font-size: 0!important;
     }
     #rbx-private-servers .container-header h2:before {
         content: "VIP Servers";
@@ -6442,26 +6806,28 @@ if layout == dec {
     .carousel-video iframe {
         margin-left: 0px;
     }
-    .social-links .Twitter, .social-links .YouTube, .social-links .Twitch, .social-links .Facebook {
+    .social-links .Twitter, .social-links .YouTube, .social-links .Twitch, .social-links .Facebook,
+    .game-social-links > .btn-secondary-lg .icon-social-media-twitter, .game-social-links > .btn-secondary-lg .icon-social-media-youtube,
+    .game-social-links > .btn-secondary-lg .icon-social-media-twitch, .game-social-links > .btn-secondary-lg .icon-social-media-facebook {
         background-image: url(/images/SocialNetworks/SocialNetworkIcons.svg);
     }
-    .social-links .Twitter {
+    .social-links .Twitter, .game-social-links > .btn-secondary-lg .icon-social-media-twitter {
         background-position: 0 -60px;
     }
-    .social-links .YouTube {
+    .social-links .YouTube, .game-social-links > .btn-secondary-lg .icon-social-media-youtube {
         background-position: 0 -120px;
     }
-    .social-links .Facebook {
+    .social-links .Facebook, .game-social-links > .btn-secondary-lg .icon-social-media-facebook {
 	    background-position: 0 0px;
     }
-    .social-links .RobloxGroup {
+    .social-links .RobloxGroup, .game-social-links > .btn-secondary-lg .icon-social-media-roblox {
         background-image: url("http://images.rbxcdn.com/ae42d1c6cd258306303423a69b1ed7bf.png");
         background-position: unset;
         if layout == dec {
            background-image: url("/images/NextStyleGuide/logo_R_30X30.svg"); 
         }
     }
-    .social-links .Discord {
+    .social-links .Discord, .game-social-links > .btn-secondary-lg .icon-social-media-discord {
         background-image: url("https://images.rbxcdn.com/f125c6b2771459ec4595264ad935bf12-SocialLinkSquareIconsV2.svg");
         background-position: 0 -246px;
         border-radius: 7px;
@@ -6746,7 +7112,7 @@ if layout == dec {
         margin-right: 6px;
     }
     }
-    @-moz-document url-prefix("https://www.roblox.com/users/1/profile"), url-prefix("https://www.roblox.com/users/156/profile"), url-prefix("https://www.roblox.com/users/73432175/profile") {
+    @-moz-document url-prefix("https://www.roblox.com/users/1/profile"), url-prefix("https://www.roblox.com/users/156/profile"), url-prefix("https://www.roblox.com/users/73432175/profile"), url-prefix("https://www.roblox.com/users/52037777/profile") {
     /* TBC Memberships */
     /* feel free to give urself tbc here! */
     /* TBC for those with Premium */
@@ -6767,7 +7133,7 @@ if layout == dec {
         display: none;
     }
     }
-    @-moz-document url-prefix("https://www.roblox.com/users/261/profile"), url-prefix("https://www.roblox.com/users/52037777/profile"), url-prefix("https://www.roblox.com/users/66607594/profile"), url-prefix("https://www.roblox.com/users/66782613/profile"), url-prefix("https://www.roblox.com/users/21557/profile"), url-prefix("https://www.roblox.com/users/8139872/profile"), url-prefix("https://www.roblox.com/users/82471/profile"), url-prefix("https://www.roblox.com/users/13416513/profile"), url-prefix("https://www.roblox.com/users/4307571/profile"), url-prefix("https://www.roblox.com/users/2312310/profile"), url-prefix("https://www.roblox.com/users/9221858/profile"), url-prefix("https://www.roblox.com/users/19717956/profile"), url-prefix("https://www.roblox.com/users/80254/profile"), url-prefix("https://www.roblox.com/users/2032622/profile"), url-prefix("https://www.roblox.com/users/7559912/profile"), url-prefix("https://www.roblox.com/users/71435472/profile"), url-prefix("https://www.roblox.com/users/2619251876/profile"), url-prefix("https://www.roblox.com/users/56486632/profile"), url-prefix("https://www.roblox.com/users/114659851/profile"), url-prefix("https://www.roblox.com/users/317407626/profile"), url-prefix("https://www.roblox.com/users/66541191/profile"), url-prefix("https://www.roblox.com/users/169444427/profile"), url-prefix("https://www.roblox.com/users/66106987/profile"), url-prefix("https://www.roblox.com/users/281519/profile"), url-prefix("https://www.roblox.com/users/3384475/profile"), url-prefix("https://www.roblox.com/users/16904761/profile"), url-prefix("https://www.roblox.com/users/5000861/profile"), url-prefix("https://www.roblox.com/users/6686423/profile"), url-prefix("https://www.roblox.com/users/2182958/profile"), url-prefix("https://www.roblox.com/users/2837719/profile"), url-prefix("https://www.roblox.com/users/2817642590/profile"), url-prefix("https://www.roblox.com/users/2231221/profile"), url-prefix("https://www.roblox.com/users/72835704/profile") {
+    @-moz-document url-prefix("https://www.roblox.com/users/261/profile"), url-prefix("https://www.roblox.com/users/66607594/profile"), url-prefix("https://www.roblox.com/users/66782613/profile"), url-prefix("https://www.roblox.com/users/21557/profile"), url-prefix("https://www.roblox.com/users/8139872/profile"), url-prefix("https://www.roblox.com/users/82471/profile"), url-prefix("https://www.roblox.com/users/13416513/profile"), url-prefix("https://www.roblox.com/users/4307571/profile"), url-prefix("https://www.roblox.com/users/2312310/profile"), url-prefix("https://www.roblox.com/users/9221858/profile"), url-prefix("https://www.roblox.com/users/19717956/profile"), url-prefix("https://www.roblox.com/users/80254/profile"), url-prefix("https://www.roblox.com/users/2032622/profile"), url-prefix("https://www.roblox.com/users/7559912/profile"), url-prefix("https://www.roblox.com/users/71435472/profile"), url-prefix("https://www.roblox.com/users/2619251876/profile"), url-prefix("https://www.roblox.com/users/56486632/profile"), url-prefix("https://www.roblox.com/users/114659851/profile"), url-prefix("https://www.roblox.com/users/317407626/profile"), url-prefix("https://www.roblox.com/users/66541191/profile"), url-prefix("https://www.roblox.com/users/169444427/profile"), url-prefix("https://www.roblox.com/users/66106987/profile"), url-prefix("https://www.roblox.com/users/281519/profile"), url-prefix("https://www.roblox.com/users/3384475/profile"), url-prefix("https://www.roblox.com/users/16904761/profile"), url-prefix("https://www.roblox.com/users/5000861/profile"), url-prefix("https://www.roblox.com/users/6686423/profile"), url-prefix("https://www.roblox.com/users/2182958/profile"), url-prefix("https://www.roblox.com/users/2837719/profile"), url-prefix("https://www.roblox.com/users/2817642590/profile"), url-prefix("https://www.roblox.com/users/2231221/profile"), url-prefix("https://www.roblox.com/users/72835704/profile"), url-prefix("https://www.roblox.com/users/39079161/profile"), url-prefix("https://www.roblox.com/users/390939/profile"), url-prefix("https://www.roblox.com/users/1854975/profile"), url-prefix("https://www.roblox.com/users/299499516/profile") {
     /* OBC Memberships */
     /* feel free to give urself obc here! */
     /* this list of urls is quite absurd, don't you think? */
@@ -6948,7 +7314,7 @@ if layout == dec {
     }
     }
     
-    @-moz-document url-prefix("https://www.roblox.com/games/70501379"), url-prefix("https://www.roblox.com/games/115670532") {
+    @-moz-document url-prefix("https://www.roblox.com/games/70501379"), url-prefix("https://www.roblox.com/games/115670532"), url-prefix("https://www.roblox.com/games/147810146/") {
     /* Builders Club Games */
     #game-details-carousel-container:after {
         content: url('/images/overlay_bcOnly_big.png');
@@ -7028,6 +7394,9 @@ if layout == dec {
         line-height: 50px;
         z-index: 500;
         text-align: left;
+    }
+    html:has(meta[content="sayorisockss's Profile"]) #wrap {
+        background: url("https://assetdelivery.roblox.com/v1/asset/?id=17283785673") top center repeat #000;
     }
     /* blatantly taken from oldtwt, much love dimden 🫶 */
     html:has(meta[content="sayorisockss's Profile"]) .btr-profile .btr-header-status-text {
@@ -7181,7 +7550,6 @@ if layout == dec {
     .btr-profile .btr-status-ingame {
         color: #0055B3;
     }
-    .btr-profile .btr-status-online:before,
     .btr-profile .btr-status-ingame:before {
         content: "[ Online:"
     }
@@ -7700,7 +8068,7 @@ if layout == dec {
         display: flex;
         flex-direction: column;
     }
-    .profile-about .profile-social-networks {
+    .profile-about .profile-social-networks, .profile-about .social-links {
         display: block;
         order: 1;
         margin: 0 auto;
@@ -7708,6 +8076,13 @@ if layout == dec {
         if social {
             display: none;
         }
+    }
+    .profile-about:has(.social-links) .profile-social-networks {
+        margin-top: 0px!important;
+        margin-bottom: 0px!important;
+    }
+    .btr-profile-about .social-links {
+        position: relative;
     }
     .btr-profile-about:has(.profile-social-networks) > .section-content {
         padding-bottom: 5px;
@@ -7958,7 +8333,7 @@ if layout == dec {
         padding: 0px;
     }
     .game-card-container .game-card-name {
-        font-weight: bold;
+        font-weight: bold!important;
         color: #0055B3;
         font-family: 'Source Sans Pro',
         Arial,
@@ -7972,7 +8347,7 @@ if layout == dec {
         if layout == june {
             font-family: Arial,Helvetica,sans-serif;
             font-size: 12px!important;
-            font-weight: normal;
+            font-weight: normal!important;
             margin-top: -5px;
         }
     }
@@ -9150,9 +9525,15 @@ if layout == dec {
     .btr-profile-about:has(.profile-social-networks) > .section-content {
         padding-bottom: 0px;
     }
-    .btr-profile:has(.profile-social-networks) .profile-about .profile-social-networks {
+    .btr-profile:has(.profile-social-networks) .profile-about .profile-social-networks, .btr-profile:has(.profile-social-networks) .profile-about .social-links {
         margin-bottom: 50px;
         margin-top: 10px;
+    }
+    if social {
+        .btr-profile-about:has(.profile-social-networks) .profile-about-footer {
+            position: relative;
+            margin-top: 4px;
+        }
     }
     if stats {
         #profile-statistics-container {
@@ -9161,7 +9542,7 @@ if layout == dec {
          .btr-profile-about:has(.profile-social-networks) .profile-about-footer {
              margin-top: 58px;
          }
-         .btr-profile:has(.profile-social-networks) .profile-about .profile-social-networks {
+         .btr-profile:has(.profile-social-networks) .profile-about .profile-social-networks, .btr-profile:has(.profile-social-networks) .profile-about .social-links {
              margin-top: 0;
          }
     }
@@ -9316,7 +9697,7 @@ if layout == dec {
             font-size: 12px!important;
         }
     }
-    .group-owner > a {
+    .group-owner > a, .group-owner > span[ng-bind="'Label.NoOne' | translate"] {
         color: #0055B3!important;
         font-family: 'Source Sans Pro',Arial,Helvetica,sans-serif;
         font-size: 14px;
@@ -9901,7 +10282,7 @@ if layout == dec {
         }
     }
     .group-details .rbx-tab.active .rbx-tab-heading {
-        top: 4px;
+        top: 1px;
         background-color: #fff!important;
         border-color: #ccc!important;
         margin: 0 1px 0 0;
@@ -9909,6 +10290,9 @@ if layout == dec {
         border-bottom: 0!important;
         position: relative;
         z-index: 1;
+        if layout == sep or layout == dec or layout == jan {
+            height: 40px;
+        }
         if layout == thirteen {
             top: -1px;
             background-position: right -62px;
@@ -10764,6 +11148,11 @@ if layout == dec {
     group-games .thumbnail-2d-container img {
         object-fit: contain;
     }
+    /* ill do group announcements at another time */
+    .dismissable-announcement-upsell-banner, group-announcements {
+        display: none;
+    }
+    
     }
     @-moz-document url-prefix("https://www.roblox.com/users/friends"),
     url-prefix("https://www.roblox.com/users/") {
@@ -11096,6 +11485,472 @@ if layout == dec {
         color: #343434!important;
         if layout == june {
             color: black!important;
+        }
+    }
+    }
+    @-moz-document url-prefix("https://www.roblox.com/search/users") {
+    /* User Search */
+    .player-search-container {
+        width: 900px;
+        background: white;
+    }
+    .player-search-container .player-search-page {
+        width: 720px;
+        if layout == dec {
+            width: 770px;
+        }
+    }
+    .player-search-container .player-search-page .search-result {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        if layout == june {
+            border: 1px solid #CCC;
+            border-top: 0;
+        }
+    }
+    .avatar-cards .avatar-card {
+        width: 720px;
+        border-top: 1px solid #ccc;
+        padding: 0;
+        if layout == june {
+            border: none;
+            width: 718px;
+        }
+        if layout == dec {
+            width: 770px;
+        }
+    }
+    .avatar-card-container {
+        display: flex;
+        background: transparent!important;
+    }
+    .avatar-card-container .avatar-card-content {
+        display: flex;
+        width: 100%;
+    }
+    .avatar-card-container .avatar-card-content .avatar-card-caption > .ng-scope {
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+        justify-content: space-between;
+    }
+    .avatar-card-container .avatar-card-caption .avatar-card-label {
+        max-height: unset;
+        height: 100%;
+        align-items: center;
+        display: flex;
+    }
+    .row.results-count {
+        background-color: #f1f1f1;
+        border-top: 1px solid #9e9e9e;
+        padding: 5px;
+        display: revert!important;
+        if layout == june {
+            background-color: #6E99C9;
+            border: 1px solid #CCC;
+            border-bottom: none;
+        }
+        if layout == dec {
+            display: none!important;
+        }
+    }
+    .row.results-count span {
+        font-family: 'Source Sans Pro',Arial,Helvetica,sans-serif;
+        color: #343434;
+        font-size: 14px!important;
+        font-weight: 600!important;
+        if layout == june {
+            color: White;
+            font-family: Arial, Sans-Serif;
+            font-size: 12px!important;
+        }
+    }
+    .avatar-card-container .avatar-card-content .avatar-card-caption .avatar-card-label, .avatar-card-container .avatar-card-content .avatar-card-caption .avatar-status-link {
+        font-family: 'Source Sans Pro',Arial,Helvetica,sans-serif;
+        color: #343434;
+        font-size: 14px;
+        max-height: unset;
+        height: 100%;
+        if layout == june {
+            font-family: Arial, Sans-Serif;
+            font-size: 12px;
+            color: #006;
+        }
+    }
+    .avatar-card-container .avatar-card-content .avatar-card-caption {
+        flex-direction: row;
+        padding: 0;
+    }
+    .avatar-card-container .avatar-card-content .avatar-card-caption > span > div {
+        padding: 5px!important;
+    }
+    .avatar-card-container .avatar-card-content .avatar-card-caption .avatar-name-container .avatar-name {
+        font-family: 'Source Sans Pro',Arial,Helvetica,sans-serif;
+        font-size: 14px;
+        color: #095fb5;
+        if layout == june {
+            font-family: Arial, Sans-Serif;
+            font-size: 12px;
+        }
+    }
+    .player-search-container .avatar-card-image, .player-search-container .avatar-card-fullbody .avatar-card-link, .player-search-container .avatar-card-fullbody {
+        width: 48px!important;
+        height: 48px!important;
+        border-radius: 0;
+    }
+    .avatar-status-container:has(.icon-nav-group), .avatar-status-container:has(presence-status-label) {
+        display: none;
+    }
+    .avatar-card-content .avatar-card-caption .avatar-name-container .avatar-name:before {
+        content: url('/images/offline.png');
+        margin-right: 8px;
+    }
+    .avatar-card-content:has(.icon-online) .avatar-card-caption .avatar-name-container .avatar-name:before  {
+        content: url("https://assetdelivery.roblox.com/v1/asset?id=14430985441");
+    }
+    .avatar-card-content:has(.icon-game) .avatar-card-caption .avatar-name-container .avatar-name:before  {
+        content: url('/images/online.png');
+    }
+    .avatar-card-content:has(.icon-studio) .avatar-card-caption .avatar-name-container .avatar-name:before  {
+        content: url('https://assetdelivery.roblox.com/v1/asset?id=14430984646');
+    }
+    #player-search-page .top-row .input-group  {
+        display: flex;
+    }
+    #player-search-page .top-row .input-field {
+        all: revert;
+        width: 400px;
+        if layout == dec {
+            width: 558px;
+            height: 27px;
+            font-size: 13px;
+            border: 1px solid #a7a7a7;
+            padding: 0 3px;
+        }
+    }
+    #player-search-page .top-row .icon-search, #player-search-page .top-row .header, #player-search-page .avatar-card-fullbody .avatar-status, .player-search-container .player-search-page .no-results:has(span[ng-bind="'Label.EnterMinCharacters' | translate:{keywordMinLength: pageData.keywordMinLength}"]) {
+        display: none;
+    }
+    #player-search-page .top-row .input-addon-btn {
+        all: revert;
+        margin-left: 2px;
+        if layout == dec {
+            margin-top: 3px;
+            margin-left: 20px;
+            background-color: #428bca;
+            border: 1px solid #3580bd;
+            background-image: url(/images/Buttons/StyleGuide/bg-btn-green.png) !important;
+            background-position: left -160px;
+            padding: 1px 7px 0 7px;
+            height: 23px;
+            font-family: 'Source Sans Pro',Arial,Helvetica,sans-serif;
+            cursor: pointer;
+            color: white;
+            font-size: 14px;
+            line-height: 18px;
+        }
+    }
+    if layout == dec {
+        #player-search-page .top-row .input-addon-btn:hover {
+            background-color: #3073a9;
+            border-color: #28608e;
+            background-position: left -181px;
+        }
+    }
+    #player-search-page .top-row .input-addon-btn:after {
+        content: "Search Users";
+    }
+    #player-search-page .top-row .input-group:before {
+        font-family: 'Source Sans Pro',Arial,Helvetica,sans-serif;
+        font-size: 14px;
+        color: #343434;
+        font-weight: 600;
+        margin-right: 30px;
+        content: "Search: ";
+        if layout == june {
+            font-family: Arial, Helvetica, Sans-Serif;
+            font-size: 15px;
+            color: Black;
+            font-weight: bold;
+            margin-right: 3px;
+        }
+        if layout == dec {
+            margin-top: 3px;
+        }
+    }
+    .player-search-container .player-search-page .search-result .player-item .avatar-card-container .avatar-card-btns [class^="btn-"].full-size, .player-search-container .player-search-page .search-result .responsive-card .avatar-card-container .avatar-card-btns [class^="btn-"].full-size, .player-search-container .player-search-page .search-result .player-item .avatar-card-container .avatar-card-btns [class^="btn-"], .player-search-container .player-search-page .search-result .responsive-card .avatar-card-container .avatar-card-btns [class^="btn-"] {
+        all: revert;
+    }
+    ng-include[src="'player-card-buttons'"] {
+        min-width: 68px;
+    }
+    .player-search-container .player-search-page .search-result .player-item .avatar-card-container .avatar-card-btns {
+        background: transparent!important;
+    }
+    .player-search-container .player-search-page .search-result .player-item .avatar-card-container .avatar-card-btns:has(.btn-primary-md) {
+        padding-top: 27px;
+    }
+    .player-search-container .player-search-page .search-result .player-item .avatar-card-container .avatar-card-btns:has(.btn-control-md) {
+        padding-top: 17px;
+    }
+    .player-search-container .player-search-page .search-result .player-item .avatar-card-container .avatar-card-content .avatar-card-caption .avatar-card-label .icon-nav-friends {
+        background-image: url("https://assetdelivery.roblox.com/v1/asset/?id=99749771");
+        background-position: unset;
+        background-size: unset;
+        width: 16px;
+        height: 16px;
+    }
+    .player-search-container:has(.player-search-page .no-results:not(.ng-hide)) .row.results-count {
+        display: none!important;
+    }
+    .player-search-container .player-search-page .search-result .player-item .avatar-card-container .avatar-card-btns:has(.join-game) {
+        display: flex;
+        margin-right: 17px;
+    }
+    .player-search-container .thumbnail-2d-container {
+        background-color: transparent;
+    }
+    .player-search-container .player-search-page .no-results {
+        font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+        color: #343434;
+        font-size: 14px;
+        margin: 0;
+        padding: 5px;
+        float: left;
+        text-align: left;
+        background: transparent;
+        border-top: 1px solid #ccc;
+        if layout == june {
+            font-family: Arial, Helvetica, Sans-Serif;
+            font-size: 12px;
+            color: Black;
+        }
+    }
+    if layout == june {
+        .player-search-container .search-container {
+            width: 876px;
+            height: 40px;
+            padding: 5px;
+            margin-bottom: 8px;
+            background: url(/images/cssspecific/rbx2/standardBox_01_bkg.png) top repeat-x #fff;
+            border: 1px solid #aaa;
+        }
+        #player-search-page .top-row .input-group {
+            margin-top: 3px;
+        }
+        .avatar-cards .avatar-card:hover {
+            background: #DDD!important;
+        }
+        .avatar-cards .avatar-card:nth-child(2n) {
+            background: #EEE;
+        }
+    }
+    if layout == dec {
+        .avatar-cards .avatar-card:hover {
+            background-color: #f4f4f4;
+        }
+    }
+    }
+    @-moz-document url-prefix("https://www.roblox.com/search/groups?") {
+    /* Group Search */
+    #group-search-container {
+        width: 900px;
+        background: white;
+        padding-top: 5px;
+    }
+    #group-search-container .search-results {
+        width: 720px;
+    }
+    #group-search-container .search-results .group-cards {
+        if layout == june {
+            border: 1px solid #CCC;
+            background-color: White;
+        }
+    }
+    #group-search-container .search-container {
+        width: 720px;
+        if layout == june {
+            background: url("/images/cssspecific/rbx2/standardBox_01_bkg.png") top repeat-x #fff;
+            border: 1px solid #aaa;
+            padding: 5px;
+            margin-bottom: 8px;
+            width: 888px;
+            height: 40px;
+        }
+    }
+    #group-search-container .container-header.see-all-container-header {
+        display: none;
+    }
+    .group-cards .group-card {
+        display: flex;
+        align-items: center;
+        width: 720px;
+        border-top: 1px solid #ccc;
+        padding: 0;
+        border-radius: 0;
+        margin: 0;
+        height: unset;
+        min-height: 59px;
+        if layout == june {
+            border: none;
+            width: 718px;
+        }
+    }
+    .list-item .group-card .group-card-text {
+        display: flex;
+        flex-direction: row;
+        padding: 5px;
+        height: unset;
+        min-height: 59px;
+        align-items: center;
+        width: 100%;
+    }
+    .group-card-name-container {
+        width: 138px;
+    }
+    .list-item .group-card .group-card-thumb {
+        width: 48px;
+        height: 48px;
+        border-radius: 0;
+        padding: 5px;
+        float: unset;
+    }
+    .list-item .group-card .group-card-text .group-card-previous-name, .list-item .group-card .group-card-info .group-card-members .icon-nav-group {
+        display: none;
+    }
+    .list-item .group-card .group-card-text .group-card-name .font-header-2 {
+        font-family: 'Source Sans Pro',Arial,Helvetica,sans-serif;
+        color: #095fb5;
+        font-size: 14px;
+        white-space: unset;
+        if layout == june {
+            font-family: Verdana, Sans-Serif;
+            font-size: 12px;
+        }
+    }
+    .list-item .group-card .group-card-text .group-card-desc, .list-item .group-card .group-card-info .group-card-access, .list-item .group-card .group-card-info .group-card-members {
+        font-family: 'Source Sans Pro',Arial,Helvetica,sans-serif;
+        color: #343434;
+        font-size: 14px;
+        margin-top: 0;
+        align-items: center;
+        if layout == june {
+            font-family: Verdana, Sans-Serif;
+            font-size: 12px;
+            color: #006;
+        }
+    }
+    .list-item .group-card .group-card-text .group-card-desc {
+        width: 400px;
+    }
+    #GroupSearchField {
+        all: revert;
+        width: 400px;
+    }
+    .search-container .input-group .icon-close-gray-16x16, .input-group .icon-search {
+        display: none;
+    }
+    #GroupSearchButton {
+        all: revert;
+        margin-left: 3px;
+        if layout == june {
+            margin-left: 4px;
+        }
+    }
+    #GroupSearchButton:after {
+        content: "Search Groups"
+    }
+    #group-search-container .search-container .input-group {
+        display: flex;
+    }
+    #group-search-container .search-container .input-group:before {
+        font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        color: #343434;
+        font-weight: 600;
+        margin-right: 80px;
+        content: "Search: ";
+        if layout == june {
+            font-family: Verdana, Helvetica, Sans-Serif;
+            font-size: 12pt;
+            font-weight: bold;
+            color: #000;
+            margin-right: 295px;
+        }
+    }
+    .list-item .group-card .group-card-info {
+        width: 112px;
+    }
+    .list-item .group-card .group-card-info .group-card-members {
+        width: 65.45px;
+        margin: 0;
+    }
+    .group-card-info .group-card-access {
+        padding-right: 5px;
+    }
+    .group-cards:before {
+        content: "";
+        background-color: #f1f1f1;
+        display: block;
+        height: 31px;
+        width: 720px;
+        border-top: 1px solid #9e9e9e;
+        if layout == june {
+            height: 23px;
+            background-color: #6E99C9;
+            border-top: 0;
+            width: 718px;
+        }
+    }
+    .group-card .group-card-thumb .thumbnail-2d-container {
+        background: transparent;
+    }
+    #group-search-container .pager li span {
+        font-family: 'Source Sans Pro',Arial,Helvetica,sans-serif;
+        color: #343434;
+        font-size: 14px;
+        if layout == june {
+            font-family: Verdana, Sans-Serif;
+            font-size: 12px;
+            color: #000;
+        }
+    }
+    #group-search-container .btn-generic-right-sm span[class^="icon-"], #group-search-container .btn-generic-left-sm span[class^="icon-"] {
+        display: none;
+    }
+    #group-search-container .btn-generic-right-sm, #group-search-container .btn-generic-left-sm {
+        background-color: transparent!important;
+        padding: 0;
+        font-family: 'Source Sans Pro',Arial,Helvetica,sans-serif;
+        color: #095fb5;
+        font-size: 14px;
+        if layout == june {
+            font-family: Verdana, Sans-Serif;
+            font-size: 12px;
+        }
+    }
+    #group-search-container .btn-generic-right-sm:hover, #group-search-container .btn-generic-left-sm:hover, {
+        text-decoration: underline;
+    }
+    #group-search-container .btn-generic-right-sm:after {
+        content: "Next >>";
+    }
+    #group-search-container .btn-generic-left-sm:after {
+        content: "<< Previous";
+    }
+    #group-search-container .pager-next, #group-search-container .pager-prev {
+        margin-top: 4px;
+    }
+    #group-search-container .pager-prev:has(.btn-generic-left-sm[disabled]), #group-search-container .pager-next:has(.btn-generic-right-sm[disabled]) {
+        display: none;
+    }
+    if layout == june {
+        group-result-card:nth-child(2n) .group-card {
+            background: #EEE!important;
+        }
+        .group-card:hover, group-result-card:nth-child(2n) .group-card:hover {
+            background: #DDD!important;
         }
     }
     }
@@ -11951,6 +12806,40 @@ if layout == dec {
             font-weight: bold!important;
         }
     }
+    .checkbox.btr-it-checkbox label {
+        display: none!important;
+    }
+    .checkbox.btr-it-checkbox input {
+        all: revert;
+        position: absolute;
+        left: 4px;
+        top: 4px;
+        width: auto;
+    }
+    .btn-secondary-sm.btr-it-btn {
+        border-color: #565656;
+        background-color: #565656;
+        background-image: url(/images/Buttons/StyleGuide/bg-btn-gray.png);
+        color: white!important;
+        font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+        padding: 1px 13px 3px 13px;
+        height: 34px;
+        min-width: 62px;
+        font-size: 20px;
+        background-position: left -96px;
+        line-height: 1.3em;
+        border-radius: 0;
+        if layout == june {
+            text-shadow: 0 -1px #222;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            letter-spacing: -1px;
+            line-height: 30px;
+        }
+    }
+    .btn-secondary-sm.btr-it-btn:hover {
+        background-position: left -128px;
+    }
     }
     @-moz-document url-prefix("https://www.roblox.com/catalog/?Category="),
     url-prefix("https://www.roblox.com/catalog?Category="),
@@ -11986,6 +12875,7 @@ if layout == dec {
         width: 990px!important;
         margin-left: auto;
         margin-right: auto;
+        min-height: 1660px;
     }
     .catalog-container .catalog-results .featured-items-heading > span {
         font-size: 30px;
@@ -12462,7 +13352,7 @@ if layout == dec {
             font-family: Arial,Helvetica,sans-serif;
         }
     }
-    .item-cards-stackable .asset-status-icon .status-new {
+    .item-cards-stackable .asset-status-icon .status-new, .item-cards-stackable .asset-status-icon .has-icon {
         background-image: url('http://images.rbxcdn.com/b84cdb8c0e7c6cbe58e91397f91b8be8.png');
         background-color: transparent;
         font-size: 0px;
@@ -12472,6 +13362,15 @@ if layout == dec {
         position: absolute;
         left: 55px;
         top: 4px;
+    }
+    .item-cards-stackable .asset-status-icon .has-icon {
+        background-image: url('/images/AssetIcons/deadline.png');
+        width: 36px;
+        height: 36px;
+        left: 75px;
+    }
+    .item-cards-stackable .asset-status-icon .has-icon .icon-clock {
+        display: none;
     }
     .item-cards-stackable .asset-status-icon {
         top: unset;
@@ -12845,9 +13744,12 @@ if layout == dec {
         margin-top: 41px;
     }
     if cart {
-        #shopping-cart-btn-entry, .add-to-cart-btn-container {
+        #shopping-cart-btn-entry {
             display: none!important;
         }
+    }
+    .add-to-cart-btn-container {
+        display: none!important;
     }
     .add-to-cart-btn-container .btn-primary-md {
         font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
@@ -12899,6 +13801,9 @@ if layout == dec {
         font-size: 14px !important;
         position: relative;
         top: 2px;
+    }
+    .catalog-container .catalog-results .item-card .item-card-container-direct-purchase:hover .item-card-caption {
+        display: inherit;
     }
     }
     @-moz-document url-prefix("https://www.roblox.com/catalog/"), url-prefix("https://www.roblox.com/bundles/") {
@@ -12977,13 +13882,13 @@ if layout == dec {
             top: -1px;
         }
     }
-    #item-container:has(asset-resale-pane) .price-container-text .icon-robux-16x16:before {
+    #item-container:has(asset-resale-pane #price-chart) .price-container-text .icon-robux-16x16:before {
         content: "Best Price:";
         width: 100px;
         display: inline-block;
         left: -65px;
     }
-    #item-container:has(asset-resale-pane) .icon-robux-price-container .icon-robux-16x16 {
+    #item-container:has(asset-resale-pane #price-chart) .icon-robux-price-container .icon-robux-16x16 {
         margin-left: 64px;
     }
     .btn-container {
@@ -13005,7 +13910,7 @@ if layout == dec {
     #item-container[data-expected-price="0"] .favorite-button-container {
         top: 76px;
     }
-    #item-container:has(asset-resale-pane) .favorite-button-container {
+    #item-container:has(asset-resale-pane #price-chart) .favorite-button-container {
         top: 76px!important;
     }
     .price-container .btn-growth-lg, #edit-avatar-button, #try-in-studio-button, .price-container .btn-primary-lg, #inventory-button, .btn-container .btn-growth-lg {
@@ -13067,7 +13972,7 @@ if layout == dec {
             background-position: bottom left!important;
         }
     }
-    #item-container:has(asset-resale-pane) .btn-container .btn-growth-lg {
+    #item-container:has(asset-resale-pane #price-chart) .btn-container .btn-growth-lg {
         if button == v1 {
             background-image: url('https://assetdelivery.roblox.com/v1/asset?id=14438743528')!important;
             width: 112px!important;
@@ -13077,7 +13982,7 @@ if layout == dec {
             width: 112px!important;
         }
     }
-    #item-container:has(.item-price-value .text) .btn-container .btn-growth-lg::after, #item-container:has(.item-price-value .text) .btn-container .btn-growth-lg:before, #item-container:has(.item-price-value .text) .btn-container .btn-growth-lg::after, #item-container:has(.item-price-value .text) .btn-container .btn-growth-lg::before, #item-container:has(asset-resale-pane) .btn-container .btn-growth-lg::before, #item-container:has(asset-resale-pane) .btn-container .btn-growth-lg::after { 
+    #item-container:has(.item-price-value .text) .btn-container .btn-growth-lg::after, #item-container:has(.item-price-value .text) .btn-container .btn-growth-lg:before, #item-container:has(.item-price-value .text) .btn-container .btn-growth-lg::after, #item-container:has(.item-price-value .text) .btn-container .btn-growth-lg::before, #item-container:has(asset-resale-pane #price-chart) .btn-container .btn-growth-lg::before, #item-container:has(asset-resale-pane #price-chart) .btn-container .btn-growth-lg::after { 
         if button == v1 {
             font-size: 0px!important;
         }
@@ -13114,7 +14019,7 @@ if layout == dec {
         top: -7px;
         width: 112px;
         if layout == june {
-            color: #00243d!important;
+            text-shadow: #00243d 0 -1px!important;
         }
     }
     #edit-avatar-button:after {
@@ -13125,16 +14030,6 @@ if layout == dec {
         if layout == june {
             left: -3px;
             top: 17px;
-        }
-    }
-    if layout == june {
-        #edit-avatar-button:before {
-            content: "Customize";
-            position: absolute;
-            left: 10px;
-            top: 18px;
-            color: #fff;
-            z-index: 1;
         }
     }
     #edit-avatar-button .icon-nav-charactercustomizer {
@@ -13153,7 +14048,8 @@ if layout == dec {
     #try-in-studio-button:hover,
     .price-container .btn-primary-lg:hover,
     #inventory-button:hover, .btn-container .btn-growth-lg:hover,
-    .shopping-cart-add-remove-btn-container .btn-secondary-lg:hover {
+    .shopping-cart-add-remove-btn-container .btn-secondary-lg:hover,
+    .shopping-cart-add-remove-btn-container .btn-primary-lg:hover {
         background-position: left -128px;
     }
     .price-container .icon-nav-charactercustomizer {
@@ -13172,7 +14068,7 @@ if layout == dec {
             content: " with Tx";
         }
     }
-    #item-container[data-expected-price="0"] .btn-container .btn-growth-lg, #item-container:has(asset-resale-pane) .btn-container .btn-growth-lg {
+    #item-container[data-expected-price="0"]:has(.item-price-value .text) .btn-container .btn-growth-lg, #item-container:has(asset-resale-pane #price-chart) .btn-container .btn-growth-lg {
         font-size: 0px;
         width: 105px;
     }
@@ -13182,7 +14078,7 @@ if layout == dec {
         position: relative;
         top: 4px;
     }
-    #item-container:has(asset-resale-pane) .btn-container .btn-growth-lg:after {
+    #item-container:has(asset-resale-pane #price-chart) .btn-container .btn-growth-lg:after {
         content: "Buy Now"!important;
         font-size: 20px;
         position: relative;
@@ -13231,7 +14127,7 @@ if layout == dec {
      .item-details-section .item-purchase-btns-container {
 	    margin-top: 0px;
     }
-    #item-container:has(asset-resale-pane) .item-details-section .item-purchase-btns-container {
+    #item-container:has(asset-resale-pane #price-chart) .item-details-section .item-purchase-btns-container {
         margin-top: -8px;
     }
     .price-info {
@@ -13383,10 +14279,10 @@ if layout == dec {
     #item-container:has(#item-thumbnail-container-frontend .icon-limited-unique-label) .clearfix.item-info-row-container:has(#type-content) #type-content:after {
         content: " Accessory / Collectible Item / Limited Edition";
     }
-    #item-container:has(asset-resale-pane) .clearfix.item-info-row-container:has(#type-content) #type-content:after {
+    #item-container:has(asset-resale-pane #price-chart) .clearfix.item-info-row-container:has(#type-content) #type-content:after {
         content: " Accessory / Collectible Item";
     }
-    #item-container[data-asset-type="Hat"]:has(asset-resale-pane) .clearfix.item-info-row-container:has(#type-content) #type-content:after, #item-container[data-asset-type="Gear"]:has(asset-resale-pane) .clearfix.item-info-row-container:has(#type-content) #type-content:after, item-container[data-asset-type="Face"]:has(asset-resale-pane) .clearfix.item-info-row-container:has(#type-content) #type-content:after {
+    #item-container[data-asset-type="Hat"]:has(asset-resale-pane #price-chart) .clearfix.item-info-row-container:has(#type-content) #type-content:after, #item-container[data-asset-type="Gear"]:has(asset-resale-pane #price-chart) .clearfix.item-info-row-container:has(#type-content) #type-content:after, item-container[data-asset-type="Face"]:has(asset-resale-pane #price-chart) .clearfix.item-info-row-container:has(#type-content) #type-content:after {
         content: " / Collectible Item";
     }
     #item-container[data-asset-type="Hat"]:has(#item-thumbnail-container-frontend .icon-limited-unique-label) .clearfix.item-info-row-container:has(#type-content) #type-content:after, #item-container[data-asset-type="Gear"]:has(#item-thumbnail-container-frontend .icon-limited-unique-label) .clearfix.item-info-row-container:has(#type-content) #type-content:after, #item-container[data-asset-type="Face"]:has(#item-thumbnail-container-frontend .icon-limited-unique-label) .clearfix.item-info-row-container:has(#type-content) #type-content:after {
@@ -13421,7 +14317,8 @@ if layout == dec {
     .clearfix.item-field-container .font-header-1,
     .item-info-row-container .text-subheader,
     .item-details-creator-container .text-label,
-    .item-details-section .experience-link-list .text-link{
+    .item-details-section .experience-link-list .text-link,
+    .item-details-section .item-info-row-container .row-label {
         font-size: 12px!important;
         color: #999;
         font-family: 'Source Sans Pro',
@@ -13436,6 +14333,9 @@ if layout == dec {
             font-family: Arial,Helvetica,sans-serif;
             font-size: 11px!important;
         }
+    }
+    .item-details-section .item-info-row-container .row-label {
+        overflow: unset;
     }
     .border-bottom.item-name-container > div > span {
         font-size: 0px!important;
@@ -13452,7 +14352,7 @@ if layout == dec {
     .toggle-target.item-field-container > div {
         display: none;
     }
-    .clearfix.item-field-container .font-header-1:after, .item-info-row-container .text-subheader:after {
+    .clearfix.item-field-container .font-header-1:after, .item-info-row-container .text-subheader:after, .item-details-section .item-info-row-container .row-label:after {
         content: ":";
     }
     .clearfix.item-field-container .field-content, .item-info-row-container span {
@@ -13628,7 +14528,7 @@ if layout == dec {
             font-size: 12px;
         }
     }
-    #item-container:has(#edit-avatar-button) .favorite-button-container, #item-container:has(#item-info-container-frontend[data-is-not-currently-for-sale="True"]) .favorite-button-container {
+    #item-container:has(#edit-avatar-button) .favorite-button-container, #item-container:has(.price-container-text .item-first-line) .favorite-button-container {
         top: 56px;
     }
     .right-align-container {
@@ -13864,9 +14764,9 @@ if layout == dec {
         top: -35px;
     }
     .my-ctx-menu .btn-generic-more-sm {
-        right: -169px;
+        right: -129px;
         z-index: 6000;
-        top: -107px;
+        top: -36px;
     }
     #item-context-menu .rbx-menu-item:hover, .my-ctx-menu .btn-generic-more-sm:hover {
         background-position: 0 -27px;
@@ -14011,6 +14911,7 @@ if layout == dec {
         border-radius: 0px;
     }
     .comments-container .comment-form {
+        display: none;
         background-color: #EDF3FF;
         border: 1px solid #BDD0FE;
         border-radius: 3px;
@@ -14210,7 +15111,8 @@ if layout == dec {
         width: 120px;
         margin-right: 0;
         position: relative;
-        top: -16px;
+        top: 0;
+        pointer-events: none;
     }
     .item-details-thumbnail-container .thumbnail-ui-container .asset-status-icon {
         padding: 0px;
@@ -14627,7 +15529,7 @@ if layout == dec {
     #item-info-container-frontend .price-container-text div {
         font-size: 0px;
     }
-    #item-info-container-frontend[data-is-not-currently-for-sale="True"] .price-container-text div:after, .price-row-container:has(#edit-avatar-button):after, .price-row-container:has(.price-container-text .item-first-line):after {
+    .price-row-container:has(#edit-avatar-button):after, .price-row-container:has(.price-container-text .item-first-line):after {
         content: url('https://assetdelivery.roblox.com/v1/asset?id=14279505309');
         position: absolute;
         left: 280px;
@@ -14921,7 +15823,7 @@ if layout == dec {
         width: 147px;
         margin: 5px 0 5px 5px;
     }
-    .shopping-cart-add-remove-btn-container .btn-secondary-lg {
+    .shopping-cart-add-remove-btn-container .btn-secondary-lg, .shopping-cart-add-remove-btn-container .btn-primary-lg {
         border-color: #007001!important;
         background-color: #007001;
         background-image: url(/images/Buttons/StyleGuide/bg-btn-green.png);
@@ -14951,7 +15853,7 @@ if layout == dec {
             width: 131px;
         }
     }
-    .shopping-cart-add-remove-btn-container .btn-secondary-lg:before {
+    .shopping-cart-add-remove-btn-container .btn-secondary-lg:before, .shopping-cart-add-remove-btn-container .btn-primary-lg:before {
         content: "Add to Cart";
         font-size: 20px!important;
         position: relative;
@@ -14981,9 +15883,12 @@ if layout == dec {
     .item-details-section .item-info-row-container:has(.experience-link-list) {
         margin-bottom: -10px;
     }
-.btr-shopping-cart-shown {
-	--btr-menu-offset-x: 15px;
-}
+    .btr-shopping-cart-shown {
+        --btr-menu-offset-x: 15px;
+    }
+    .item-card-creator {
+        display: block;
+    }
     }
     @-moz-document url-prefix("https://www.roblox.com/library/"), url-prefix("https://www.roblox.com/badges/"),
     url-prefix("https://www.roblox.com/game-pass/") {
@@ -15732,6 +16637,7 @@ if layout == dec {
         border-radius: 0px;
     }
     .comments-container .comment-form {
+        display: none;
         background-color: #EDF3FF;
         border: 1px solid #BDD0FE;
         border-radius: 3px;
@@ -17033,6 +17939,176 @@ if layout == dec {
         display: none;
     }
     }
+    @-moz-document url-prefix("https://www.roblox.com/abusereport") {
+    /* Report Abuse */
+    #report-container {
+        max-width: 970px;
+        background: white;
+        font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif!important;
+    }
+    #report-container > .container-header h1 {
+        font-size: 32px;
+        font-weight: bold;
+        margin: 12px;
+        color: #343434;
+        letter-spacing: -1px;
+        font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+    }
+    #report-header h4 {
+        font-size: 30px;
+        font-weight: normal;
+        color: #343434;
+        letter-spacing: -1px;
+        text-decoration: none;
+        font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+    }
+    #form-row-subject, #form-row-comment {
+        display: flex;
+    }
+    #report-body {
+        width: 600px;
+        margin: 0 auto;
+    }
+    #form-row-subject > .text-label, #form-row-comment > .text-label, #form-row-media > .text-label {
+        font-size: 14px;
+        color: #343434;
+        font-weight: 600;
+        margin-right: 5px;
+        text-align: right;
+        width: 63px;
+    }
+    #ReportCategory, #Comment {
+        all: revert;
+    }
+    #ReportCategory {
+        width: 420px!important;
+    }
+    #Comment {
+        width: 426px!important;
+        border: 1px solid #a7a7a7;
+        padding: 0px 3px;
+    }
+    .section-header:not(#report-header) h4, .basic-rules-preface {
+        font-size: 14px!important;
+        font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+        font-weight: bold!important;
+    }
+    #report-body .section-header:not(#report-header) {
+        border: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+    #basic-rules-list-container, #basic-rules-footer, #basic-rules-link, #report-body p {
+        font-size: 14px;
+    }
+    #report-body p {
+        color: #343434;
+    }
+    #basic-rules-link a, .roblox-interstitial, .text-footer-nav.roblox-interstitial {
+        color: #0055B3!important;
+        font-size: 14px!important;
+    }
+    .roblox-interstitial:hover {
+        text-decoration: underline;
+    }
+    #report-abuse {
+        border-color: #007001;
+        background-color: #007001;
+        background-image: url(/images/Buttons/StyleGuide/bg-btn-green.png) !important;
+        color: white;
+        padding: 1px 13px 3px 13px;
+        height: 34px;
+        background-position: left -96px;
+        border-radius: 0;
+        font-size: 20px;
+        line-height: 1.3em;
+        margin-left: 67px;
+        if layout == dec {
+            background-color: #428bca;
+            border-color: #3580bd !important;
+        }
+    }
+    #report-abuse:hover {
+        background-position: left -128px;
+    }
+    .submit-group {
+        text-align: unset;
+    }
+    #categoryError, .gallery-checkbox-container.checkbox label:before {
+        display: none!important;
+    }
+    .gallery-checkbox-container.checkbox input {
+        all: revert;
+    } 
+    .gallery-item {
+        background-color: transparent;
+    }
+    }
+    @-moz-document url-prefix("https://www.roblox.com/modcreditagreement") {
+    /* Moderated Item Refund Page */
+    .content {
+        max-width: 970px;
+        margin-top: 30px;
+        background-color: white!important;
+        font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif!important;
+        padding: 5px 0 25px 0;
+    }
+    .agreement-body h1 {
+        font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif!important;
+        font-size: 32px;
+        font-weight: bold;
+        color: #343434;
+        letter-spacing: -1px;
+        padding: 0;
+    }
+    .agreement-body p div {
+        color: #343434;
+        font-size: 14px!important;
+    }
+    .agreement-body p div a {
+        color: #0055B3;
+    }
+    .agreement-body p div a:hover {
+        text-decoration: underline;
+    }
+    .agreement-body p div u {
+        text-decoration: none!important;
+    }
+    .agreement-button-container {
+        float: left;
+    }
+    .agreement-button-container .agree-button {
+        border-color: #007001!important;
+        background-color: #007001;
+        background-image: url(/images/Buttons/StyleGuide/bg-btn-green.png) !important;
+        font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+        color: white;
+        padding: 0px 13px 0px 13px;
+        height: 50px;
+        min-width: 70px;
+        font-size: 23px;
+        line-height: 27px;
+        background-position: left 0px;
+        border-radius: 0;
+    }
+    .agreement-button-container .agree-button:hover, .agreement-button-container .cancel-button:hover {
+        background-position: left -48px;
+    }
+    .agreement-button-container .cancel-button {
+        border-color: #565656!important;
+        background-color: #565656;
+        background-image: url(/images/Buttons/StyleGuide/bg-btn-gray.png);
+        font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+        color: white!important;
+        padding: 0px 13px 0px 13px;
+        height: 50px;
+        min-width: 70px;
+        font-size: 23px;
+        line-height: 27px;
+        background-position: left 0px;
+        border-radius: 0;
+    }
+    }
     @-moz-document url-prefix("https://www.roblox.com/login"), url-prefix("https://www.roblox.com/Login"), url-prefix("https://www.roblox.com/NewLogin") {
     /* Login Page */
     #rbx-body.dark-theme:before {
@@ -17433,18 +18509,22 @@ if layout == dec {
     url("https://www.roblox.com"),
     url-prefix("https://www.roblox.com/?returnUrl="), url-prefix("https://www.roblox.com/CreateAccount") {
     /* Sign Up Landing */
-    #rbx-body.dark-theme:before {
+    #rbx-body.dark-theme:before, .username-suggestion-container {
         display: none!important;
     }
     if landing == "land" {
+    /* this is a mess */
+    html, body {
+        height: revert;
+    }
     body {
         background-color: #123f83 !important;
     }
     #RollerContainer {
         background: transparent;
-        min-height: 87vh;
+        min-height: unset;
     }
-    #RollerContainer.rollercoaster-background:before {
+    #RollerContainer.rollercoaster-background #InnerRollerContainer:before {
         background-image: url(http://images.rbxcdn.com/437004fbc01bf6a613547a40aabde10a.jpg);
         background-repeat: repeat-x;
         content: "";
@@ -17453,20 +18533,33 @@ if layout == dec {
         width: 1000%;
         height: 100%;
         position: absolute;
+        z-index: 1;
+        background-size: contain;
     }
-    #RollerContainer.rollercoaster-background:after {
+    #RollerContainer.rollercoaster-background #InnerRollerContainer:after {
         content: "";
         background-image: url(http://images.rbxcdn.com/161d0d393d74c103e5f50eef988b7217.png);
         background-repeat: repeat-x;
         animation: moveSlideshow 500s linear infinite;
         position: absolute;
         display: block;
-        height: 1000px;
+        height: 100%;
         width: 1000%;
+        z-index: 2;
+        background-size: contain;
     }
     #InnerRollerContainer,
     #RollerContainer.rollercoaster-background {
         background-image: none;
+    }
+    #InnerRollerContainer *, #footer-container {
+        z-index: 3;
+    }
+    #InnerRollerContainer {
+        min-height: 960px;
+        if layout == june {
+            min-height: 930px;
+        }
     }
     .lower-logo-container {
         background-color: transparent!important;
@@ -17488,7 +18581,7 @@ if layout == dec {
         background-image: url(http://images.rbxcdn.com/9b792179d6034ff15284a289ffedec15.png);
         background-size: unset;
     }
-    .input-field {
+    .signup-input-area .input-field {
         background-color: white!important;
         border: 1px solid #a7a7a7!important;
         border-radius: 0px!important;
@@ -17508,6 +18601,11 @@ if layout == dec {
         sans-serif;
         font-size: 14px!important;
         margin-bottom: 1px;
+        if layout == june {
+            font-weight: bold!important;
+            font-family: helvetica,arial sans-serif;
+            font-size: 12px!important;
+        }
     }
     .input-validation.text-error {
         color: #FF7373;
@@ -17516,6 +18614,11 @@ if layout == dec {
         Helvetica,
         sans-serif;
         float: left;
+        if layout == june {
+            font-family: helvetica,arial sans-serif;
+            font-weight: bold!important;
+            font-size: 12px;
+        }
     }
     .signup-or-log-in .signup-container .signup-input-area .legal-text-container {
         display: none;
@@ -17535,6 +18638,10 @@ if layout == dec {
         position: absolute;
         top: 90px;
         margin-left: -75px;
+        if layout == june {
+            font-family: helvetica,arial sans-serif;
+            letter-spacing: -4px;
+        }
     }
     #signup-container #signup-header-container .header-icon-logo:after {
         content: "and explore their creations";
@@ -17550,6 +18657,10 @@ if layout == dec {
         position: absolute;
         top: 155px;
         margin-left: -20px;
+        if layout == june {
+            font-family: helvetica,arial sans-serif;
+            letter-spacing: -2px;
+        }
     }
     #signup-container #signup-header-container {
         top: -215px;
@@ -17580,6 +18691,10 @@ if layout == dec {
         text-align: center;
         margin-left: -500px;
         top: 272px;
+        if layout == june {
+            font-family: helvetica,arial sans-serif;
+            letter-spacing: -2px;
+        }
     }
     #signup-container {
         margin-top: 10px;
@@ -17595,6 +18710,10 @@ if layout == dec {
         display: block;
         width: 256px;
         text-align: left;
+        if layout == june {
+            font-family: helvetica,arial sans-serif!important;
+            letter-spacing: -1px;
+        }
     }
     #signup-button {
         border-radius: 0px;
@@ -17612,6 +18731,12 @@ if layout == dec {
         Arial,
         Helvetica,
         sans-serif;
+        if layout == june {
+            font-family: helvetica,arial sans-serif;
+            letter-spacing: -1px;
+            font-weight: bold;
+            text-shadow: 0 -1px #013401;
+        }
     }
     #signup-button:hover {
         background-position: left -48px;
@@ -17625,9 +18750,10 @@ if layout == dec {
     }
     .container-footer {
         background: #123f83!important;
+        height: unset;
     }
     .birthday-container:after {
-        content: "Enter your birthday for a personalized experience. It will not be given to any third party.";
+        content: "Enter your birthday for a personalized experience.\AIt will not be given to any third party.";
         font-family: 'Source Sans Pro',
         Arial,
         Helvetica,
@@ -17636,6 +18762,12 @@ if layout == dec {
         display: block;
         width: 250px;
         line-height: 18.1333px;
+        white-space: pre-wrap;
+        if layout == june {
+            font-family: helvetica,arial sans-serif;
+            font-size: 10px;
+            line-height: 14px;
+        }
     }
     .signup-container .birthday-container .birthday-select-group {
         border: none;
@@ -17654,6 +18786,13 @@ if layout == dec {
         height: unset!important;
         font-size: 14px!important;
         padding: 1px!important;
+        if layout == june {
+            font-family: helvetica,arial sans-serif!important;
+            font-weight: 700!important;
+            font-size: 12px!important;
+            padding: 0!important;
+        }
+        
     }
     .rbx-select-group .rbx-select option {
         all: revert!important;
@@ -17680,7 +18819,7 @@ if layout == dec {
         background-color: transparent!important;
     }
     .container-footer {
-        position: relative;
+        position: unset;
         height: 121px;
     }
     .icon-password-show-v2 {
@@ -17717,7 +18856,11 @@ if layout == dec {
         Arial,
         Helvetica,
         sans-serif;
-        color: #000;
+        color: #000!important;
+        if layout == june {
+            font-family: arial,helvetica sans-serif;
+            font-size: 14px;
+        }
     }
     .dark-theme .btn-cta-md:hover {
         background-position: bottom;
@@ -17739,7 +18882,27 @@ if layout == dec {
         font-size: 14px;
         position: absolute;
         margin-top: -49px;
-        margin-left: 214px;
+        if layout == june {
+            font-family: helvetica,arial sans-serif;
+            font-weight: bold;
+            font-size: 12px;
+        }
+        
+    }
+    .has-success.form-group:has(#signup-username):after {
+        margin-left: 30px;
+        if layout == june {
+            margin-left: 43px;
+        }
+    }
+    .has-success.password-form-group:after {
+        margin-left: -24px;
+        if layout == june {
+            margin-left: -8px;
+        }
+    }
+    .birthday-container .has-success.form-group:after {
+        margin-left: 221px;
     }
     #signup-username, #signup-password {
         color: black!important;
@@ -17752,6 +18915,12 @@ if layout == dec {
         color: white;
         display: block;
         float: left;
+        width: 100%;
+        if layout == june {
+            font-family: helvetica,arial sans-serif;
+            font-size: 10px;
+            font-weight: normal!important;
+        }
     }
     #signup-passwordInputValidation:before {
         content: "8-200 characters, minimum of 4 letters & 2 numbers";
@@ -17759,6 +18928,16 @@ if layout == dec {
         display: block;
         float: left;
         white-space: nowrap;
+        if layout == june {
+            font-family: helvetica,arial sans-serif;
+            font-size: 10px;
+            font-weight: normal!important;
+        }
+    }
+    if layout == june {
+        .signup-or-log-in .signup-container .signup-input-area .password-form-group {
+            margin-top: 24px;
+        }
     }
     .signup-or-log-in .signup-container {
         padding: 0;
@@ -17767,15 +18946,23 @@ if layout == dec {
 	    display: flex;
 	    flex-direction: column;
     }
+    @media screen and (max-width: 1300px) {
+      .signup-container.theme-bg {
+        margin-bottom: 50px;
+      }
+    }
 }
 if landing == "ing" {
-    @font-face { font-family: "Source Sans Pro"; src: local("Source Sans Pro Light"), local("SourceSansPro-Light"), url("http://fonts.gstatic.com/s/sourcesanspro/v9/toadOcfmlt9b38dHJxOBGN5zCZmJHbPt3vUI1beFfvf3rGVtsTkPsbDajuO5ueQw.woff2") format("woff2"); font-style: normal; font-weight: 300; unicode-range: U+0-FF, U+131, U+152-153, U+2C6, U+2DA, U+2DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000; }
-    @font-face { font-family: "Source Sans Pro"; src: local("Source Sans Pro"), local("SourceSansPro-Regular"), url("http://fonts.gstatic.com/s/sourcesanspro/v9/ODelI1aHBYDBqgeIAH2zlPytCVloACqnDHJwh-em2k8.woff2") format("woff2"); font-style: normal; font-weight: 400; unicode-range: U+0-FF, U+131, U+152-153, U+2C6, U+2DA, U+2DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000; }
+    @font-face { font-family: "Source Sans Pro"; src: local("Source Sans Pro Light"), local("SourceSansPro-Light"), url("http://fonts.gstatic.com/s/sourcesanspro/v8/toadOcfmlt9b38dHJxOBGOode0-EuMkY--TSyExeINg.woff2") format("woff2"); font-style: normal; font-weight: 300; unicode-range: U+0-FF, U+131, U+152-153, U+2C6, U+2DA, U+2DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000; }
+    @font-face { font-family: "Source Sans Pro"; src: local("Source Sans Pro"), local("SourceSansPro-Regular"), url("http://fonts.gstatic.com/s/sourcesanspro/v8/ODelI1aHBYDBqgeIAH2zlNV_2ngZ8dMf8fLgjYEouxg.woff2") format("woff2"); font-style: normal; font-weight: 400; unicode-range: U+0-FF, U+131, U+152-153, U+2C6, U+2DA, U+2DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000; }
     .lower-logo-container {
 	    padding-top: 20px;
     }
     #RollerContainer.rollercoaster-background {
-        background-image: url('http://images.rbxcdn.com/dcbdfaf1c08058e71f65c09f7b98ff04.jpg')!important;
+        background-image: url('http://images.rbxcdn.com/f183afca88d3f47e882f455834eafbc5.jpg')!important;
+        if layout == dec {
+            background-image: url('http://images.rbxcdn.com/dcbdfaf1c08058e71f65c09f7b98ff04.jpg')!important;
+        }
     }
     #InnerRollerContainer {
 	    background-image: none;
@@ -17789,17 +18976,20 @@ if landing == "ing" {
         max-width: 405px;
         border-radius: 0px;
         position: relative;
-        left: 200px;
+        left: 220px;
     }
     .signup-header {
-        font-size: 24px!important;
+        font-size: 28px!important;
         margin-top: 5px;
         margin-bottom: 10px;
         text-align: left;
         font-family: "Source Sans Pro",Helvetica,Arial,sans-serif!important;
         text-transform: unset;
         font-weight: 300!important;
-        color: rgb(71, 71, 71)!important;
+        color: #333!important;
+        if layout == dec {
+            color: #474747!important;
+        }
     }
     .legal-text-container, .font-caption-header:not(.age-bracket-label-username) {
         display: none!important;
@@ -17925,7 +19115,7 @@ if landing == "ing" {
         background-image: url('https://assetdelivery.roblox.com/v1/asset?id=14488511438');
         width: 13px;
         position: relative;
-        left: -9px;
+        left: 23px;
         top: -2px;
     }
     .gender-male {
@@ -17987,36 +19177,56 @@ if landing == "ing" {
         opacity: .99;
         z-index: 10000;
         position: absolute;
-        margin-left: -472px;
+        margin-left: -500px;
         margin-top: 95px;
     }
     #signup:after {
-        content: "You Make the Game ";
+        content: "The Game Powered by Players.";
         font-family: "Source Sans Pro",Helvetica,Arial,sans-serif;
         font-weight: 300;
         text-align: center;
         color: white;
         font-size: 35px;
         background-color: rgba(0,0,0,0.7);
-        padding: 18px 25px;
+        padding: 18px 10px;
         display: block;
         position: absolute;
-        margin-left: -406px;
-        margin-top: -189px;
+        margin-left: -498px;
+        margin-top: -195px;
+        if layout == dec {
+            content: "You Make the Game ";
+            padding: 18px 25px;
+            margin-left: -424px;
+            margin-top: -196px;
+        }
     }
-    .signup-header:after {
-        content: " ™ ";
-        position: absolute;
-        font-size: 15px;
-        color: white;
-        margin-left: -379px;
-        margin-top: 195px;
-        z-index: 100;
+    if layout == dec {
+        .signup-header:before {
+            content: " ™ ";
+            position: absolute;
+            font-size: 15px;
+            color: white;
+            margin-left: -123px;
+            margin-top: 188px;
+            z-index: 100;
+        }
     }
     #action-bar-container {
         height: 66px;
         background-color: rgba(0, 0, 0, 0.35);
         position: fixed;
+    }
+    #app-stores-container {
+        position: absolute;
+        bottom: 4%;
+        left: 20%;
+    }
+    #app-stores {
+        display: flex;
+        flex-direction: column;
+    }
+    #app-stores-container #app-stores-devices {
+        margin-bottom: 1px;
     }
     #app-stores:before {
         content: "Game: ROBLOX Point";
@@ -18026,9 +19236,7 @@ if landing == "ing" {
         font-size: 28px;
         font-weight: 300;
         font-family: "Source Sans Pro",Helvetica,Arial,sans-serif;
-        position: absolute;
-        margin-left: -535px;
-        margin-top: 123px;
+        
     }
     #app-stores:after {
         content: "Developer: StarMarine614";
@@ -18038,9 +19246,7 @@ if landing == "ing" {
         font-size: 28px;
         font-weight: 300;
         font-family: "Source Sans Pro",Helvetica,Arial,sans-serif;
-        position: absolute;
-        margin-left: -535px;
-        margin-top: 152px;
+        margin-right: 625px;
     }
     .input-validation.text-error {
         color: #a94442;
@@ -19528,7 +20734,7 @@ if landing == "ing" {
         content: url('https://assetdelivery.roblox.com/v1/asset?id=13774170411');
     }
     /* Builderman */
-    img[src="https://tr.rbxcdn.com/30DAY-Avatar-CB25525FD38404D4412F02829166031A-Png/352/352/Avatar/Png/noFilter"] {
+    img[src="https://tr.rbxcdn.com/30DAY-Avatar-CB25525FD38404D4412F02829166031A-Png/352/352/Avatar/Png/noFilter"], img[src="https://tr.rbxcdn.com/30DAY-Avatar-CB25525FD38404D4412F02829166031A-Png/352/352/Avatar/Webp/noFilter"] {
         content: url('https://assetdelivery.roblox.com/v1/asset?id=13774178201');
         if layout == thirteen {
             content: url('https://assetdelivery.roblox.com/v1/asset?id=13774343356');
@@ -19540,7 +20746,7 @@ if landing == "ing" {
         }
     }
     /* ROBLOX */
-    img[src="https://tr.rbxcdn.com/30DAY-Avatar-A91C0E7E0F594224906140CE8B4D1479-Png/352/352/Avatar/Png/noFilter"] {
+    img[src="https://tr.rbxcdn.com/30DAY-Avatar-A91C0E7E0F594224906140CE8B4D1479-Png/352/352/Avatar/Png/noFilter"], img[src="https://tr.rbxcdn.com/30DAY-Avatar-A91C0E7E0F594224906140CE8B4D1479-Png/352/352/Avatar/Webp/noFilter"] {
         content: url('https://assetdelivery.roblox.com/v1/asset?id=13774185386');
         if layout == thirteen {
             content: url('https://assetdelivery.roblox.com/v1/asset?id=13774341223');
@@ -19593,14 +20799,17 @@ if landing == "ing" {
     img[src="https://t1.rbxcdn.com/1cbe7ae724a2e8eb28eb8d726bc48755"] {
         content: url('http://images.rbxcdn.com/7622437727bfe45aff684632abc2f3be.jpg');
     }
+    /* animation image */
     img[src="https://t0.rbxcdn.com/0781505e5c2ed818ead5f10a3a61a5ac"],
     img[src="https://t1.rbxcdn.com/6e78935b793e523f00148d786676a53e"],
     img[src="https://t4.rbxcdn.com/b7a5402a3e719eff19159d6cf7e11ee1"] {
         content: url('https://assetdelivery.roblox.com/v1/asset?id=13774202709');
     }
+    /* cd badge */
     .badge-item img.icon-blocked {
         content: url('https://assetdelivery.roblox.com/v1/asset?id=13774218802');
     }
+    /* review pending image */
     img[src="https://t6.rbxcdn.com/b7104ffe13f1d6b3f74191d2b4640765"] {
         content: url('https://assetdelivery.roblox.com/v1/asset?id=13774223775');
     }
@@ -19662,13 +20871,13 @@ if landing == "ing" {
     /* Custom Explore/Games Page Thumbnails *
     /* i am insane */
     if thumbs {
-    .hlist.games.game-cards.game-tile-list a[id="47545"] img,   .game-card-link[id="47545"] .thumbnail-2d-container img:not(.avatar-card-image) {
+    .hlist.games.game-cards.game-tile-list a[id="47545"] img, .game-card-link[id="47545"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://assetdelivery.roblox.com/v1/asset?id=13774227757');
     }
     .hlist.games.game-cards.game-tile-list a[id="65241"] img,   .game-card-link[id="65241"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://assetdelivery.roblox.com/v1/asset?id=13774231452');
     }
-    .hlist.games.game-cards.game-tile-list a[id="735803076"] img,   .game-card-link[id="735803076"] .thumbnail-2d-container img:not(.avatar-card-image) {
+    .hlist.games.game-cards.game-tile-list a[id="735803076"] img, .game-card-link[id="735803076"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://assetdelivery.roblox.com/v1/asset?id=13774235319');
     }
     }
@@ -19823,7 +21032,7 @@ if landing == "ing" {
         content: url('https://tr.rbxcdn.com/92684363d41d5c500349f85397c582b2/768/432/Image/Png');
     }
     .hlist.games.game-cards.game-tile-list a[id="1543009199"] img,   .game-card-link[id="1543009199"] .thumbnail-2d-container img:not(.avatar-card-image) {
-        content: url('https://tr.rbxcdn.com/301fd714913f9cb2889de1215a0e5660/768/432/Image/Png');
+        content: url('https://tr.rbxcdn.com/621e822982bd2e19c80e334912f981e5/768/432/Image/Png');
     }
     .hlist.games.game-cards.game-tile-list a[id="2471084"] img,   .game-card-link[id="2471084"] .thumbnail-2d-container img:not(.avatar-card-image) {
         content: url('https://tr.rbxcdn.com/a5caba670a2977fb0778f9dfa3a683c1/768/432/Image/Png');
@@ -20098,7 +21307,7 @@ if landing == "ing" {
             content: url('https://assetdelivery.roblox.com/v1/asset?id=13825145049');
         }
         /* Trade Hangout */
-        img[src="https://tr.rbxcdn.com/df4f137836e5acaa6f3dfeb34dfb6717/768/432/Image/Png"] {
+        img[src="https://tr.rbxcdn.com/47ab2c2a06fadb44bfe27a7c479ce920/768/432/Image/Png"] {
             content: url('https://assetdelivery.roblox.com/v1/asset?id=13825194305');
             if layout == june {
                 content: url('https://assetdelivery.roblox.com/v1/asset?id=13825195950');
@@ -20145,6 +21354,9 @@ if landing == "ing" {
             if layout == dec {
                 content: url('https://assetdelivery.roblox.com/v1/asset/?id=16115461814');
             }
+        }
+        img[src="https://tr.rbxcdn.com/be8c89fd6a88bd7ed4cb4e4d34e877f6/150/150/Image/Png"] {
+            content: url('https://assetdelivery.roblox.com/v1/asset/?id=17046510348');
         }
     }
     }
@@ -20243,31 +21455,31 @@ if landing == "ing" {
         content: url('https://assetdelivery.roblox.com/v1/asset?id=13875887215');
     }
     /* Game icons */
-    .thumbnail-2d-container img[src="https://t6.rbxcdn.com/aadaa538b61acdab1d4f17940a800f6f"],
-    .thumbnail-2d-container img[src="https://t7.rbxcdn.com/a10c9222e32980470fab50fb6462d437"],
-    .thumbnail-2d-container img[src="https://t0.rbxcdn.com/8f56fba9bef09c5bc27c53a7bb963be4"],
-    .thumbnail-2d-container img[src="https://t6.rbxcdn.com/c733e3ebc62abd3e048bbb5ad66929ce"],
-    .thumbnail-2d-container img[src="https://t1.rbxcdn.com/4a51c69f32e68ba3d1843fc4ace2a46b"],
-    .thumbnail-2d-container img[src="https://t4.rbxcdn.com/ba47802a9e2570791d69927011119481"],
-    .thumbnail-2d-container img[src="https://t2.rbxcdn.com/dcba86e6279d72062444d423c583d70f"],
-    .thumbnail-2d-container img[src="https://t4.rbxcdn.com/9c11217b79515fc41469a37378be1433"],
-    .thumbnail-2d-container img[src="https://t1.rbxcdn.com/8a3e264c9688a9eb74a3859b18692742"]
-    .thumbnail-2d-container img[src="https://t4.rbxcdn.com/003c09089611dd64aa694f01a33b2d17"],
-    .thumbnail-2d-container img[src="https://t3.rbxcdn.com/76a5164269c4060c66a95bb6843947fe"],
-    .thumbnail-2d-container img[src="https://t1.rbxcdn.com/f6bf065d19c9e1cf7d28e7b85a6d527a"],
+    .thumbnail-2d-container img[src="https://t6.rbxcdn.com/bfe65392a3d4d7463d62924a412b69be"],
+    .thumbnail-2d-container img[src="https://t5.rbxcdn.com/c4558daa109ea7ea400a7694b8c95471"],
+    .thumbnail-2d-container img[src="https://t0.rbxcdn.com/8666cbaf49d58b6f8a813f8d2a8e71ee"],
+    .thumbnail-2d-container img[src="https://t6.rbxcdn.com/dbbb966b246fafc83a1f4fc25355c5f6"],
+    .thumbnail-2d-container img[src="https://t2.rbxcdn.com/23d150c127cfc0991e4c8753fa5dd01d"],
+    .thumbnail-2d-container img[src="https://t7.rbxcdn.com/0127ba3af388fdf1b6def624d491b72a"],
+    .thumbnail-2d-container img[src="https://t7.rbxcdn.com/950a81432c46318c84335384a6e4d77e"],
+    .thumbnail-2d-container img[src="https://t6.rbxcdn.com/efb0dd75b9614c1009a0cdeccde22b2c"],
+    .thumbnail-2d-container img[src="https://t2.rbxcdn.com/2475574001bcda30cf42902b40f867ee"]
+    .thumbnail-2d-container img[src="https://t2.rbxcdn.com/ce4fdaa35fdfea3828168ba3d28f1a36"],
+    .thumbnail-2d-container img[src="https://t0.rbxcdn.com/e7431bfd1238ca8bb929e1c25a824316"],
+    .thumbnail-2d-container img[src="https://t5.rbxcdn.com/503bf1c5c0de1ce6a183745b5558395a"],
     /* hell */
-    .game-card-thumb[src="https://t6.rbxcdn.com/aadaa538b61acdab1d4f17940a800f6f"],
-    .game-card-thumb[src="https://t7.rbxcdn.com/a10c9222e32980470fab50fb6462d437"],
-    .game-card-thumb[src="https://t0.rbxcdn.com/8f56fba9bef09c5bc27c53a7bb963be4"],
-    .game-card-thumb[src="https://t6.rbxcdn.com/c733e3ebc62abd3e048bbb5ad66929ce"],
-    .game-card-thumb[src="https://t1.rbxcdn.com/4a51c69f32e68ba3d1843fc4ace2a46b"],
-    .game-card-thumb[src="https://t4.rbxcdn.com/ba47802a9e2570791d69927011119481"],
-    .game-card-thumb[src="https://t2.rbxcdn.com/dcba86e6279d72062444d423c583d70f"],
-    .game-card-thumb[src="https://t4.rbxcdn.com/9c11217b79515fc41469a37378be1433"],
-    .game-card-thumb[src="https://t1.rbxcdn.com/8a3e264c9688a9eb74a3859b18692742"]
-    .game-card-thumb[src="https://t4.rbxcdn.com/003c09089611dd64aa694f01a33b2d17"],
-    .game-card-thumb[src="https://t3.rbxcdn.com/76a5164269c4060c66a95bb6843947fe"],
-    .game-card-thumb[src="https://t1.rbxcdn.com/f6bf065d19c9e1cf7d28e7b85a6d527a"] {
+    .game-card-thumb[src="https://t6.rbxcdn.com/bfe65392a3d4d7463d62924a412b69be"],
+    .game-card-thumb[src="https://t5.rbxcdn.com/c4558daa109ea7ea400a7694b8c95471"],
+    .game-card-thumb[src="https://t0.rbxcdn.com/8666cbaf49d58b6f8a813f8d2a8e71ee"],
+    .game-card-thumb[src="https://t6.rbxcdn.com/dbbb966b246fafc83a1f4fc25355c5f6"],
+    .game-card-thumb[src="https://t2.rbxcdn.com/23d150c127cfc0991e4c8753fa5dd01d"],
+    .game-card-thumb[src="https://t7.rbxcdn.com/0127ba3af388fdf1b6def624d491b72a"],
+    .game-card-thumb[src="https://t7.rbxcdn.com/950a81432c46318c84335384a6e4d77e"],
+    .game-card-thumb[src="https://t6.rbxcdn.com/efb0dd75b9614c1009a0cdeccde22b2c"],
+    .game-card-thumb[src="https://t2.rbxcdn.com/2475574001bcda30cf42902b40f867ee"]
+    .game-card-thumb[src="https://t2.rbxcdn.com/ce4fdaa35fdfea3828168ba3d28f1a36"],
+    .game-card-thumb[src="https://t0.rbxcdn.com/e7431bfd1238ca8bb929e1c25a824316"],
+    .game-card-thumb[src="https://t5.rbxcdn.com/503bf1c5c0de1ce6a183745b5558395a"] {
         object-fit: unset!important;
         content: url('https://assetdelivery.roblox.com/v1/asset?id=13875887215');
     }
