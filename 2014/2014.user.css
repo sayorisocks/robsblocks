@@ -3,7 +3,7 @@
 @namespace      https://github.com/sayorisocks/robsblocks
 @supportURL     https://github.com/sayorisocks/robsblocks/issues
 @license        GNU GPLv3
-@version        1.1.9
+@version        1.2.2
 @description    now you too can give roblox a personality!
 @author         melo
 @var select layout "🖼️ | Website Style" {
@@ -4552,13 +4552,13 @@ if layout == dec {
         position: absolute;
         z-index: 10;
         right: -10px;
-        top: 44px;
+        top: 3px;
         if layout == june {
             opacity: 1!important;
             height: 164px;
             background-color: white!important;
             width: 53px;
-            top: 28px;
+            top: 0;
             z-index: 102;
         }
     }
@@ -4738,6 +4738,7 @@ if layout == dec {
         border: 1px solid transparent;
         padding: 2px;
         width: 199px;
+        height: 150px;
         if layout == june {
             width: 192px;
             padding: 15px 15px 15px;
@@ -4838,6 +4839,9 @@ if layout == dec {
         if layout == june {
             display: none;
         }
+    }
+    .container-header.games-filter-changer {
+        min-height: 41px;
     }
     }
     @-moz-document url-prefix("https://www.roblox.com/discover#/sortName"),
@@ -7110,6 +7114,61 @@ if layout == dec {
     }
     .btr-pager-holder .btr-pager li span:first-child {
         margin-right: 6px;
+    }
+    .rbx-running-games-load-more.btn-control-md {
+        border-color: #007001!important;
+        background-color: #007001;
+        background-image: url(/images/Buttons/StyleGuide/bg-btn-green.png) !important;
+        color: white!important;
+        border-radius: 0;
+        padding: 1px 13px 3px 13px;
+        height: 34px;
+        width: unset;
+        font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        background-position: left -96px;
+        line-height: 1.3em;
+        if layout == june {
+            text-shadow: 0 -1px #013401;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            letter-spacing: -1px;
+        }
+    }
+    .rbx-running-games-load-more.btn-control-md:hover {
+        background-position: left -128px;
+    }
+    .carousel-controls.btn-primary-md {
+        height: 100%!important;
+        width: 55px!important;
+        border-radius: 0!important;
+        background-color: #646464!important;
+    }
+    .carousel-controls.btn-primary-md:hover {
+        background-color: #000!important;
+    }
+    .btn-primary-md.carousel-controls.carousel-controls-visible {
+        opacity: .7;
+    }
+    .carousel-controls.carousel-controls-right {
+        right: 0;
+    }
+    .carousel-controls.carousel-controls-right .icon-carousel-right {
+        background-image: url(http://images.rbxcdn.com/ab6e44a9d9ebfde2244da961275acd06.png);
+        background-position: unset;
+        background-size: unset;
+        height: 47px;
+        width: 27px;
+    }
+    .carousel-controls.carousel-controls-left {
+        left: 0;
+    }
+    .carousel-controls.carousel-controls-left .icon-carousel-left{
+        background-image: url(http://images.rbxcdn.com/bf9c0660cdeb6283b71aa9237716519e.png);
+        background-position: unset;
+        background-size: unset;
+        height: 47px;
+        width: 27px;
     }
     }
     @-moz-document url-prefix("https://www.roblox.com/users/1/profile"), url-prefix("https://www.roblox.com/users/156/profile"), url-prefix("https://www.roblox.com/users/73432175/profile"), url-prefix("https://www.roblox.com/users/52037777/profile") {
@@ -12906,9 +12965,12 @@ if layout == dec {
             font-family: Arial,Helvetica,sans-serif;
         }
     }
-    .item-cards-stackable {
+    .item-cards-stackable, #react-items-container {
         width: 800px;
         margin-top: 13px;
+    }
+    #react-items-container {
+        margin-top: 0;
     }
     .container-main .catalog-full-screen .catalog-results .item-cards-stackable .item-card .item-card-thumb-container {
         width: 112px;
@@ -12946,15 +13008,20 @@ if layout == dec {
         Helvetica,
         sans-serif;
         font-weight: bold;
-        height: 100%;
-        max-height: unset;
-        width: 102px;
+        height: 100%!important;
+        max-height: unset !important;
+        width: 102px!important;
         if layout == "dec" {
             font-weight: 400!important;
         }
         if layout == "june" {
             font-family: Arial,Helvetica,sans-serif;
         }
+    }
+    #catalog-react-container .item-card-container .item-card-name > .text-overflow {
+        max-height: unset !important;
+        overflow: unset;
+        white-space: normal;
     }
     .item-card-container .item-card-name:hover {
         text-decoration: underline;
@@ -12993,14 +13060,14 @@ if layout == dec {
         width: 18px;
         background-position: unset;
     }
-    .item-card-container .item-card-label {
+    .item-card-container .item-card-label, .item-card-container .item-card-secondary-info .text-overflow, .item-card-container .item-card-secondary-info .text-link {
         color: #666;
         font-size: 11px;
         if layout == "june" {
             font-family: Arial,Helvetica,sans-serif;
         }
     }
-    .item-card-container .item-card-label > span > a {
+    .item-card-container .item-card-label > span > a, .item-card-container .item-card-secondary-info .text-link {
         color: #0055B3!important;
     }
     .item-card-container .item-card-price {
@@ -13075,14 +13142,15 @@ if layout == dec {
             color: black!important;
         }
     }
-    .breadcrumb-container li .breadcrumb-link:first-child {
+    .breadcrumb-container li:first-child .breadcrumb-link {
         text-transform: uppercase;
         font-weight: bold;
         if layout == june {
             font-size: 16px;
         }
     }
-    .breadcrumb-container:has(li[class=""]) li .breadcrumb-link:first-child {
+    .breadcrumb-container:has(li[class=""]) li .breadcrumb-link:first-child,
+    #catalog-react-container .breadcrumb-container:has(.icon-right-16x16) li:first-child .breadcrumb-link {
             color: #095fb5!important;
     }
     .breadcrumbs .breadcrumb-container {
@@ -13191,6 +13259,9 @@ if layout == dec {
         border: 1px solid #a7a7a7!important;
         padding: 2px 2px 0px 2px;
         border-radius: 0px;
+    }
+    #catalog-react-container .search-container .input-group .category-options {
+        margin-right: 5px;
     }
     .catalog-container .search-container .input-group .category-options:hover {
         padding: 1px 2px 0px 2px!important;
@@ -13339,7 +13410,8 @@ if layout == dec {
         }
     }
     .item-card-container .text-robux-tile[ng-class="{'text-robux-tile': item.isFree}"],
-    .item-card-container .text-label[ng-class="{'text-robux-tile': item.isFree}"] {
+    .item-card-container .text-label[ng-class="{'text-robux-tile': item.isFree}"],
+    #catalog-react-container .item-card-container .text.text-label.text-robux-tile {
         color: #505050!important;
         font-weight: bold!important;
         font-size: 12px!important;
@@ -13513,7 +13585,8 @@ if layout == dec {
     .border-bottom.filters-section div[sales-type-filter=""]:after,
     .border-bottom.filters-section div[creator-filters=""]:after,
     .border-bottom.filters-section div[price-filters=""]:after,
-    .border-bottom.filters-section div[sort-filter=""]:after {
+    .border-bottom.filters-section div[sort-filter=""]:after,
+    #catalog-react-container .catalog-content .search-options .filters-section > div:not(.font-header-2):after {
         content: "";
         position: absolute;
         display: block;
@@ -13523,13 +13596,16 @@ if layout == dec {
         margin-top: 16px;
     }
     .border-bottom.filters-section div[price-filters=""]:after,
-    .border-bottom.filters-section div[sort-filter=""]:after {
+    .border-bottom.filters-section div[sort-filter=""]:after,
+    #catalog-react-container .catalog-content .search-options .filters-section > div:nth-child(3):after,
+    #catalog-react-container .catalog-content .search-options .filters-section > div:nth-child(4):after {
         border-color: #ccc;
     }
     .border-bottom.filters-section div[sales-type-filter=""],
     .border-bottom.filters-section div[creator-filters=""],
     .border-bottom.filters-section div[price-filters=""],
-    .border-bottom.filters-section div[sort-filter=""] {
+    .border-bottom.filters-section div[sort-filter=""],
+    #catalog-react-container .catalog-content .search-options .filters-section > div:not(.font-header-2) {
         padding-left: 5px;
         margin-bottom: 10px;
         padding-bottom: 10px;
@@ -13599,7 +13675,8 @@ if layout == dec {
         font-style: italic;
     }
     .border-bottom.filters-section div[price-filters=""] button,
-    .border-bottom.filters-section div[creator-filters=""] button {
+    .border-bottom.filters-section div[creator-filters=""] button,
+    .btn-secondary-xs.btn-update-filter {
         all: revert;
         font-family: 'Source Sans Pro',
         Arial,
@@ -13622,10 +13699,15 @@ if layout == dec {
         }
     }
     .border-bottom.filters-section div[price-filters=""] button:hover,
-    .border-bottom.filters-section div[creator-filters=""] button:hover {
+    .border-bottom.filters-section div[creator-filters=""] button:hover,
+    .btn-secondary-xs.btn-update-filter:hover {
         cursor: pointer;
         background-position: bottom left;
         opacity: 1;
+    }
+    .input-field.input-number.price-input,
+    #catalog-react-container .radio input[type="radio"] + label {
+        margin-left: 2px;
     }
     .item-card-container .item-card-label[ng-if="item.unitsAvailableForConsumption"] > span {
         font-size: 12px;
@@ -13635,7 +13717,8 @@ if layout == dec {
         color: red;
         font-weight: bold;
     }
-    .catalog-content .search-options .panel a[data-target="#category-1"]:after {
+    .catalog-content .search-options .panel a[data-target="#category-1"]:after,
+    .catalog-content .search-options .panel #expandable-menu-category-1:after {
         content: "";
         background: lightgrey;
         height: 1px;
@@ -13648,10 +13731,7 @@ if layout == dec {
     .catalog-content .search-options .panel a[data-target="#category-17"] {
         margin-top: 3px;
     }
-    .item-card-container .item-card-name {
-        max-height: unset!important;
-    }
-    ul[ng-if*="sortOption.hasSubMenu"] {
+    ul[ng-if*="sortOption.hasSubMenu"], .catalog-content .search-options .radio ul {
         margin-left: 10px!important;
     }
     .catalog-container .search-container .input-group .input-group-btn .dropdown-menu {
@@ -13666,7 +13746,8 @@ if layout == dec {
         box-shadow: 3px 5px 4px 0 rgba(89,67,67,0.33);
         padding: 2px;
     }
-    .catalog-container .search-container .dropdown-menu li a {
+    .catalog-container .search-container .dropdown-menu li a,
+     #catalog-react-container #search-bar .dropdown-menu li button {
         padding: 1px 4px;
         font-family: 'Segoe UI', Arial, sans-serif;
         font-size: 12px;
@@ -13738,13 +13819,30 @@ if layout == dec {
     .mCustomScrollBox, .mCSB_container, #search-options-scrollbar-container {
         overflow: unset!important;
     }
+    #catalog-react-container #search-options-scrollbar-container {
+        width: 152px;
+    }
+    #catalog-react-container .mCSB_inside > .mCSB_container {
+        top: 0!important;
+        width: 150px;
+    }
+    #catalog-react-container .catalog-content .search-options .panel-heading-div {
+        padding: 0px;
+    }
+    .catalog-container #react-items-container.catalog-results {
+        height: unset!important;
+        overflow-y: hidden;
+    }
+    #catalog-react-container .catalog-container .sticky .search-options-scrollbar-container .rbx-scrollbar .simplebar-content {
+        overflow: unset!important;
+    }
     .catalog-container .catalog-content .search-bars .shopping-cart-btn-entry {
         position: absolute;
         margin-right: 135px;
         margin-top: 41px;
     }
     if cart {
-        #shopping-cart-btn-entry {
+        #shopping-cart-btn-entry, .buy-btns-container .shopping-cart-btn-container {
             display: none!important;
         }
     }
@@ -20165,7 +20263,8 @@ if landing == "ing" {
     .settings-text-field-container .account-change-settings-button[title="Change Username"]:after {
         content: "Change My Username";
     }
-    .settings-text-field-container .account-change-settings-button[title="Add Password:"]:after {
+    .settings-text-field-container .account-change-settings-button[title="Add Password:"]:after,
+    .settings-text-field-container .account-change-settings-button[title="Change Password"]:after {
         content: "Change Password";
     }
     .settings-text-field-container .account-change-settings-button[title="Update Phone"]:after {
@@ -20746,7 +20845,7 @@ if landing == "ing" {
         }
     }
     /* ROBLOX */
-    img[src="https://tr.rbxcdn.com/30DAY-Avatar-A91C0E7E0F594224906140CE8B4D1479-Png/352/352/Avatar/Png/noFilter"], img[src="https://tr.rbxcdn.com/30DAY-Avatar-A91C0E7E0F594224906140CE8B4D1479-Png/352/352/Avatar/Webp/noFilter"] {
+    img[src="https://tr.rbxcdn.com/30DAY-Avatar-310966282D3529E36976BF6B07B1DC90-Png/352/352/Avatar/Webp/noFilter"], img[src="https://tr.rbxcdn.com/30DAY-Avatar-A91C0E7E0F594224906140CE8B4D1479-Png/352/352/Avatar/Webp/noFilter"] {
         content: url('https://assetdelivery.roblox.com/v1/asset?id=13774185386');
         if layout == thirteen {
             content: url('https://assetdelivery.roblox.com/v1/asset?id=13774341223');
@@ -21439,18 +21538,18 @@ if landing == "ing" {
     .btr-game-thumb[src="https://t2.rbxcdn.com/32dcfc3f858c3e9cd559ba8666011018"],
     .btr-game-thumb[src="https://t0.rbxcdn.com/f65d95c00be64b045a362a7e75f77853"],
     /* Game Thumbnails */
-    .thumbnail-2d-container img[src="https://t4.rbxcdn.com/ffddd440b9f04e7ece9dc1cd76d37e9b"],
-    .thumbnail-2d-container img[src="https://t1.rbxcdn.com/277c60a3b3d65787202e666216907489"],
-    .thumbnail-2d-container img[src="https://t1.rbxcdn.com/838c09e58e6a9748ed5d8fdf89f70102"],
-    .thumbnail-2d-container img[src="https://t3.rbxcdn.com/607dbccfeb7d3ee08b8cb73d9bccd776"],
-    .thumbnail-2d-container img[src="https://t2.rbxcdn.com/81e9acb1d254a43196eec562970aea96"],
-    .thumbnail-2d-container img[src="https://t0.rbxcdn.com/e51622eca449a0bfc0eafeb2d1828167"],
-    .thumbnail-2d-container img[src="https://t5.rbxcdn.com/c66cce6cd51cdffdd26a50f5393c99eb"],
-    .thumbnail-2d-container img[src="https://t6.rbxcdn.com/7803bac30e9e0b3d9ef052ba1207a7ec"],
-    .thumbnail-2d-container img[src="https://t4.rbxcdn.com/a99d5c070aada0d4354a3bde72671361"],
-    .thumbnail-2d-container img[src="https://t6.rbxcdn.com/535c26ce231c4491c73cf55afbdd2278"],
-    .thumbnail-2d-container img[src="https://t3.rbxcdn.com/a16c47014a469c6a3432ab6dba3cdc13"],
-    .thumbnail-2d-container img[src="https://t7.rbxcdn.com/dcf1cac3355dc47316952b29048914d2"] {
+    .thumbnail-2d-container img[src="https://t7.rbxcdn.com/d5ea4cc25bfeff3dae704f294a6c4e38"],
+    .thumbnail-2d-container img[src="https://t6.rbxcdn.com/f83a2ed45e705e6efa19e9ea061136ac"],
+    .thumbnail-2d-container img[src="https://t2.rbxcdn.com/08584ab10b47916f1b94dc93df34e5e4"],
+    .thumbnail-2d-container img[src="https://t2.rbxcdn.com/8ee2d423a7e0306dc920774de79522a3"],
+    .thumbnail-2d-container img[src="https://t0.rbxcdn.com/d4a218e556b04b23f56606afc3fedfc3"],
+    .thumbnail-2d-container img[src="https://t3.rbxcdn.com/3a2f877d534961358c99e018f3bdbd4b"],
+    .thumbnail-2d-container img[src="https://t5.rbxcdn.com/ecee3d08625d7774c252ee52d8e56723"],
+    .thumbnail-2d-container img[src="https://t3.rbxcdn.com/d251fc51b3d2cfc71aee7e79e114a9bf"],
+    .thumbnail-2d-container img[src="https://t6.rbxcdn.com/1805a317a83eb68ca9654de3e8bfc446"],
+    .thumbnail-2d-container img[src="https://t0.rbxcdn.com/e7e77f86a7fa6d04c6d4137d8b70b19d"],
+    .thumbnail-2d-container img[src="https://t1.rbxcdn.com/bb081dbf7a2014f3de8472425d90cbe9"],
+    .thumbnail-2d-container img[src="https://t7.rbxcdn.com/06d7a653d11cde3c346163ecf5ac4509"] {
         /* content: url('https://assetdelivery.roblox.com/v1/asset?id=13774274813'); */
         content: url('https://assetdelivery.roblox.com/v1/asset?id=13875887215');
     }
@@ -21467,7 +21566,7 @@ if landing == "ing" {
     .thumbnail-2d-container img[src="https://t2.rbxcdn.com/ce4fdaa35fdfea3828168ba3d28f1a36"],
     .thumbnail-2d-container img[src="https://t0.rbxcdn.com/e7431bfd1238ca8bb929e1c25a824316"],
     .thumbnail-2d-container img[src="https://t5.rbxcdn.com/503bf1c5c0de1ce6a183745b5558395a"],
-    /* hell */
+    /* hell. more game icons */
     .game-card-thumb[src="https://t6.rbxcdn.com/bfe65392a3d4d7463d62924a412b69be"],
     .game-card-thumb[src="https://t5.rbxcdn.com/c4558daa109ea7ea400a7694b8c95471"],
     .game-card-thumb[src="https://t0.rbxcdn.com/8666cbaf49d58b6f8a813f8d2a8e71ee"],
