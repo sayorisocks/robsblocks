@@ -3897,7 +3897,7 @@
         }
         .btr-settings-header-close {
             color: transparent;
-            background: url("https://assetdelivery.roblox.com/v1/asset/?id=17860070354") no-repeat 50%,linear-gradient(hsla(0,0%,100%,.5),hsla(0,0%,100%,.3) 45%,rgba(0,0,0,.1) 50%,rgba(0,0,0,.1) 75%,hsla(0,0%,100%,.5)),radial-gradient(circle at -60% 50%,#0007 5% 10%,#0000 50%),radial-gradient(circle at 160% 50%,#0007 5% 10%,#0000 50%),linear-gradient(#e0a197e5,#cf796a 25% 50%,#d54f36 50%);
+            background: url("https://assetdelivery.roblox.com/v1/asset/?id=17860070354") no-repeat 54%,linear-gradient(hsla(0,0%,100%,.5),hsla(0,0%,100%,.3) 45%,rgba(0,0,0,.1) 50%,rgba(0,0,0,.1) 75%,hsla(0,0%,100%,.5)),radial-gradient(circle at -60% 50%,#0007 5% 10%,#0000 50%),radial-gradient(circle at 160% 50%,#0007 5% 10%,#0000 50%),linear-gradient(#e0a197e5,#cf796a 25% 50%,#d54f36 50%);
             box-shadow: inset 0 0 0 1px #fffa;
             border: 1px solid rgba(0,0,0,.7);
             border-radius: 0 0 5px 5px;
@@ -3907,7 +3907,7 @@
             top: -5px;
         }
         .btr-settings-header-close:before {
-            background: url("https://assetdelivery.roblox.com/v1/asset/?id=17860070354") no-repeat 50%,linear-gradient(hsla(0,0%,100%,.5),hsla(0,0%,100%,.3) 45%,rgba(0,0,0,.1) 50%,rgba(0,0,0,.1) 75%,hsla(0,0%,100%,.5)),radial-gradient(circle at 50% 170%,#f4e676 10% 20%,#0000 60%),radial-gradient(circle at -60% 50%,#000a 5% 10%,#0000 50%),radial-gradient(circle at 160% 50%,#000a 5% 10%,#0000 50%),linear-gradient(#fb9d8b,#ee6d56 25% 50%,#d42809 50%);
+            background: url("https://assetdelivery.roblox.com/v1/asset/?id=17860070354") no-repeat 54%,linear-gradient(hsla(0,0%,100%,.5),hsla(0,0%,100%,.3) 45%,rgba(0,0,0,.1) 50%,rgba(0,0,0,.1) 75%,hsla(0,0%,100%,.5)),radial-gradient(circle at 50% 170%,#f4e676 10% 20%,#0000 60%),radial-gradient(circle at -60% 50%,#000a 5% 10%,#0000 50%),radial-gradient(circle at 160% 50%,#000a 5% 10%,#0000 50%),linear-gradient(#fb9d8b,#ee6d56 25% 50%,#d42809 50%);
             border-radius: 0 0 5px 5px;
             box-shadow: 0 0 7px 3px #e68e75,inset 0 0 0 1px #fffa;
             content: "";
