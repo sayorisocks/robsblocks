@@ -3,7 +3,7 @@
 @namespace      https://github.com/sayorisocks/robsblocks
 @supportURL     https://github.com/sayorisocks/robsblocks/issues
 @license        GNU GPLv3
-@version        1.5.3
+@version        1.5.4
 @description    now you too can give roblox a personality!
 @author         melo
 @var select layout "🖼️ | Website Style" {
@@ -4170,6 +4170,20 @@ if layout == apr {
     #buy-robux-popover #buy-robux-popover-menu .wallet-hidden {
         display: block;
     }
+    #buy-robux-popover #buy-robux-popover-menu .dropdown-wallet-section #nav-robux-balance span {
+        display: unset!important;
+        margin-left: 3px;
+        opacity: 0.25!important;
+        if layout == thirteen or layout == june {
+            opacity: 0.5!important;
+        }
+    }
+    #buy-robux-popover #buy-robux-popover-menu .dropdown-wallet-section #nav-robux-balance span:before {
+        content: "(";
+    }
+    #buy-robux-popover #buy-robux-popover-menu .dropdown-wallet-section #nav-robux-balance span:after {
+        content: ")";
+    }
     #buy-robux-popover #buy-robux-popover-menu .dropdown-wallet-section #nav-robux {
         display: none;
     }
@@ -4817,7 +4831,7 @@ if layout == june or layout == thirteen or layout == jan or layout == sep {
         height: unset!important;
         width: 230px!important;
         top: 117px;
-        left: 0;
+        left: 18px;
         border-bottom: 1px solid var(--borders);
         border-radius: 0;
         if layout == june or layout == thirteen {
@@ -4826,7 +4840,7 @@ if layout == june or layout == thirteen or layout == jan or layout == sep {
         }
     }
     .home-header .avatar.avatar-headshot-lg {
-        left: 10px;
+        left: 20px;
     }
     #HomeContainer .container-header .avatar.avatar-card-fullbody .friend-avatar,
     .home-header .avatar.avatar-headshot-lg #home-avatar-thumb {
@@ -6299,7 +6313,7 @@ if layout == dec or layout == apr {
         transition: none;
         margin-right: 10px!important;
     }
-    .hover-game-tile.grid-tile.focused {
+    .hover-game-tile.grid-tile:hover {
         border-color: #888;
     }
     .featured-game-container.game-card-container {
@@ -6345,7 +6359,7 @@ if layout == dec or layout == apr {
             color: var(--linkcol)!important;
         }
     }
-    .hover-game-tile.grid-tile.focused .featured-game-container .info-metadata-container .game-card-name {
+    .hover-game-tile.grid-tile:hover .featured-game-container .info-metadata-container .game-card-name {
         text-decoration: underline;
         if layout == dec or layout == apr {
             text-decoration: none;
@@ -6378,7 +6392,7 @@ if layout == dec or layout == apr {
         margin-top: 30px;
         display: none;
     }
-    .hover-game-tile.grid-tile.focused .featured-game-container .info-metadata-container .info-label.vote-percentage-label {
+    .hover-game-tile.grid-tile:hover .featured-game-container .info-metadata-container .info-label.vote-percentage-label {
         display: block;
     }
     .hover-game-tile.grid-tile .featured-game-container .info-metadata-container .info-label.vote-percentage-label:before {
@@ -6398,15 +6412,23 @@ if layout == dec or layout == apr {
     .ropro-all-experiences-list-container.games-list-container {
         display: none;
     }
+    .hover-game-tile.grid-tile.old-hover {
+        transition-duration: unset;
+        transition-delay: unset;
+    }
     if layout == june {
-        .game-carousel.wide-game-tile-carousel.games-page-carousel.games-page-carousel .hover-game-tile.grid-tile.focused {
+        .game-carousel.wide-game-tile-carousel.games-page-carousel.games-page-carousel .hover-game-tile.grid-tile:hover {
             width: 224px !important;
         }
-        .hover-game-tile.grid-tile.focused.old-hover {
+        .hover-game-tile.grid-tile.old-hover:hover {
             margin: -15px 0 0 -15px!important;
             padding: 15px!important;
             border-radius: 5px!important;
             z-index: 12;
+            background-color: var(--background);
+        }
+        .dark-theme .hover-game-tile.grid-tile.old-hover:hover {
+            background-color: #393B3D;
         }
         .hover-game-tile.grid-tile .featured-game-container .info-metadata-container .wide-game-tile-metadata {
             position: relative;
@@ -7400,10 +7422,7 @@ if layout == june or layout == thirteen or layout == jan or layout == sep or lay
         font-weight: bold!important;
         color: var(--textcol);
         text-decoration: none;
-        font-family: 'Source Sans Pro',
-        Arial,
-        Helvetica,
-        sans-serif!important;
+        font-family: 'Source Sans Pro',Arial,Helvetica,sans-serif!important;
         if layout == "june" {
             font-family: Arial,Helvetica,sans-serif!important;
         }
@@ -12197,6 +12216,21 @@ if layout == apr {
             border: 1px solid #aaa;
         }
     }
+    .group-announcements.ng-isolate-scope:has(.container-header) {
+        margin-top: 15px;
+        padding: 10px;
+        margin-bottom: 0;
+        if layout == thirteen or layout == june {
+            background: var(--standardBox)!important;
+            color: var(--pureblack);
+            border: 1px solid #aaa;
+        }
+    }
+    if layout == thirteen or layout == june {
+        .dark-theme .group-announcements.ng-isolate-scope:has(.container-header) {
+            border-color: #353535;
+        }
+    }
     .group-details .group-header .group-caption .group-info .group-stats {
         flex-direction: column;
     }
@@ -13108,6 +13142,7 @@ if layout == apr {
             background: transparent;
         }
     }
+    .group-announcements .container-header h2,
     group-wall .container-header h2 {
         font-family: 'Source Sans Pro',Arial,Helvetica,sans-serif;
         color: var(--textcol);
@@ -13624,8 +13659,163 @@ if layout == apr {
         object-fit: contain;
     }
     /* ill do group announcements at another time */
-    .dismissable-announcement-upsell-banner, group-announcements {
+    .dismissable-announcement-upsell-banner {
         display: none;
+    }
+    .container-header.group-announcements-header {
+        margin: 0;
+    }
+    .section.group-announcements .section-content {
+        background-color: transparent;
+        margin-bottom: 0;
+    }
+    .group-announcements-notifications-icon .icon-notifications-bell {
+        background-position: unset !important;
+        background-image: url("https://assetdelivery.roblox.com/v1/asset/?id=14044644839") !important;
+        width: 14px;
+        height: 14px;
+    }
+    .group-announcements-notifications-icon {
+        margin-top: 6px;
+    }
+    .announcement-display .thumbnail-2d-container {
+        background-color: transparent;
+    }
+    .user-card-body {
+        justify-content: unset;
+    }
+    .user-card-body-name-container .text-name.name {
+        font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        color: var(--linkcol);
+        if layout == june {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+        }
+    }
+    .user-card-body {
+        font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        if layout == june {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+        }
+    }
+    .announcement-display * {
+        font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif!important;
+        if layout == june {
+            font-family: Arial, Helvetica, sans-serif!important;
+        }
+    }
+    .reaction-button {
+        background-color: transparent!important;
+        transition: none;
+        padding: 0;
+        border-radius: 0;
+    }
+    .reaction-button-icon.icon-votes-gray {
+        background-image: url("https://assetdelivery.roblox.com/v1/asset?id=13774121572");
+        background-position: 0 0px;
+        height: 21px;
+        width: 22px;
+    }
+    .reaction-button:hover .reaction-button-icon.icon-votes-gray {
+        background-position: 0 -21px;
+    }
+    .reaction-button.interacted .reaction-button-icon.icon-votes-gray {
+        background-position: 0 -41px;
+    }
+    .reaction-button-count {
+        color: var(--playerson);
+        font-weight: 600;
+        if layout == june {
+            font-size: 14px;
+        }
+    }
+    .group-announcements-view-all-button .btn-secondary-md {
+        border: none;
+        padding: 0;
+        border-radius: 0;
+        font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+        color: var(--linkcol)!important;
+        font-size: 14px;
+        if layout == june {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+        }
+    }
+    .group-announcements-view-all-button .btn-secondary-md .linkable-button-content-container:before {
+        content: "";
+        background-image: url("/images/BulletPointArrow.png") !important;
+        background-size: unset !important;
+        background-position: unset !important;
+        width: 10px !important;
+        height: 10px !important;
+        margin-right: 5px;
+        display: block;
+    }
+    .group-announcements-view-all-button .btn-secondary-md:hover .linkable-button-content-container {
+        text-decoration: underline;
+    }
+     .section.group-announcements .linkable-button-content-container-icon {
+        display: none;
+    }
+    .group-announcements-notifications-icon.btn-secondary-xs {
+        margin-top: 6px;
+        margin-right: 13px;
+    }
+    .group-announcements-view-all-button {
+        margin: 0 15px;
+    }
+    .group-notifications-upsell-banner {
+        display: none;
+    }
+    .community-link-display-link {
+        border-radius: 0;
+        border-color: var(--borders) !important;
+        margin: 0 16px;
+    }
+    .community-link-display-link-name {
+        font-size: 15px!important;
+        font-weight: bold!important;
+        color: var(--textcol);
+        text-decoration: none;
+        font-family: 'Source Sans Pro',Arial,Helvetica,sans-serif!important;
+        if layout == "june" {
+            font-family: Arial,Helvetica,sans-serif!important;
+        }
+    }
+    .community-link-display-link-description {
+        font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+        color: var(--textcol)!important;
+        font-size: 14px;
+        line-height: 1.4em;
+        padding: 0px;
+        if layout == june {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    }
+    .community-link-display-link-visit-container button {
+        font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+        border-color: #0852b7!important;
+        background-color: #0852b7;
+        background-image: url(/images/Buttons/StyleGuide/bg-btn-blue.png);
+        background-position: left -96px;
+        border-radius: 0!important;
+        color: #fff!important;
+        padding: 1px 13px 3px 13px;
+        height: 34px;
+        font-size: 20px!important;
+        if layout == june {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            letter-spacing: -1px;
+            line-height: 30px;
+            text-shadow: #00243d 0 -1px;
+        }
+    }
+    .community-link-display-link-visit-container button:hover {
+        background-position: left -128px;
     }
     
     }
@@ -16325,6 +16515,10 @@ if layout == apr {
     .catalog-container .catalog-results .item-card .item-card-container-direct-purchase:hover .item-card-caption {
         display: inherit;
     }
+    .btr-robuxToCash-tile {
+        position: relative;
+        top: 1px;
+    }
     }
     @-moz-document url-prefix("https://www.roblox.com/catalog/"), url-prefix("https://www.roblox.com/bundles/") {
     /* Catalog Item Page */
@@ -17810,8 +18004,8 @@ if layout == apr {
         position: absolute;
         bottom: -50px;
         text-align: center;
-        width: 158px;
-        left: -3px;
+        width: 170px;
+        left: -1px;
         color: var(--searchbutton)!important;
     }
     .price-info .text-secondary:before, .price-info .btr-robuxToCash-big:before {
