@@ -6214,7 +6214,7 @@ if layout == dec or layout == apr {
         }
     }
     .scroller.prev {
-        left: -10px;
+        left: 0;
         if layout == june {
             left: -50px;
             width: 100px;
@@ -6247,6 +6247,20 @@ if layout == dec or layout == apr {
         }
         .game-tile-list {
             margin-left: 20px;
+        }
+    }
+    .horizontal-scroller.games-list:before {
+        display: block;
+        content: "";
+        background-color: var(--background);
+        height: 230px;
+        opacity: 1;
+        position: absolute;
+        left: -50px;
+        width: 50px;
+        z-index: 100;
+        if layout == june {
+            display: none;
         }
     }
     .container-header.games-filter-changer:after {
