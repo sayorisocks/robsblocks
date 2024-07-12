@@ -3,7 +3,7 @@
 @namespace      https://github.com/sayorisocks/robsblocks
 @supportURL     https://github.com/sayorisocks/robsblocks/issues
 @license        GNU GPLv3
-@version        1.5.2
+@version        1.5.3
 @description    now you too can give roblox a personality!
 @author         melo
 @var select layout "🖼️ | Website Style" {
@@ -1444,7 +1444,8 @@
             font-weight: 600;
         }
     }
-    a.font-header-2.nav-menu-title.text-header[href="/discover"]::before {
+    a.font-header-2.nav-menu-title.text-header[href="/discover"]::before,
+    a.font-header-2.nav-menu-title.text-header[href="/charts"]::before {
         font-size: 16px;
         content: "Games";
         border-radius: 5px;
@@ -1602,6 +1603,9 @@
             }
             if layout == apr {
                 background-image: var(--logor2015)!important;
+               if sixteen {
+                   background-image: url("http://images.rbxcdn.com/e060b59b57fdcc7874c820d13fdcee71.svg");
+               }
             }
             if sixteen {
                 background-image: url("http://images.rbxcdn.com/e060b59b57fdcc7874c820d13fdcee71.svg")!important;
@@ -3641,12 +3645,26 @@
     .player-interaction-container .game-info-container .game-name {
         vertical-align: middle;   
     }
+    .rbx-subscription-modal .modal-dialog {
+        width: auto;
+    }
+    .rbx-subscription-modal .modal-dialog .modal-content .modal-body {
+        height: unset;
+    }
+    .rbx-subscription-modal .modal-dialog .modal-content .modal-footer {
+        margin: 0;
+        padding: 0 24px;
+    }
+    .rbx-subscription-modal .modal-dialog .modal-content .modal-body .thumbnail-container .subscription-thumbnail {
+        border-radius: 0;
+    }
     /* */
     .modal-buttons .btn-primary-md,
     .modal-btns #confirm-btn,
     .modal-footer .btn-secondary-md,
     .modal-buttons #purchaseConfirm,
-    #account-switch-primary-button {
+    #account-switch-primary-button,
+    .rbx-subscription-modal .btn-primary-lg:not(.btn-secondary-lg) {
         border-color: #007001;
         background-color: #007001;
         background-image: url(/images/Buttons/StyleGuide/bg-btn-green.png);
@@ -3670,7 +3688,8 @@
     }
     .modal-buttons .btn-control-md,
     .modal-btns #decline-btn,
-    .modal-footer .btn-control-md {
+    .modal-footer .btn-control-md,
+    .rbx-subscription-modal .btn-secondary-lg {
         border-color: #565656;
         background-color: #565656;
         background-image: url(/images/Buttons/StyleGuide/bg-btn-gray.png);
@@ -3699,7 +3718,8 @@
     .modal-footer .btn-secondary-md:hover,
     .modal-footer .btn-control-md:hover,
     .modal-buttons #purchaseConfirm:hover,
-    #account-switch-primary-button:hover {
+    #account-switch-primary-button:hover,
+    .rbx-subscription-modal .btn-primary-lg:hover {
         background-position: left -48px;
     }
     .interaction-item .player-action {
@@ -4433,9 +4453,15 @@ if layout == apr {
         background-position: unset;
         if layout == dec {
             background-image: var(--logor2014);
+           if sixteen {
+               background-image: url("http://images.rbxcdn.com/e060b59b57fdcc7874c820d13fdcee71.svg");
+           }
         }
         if layout == apr {
             background-image: var(--logor2015);
+           if sixteen {
+               background-image: url("http://images.rbxcdn.com/e060b59b57fdcc7874c820d13fdcee71.svg");
+           }
         }
     }
     #rbx-body.dark-theme:before {
@@ -4800,7 +4826,7 @@ if layout == june or layout == thirteen or layout == jan or layout == sep {
         }
     }
     .home-header .avatar.avatar-headshot-lg {
-        left: 20px;
+        left: 10px;
     }
     #HomeContainer .container-header .avatar.avatar-card-fullbody .friend-avatar,
     .home-header .avatar.avatar-headshot-lg #home-avatar-thumb {
@@ -6019,8 +6045,379 @@ if layout == dec or layout == apr {
         display: none;
     }
     }
+    @-moz-document url-prefix("https://www.roblox.com/charts") {
+    /* Games "Charts" Page */
+    .content {
+        background-color: transparent!important;
+    }
+    #container-main,
+    .content {
+        padding: 0px!important;
+        margin-top: 30px;
+        if layout == "june" or layout == "thirteen" {
+            margin-left: 0!important;
+            margin-top: 40px;
+        }
+    }
+    #games-carousel-page {
+        background-color: var(--background);
+    }
+    .games-list-header h1 {
+        font-size: 0px;
+        font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        color: var(--textcol);
+        letter-spacing: -1px;
+        margin-left: 0;
+        if layout == june {
+            letter-spacing: -2px;
+            font-family: Arial,Helvetica,sans-serif;
+            margin-top: 30px;
+            margin-left: 50px;
+        }
+    }
+    .games-list-header h1:before {
+        content: "Games";
+        font-size: 32px;
+        if layout == june {
+            font-size: 40px;
+        }
+    }
+    .games-list-header h1:after {
+        content: url('https://assetdelivery.roblox.com/v1/asset?id=14438458676');
+        margin-left: 25px;
+        position: relative;
+        top: 4px;
+        if layout == june {
+            display: none;
+        }
+    }
+    .container-header.games-filter-changer h2 {
+        font-size: 30px;
+        font-weight: normal;
+        color: var(--textcol);
+        letter-spacing: -1px;
+        font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+        width: unset;
+        margin-left: 0;
+        z-index: 5;
+        position: relative;
+        if layout == june {
+            font-weight: bold;
+            font-size: 19px;
+            letter-spacing: revert;
+            font-family: Arial,Helvetica,sans-serif;
+            color: var(--pureblack);
+            margin-left: 50px;
+            top: 6px;
+        }
+    }
+    .see-all-button, .games-filter-changer .btn-secondary-xs {
+        position: relative;
+        left: -7px;
+        top: 7px;
+        border: 1px solid #0852b7!important;
+        background-color: #0852b7;
+        background-image: url(/images/Buttons/StyleGuide/bg-btn-blue.png);
+        color: #fff!important;
+        border-radius: 0px!important;
+        font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+        padding: 1px 13px 3px 13px!important;
+        height: 34px;
+        width: 90px!important;
+        font-size: 20px!important;
+        line-height: 28px;
+        z-index: 10;
+        margin-right: 12px !important;
+        if layout == june {
+            font-weight: bold!important;
+            letter-spacing: -1px;
+            font-family: Arial,Helvetica,sans-serif;
+            text-shadow: #00243d 0 -1px;
+            line-height: 31px;
+            top: -5px;
+            margin-right: 66px !important;
+        }
+    }
+    .see-all-button:after, .games-filter-changer .btn-secondary-xs:after {
+        display: none!important;
+    }
+    .see-all-button:hover, .games-filter-changer .btn-secondary-xs:hover {
+        text-decoration: none!important;
+        background-position: left -128px;
+    }
+    .scroller.next, .scroller.prev {
+        height: 108px!important;
+        width: 55px;
+        background-color: #646464!important;
+        opacity: .7!important;
+        position: absolute;
+        z-index: 10;
+        right: -40px;
+        top: 42px;
+        if layout == june {
+            opacity: 1!important;
+            height: 164px!important;
+            background-color: var(--background)!important;
+            width: 53px;
+            top: 28px;
+            z-index: 102;
+        }
+    }
+    if layout == thirteen or layout == jan or layout == sep or layout == dec or layout == apr {
+        .scroller.next:hover, .scroller.prev:hover {
+            background-color: #000!important;
+        }
+    }
+    .scroller.next .arrow,
+    .scroller.prev .arrow {
+        background-repeat: no-repeat;
+        height: 47px;
+        width: 27px;
+        position: absolute;
+        top: 30px;
+        if layout == june {
+            width: 17px;
+            height: 50px;
+            top: 40px;
+        }
+    }
+    /* sayorisocks */
+    .scroller.next .arrow > span {
+        background-position: unset;
+        height: 47px;
+        width: 27px;
+        background-size: unset;
+        background-image: url(http://images.rbxcdn.com/ab6e44a9d9ebfde2244da961275acd06.png);
+        position: absolute;
+        left: -2px;
+        top: 0px;
+        if layout == june {
+            width: 17px;
+            height: 50px;
+            background-image: url(/images/GamesPage/arrow_right.png);
+        }
+    }
+    .scroller.prev .arrow > span {
+        background-position: unset;
+        height: 47px;
+        width: 27px;
+        background-size: unset;
+        background-image: url(http://images.rbxcdn.com/bf9c0660cdeb6283b71aa9237716519e.png);
+        position: absolute;
+        left: 13px;
+        top: 0px;
+        if layout == june {
+            width: 17px;
+            height: 50px;
+            background-image: url(/images/GamesPage/arrow_left.png);
+        }
+    }
+    .scroller.prev {
+        left: -10px;
+        if layout == june {
+            left: -50px;
+            width: 100px;
+        }
+    }
+    .scroller.prev .arrow {
+        if layout == june {
+            right: -55px;
+            position: relative;
+        }
+    }
+    .scroller.next .arrow {
+        if layout == june {
+            right: -19px;
+            position: relative;
+        }
+    }
+    .scroller.disabled {
+        display: none;
+        if layout == june {
+            display: revert;
+        }
+    }
+    if layout == june {
+        .scroller.disabled .arrow > span {
+            background-position: 0 -102px!important;
+        }
+        .scroller:hover .arrow > span {
+            background-position: 0 -51px;
+        }
+        .game-tile-list {
+            margin-left: 20px;
+        }
+    }
+    .container-header.games-filter-changer:after {
+        display: block;
+        content: "";
+        background-color: var(--background);
+        height: 338px;
+        opacity: 1;
+        position: absolute;
+        right: 0px;
+        width: 30px;
+        z-index: 100;
+        margin-top: -47px;
+        if layout == june {
+            z-index: 103;
+        }
+    }
+    /* Rewrite */
+    .horizontal-scroller {
+        margin: 0;
+    }
+    .scroller .spacer {
+        display: none;
+    }
+    .game-carousel.wide-game-tile-carousel.games-page-carousel.games-page-carousel {
+        grid-template-columns: 201px 201px!important;
+        grid-auto-rows: 150px!important;
+        grid-column-gap: 0;
+        if layout == june {
+            margin-left: 50px;
+        }
+     }
+    .hover-game-tile.grid-tile {
+        border: 1px solid transparent;
+        border-radius: 0!important;
+        transition: none;
+        margin-right: 10px!important;
+    }
+    .hover-game-tile.grid-tile.focused {
+        border-color: #888;
+    }
+    .featured-game-container.game-card-container {
+        border-radius: 0!important;
+    }
+    .game-carousel.wide-game-tile-carousel.games-page-carousel.games-page-carousel .hover-game-tile.grid-tile .featured-game-container,
+    .game-carousel.wide-game-tile-carousel.games-page-carousel.games-page-carousel .hover-game-tile.grid-tile .info-container,
+    .game-carousel.wide-game-tile-carousel.games-page-carousel.games-page-carousel .hover-game-tile.grid-tile .info-metadata-container,
+    .game-carousel.wide-game-tile-carousel.games-page-carousel.games-page-carousel .hover-game-tile.grid-tile {
+        width: 194px!important;
+        overflow: unset!important;
+        margin: 0;
+        padding: 0;
+    }
+    .game-carousel.wide-game-tile-carousel.games-page-carousel.games-page-carousel .hover-game-tile.grid-tile .featured-game-container {
+        width: 191px !important;
+    }
+    .game-carousel.games-page-carousel .hover-game-tile.grid-tile .featured-game-container .featured-game-icon-container,
+    .game-carousel.games-page-carousel .hover-game-tile.grid-tile .featured-game-icon-container .brief-game-icon {
+        width: 192px!important;
+        height: 108px!important;
+        border-radius: 0;
+    }
+    .light-theme .hover-game-tile.grid-tile .featured-game-container .info-metadata-container .game-card-name {
+        color: var(--textcol);
+    }
+    .hover-game-tile.grid-tile .featured-game-container .info-metadata-container {
+        margin: 0;
+    }
+    .hover-game-tile.grid-tile .featured-game-container .info-metadata-container .game-card-name {
+        font-family: 'Source Sans Pro',Arial,Helvetica,sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        width: 190px;
+        height: 17px;
+        overflow: hidden;
+        padding: 0;
+        margin: 0;
+        margin-left: 2px;
+        if layout == june {
+            font-size: 12px;
+            font-family: Arial,Helvetica,sans-serif;
+            color: var(--linkcol)!important;
+        }
+    }
+    .hover-game-tile.grid-tile.focused .featured-game-container .info-metadata-container .game-card-name {
+        text-decoration: underline;
+        if layout == dec or layout == apr {
+            text-decoration: none;
+        }
+    }
+    .hover-game-tile.grid-tile .featured-game-container .info-metadata-container .info-label.playing-counts-label,
+    .hover-game-tile.grid-tile .featured-game-container .info-metadata-container .info-label.vote-percentage-label {
+        font-family: 'Source Sans Pro',Arial,Helvetica,sans-serif;
+        padding: 0!important;
+        margin: 0;
+        color: var(--playerson);
+        font-size: 12px;
+        margin-left: 2px;
+        if layout == june {
+            font-family: Arial,Helvetica,sans-serif;
+        }
+    }
+    .hover-game-tile.grid-tile .featured-game-container .info-metadata-container .info-label.playing-counts-label {
+        position: absolute;
+    }
+    .hover-game-tile.grid-tile .featured-game-container .info-metadata-container .info-label.playing-counts-label:after {
+        content: " players online";
+    }
+    .hover-game-tile.grid-tile .featured-game-container .info-metadata-container .info-label.icon-playing-counts-gray,
+    .hover-game-tile.grid-tile .featured-game-container .info-metadata-container .info-label.icon-votes-gray,
+    .hover-game-tile.grid-tile .game-card-contents {
+        display: none!important;
+    }
+    .hover-game-tile.grid-tile .featured-game-container .info-metadata-container .info-label.vote-percentage-label {
+        margin-top: 30px;
+        display: none;
+    }
+    .hover-game-tile.grid-tile.focused .featured-game-container .info-metadata-container .info-label.vote-percentage-label {
+        display: block;
+    }
+    .hover-game-tile.grid-tile .featured-game-container .info-metadata-container .info-label.vote-percentage-label:before {
+        content: url('https://assetdelivery.roblox.com/v1/asset?id=14705538826');
+        position: relative;
+        top: 2px;
+        left: -1px;
+        if layout == june {
+            content: "Rating: ";
+            position: revert;
+        }
+    }
+    .game-carousel.wide-game-tile-carousel.games-page-carousel.games-page-carousel .hover-game-tile.grid-tile .info-container {
+        min-height: 54px;
+    }
+    .container-header.games-filter-changer .info-tooltip-container,
+    .ropro-all-experiences-list-container.games-list-container {
+        display: none;
+    }
+    if layout == june {
+        .game-carousel.wide-game-tile-carousel.games-page-carousel.games-page-carousel .hover-game-tile.grid-tile.focused {
+            width: 224px !important;
+        }
+        .hover-game-tile.grid-tile.focused.old-hover {
+            margin: -15px 0 0 -15px!important;
+            padding: 15px!important;
+            border-radius: 5px!important;
+            z-index: 12;
+        }
+        .hover-game-tile.grid-tile .featured-game-container .info-metadata-container .wide-game-tile-metadata {
+            position: relative;
+            top: -3px;
+        }
+        .hover-game-tile.grid-tile .featured-game-container .info-metadata-container .info-label.playing-counts-label {
+            font-size: 12px;
+            font-weight: bold;
+            font-family: Arial,Helvetica,sans-serif;
+            color: var(--pureblack);
+        }
+        .hover-game-tile.grid-tile .featured-game-container .info-metadata-container .info-label.playing-counts-label:after {
+            color: #393!important;
+            font-weight: normal;
+        }
+        .hover-game-tile.grid-tile .featured-game-container .info-metadata-container .info-label.vote-percentage-label {
+            font-size: 11px;
+        }
+    }
+
+    }
     @-moz-document url-prefix("https://www.roblox.com/discover#/sortName"),
-    url-prefix("https://www.roblox.com/discover/?Keyword=") {
+    url-prefix("https://www.roblox.com/discover/?Keyword="),
+    url-prefix("https://www.roblox.com/charts#/sortName"), 
+    url-prefix("https://www.roblox.com/charts/?Keyword=") {
     /* Explore/Games Sort & Game Search */
     .content {
         width: 970px;
@@ -6034,6 +6431,7 @@ if layout == dec or layout == apr {
         font-size: 14px;
         font-weight: normal!important;
         font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+        margin: 0;
         if layout == june {
             font-family: Arial, Helvetica, sans-serif !important;
             font-size: 12px;
@@ -6045,6 +6443,7 @@ if layout == dec or layout == apr {
         height: 110px;
         width: 110px;
         padding-bottom: 0;
+        border-radius: 0;
     }
     .grid-item-container {
         width: 145px;
@@ -6065,6 +6464,8 @@ if layout == dec or layout == apr {
     .game-card-link .game-card-info .playing-counts-label {
         margin-top: 3px;
         left: 0px;
+        position: absolute;
+        padding: 0;
     }
     .game-card-link .game-card-info .playing-counts-label:before {
         content: "Players Online: "
@@ -6124,6 +6525,10 @@ if layout == dec or layout == apr {
     }
     .game-card-info[data-testid="game-tile-stats-friend-activity"] .info-label:after {
         content: " recently played";
+    }
+    .game-card-info .info-label.icon-playing-counts-gray,
+    .game-card-info .info-label.icon-votes-gray {
+        display: none!important;
     }
     }
     @-moz-document url-prefix("https://www.roblox.com/games/") {
@@ -7947,6 +8352,9 @@ if layout == june or layout == thirteen or layout == jan or layout == sep or lay
         background-position: unset;
         if layout == dec {
            background-image: var(--logor2014);
+           if sixteen {
+               background-image: url("http://images.rbxcdn.com/e060b59b57fdcc7874c820d13fdcee71.svg");
+           }
         }
     }
     .social-links .Discord, .game-social-links > .btn-secondary-lg .icon-social-media-discord {
@@ -8916,6 +9324,9 @@ if layout == apr {
     }
     .social-links .RobloxGroup, .game-social-links > .btn-secondary-lg .icon-social-media-roblox {
         background-image: var(--logor2015);
+        if sixteen {
+             background-image: url("http://images.rbxcdn.com/e060b59b57fdcc7874c820d13fdcee71.svg");
+        }
         background-position: unset;
     }
     .social-links .Discord, .game-social-links > .btn-secondary-lg .icon-social-media-discord {
