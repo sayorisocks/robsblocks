@@ -3,7 +3,7 @@
 @namespace      https://github.com/sayorisocks/robsblocks
 @supportURL     https://github.com/sayorisocks/robsblocks/issues
 @license        GNU GPLv3
-@version        1.6.5.1
+@version        1.6.7
 @description    now you too can give roblox a personality!
 @author         sayorisocks
 @var select layout "🖼️ | Website Style" {
@@ -212,7 +212,7 @@
         background-color: #2D528F!important;
         color: var(--background);
         font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
-        min-height: 40px!important;
+        max-height: 40px!important;
         border: none!important;
         if layout == dec or layout == apr {
             background-color: #0074bd!important;
@@ -1236,7 +1236,7 @@
     .rbx-left-col .icon-nav-blog {
         background-position: -5px -263px!important;
         if layout == dec or layout == apr {
-            background-position:0 -364px!important;
+            background-position:0 -392px!important;
         }
         if layout == "jan" {
             background-position:-5px -203px!important;
@@ -1523,7 +1523,7 @@
            background-position:-28px -336px!important;
         }
         #nav-blog:hover .icon-nav-blog {
-           background-position:-28px -364px!important;
+           background-position:-28px -392px!important;
         }
         #nav-my-feed:hover .icon-nav-my-feed {
             background-position: -28px -393px !important;
@@ -1632,7 +1632,8 @@
     .rbx-header .rbx-navbar li .robux-menu-btn .menu-text-container {
         display: none!important;
     }
-    .rbx-left-col #nav-character .font-header-2 {
+    .rbx-left-col #nav-character .font-header-2,
+    .rbx-left-col #nav-group .font-header-2 {
         visibility: hidden;
         font-size: 0px;
         height: 22px;
@@ -1641,6 +1642,20 @@
         font-size: 16px;
         visibility: visible;
         content: "Character";
+        if layout == "jan" {
+            font-size: 14px;
+        }
+        if layout == "june" {
+            font-size: 12px;
+        }
+        if layout == "thirteen" {
+            font-size: 14px;
+        }
+    }
+    .rbx-left-col #nav-group .font-header-2::before {
+        font-size: 16px;
+        visibility: visible;
+        content: "Groups";
         if layout == "jan" {
             font-size: 14px;
         }
@@ -2428,6 +2443,11 @@
         if layout == dec or layout == apr {
             border-bottom: revert;
             padding: 0 6px;
+        }
+    }
+    #buy-robux-popover-menu .rbx-divider {
+        if layout == dec or layout == apr {
+            display: none;
         }
     }
     #buy-robux-popover-menu li:first-child a {
@@ -4638,7 +4658,7 @@ if layout == apr {
     .content:has(.support-container) {
         background-color: var(--background)!important;
     }
-    html:after {
+    html:has(.rbx-body):after {
         content: "for the love of god install btroblox 💔💔💔💔";
         position: fixed;
         bottom: 0;
@@ -4647,8 +4667,12 @@ if layout == apr {
         pointer-events: none;
         color: red;
     }
-    html:has(btroblox):after {
+    html:has(btroblox):has(.rbx-body):after {
         display: none!important;
+    }
+    .notification-red.robux-badge,
+    .rbx-header .rbx-navbar-icon-group .buy-robux-link-container {
+        display: none;
     }
     }
     @-moz-document url-prefix("https://www.roblox.com/home") {
@@ -4892,6 +4916,7 @@ if layout == june or layout == thirteen or layout == jan or layout == sep {
     .game-carousel.expand-home-content:has(a[href*="isAd=true"]) {
         display: none!important;
     }
+    /* sayorisocks */
     .people-list .thumbnail-2d-container,
     #friend-tile-button .thumbnail-2d-container,
     .people-list .avatar .avatar-card-image,
@@ -5489,6 +5514,9 @@ if layout == june or layout == thirteen or layout == jan or layout == sep {
             font-family: Arial, Helvetica, sans-serif;
         }
     }
+    html .btr-friends-list .friends-carousel-container > div {
+        display: flex!important;
+    }
 
 }
 if layout == dec or layout == apr {
@@ -5571,6 +5599,7 @@ if layout == dec or layout == apr {
         box-shadow: 0 1px 4px 0 rgba(25,25,25,0.3);
         padding: 15px;
     }
+    .dark-theme .friend-carousel-container:has(.friends-carousel-container),
     .dark-theme .people-list-container {
         background-color: #393b3d !important;
     }
@@ -6213,7 +6242,6 @@ if layout == dec or layout == apr {
     }
     .content:has(.games-filter-changer) #games-carousel-page {
         background-color: var(--background);
-        margin-left: 10px;
         if ads {
             margin-right: 345px;
         }
@@ -6543,9 +6571,11 @@ if ads {
     }
     .games-list-header {
         display: inline-block;
+        margin-bottom: 20px;
     }
     .filters-container {
-        display: inline-block;
+        display: inline-flex;
+        flex-direction: row;
         margin: 0;
         position: relative;
         top: 7px;
@@ -6565,7 +6595,7 @@ if ads {
         padding-right: 4px;
     }
     .filters-container .filter-items-container {
-        display: inline-block;
+        display: flex;
     }
     .filters-container .filter-items-container .filter-select {
         border-radius: 0px;
@@ -7165,6 +7195,9 @@ if ads {
         padding-top: 0;
     }
 }
+    .game-licensed-badges-container {
+        display: none;
+    }
 if layout == june or layout == thirteen or layout == jan or layout == sep or layout == dec {
     .content {
         background-color: transparent !important;
@@ -7290,6 +7323,7 @@ if layout == june or layout == thirteen or layout == jan or layout == sep or lay
         border-radius: 0px;
         font-family: 'Source Sans Pro', sans-serif;
         background-position: left -96px;
+        min-height: unset;
         if layout == dec or layout == apr {
             background-color: #428bca;
             border-color: #3580bd;
@@ -7537,10 +7571,11 @@ if layout == june or layout == thirteen or layout == jan or layout == sep or lay
         Arial,
         Helvetica,
         sans-serif!important;
-        font-size: 14px;
+        font-size: 12px;
+        white-space: nowrap;
         if layout == "june" {
-            font-size: 12px;
             font-family: Arial,Helvetica,sans-serif!important;
+            font-size: 11px;
         }
     }
     .game-stats-container .game-stat .stat-gears {
@@ -8073,13 +8108,13 @@ if layout == june or layout == thirteen or layout == jan or layout == sep or lay
     }
     .btr-badges-container .badge-row .badge-data-container > p {
         font-family: 'Source Sans Pro',Arial,Helvetica,sans-serif!important;
-        font-size: 14px;
+        font-size: 14px!important;
         color: var(--pureblack);
-        height: unset;
-        margin-left: 5px;
+        height: unset!important;
+        margin-left: 5px!important;
         if layout == june or layout == thirteen or layout == jan {
             font-family: Arial, Helvetica,sans-serif!important;
-            font-size: 12px;
+            font-size: 12px!important;
         }
     }
     .badge-data-container a {
@@ -8130,9 +8165,13 @@ if layout == june or layout == thirteen or layout == jan or layout == sep or lay
     .btr-badges-container.btr-compact-stats .badge-row .badge-stats-container .text-label {
         padding-right: 0;
     }
-    .btr-badges-container .badge-row .badge-image, .btr-badges-container .badge-row .badge-image img, .btr-badges-container .badge-row .badge-image thumbnail-2d {
-        width: 75px;
-        height: 75px;
+    .btr-badges-container .badge-row .badge-image,
+    .btr-badges-container .badge-row .badge-image img,
+    .btr-badges-container .badge-row .badge-image thumbnail-2d,
+    html body .btr-badges-container .badge-row .badge-image,
+    html body .btr-badges-container .badge-row .badge-image img {
+        width: 75px!important;
+        height: 75px!important;
     }
     game-badges-list .badge-row .badge-stats-container li .text-label:after,
     .game-badges-list .badge-row .badge-stats-container li .text-label:after,
@@ -8150,8 +8189,8 @@ if layout == june or layout == thirteen or layout == jan or layout == sep or lay
         width: unset;
         min-width: 35%!important;
         display: flex!important;
-        flex-direction: column;
-        align-items: center;
+        flex-direction: column!important;
+        align-items: center!important;
         justify-content: center;
         min-height: 86px;
     }
@@ -8514,7 +8553,7 @@ if layout == june or layout == thirteen or layout == jan or layout == sep or lay
     }
     #btr-recommendations-wrapper .playing-counts-label,
     #game-details-about-tab-container .container-list.games-detail .playing-counts-label {
-        color: var(--textcol);
+        color: var(--pureblack);
         font-weight: 600;
         font-size: 12px;
         font-family: 'Source Sans Pro',
@@ -8572,7 +8611,7 @@ if layout == june or layout == thirteen or layout == jan or layout == sep or lay
         content: "VIP Servers";
         font-size: 15px;
         position: relative;
-        top: 8px;
+        top: 10px;
     }
     .create-server-banner .create-server-banner-text {
         font-size: 14px;
@@ -9159,8 +9198,9 @@ if layout == june or layout == thirteen or layout == jan or layout == sep or lay
     .virtual-event-game-details-container .favorited-icon {
         background-image: url("/images/star.png") !important;
     }
+    .btn-growth-xs.play-button.wide-event-play-button,
     .virtual-event-game-details-container .clickable-event-list-item-contents .notify-button {
-        border-color: #565656;
+        border: 1px solid #565656!important;
         background-color: #565656;
         background-image: url(/images/Buttons/StyleGuide/bg-btn-gray.png);
         color: var(--background);
@@ -9170,7 +9210,6 @@ if layout == june or layout == thirteen or layout == jan or layout == sep or lay
         background-position: left -96px;
         font-size: 20px;
         border-radius: 0;
-        width: unset;
         place-self: flex-start;
         if layout == june {
             text-shadow: #222 0 -1px;
@@ -9180,15 +9219,18 @@ if layout == june or layout == thirteen or layout == jan or layout == sep or lay
             line-height: 32px;
         }
     }
+    .btn-growth-xs.wide-event-play-button[aria-label="Join Event"],
     .virtual-event-game-details-container .clickable-event-list-item-contents .notify-button[aria-label="Join Event"] {
-        border-color: #007001;
+        border-color: #007001!important;
         background-color: #007001;
         background-image: url(/images/Buttons/StyleGuide/bg-btn-green.png) !important;
         if layout == june {
             text-shadow: #013401 0 -1px;
         }
     }
-    .virtual-event-game-details-container .clickable-event-list-item-contents .notify-button:hover, .subscription-buy-button:hover {
+    .virtual-event-game-details-container .clickable-event-list-item-contents .notify-button:hover,
+    .btn-growth-xs.play-button.wide-event-play-button:hover,
+    .subscription-buy-button:hover {
         background-position: left -128px;
     }
     .subscription-buy-button {
@@ -9385,6 +9427,16 @@ if layout == june or layout == thirteen or layout == jan or layout == sep or lay
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
 if layout == apr {
     .rbx-left-col {
         background: #fff !important;
@@ -9600,6 +9652,15 @@ if layout == apr {
     h2.game-community-title {
         margin: 0 0 10px 12px;
     }
+    #rbx-private-servers .container-header h2 {
+        font-size: 0!important;
+    }
+    #rbx-private-servers .container-header h2:before {
+        content: "VIP Servers";
+        font-size: 24px;
+        position: relative;
+        top: 16px;
+    }
     .btr-game-main-container .game-description-container .game-description {
         margin: 12px;
         padding: 0;
@@ -9699,10 +9760,15 @@ if layout == apr {
         border-radius: 3px;
         box-shadow: 0 1px 3px rgba(150,150,150,0.74);
     }
+    html body .btr-badges-container .badge-row .badge-image img,
+    html body .btr-badges-container .badge-row .badge-image,
     .btr-badges-container .badge-row .badge-image img,
     .game-badges-list .badge-row .badge-image {
-        height: 150px;
-        width: 150px;
+        height: 150px!important;
+        width: 150px!important;
+    }
+    html body .btr-badges-container .badge-row .badge-content {
+        width: 70%;
     }
     .game-badges-list .badge-row .badge-data-container {
         width: calc(75% - 150px);
@@ -9713,19 +9779,19 @@ if layout == apr {
         font-size: 16px;
     }
     .game-badges-list .badge-row .badge-data-container p {
-        margin: 12px 0;
+        margin: 12px 0!important;
         max-height: 100px;
         font-family: 'Source Sans Pro',Arial,Helvetica,sans-serif;
-        font-size: 16px;
+        font-size: 16px!important;
     }
     .game-badges-list .badge-row .badge-stats-container {
-        margin: 36px 0 0;
+        margin: 36px 0 0!important;
         padding: 0;
-        width: 25%;
-        width: unset;
+        width: 25%!important;
+        width: unset!important;
         min-width: 35% !important;
         display: flex!important;
-        flex-direction: column;
+        flex-direction: column!important;
     }
     .btr-badges-container.btr-compact-stats .badge-row .badge-stats-container .badge-stats-info {
         text-align: left;
@@ -9849,6 +9915,7 @@ if layout == apr {
         background-color: #02b757;
         border-color: #02b757;
         border-radius: 5px;
+        min-height: unset;
     }
     #game-details-play-button-container .btn-common-play-game-lg:hover,
     #game-details-play-button-container .btn-common-play-game-lg:focus {
@@ -9906,21 +9973,26 @@ if layout == apr {
     .game-dev-store {
         overflow: unset;
     }
+    .btn-growth-xs.play-button.wide-event-play-button,
     .virtual-event-game-details-container .clickable-event-list-item-contents .notify-button,
     #running-game-instances-container .refresh-link-icon,
     .rbx-private-server-create-button.btn-secondary-md {
         font-family: 'Source Sans Pro',Arial,Helvetica,sans-serif;
-        background-color: #00a2ff;
+        background-color: #00a2ff!important;
         border: 1px solid #00a2ff;
         border-radius: 3px;
         padding: 7px 16px;
         font-size: 16px;
         color: #fff!important;
     }
+    .btn-growth-xs.play-button.wide-event-play-button {
+        font-size: 14px;
+    }
+    .btn-growth-xs.play-button.wide-event-play-button:hover,
     #running-game-instances-container .refresh-link-icon:hover,
     .rbx-private-server-create-button.btn-secondary-md:hover,
     .virtual-event-game-details-container .clickable-event-list-item-contents .notify-button:hover {
-        background-color: #32b5ff;
+        background-color: #32b5ff!important;
         box-shadow: 0 1px 3px rgba(150,150,150,0.74);
         border-color: #32b5ff;
         text-decoration: none;
@@ -9929,6 +10001,14 @@ if layout == apr {
         background-color: #99daff;
         border-color: #99daff;
         opacity: 1;
+    }
+    .btn-growth-xs.wide-event-play-button[aria-label="Join Event"] {
+        background-color: #02b757!important;
+        border-color: #02b757;
+    }
+    .btn-growth-xs.wide-event-play-button[aria-label="Join Event"]:hover {
+        background-color: #3fc679!important;
+        border-color: #3fc679;
     }
     #running-game-instances-container .refresh-link-icon:after {
         display: none;
@@ -10180,7 +10260,7 @@ if layout == apr {
     }
     .btr-badges-container .badge-row .badge-data-container .btr-unlock-date {
         font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
-        font-size: 16px;
+        font-size: 16px!important;
     }
     .carousel-controls.btn-primary-md {
         border-radius: 0;
@@ -10429,6 +10509,28 @@ if layout == apr {
         color: var(--textcol);
         background-color: transparent !important;
         font-size: 20px;
+    }
+    .hover-game-tile.contained-tile .featured-game-icon-container,
+    .hover-game-tile.contained-tile .thumbnail-2d-container.brief-game-icon {
+        border-radius: 0!important;
+        background-color: transparent!important;
+    }
+    .hover-game-tile.contained-tile .featured-game-icon-container {
+        width: auto!important;
+    }
+    .hover-game-tile.contained-tile .thumbnail-2d-container.brief-game-icon {
+        padding: 5px;
+    }
+    .hover-game-tile.experience-events-tile.image-overlay .featured-game-icon-container::before {
+        background-color: transparent!important;
+    }
+    .hover-game-tile.contained-tile .featured-game-container .game-card-link .info-container .info-metadata-container {
+        margin-top: 3px;    
+    }
+    .hover-game-tile.contained-tile .featured-game-container {
+        background-color: var(--background);
+        box-shadow: 0 1px 4px 0 rgba(25,25,25,0.3);
+        border-radius: 3px;
     }
     
     .icon-allgears, .icon-Building, .icon-catalog, .icon-copylocked, .icon-default-games, .icon-dislike, .icon-dislike.selected, .icon-experimental-black, .icon-experimental-gray1, .icon-experimental-gray2, .icon-experimental-white, .icon-Explosive, .icon-games, .icon-inventory, .icon-like, .icon-like.selected, .icon-Melee, .icon-Musical, .icon-Navigation, .icon-nocopylocked, .icon-nogear, .icon-partialgears, .icon-playaudio, .icon-playing-counts-gray, .icon-playing-counts-gray-white-70, .icon-PowerUp, .icon-privateserver, .icon-publicserver, .icon-Ranged, .icon-share-game-to-chat, .icon-Social, .icon-Transport, .icon-votes-gray, .icon-votes-gray-white-70 {
@@ -10716,6 +10818,7 @@ if ads {
     .btr-profile-container {
         margin-top: 20px;
     }
+    .web-blox-css-tss-1sr4lqx-Typography-h1-Typography-root,
     .profile-header .header-caption .header-title > h1,
     .container-header h3,
     .container-header h2,
@@ -10738,6 +10841,7 @@ if ads {
             font-family: Arial,Helvetica,sans-serif!important;
         }
     }
+    .web-blox-css-tss-1uq4nkz-Typography-body1-Typography-colorSecondary-Typography-root,
     .profile-header .header-caption .header-names .profile-display-name {
         position: absolute;
         left: 0px;
@@ -10755,7 +10859,8 @@ if ads {
             top: 47px;
         }
     }
-    .profile-header-top .header-caption .profile-name.text-overflow {
+    .profile-header-top .header-caption .profile-name.text-overflow,
+    .web-blox-css-tss-1sr4lqx-Typography-h1-Typography-root {
         position: absolute;
         width: unset;
         margin-right: 0px!important;
@@ -11234,6 +11339,7 @@ if ads {
             top: 69px;
         }
     }
+    .profile-header-buttons,
     .header-details .details-actions.desktop-action {
         width: 230px;
         top: 531px;
@@ -11320,7 +11426,8 @@ if ads {
             margin-top: 0px;
         }
     }
-    .profile-stats-container .profile-stat .text-label {
+    .profile-stats-container .profile-stat .text-label,
+    #profile-statistics-container .profile-stat .text-label {
         font-size: 14px;
         font-family: 'Source Sans Pro',
         Arial,
@@ -11400,7 +11507,8 @@ if ads {
         width: 15px;
         height: 13px;
     }
-    .profile-stats-container .profile-stat .text-lead {
+    .profile-stats-container .profile-stat .text-lead,
+    #profile-statistics-container .profile-stat .text-lead {
         font-size: 14px;
         font-family: 'Source Sans Pro',
         Arial,
@@ -11411,6 +11519,14 @@ if ads {
             font-size: 12px;
         }
     }
+    #profile-statistics-container .profile-stats,
+    .btr-profile .profile-stats-container {
+        border-top: 1px solid var(--borders);
+        border-bottom: 1px solid var(--borders);
+        margin-top: 10px;
+        padding: 0;
+    }
+    .profile-header-main,
     .profile-header .profile-header-content {
         width: 0px;
         height: 0px;
@@ -11433,7 +11549,9 @@ if ads {
         position: absolute;
         z-index: 3;
     }
-    .profile-header .header-caption .header-details .details-info {
+    #profile-statistics-container h2,
+    .profile-header .header-caption .header-details .details-info,
+    .profile-header-social-counts {
         display: none;
     }
     /* why did i do that */
@@ -11522,7 +11640,8 @@ if ads {
         background-position: 0 -528px;
         background-size: 100% auto;
     }
-    .profile-container:has(.details-actions.desktop-action button:not(.btn-friends)) .btr-profile-about .profile-about-content {
+    .profile-container:has(.details-actions.desktop-action button:not(.btn-friends)) .btr-profile-about .profile-about-content,
+    .profile-container:has(.profile-header-buttons button:not(#unfriend-btn)) .btr-profile-about .profile-about-content{
         margin-top: 50px;
     }
     .btr-profile-about .section-content {
@@ -12268,7 +12387,7 @@ if ads {
             transform: none;
         }
     }
-    .btr-profile-bottom > div:nth-child(2):before {
+    .btr-profile-bottom > div:nth-child(3):before {
         content: "Inventory";
         font-size: 30px;
         font-weight: normal;
@@ -12928,7 +13047,7 @@ if ads {
         margin-bottom: 35px;
     }
     }
-    @-moz-document url-prefix("https://www.roblox.com/groups/") {
+    @-moz-document url-prefix("https://www.roblox.com/groups/"), url-prefix("https://www.roblox.com/communities/") {
     /* Groups */
     .content {
         width: 990px;
@@ -13261,7 +13380,7 @@ if ads {
         margin-left: 32px;
     }
     .group-details .group-shout:has(#group-shout-form) .group-shout-name {
-        bottom: 26px;
+        bottom: 25px;
     }
     .group-details .group-shout .shout-container .group-shout .group-shout-info .shout-date {
         float: right;
@@ -13278,6 +13397,9 @@ if ads {
     }
     #group-shout .section-content {
         background-color: transparent;
+        if layout == june or layout == thirteen {
+            margin-bottom: 30px;
+        }
     }
     .group-details .group-shout .group-form {
         margin-left: 170px;
@@ -13317,7 +13439,13 @@ if ads {
         padding: 1px 0;
         text-align: center;
         cursor: pointer;
+        font-size: 0;
     }
+    .group-details .group-shout .group-form .group-form-button:after {
+        content: "Group Shout";
+        font-size: 12px;
+    }
+    .btr-redesign group-description .group-description-footer,
     .group-details .group-description-footer .group-name-history {
         display: none;
     }
@@ -13325,7 +13453,8 @@ if ads {
         flex-direction: column;
         align-items: unset;
     }
-    #group-join-button, .group-button[ng-if="showJoinGroupButtonUI() == groupDetailsConstants.joinStatus.joinPending"] {
+    #group-join-button,
+    .group-button[ng-if="showJoinGroupButtonUI() == groupDetailsConstants.joinStatus.joinPending"] {
         all: revert;
         border: 1px solid #0852b7!important;
         background-color: #0852b7;
@@ -13334,7 +13463,7 @@ if ads {
         padding: 0 13px 0 13px;
         height: 50px;
         min-width: 70px;
-        font-size: 23px;
+        font-size: 0;
         line-height: 27px;
         background-position: left 0;
         font-family: 'Source Sans Pro',Arial,Helvetica,sans-serif;
@@ -13347,6 +13476,12 @@ if ads {
             letter-spacing: -1px;
             min-width: 157px;
         }
+    }
+    #group-join-button:after {
+        content: "Join Group";
+        font-size: 23px;
+        position: relative;
+        top: 3px;
     }
     #group-join-button:hover, .group-button[ng-if="showJoinGroupButtonUI() == groupDetailsConstants.joinStatus.joinPending"]:hover {
         background-position: left -48px;
@@ -13508,14 +13643,15 @@ if ads {
         color: #fff!important;
         text-decoration: none;
         font-family: 'Source Sans Pro',Arial,Helvetica,sans-serif;
-        padding: 9px 13px 0 13px;
-        height: 39px;
+        padding: 9px 13px 9px 13px;
+        height: 50px;
         min-width: 70px;
         font-size: 0px;
         line-height: 27px;
         background-position: left 0;
         text-align: center;
         margin: 4px;
+        cursor: pointer;
         if layout == dec or layout == apr {
             background-color: #428bca!important;
             border-color: #3580bd!important;
@@ -13808,7 +13944,10 @@ if ads {
             font-weight: bold;
         }
     }
-    group-members-list .section, group-games .section, group-store .tab-content, .group-affiliates {
+    group-members-list .section,
+    group-games .section,
+    group-store .tab-content,
+    .group-affiliates {
         top: -10px;
         position: relative;
         background-color: var(--background);
@@ -13818,6 +13957,12 @@ if ads {
             color: var(--pureblack);
             border: 1px solid #aaa;
         }
+    }
+    group-forums .section {
+        top: -10px;
+        position: relative;
+        background-color: var(--background);
+        border-top: 1px solid var(--borders);
     }
     group-members-list .input-group-btn .input-dropdown-btn {
         height: 22px !important;
@@ -14599,6 +14744,7 @@ if ads {
     .section.group-announcements .section-content {
         background-color: transparent;
         margin-bottom: 0;
+        padding-top: 5px;
     }
     .group-announcements-notifications-icon .icon-notifications-bell {
         background-position: unset !important;
@@ -14813,6 +14959,189 @@ if ads {
         .content:has(.group-details .group-detail-stats) .group-details:after {
             top: 45px;
         }
+    }
+    .group-forums-post-preview {
+        background-color: #f9f9f9;
+        padding: 3px !important;
+        margin: 0!important;
+        border-radius: 0!important;
+        box-shadow: none!important;
+    }
+    .group-forums-post-preview:hover {
+        background-color: #e9e9e9!important;
+    }
+    .group-forums-posts-list {
+        padding: 0;
+    }
+    .group-forums-categories-header {
+        padding: 3px;
+        background-color: #0058b1;
+        height: 38px;
+    }
+    .group-forums-categories-header .group-forums-categories-header-category-name {
+        font-size: 20px;
+        font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+        color: #fff;
+        font-weight: 300;
+    }
+    .group-forums-post-preview .group-forums-post-preview-title-container .group-forums-post-preview-title:before {
+        content: url('https://assetdelivery.roblox.com/v1/asset/?id=108308355407187');
+        display: inline-block;
+        margin-right: 10px;
+        position: relative;
+        top: 4px;
+    }
+    .group-forums-post-preview .group-forums-post-preview-title-container:has(.group-forums-post-preview-unread-status) .group-forums-post-preview-title:before  {
+        content: url('https://assetdelivery.roblox.com/v1/asset/?id=134071441492890');
+    }
+    .group-forums-post-preview .group-forums-post-preview-title-container:has(.group-forums-post-preview-locked-status-icon):has(.group-forums-post-preview-pinned-status-icon) .group-forums-post-preview-title:before {
+        content: url('https://assetdelivery.roblox.com/v1/asset/?id=90574879300057');
+    }
+    .group-forums-post-preview .group-forums-post-preview-title-container:has(.group-forums-post-preview-unread-status):has(.group-forums-post-preview-locked-status-icon):has(.group-forums-post-preview-pinned-status-icon) .group-forums-post-preview-title:before {
+        content: url('https://assetdelivery.roblox.com/v1/asset/?id=91784549603757');
+    }
+    .group-forums-post-preview-unread-status,
+    .group-forums-post-preview-locked-status-icon,
+    .group-forums-post-preview-pinned-status-icon,
+    .group-forums-post-comments-container:has(.groups-forums-comments-no-comments) {
+        display: none;
+    }
+    .group-forums-post-preview .group-forums-post-preview-title-container .group-forums-post-preview-title {
+        font-family: 'Source Sans Pro',Arial,Helvetica,sans-serif;
+        font-size: 14px;
+        font-weight: normal;
+    }
+    .group-forums-post-preview .group-forums-post-preview-content .group-forums-post-preview-content-comment {
+        font-family: 'Source Sans Pro',Arial,Helvetica,sans-serif;
+        font-size: 14px;
+        font-weight: normal;
+        margin: 0 36px 0 36px;
+    }
+    .group-forums-comment .group-forums-comment-content {
+        font-family: 'Source Sans Pro',Arial,Helvetica,sans-serif;
+        font-size: 14px;
+        color: var(--textcol);
+        margin: 0 3px 0 36px;
+    }
+    .group-forums-post-preview-meta-data {
+        margin: 0 36px 0 36px;
+    }
+    .group-forums-comment .group-forums-comment-title {
+        order: -1;
+        font-size: 30px;
+        font-weight: normal;
+        color: var(--textcol);
+        letter-spacing: -1px;
+        font-family: 'Source Sans Pro',Arial,Helvetica,sans-serif;
+        background: var(--background);
+        padding-bottom: 10px;
+    }
+    .group-forums-comment-variant-post:first-child:before,
+    .group-forums-categories-list-container:before,
+    .group-forums-post:after {
+        content: "";
+        background-color: #0058b1;
+        height: 38px;
+    }
+    .group-forums-categories-list-container:before {
+        content: "Categories";
+        font-family: 'Source Sans Pro',Arial,Helvetica,sans-serif;
+        display: inline-block;
+        color: white;
+        font-size: 20px;
+        width: 100%;
+        line-height: 30px;
+        padding: 3px;
+    }
+    .group-forums-comment {
+        padding: 0;
+    }
+    .group-forums-post {
+      background: #f9f9f9;
+    }
+    /* sayorisocks */
+    .group-forums-post-navigation {
+        margin: 0;
+        margin-bottom: -4px;
+        background: var(--background);
+        font-family: 'Source Sans Pro',Arial,Helvetica,sans-serif;
+    }
+    .group-forums-post-navigation a,
+    .group-forums-user-display-avatar-username-link {
+        font-family: 'Source Sans Pro',Arial,Helvetica,sans-serif;
+        color: var(--linkcol)!important;
+        font-weight: 700!important;
+    }
+    .group-forums-post-navigation > * {
+        font-size: 12.6px!important;
+    }
+    .group-forums-comment-header,
+    .groups-forums-comment-metadata-section {
+        margin: 5px 8px;
+    }
+    .user-display-time {
+        font-family: 'Source Sans Pro',Arial,Helvetica,sans-serif;
+        color: var(--textcol);
+    }
+    .group-forums-user-display-avatar-thumbnail {
+        background-color: transparent!important;
+        border-radius: 0;
+    }
+    .group-forums-post-preview-replies-icon {
+        background-image: url('https://assetdelivery.roblox.com/v1/asset/?id=89050058584034');
+        background-size: unset;
+        background-repeat: no-repeat;
+        filter: none!important;
+        width: 15px;
+        height: 10px;
+    }
+    .group-forums-post-preview .group-forums-post-preview-meta-data .group-forums-post-preview-meta-data-replies,
+    .group-forums-post-preview-reactions .group-forums-post-preview-reaction-count {
+        font-family: 'Source Sans Pro',Arial,Helvetica,sans-serif;
+        font-size: 12px;
+    }
+    .group-forums-comment-variant-comment {
+        margin-top: 2px;
+    }
+    .group-forums-early-access-notice {
+        background-color: #e5effa!important;
+        border: 1px solid #06C;
+        padding: 5px 10px;
+        border-radius: 0;
+    }
+    .group-forums-early-access-notice .group-forums-early-access-notice-icon {
+        display: none;
+    }
+    .group-forums-early-access-notice .group-forums-early-access-notice-content .group-forums-early-access-notice-title {
+        font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+        color: var(--textcol);
+        padding: 0;
+    }
+    .group-forums-early-access-notice-description {
+        font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+        color: var(--textcol);
+        font-size: 14px!important;
+    }
+    .group-forums-categories-list-container {
+        padding: 0;
+    }
+    .group-forums-categories-list {
+        flex-direction: column;
+        gap: 0;
+    }
+    .group-forums-category-pill {
+        font-family: 'Source Sans Pro',Arial,Helvetica,sans-serif;
+        font-size: 14px!important;
+        font-weight: bold!important;
+        color: var(--textcol)!important;
+        padding: 5px!important;
+        border-radius: 0;
+        background-color: #f9f9f9!important;
+        border-top: 1px solid #ccc;
+    }
+    .group-forums-category-pill:hover,
+    .group-forums-category-pill.active {
+        background-color: #e9e9e9!important;
     }
     
     }
@@ -15446,7 +15775,7 @@ if ads {
         }
     }
     }
-    @-moz-document url-prefix("https://www.roblox.com/search/groups?") {
+    @-moz-document url-prefix("https://www.roblox.com/search/groups?"), url-prefix("https://www.roblox.com/search/communities?") {
     /* Group Search */
     #group-search-container {
         width: 900px;
@@ -16776,6 +17105,7 @@ if ads {
         cursor: default;
         background: white;
         z-index: 1;
+        padding-bottom: 5px;
     }
     .btr-catalog .btr-item-card-more {
         background: transparent!important;
@@ -17113,7 +17443,9 @@ if ads {
             font-family: Arial,Helvetica,sans-serif;
         }
     }
-    .item-cards-stackable .asset-status-icon .status-new, .item-cards-stackable .asset-status-icon .has-icon {
+    .item-cards-stackable .asset-status-icon .status-new,
+    .item-cards-stackable .asset-status-icon .status-sale,
+    .item-cards-stackable .asset-status-icon .has-icon {
         background-image: url('http://images.rbxcdn.com/b84cdb8c0e7c6cbe58e91397f91b8be8.png');
         background-color: transparent;
         font-size: 0px;
@@ -17123,6 +17455,12 @@ if ads {
         position: absolute;
         left: 55px;
         top: -120px;
+    }
+    .item-cards-stackable .asset-status-icon .status-sale {
+        background-image: url('https://images.rbxcdn.com/d3e8e657069a0ab7d31e098562195f6a.png');
+        width: 72px;
+        height: 72px;
+        left: 35px;
     }
     .item-cards-stackable .asset-status-icon .has-icon {
         background-image: url('/images/AssetIcons/deadline.png');
@@ -18984,7 +19322,8 @@ if ads {
     .thumbnail-holder .asset-status-icon {
         margin: 0;
     }
-    .asset-status-icon .status-new {
+    .asset-status-icon .status-new,
+    .asset-status-icon .status-sale {
         font-size: 0px!important;
         background-color: transparent;
         background-image: url('http://images.rbxcdn.com/8a25ded7fa07d098dac7f234e7b34cfd.png');
@@ -18997,6 +19336,12 @@ if ads {
         position: relative;
         top: -17px;
         pointer-events: none;
+    }
+    .asset-status-icon .status-sale {
+        background-image: url('/images/AssetIcons/sale_green_lg.png');
+        height: 162px;
+        width: 162px;
+        top: -1px;
     }
     .item-details-thumbnail-container .thumbnail-ui-container .asset-status-icon {
         padding: 0px;
@@ -22067,305 +22412,7 @@ if ads {
     @-moz-document url-prefix("https://www.roblox.com/upgrades/robux") {
     /* Buy Robux */
     /* why?? */
-    .subscription-container, .premium-container .robux-table .robux-head-group,.badge-container.btn-primary-md .icon-robux-gray, .btn-full-width.unsubscribed h4 span, .btn-full-width.unsubscribed .icon-robux-white, .highlight-badge, .robux-downsell .icon-robux-gray, .premium-container .robux-table .robux-row .robux-cell:has(.robux-strikethrough), .robux-button-container .icon-robux-white {
-        display: none;
-    }
-    #robux-page {
-        max-width: 970px;
-        padding: 5px 0 25px 0;
-        margin: 0 auto;
-        background: var(--background);
-        font-family: 'Source Sans Pro',Arial,Helvetica,sans-serif;
-        if layout == june {
-            font-family: Arial,Helvetica,sans-serif;
-        }
-    }
-    .annual-premium-takeover {
-        background-color: transparent!important;
-    }
-    .evergreen-background {
-        background-image: none!important;
-    }
-    .premium-container .page-refined {
-        background-image: none;
-        text-align: left;
-        color: var(--textcol);
-        padding: 0;
-        margin-left: 5px;
-    }
-    .premium-container .page-refined .top-header h1 {
-        font-family: 'Source Sans Pro',Arial,Helvetica,sans-serif;
-        font-size: 32px;
-        font-weight: bold;
-        margin: 12px;
-        letter-spacing: -1px;
-        if layout == june {
-            font-size: 40px;
-            font-family: Arial,Helvetica,sans-serif;
-            letter-spacing: -2px;
-            margin: 12px 0 12px;
-        }
-    }
-    .premium-container .page-refined h1:after {
-        content: "TM";
-        display: inline-block;
-        position: relative;
-        top: -12px;
-        font-size: 14px;
-        if layout == jan {
-            display: none;
-        }
-        if layout == thirteen {
-            display: none;
-        }
-        if layout == june {
-            content: "!";
-            font-size: 40px;
-            top: 0;
-        }
-    }
-    .premium-container .page-refined .top-subtitle {
-        width: 573px;
-    }
-    .premium-container .page-refined .top-subtitle span {
-        font-family: 'Source Sans Pro',Arial,Helvetica,sans-serif;
-        font-size: 0;
-        padding: 5px 5px 5px 10px;
-        line-height: 20px;
-    }
-    .premium-container .page-refined .top-subtitle span:before {
-        content: url('https://assetdelivery.roblox.com/v1/asset?id=14597571671');
-        position: relative;
-        left: -10px;
-    }
-    .premium-container .page-refined .top-subtitle span:after {
-        content: "Find a great look for your character. Get cool gear to take into battle. Buy Limited items to sell and trade. You’ll need ROBUX to make it all happen. What are you waiting for?";
-        font-size: 14px!important;
-        width: 573px;
-        position: absolute;
-        white-space: pre-wrap;
-        if layout == june {
-            font-family: Arial,Helvetica,sans-serif;
-            color: var(--pureblack)!important;
-            font-size: 12px!important;
-        }
-        if layout == thirteen or layout == june {
-            content: "Use Robux to buy virtual good for your character - shirts, pants, hats, faces, and even heads!\AYou can also buy gear, like hammers, potions, jet boots, swords, and BLOXI Cola. ";
-        }
-    }
-    
-    .premium-container .robux-table .robux-body {
-        display: block;
-        padding-top: 30px;
-        width: 500px;
-        margin: 0 auto;
-        padding-left: 100px;
-    }
-    .premium-container .robux-table {
-        display: block;
-        text-align: unset;
-        width: unset;
-    }
-    .premium-container .page-content {
-        max-width: unset;
-        margin: 0;
-    }
-    .premium-container .robux-table .robux-row {
-        display: block;
-        margin-bottom: 78px;
-    }
-    .premium-container .robux-table .robux-cell {
-        padding: 0;
-    }
-    .premium-container .robux-table .robux-cell:nth-child(2), #robux-react-page-wrapper .robux-cell:nth-child(3) {
-        position: absolute!important;
-        margin-left: 220px;
-    }
-    .premium-container .robux-table .price-tag {
-        font-size: 15px;
-        font-weight: bold;
-        color: var(--textcol);
-        if layout == june {
-            font-size: 16px;
-            font-weight: bold;
-            color: var(--pureblack);
-            text-transform: uppercase;
-        }
-    }
-    .legal-text-holder {
-        max-width: 500px;
-        margin: 0 auto;
-        color: var(--textcol)!important;
-        if layout == june {
-            color: var(--pureblack)!important;
-        }
-    }
-    .legal-text-holder .text-link {
-        color: var(--linkcol)!important;
-    }
-    .premium-container .robux-table .price-tag:before {
-        content: "Standard Member";
-        position: absolute;
-        font-weight: normal;
-        margin-top: -20px;
-        font-size: 14px;
-        if layout == june {
-            text-transform: none;
-            line-height: 23px;
-            font-size: 12px;
-        }
-    }
-    html:has(meta[data-ispremiumuser="true"]) .premium-container .robux-table .price-tag:before {
-        content: "Builders Club Member";
-    }
-    .premium-container .robux-table .price-tag:after  {
-        content: "for 400 ROBUX";
-        margin-left: 3px;
-    }
-    .premium-container .robux-table .robux-row:nth-child(2) .price-tag:after {
-        content: "for 800 ROBUX";
-    }
-    .premium-container .robux-table .robux-row:nth-child(3) .price-tag:after {
-        content: "for 1700 ROBUX";
-    }
-    .premium-container .robux-table .robux-row:nth-child(4) .price-tag:after {
-        content: "for 4500 ROBUX";
-    }
-    .premium-container .robux-table .robux-row:nth-child(5) .price-tag:after {
-        content: "for 10000 ROBUX";
-    }
-    .premium-container .robux-table .robux-row:nth-child(6) .price-tag:after {
-        content: "for 22500 ROBUX";
-    }
-    .premium-container .robux-table .align-items-center:before {
-        content: "400";
-        position: absolute;
-        font-size: 52px;
-        margin-left: -84px;
-        letter-spacing: -3px;
-        color: var(--borders);
-        if layout == june {
-            margin-left: -90px;
-        }
-    }
-    .premium-container .robux-table .robux-row:nth-child(2) .align-items-center:before {
-        content: "800";
-    }
-    .premium-container .robux-table .robux-row:nth-child(3) .align-items-center:before {
-        content: "1700";
-        margin-left: -105px;
-        if layout == june {
-            margin-left: -115px;
-        }
-    }
-    .premium-container .robux-table .robux-row:nth-child(4) .align-items-center:before {
-        content: "4500";
-        margin-left: -105px;
-        if layout == june {
-            margin-left: -115px;
-        }
-    }
-    .premium-container .robux-table .robux-row:nth-child(5) .align-items-center:before {
-        content: "10000";
-        margin-left: -127px;
-        if layout == june {
-            margin-left: -140px;
-        }
-    }
-    .premium-container .robux-table .robux-row:nth-child(6) .align-items-center:before {
-        content: "22500";
-        margin-left: -127px;
-        if layout == june {
-            margin-left: -140px;
-        }
-    }
-    html:has(meta[data-ispremiumuser="true"]) .premium-container .robux-table .robux-row::after {
-        content: "";
-    }
-    .premium-container .robux-table .robux-row::after {
-        font-size: 11px;
-        content: "Builder's Club Members get 450 ROBUX for $4.95. Upgrade Now!";
-        font-weight: normal;
-        position: absolute;
-        border-top: 1px solid var(--borders);
-        width: 400px;
-        line-height: 17px;
-        if layout == june {
-            color: var(--pureblack);
-        }
-    }
-    .premium-container .robux-table .robux-row:nth-child(2):after {
-        content: "Builder's Club Members get 1000 ROBUX for $9.95. Upgrade Now!";
-    }
-    .premium-container .robux-table .robux-row:nth-child(3):after {
-        content: "Builder's Club Members get 2200 ROBUX for $24.95. Upgrade Now!";
-    }
-    .premium-container .robux-table .robux-row:nth-child(4):after {
-        content: " Builder's Club Members get 6000 ROBUX for $49.95. Upgrade Now! ";
-    }
-    .premium-container .robux-table .robux-row:nth-child(5):after {
-        content: " Builder's Club Members get 15000 ROBUX for $99.95. Upgrade Now! ";
-    }
-    .premium-container .robux-table .robux-row:nth-child(6):after {
-        content: " Builder's Club Members get 35000 ROBUX for $199.95. Upgrade Now! ";
-    }
-    #robux-react-page-wrapper .robux-cell, .premium-container .robux-table .robux-cell {
-        border: none;
-    }
-    .badge-container.btn-primary-md, .btn-full-width.unsubscribed, .badge-container.btn-control-md, .robux-button-container .btn-growth-md {
-        position: absolute;
-        border-color: #007001!important;
-        background-color: #007001;
-        background-image: url(/images/Buttons/StyleGuide/bg-btn-green.png);
-        color: var(--background)!important;
-        border-radius: 0;
-        width: 116px;
-        padding: 1px 7px 0 7px;
-        height: 23px;
-        background-position: left -160px;
-        margin-top: -30px;
-        margin-left: -26px;
-    }
-    .badge-container.btn-primary-md:hover, .btn-full-width.unsubscribed:hover, .robux-button-container .btn-growth-md:hover, .badge-container.btn-control-md:hover {
-        background-position: left -181px;
-    }
-    .badge-container.btn-primary-md h4, .btn-full-width.unsubscribed h4, .robux-button-container .btn-growth-md h4, .badge-container.btn-control-md h4 {
-        font-family: 'Source Sans Pro',Arial,Helvetica,sans-serif;
-        font-size: 0;
-        font-weight: normal;
-        line-height: 18px;
-        if layout == june {
-            font-family: Arial,Helvetica,sans-serif;
-            font-weight: bold;
-            letter-spacing: -1px;
-            text-shadow: #013401 0 -1px;
-        }
-    }
-   /* .badge-container.btn-primary-md h4:after, */
-    .btn-full-width.unsubscribed h4:after,
-    .robux-button-container .btn-growth-md h4:after,
-    .badge-container.btn-control-md:after,
-    .badge-container.btn-control-md h4:not(.inline-text) {
-        content: "Buy";
-        font-size: 14px!important;
-        font-family: 'Source Sans Pro',Arial,Helvetica,sans-serif;
-        if layout == june {
-            font-size: 15px!important;
-            font-family: Arial,Helvetica,sans-serif;
-        }
-    }
-    .badge-container.btn-control-md h4 {
-        line-height: 30px;
-    }
-    .robux-cell:has(.robux-button-container .btn-growth-md) {
-        float: right;
-    }
-    .premium-container .robux-button-container:has(.font-small), .evergreen-background .annual-premium-banner {
-        display: none;
-    }
-    .text-footer.legal-text-holder {
-        margin: 0 auto;
-    }
+    /* remaking this again in 100 years because roblox completely redid the page */
     }
     @-moz-document url-prefix("https://www.roblox.com/abusereport") {
     /* Report Abuse */
@@ -24618,7 +24665,7 @@ if ads {
         padding: 0;
         box-shadow: none!important;
     }
-    .text-label.account-settings-label, .account-previous-usernames, .collapsible-user-input label, .social-networks-container .text-label, .setting-section-header, .pin-time-remaining .text-warning, #security-tab h2, .btn-toggle-label, .btn-toggle-label-new-codes, .label-new-codes {
+    .text-label.account-settings-label, .account-previous-usernames, .collapsible-user-input label, .social-networks-container .text-label, .setting-section-header, .pin-time-remaining .text-warning, #security-tab h2, .btn-toggle-label, .btn-toggle-label-new-codes, .label-new-codes, .setting-section-header {
         font-size: 14px!important;
         color: var(--textcol)!important;
         font-weight: 600!important;
@@ -25021,6 +25068,23 @@ if ads {
     }
     .passkey-upsell-banner {
         width: 625px;
+    }
+    #react-user-account-base:after {
+        content: url("https://assetdelivery.roblox.com/v1/asset?id=13774257555");
+        display: block;
+        margin-top: 15px;
+        margin-bottom: 10px;
+        min-height: 255px;
+        max-width: 300px;
+        position: absolute;
+        top: 88px;
+        margin-left: 670px;
+        cursor: not-allowed;
+        animation-name: rectangle;
+        animation-iteration-count: infinite;
+        animation-direction: normal;
+        animation-duration: 3600s;
+        animation-delay: 120ms;
     }
     }
     
@@ -25863,49 +25927,85 @@ if ads {
     /* Custom Item Thumbnails */
     if thumbs {
         /* Accessories */
-    .item-card-link[ng-href="https://www.roblox.com/catalog/1081366/Astronaut-Helmet"] img, #item-thumbnail-container-frontend[data-target-id="1081366"] img, .item-card-container[href="https://www.roblox.com/catalog/1081366/"] img, .item-card-thumb-container[href="https://www.roblox.com/catalog/1081366/Astronaut-Helmet"]  {
-        content: url('https://assetdelivery.roblox.com/v1/asset?id=14478680268');
-    }
-    .item-card-link[ng-href="https://www.roblox.com/catalog/48474313/Red-Roblox-Cap"] img, #item-thumbnail-container-frontend[data-target-id="48474313"] img, .item-card-container[href="https://www.roblox.com/catalog/48474313/"] img, .item-card-thumb-container[href="https://www.roblox.com/catalog/48474313/Red-Roblox-Cap"] {
-        content: url('https://assetdelivery.roblox.com/v1/asset?id=14478716988');
-    }
+        .item-card-link[href*="/catalog/1081366/"] img,
+        #item-thumbnail-container-frontend[data-target-id="1081366"] img,
+        .item-card-container[href*="/catalog/1081366/"] img,
+        .item-card-thumb-container[href*="/catalog/1081366/"]  {
+            content: url('https://assetdelivery.roblox.com/v1/asset?id=14478680268');
+        }
+        .item-card-link[href*="/catalog/48474313/"] img,
+        #item-thumbnail-container-frontend[data-target-id="48474313"] img,
+        .item-card-container[href*="/catalog/48474313/"] img,
+        .item-card-thumb-container[href*="/catalog/48474313/"] {
+            content: url('https://assetdelivery.roblox.com/v1/asset?id=14478716988');
+        }
     /* Bundles */
-    .item-card-link[ng-href="https://www.roblox.com/bundles/311/Robloxian-2-0"] img, #item-thumbnail-container-frontend[data-target-id="311"] img, .item-card-container[href="https://www.roblox.com/bundles/311/"] img, .item-card-thumb-container[href="https://www.roblox.com/bundles/311/Robloxian-2-0"] {
-        content: url('https://assetdelivery.roblox.com/v1/asset?id=158616081');
-    }
-    .item-card-link[ng-href="https://www.roblox.com/bundles/238/Man"] img, #item-thumbnail-container-frontend[data-target-id="238"] img, .item-card-container[href="https://www.roblox.com/bundles/238/"] img, .item-card-thumb-container[href="https://www.roblox.com/bundles/238/Man"] {
-        content: url('https://assetdelivery.roblox.com/v1/asset?id=14514300029');
-    }
-    .item-card-link[ng-href="https://www.roblox.com/bundles/299/Superhero"] img, #item-thumbnail-container-frontend[data-target-id="299"] img, .item-card-container[href="https://www.roblox.com/bundles/299/"] img, .item-card-thumb-container[href="https://www.roblox.com/bundles/299/Superhero"] {
-        content: url('https://assetdelivery.roblox.com/v1/asset?id=14514335215');
-    }
-    .item-card-link[ng-href="https://www.roblox.com/bundles/239/Woman"] img, #item-thumbnail-container-frontend[data-target-id="239"] img, .item-card-container[href="https://www.roblox.com/bundles/239/"] img, .item-card-thumb-container[href="https://www.roblox.com/bundles/239/Woman"] {
-        content: url('https://assetdelivery.roblox.com/v1/asset?id=14514336062');
-    }
-    .item-card-link[ng-href="https://www.roblox.com/bundles/282/ROBLOX-Girl"] img, #item-thumbnail-container-frontend[data-target-id="282"] img, .item-card-container[href="https://www.roblox.com/bundles/282/"] img, .item-card-thumb-container[href="https://www.roblox.com/bundles/282/ROBLOX-Girl"] {
-        content: url('https://assetdelivery.roblox.com/v1/asset?id=14514378105');
-    }
-    .item-card-link[ng-href="https://www.roblox.com/bundles/284/Penguin"] img, #item-thumbnail-container-frontend[data-target-id="284"] img, .item-card-container[href="https://www.roblox.com/bundles/284/"] img, .item-card-thumb-container[href="https://www.roblox.com/bundles/284/Penguin"] {
-        content: url('https://assetdelivery.roblox.com/v1/asset?id=15083881881');
-    }
-    .item-card-link[ng-href="https://www.roblox.com/bundles/306/Pirate-Swashbuckler"] img, #item-thumbnail-container-frontend[data-target-id="306"] img, .item-card-container[href="https://www.roblox.com/bundles/306/"] img, .item-card-thumb-container[href="https://www.roblox.com/bundles/306/Pirate-Swashbuckler"] {
-        content: url('https://assetdelivery.roblox.com/v1/asset?id=15083880925');
-    }
-    .item-card-link[ng-href="https://www.roblox.com/bundles/291/Zombie"] img, #item-thumbnail-container-frontend[data-target-id="291"] img, .item-card-container[href="https://www.roblox.com/bundles/291/"] img, .item-card-thumb-container[href="https://www.roblox.com/bundles/291/Zombie"] {
-        content: url('https://assetdelivery.roblox.com/v1/asset?id=15083883017');
-    }
-    .item-card-link[ng-href="https://www.roblox.com/bundles/192/Korblox-Deathspeaker"] img, #item-thumbnail-container-frontend[data-target-id="192"] img, .item-card-container[href="https://www.roblox.com/bundles/192/"] img, .item-card-thumb-container[href="https://www.roblox.com/bundles/192/Korblox-Deathspeaker"] {
-        content: url('https://assetdelivery.roblox.com/v1/asset?id=15083958067');
-    }
-    .item-card-link[ng-href="https://www.roblox.com/bundles/201/Headless-Horseman"] img, #item-thumbnail-container-frontend[data-target-id="201"] img, .item-card-container[href="https://www.roblox.com/bundles/201/"] img, .item-card-thumb-container[href="https://www.roblox.com/bundles/201/Headless-Horseman"] {
-        content: url('https://assetdelivery.roblox.com/v1/asset?id=14833237984');
-        if layout == thirteen {
-            content: url('https://assetdelivery.roblox.com/v1/asset?id=14833238759');
+        .item-card-link[href*="/bundles/311/"] img,
+        #item-thumbnail-container-frontend[data-target-id="311"] img, 
+        .item-card-container[href*="/bundles/311/"] img, 
+        .item-card-thumb-container[href*="/bundles/311/"] {
+            content: url('https://assetdelivery.roblox.com/v1/asset?id=158616081');
         }
-        if layout == june {
-            content: url('https://assetdelivery.roblox.com/v1/asset?id=14833238759');
+        .item-card-link[href*="/bundles/238/"] img,
+        #item-thumbnail-container-frontend[data-target-id="238"] img,
+        .item-card-container[href*="/bundles/238/"] img,
+        .item-card-thumb-container[href*="/bundles/238/"] {
+            content: url('https://assetdelivery.roblox.com/v1/asset?id=14514300029');
         }
-    }
+        .item-card-link[href*="/bundles/299/"] img,
+        #item-thumbnail-container-frontend[data-target-id="299"] img,
+        .item-card-container[href*="/bundles/299/"] img, 
+        .item-card-thumb-container[href*="/bundles/299/"] {
+            content: url('https://assetdelivery.roblox.com/v1/asset?id=14514335215');
+        }
+        .item-card-link[href*="/bundles/239/"] img,
+        #item-thumbnail-container-frontend[data-target-id="239"] img,
+        .item-card-container[href*="/bundles/239/"] img,
+        .item-card-thumb-container[href*="/bundles/239/"] {
+            content: url('https://assetdelivery.roblox.com/v1/asset?id=14514336062');
+        }
+        .item-card-link[href*="/bundles/282/"] img,
+        #item-thumbnail-container-frontend[data-target-id="282"] img,
+        .item-card-container[href*="/bundles/282/"] img,
+        .item-card-thumb-container[href*="/bundles/282/"] {
+            content: url('https://assetdelivery.roblox.com/v1/asset?id=14514378105');
+        }
+        .item-card-link[href*="/bundles/284/"] img,
+        #item-thumbnail-container-frontend[data-target-id="284"] img,
+        .item-card-container[href*="bundles/284/"] img,
+        .item-card-thumb-container[href*="/bundles/284/"] {
+            content: url('https://assetdelivery.roblox.com/v1/asset?id=15083881881');
+        }
+        .item-card-link[href*="/bundles/306/"] img,
+        #item-thumbnail-container-frontend[data-target-id="306"] img, 
+        .item-card-container[href*="/bundles/306/"] img,
+        .item-card-thumb-container[href*="/bundles/306/"] {
+            content: url('https://assetdelivery.roblox.com/v1/asset?id=15083880925');
+        }
+        .item-card-link[href*="/bundles/291/"] img
+        #item-thumbnail-container-frontend[data-target-id="291"] img,
+        .item-card-container[href*="/bundles/291/"] img,
+        .item-card-thumb-container[href*="/bundles/291/"] {
+            content: url('https://assetdelivery.roblox.com/v1/asset?id=15083883017');
+        }
+        .item-card-link[href*="/bundles/192/"] img,
+        #item-thumbnail-container-frontend[data-target-id="192"] img,
+        .item-card-container[href*="/bundles/192/"] img,
+        .item-card-thumb-container[href*="/bundles/192/"] {
+            content: url('https://assetdelivery.roblox.com/v1/asset?id=15083958067');
+        }
+        .item-card-link[href*="/bundles/201/"] img,
+        #item-thumbnail-container-frontend[data-target-id="201"] img,
+        .item-card-container[href*="/bundles/201/"] img,
+        .item-card-thumb-container[href*="/bundles/201/"] {
+            content: url('https://assetdelivery.roblox.com/v1/asset?id=14833237984');
+            if layout == thirteen {
+                content: url('https://assetdelivery.roblox.com/v1/asset?id=14833238759');
+            }
+            if layout == june {
+                content: url('https://assetdelivery.roblox.com/v1/asset?id=14833238759');
+            }
+        }
     
     }
     }
@@ -26433,6 +26533,10 @@ if ads {
                 content: url('https://assetdelivery.roblox.com/v1/asset/?id=18226935489');
             }
         }
+        /* Fencing */
+        #game-detail-page:has(#game-detail-meta-data[data-universe-id="8226497"]) #game-details-carousel-container .carousel-item > img {
+            content: url('https://assetdelivery.roblox.com/v1/asset?id=70871058874635');
+        }
     }
     }
     @-moz-document url-prefix("https://www.roblox.com") {
@@ -26486,7 +26590,7 @@ if ads {
     
     @-moz-document url-prefix("https://www.roblox.com/") {
     /* Custom Starter Images */
-    /* Why */
+    /* i'm too lazy to fix this. sorry! */
     /* Profile Game thumbnails */
     .btr-game-thumb[src="https://t7.rbxcdn.com/e57807e7caf34fc495a090d1a7ceb9e7"],
     .btr-game-thumb[src="https://t6.rbxcdn.com/e9d9d3be56749020fe24eeb3b9bbe265"],
@@ -26548,7 +26652,8 @@ if ads {
     }
     @-moz-document url-prefix("https://www.roblox.com/") {
         /* User Ads */
-        /* maybe i can have this start at a random keyframe someday (or even better, have it completely random! probably never happening) */
+        /* maybe i can have this start at a random keyframe someday (or even better, have it completely random! probably never happening though) */
+        /* hello to the people lurking through here! */
         /* Skyscraper */
         @keyframes skyscraper {
             0%   {content: url('https://assetdelivery.roblox.com/v1/asset?id=13774256717');}
@@ -26611,6 +26716,7 @@ if ads {
             57%   {content: url('https://assetdelivery.roblox.com/v1/asset?id=45216433');}
             58%   {content: url('https://assetdelivery.roblox.com/v1/asset?id=12675560');}
             59%   {content: url('https://assetdelivery.roblox.com/v1/asset?id=45018158');}
+            60%   {content: url('https://assetdelivery.roblox.com/v1/asset?id=89536820386845');}
         }
             
         /* 😭 */
@@ -26677,6 +26783,7 @@ if ads {
             57%   {content: url('https://assetdelivery.roblox.com/v1/asset?id=60990540');}
             58%   {content: url('https://assetdelivery.roblox.com/v1/asset?id=57689572');}
             59%   {content: url('https://assetdelivery.roblox.com/v1/asset?id=43071456');}
+            60%   {content: url('https://assetdelivery.roblox.com/v1/asset?id=52945546');}
         }
             
         /* Rectangle */
